@@ -5,5 +5,5 @@ Authors@R: person("Andy", "South", , "southandy@gmail.com", role = c("aut", "cre
 Description: Facilitates mapping by making natural earth map data from http://www.naturalearthdata.com/
 more easily available to R users. Focuses on vector data.
 Depends: R (>= 3.2.0)
-License: GPL 2
+License: CC0
 LazyData: true
