@@ -12,7 +12,7 @@ http://www.naturalearthdata.com/
 2. Country boundaries, Medium scale, 1:50m
     + Suitable for making zoomed-out maps of countries and regions.
 
-In both cases all attributes with exception of name, ISO3 and one example stripped out   
+In both cases all attributes with exception of country name, ISO3 (and maybe label point and one example such as popn.) stripped out   
 
 3. Country synonyms lookup
     + dataframe with ISO3 and country synonyms
