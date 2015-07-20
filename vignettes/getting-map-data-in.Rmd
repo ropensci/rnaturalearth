@@ -1,0 +1,97 @@
+---
+title: "Getting Natural Earth vector map data into R"
+author: "Andy South"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+#to produce a pdf
+#output: rmarkdown::pdf_document
+vignette: >
+  %\VignetteIndexEntry{Getting Natural Earth vector map data into R}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+  
+[rnaturalearth](https://github.com/AndySouth/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
+
+
+[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset available at 1:10m, 1:50m, and 1:110 million scales. 
+
+
+[rnaturalearth](https://github.com/AndySouth/rnaturalearth) will contain a selection of Natural Earth vector map data most useful for producing maps of the world in R. It will also have functions to facilitate accessing other vecxtor data from Natural Earth.
+
+
+This vignette documents the process of getting selected Natural Earth vector map data into R.
+
+For variable names I will follow Natural Earth terminology :
+* small scale 1:110m
+* medium scale 1:50m
+* large scale 1:10m (not in the initial version)
+
+
+#### downloading the data
+```{r, eval=FALSE, echo=TRUE, message=FALSE}
+
+download.file(file.path('http://www.naturalearthdata.com/http/',
+                        'www.naturalearthdata.com/download/50m/cultural',
+                        'ne_50m_admin_0_countries.zip'), 
+                        f <- tempfile())
+
+
+unzip(f, exdir=tempdir())
+
+world <- readOGR(tempdir(), 'ne_50m_admin_0_countries', encoding='UTF-8')
+```
+
+#### temporary version using predownloaded data
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+
+dataFolder <- 'C:\\rsprojects\\natural earth downloads\\'
+
+file_countries110 <- paste0(dataFolder,'ne_110m_admin_0_countries.shp')
+file_map_units110 <- paste0(dataFolder,'ne_110m_admin_0_map_units.shp')
+
+```
+
+#### reading the data into R
+
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+#todo decide whether to use rgdal(better) or maptools(lighter)
+require(maptools)
+require(rgdal)
+
+countries110 <- maptools::readShapePoly(file_countries110)
+map_units110 <- maptools::readShapePoly(file_map_units110)
+
+
+
+```
+
+#### investigating and trimming attribute data
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+
+str(countries110@data)
+#'data.frame':	177 obs. of  63 variables:
+str(map_units110@data)
+#'data.frame':	183 obs. of  63 variables:
+
+
+#which fields to keep
+#i'm thinking it may be better to keep more fields, they take up very little space 
+#and if we don't want to worry about joining it may be useful for users to have them
+#fieldsToKeep <- c('admin','name','iso_a3','pop_est')
+fieldsToKeep <- c('admin','iso_a3','pop_est')
+
+#remember the difference between 'admin' & 'name' in NatEarth, 'name' tends to be abbreviated
+
+
+```
+
+#### saving data files to correct folder in the package
+```{r, eval=FALSE, echo=TRUE, message=FALSE}
+
+#this relies on working directory being set to root of the package
+save(countries110, file="data/countries110.rda")
+save(map_units110, file="data/map_units110.rda")
+
+```
+
