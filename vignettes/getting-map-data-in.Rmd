@@ -28,6 +28,11 @@ For variable names I will follow Natural Earth terminology :
 * large scale 1:10m (not in the initial version)
 
 
+
+Initially using 110 and 50 in variable names to avoid confusion (mine).
+
+It would be nice to create some kind of automation, where I can specify which files I want at the start and then the process of downloading, reading in, modifying and saving to the package will be repeated for all of them.
+
 #### downloading the data
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
@@ -49,6 +54,8 @@ dataFolder <- 'C:\\rsprojects\\natural earth downloads\\'
 
 file_countries110 <- paste0(dataFolder,'ne_110m_admin_0_countries.shp')
 file_map_units110 <- paste0(dataFolder,'ne_110m_admin_0_map_units.shp')
+file_states50 <- paste0(dataFolder,'ne_50m_admin_1_states_provinces_lakes.shp')
+
 
 ```
 
@@ -61,8 +68,12 @@ require(rgdal)
 
 countries110 <- maptools::readShapePoly(file_countries110)
 map_units110 <- maptools::readShapePoly(file_map_units110)
+states50 <- maptools::readShapePoly(file_states50)
 
+```
 
+#### version numbers, can I check the version number from the VERSION.txt file and save it in the package somewhere
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 ```
 
@@ -86,12 +97,20 @@ fieldsToKeep <- c('admin','iso_a3','pop_est')
 
 ```
 
+#### check polygon geometries (it may no longer be necessary to correct these)
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+require(rgeos)
+
+countries110@polygons=lapply(countries110@polygons, checkPolygonsHoles)
+
+```
+
 #### saving data files to correct folder in the package
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
 #this relies on working directory being set to root of the package
 save(countries110, file="data/countries110.rda")
 save(map_units110, file="data/map_units110.rda")
-
+save(states50, file="data/states50.rda")
 ```
 
