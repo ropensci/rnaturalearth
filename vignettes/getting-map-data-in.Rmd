@@ -55,7 +55,7 @@ dataFolder <- 'C:\\rsprojects\\natural earth downloads\\'
 file_countries110 <- paste0(dataFolder,'ne_110m_admin_0_countries.shp')
 file_map_units110 <- paste0(dataFolder,'ne_110m_admin_0_map_units.shp')
 file_states50 <- paste0(dataFolder,'ne_50m_admin_1_states_provinces_lakes.shp')
-
+file_tiny_countries110 <- paste0(dataFolder,'ne_110m_admin_0_tiny_countries.shp')
 
 ```
 
@@ -69,6 +69,7 @@ require(rgdal)
 countries110 <- maptools::readShapePoly(file_countries110)
 map_units110 <- maptools::readShapePoly(file_map_units110)
 states50 <- maptools::readShapePoly(file_states50)
+tiny_countries110 <- maptools::readShapePoints(file_tiny_countries110)
 
 ```
 
@@ -84,7 +85,14 @@ str(countries110@data)
 #'data.frame':	177 obs. of  63 variables:
 str(map_units110@data)
 #'data.frame':	183 obs. of  63 variables:
+str(tiny_countries110@data)
+#'data.frame':	37 obs. of  64 variables:
+#but its a spatial points dataframe rather than polygons ...
 
+#for looking at the data 
+countries110data <- countries110@data
+map_units110data <- map_units110@data
+tiny_countries110data <- tiny_countries110@data
 
 #which fields to keep
 #i'm thinking it may be better to keep more fields, they take up very little space 
