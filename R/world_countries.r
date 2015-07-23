@@ -1,8 +1,8 @@
 #' Get world country polygons
 #'
-#' returns world country polygons at a specified resolution
+#' returns world country polygons at a specified scale
 #'
-#' @param resolution resoloution of the map to return, either \code{110} or \code{50}.
+#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}
 #' @param continent a character vector of continent names to get countries from.
 #' @param country a character vector of country names. 
 #' @examples
@@ -18,23 +18,23 @@
 #' @return A \code{SpatialPolygonsDataFrame} object.
 #' @export
 #' 
-world_countries <- function(resolution = 110,
+world_countries <- function(scale = 110,
                             continent = NULL,
                             country = NULL) {
   
   # choose which map
   spdf <- NULL
-  if ( resolution==110 | resolution=='110' | tolower(resolution)=='small' ) {
+  if ( scale==110 | scale=='110' | tolower(scale)=='small' ) {
     
     spdf <- countries110    
     
-  } else if ( resolution==50 | resolution=='50' | tolower(resolution)=='medium' ) {
+  } else if ( scale==50 | scale=='50' | tolower(scale)=='medium' ) {
     
     spdf <- countries50  
     
   } else {
     
-    stop("resolution needs to be set to one of 110, 50, 'small', 'medium' you have :",resolution,"\n")
+    stop("scale needs to be set to one of 110, 50, 'small', 'medium' you have :",scale,"\n")
     
   }
 
