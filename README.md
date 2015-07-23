@@ -1,8 +1,14 @@
 # rnaturalearth
 
-A planned R package to hold and facilitate interaction with natural earth map data, principally vector country boundaries.
+An R package to hold and facilitate interaction with [natural earth](http://www.naturalearthdata.com/) vector map data.
 
-http://www.naturalearthdata.com/
+## Aims :
+1. provide easy access to a pre-downloaded subset of Natural Earth vectors most commonly needed for world mapping
+1. provide a simple, reproduciple and sustainable workflow from Natural Earth data to rnaturalearth enabling updating as new versions become available
+1. provide functions allowing users easily to download other Natural Earth vectors
+1. to clarify differences in world maps classified by countries, sovereign states and map units
+1. to follow Natural Earth naming conventions so that rnaturalearth users can use Natural Earth documentation
+
 
 ## suggested data
 1. Country boundaries, Small scale, 1:110m 
@@ -11,8 +17,6 @@ http://www.naturalearthdata.com/
     
 2. Country boundaries, Medium scale, 1:50m
     + Suitable for making zoomed-out maps of countries and regions.
-
-In both cases all attributes with exception of country name, ISO3 (and maybe label point and one example such as popn.) stripped out   
 
 3. Country synonyms lookup
     + dataframe with ISO3 and country synonyms
