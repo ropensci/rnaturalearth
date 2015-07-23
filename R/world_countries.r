@@ -56,6 +56,7 @@ world_countries <- function(scale = 110,
     filter <- filter & filter_country
   }
   
+  # todo I could add other optional filters e.g. iso_a3
   
   spdf[filter, ]
 }
