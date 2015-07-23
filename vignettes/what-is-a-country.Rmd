@@ -1,0 +1,47 @@
+---
+title: "What is a country ?"
+author: "Andy South"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+#to produce a pdf
+#output: rmarkdown::pdf_document
+vignette: >
+  %\VignetteIndexEntry{What is a country ?}
+%\VignetteEngine{knitr::rmarkdown}
+\usepackage[utf8]{inputenc}
+---
+
+This vignette addresses potential confusion in mapping countries in [rnaturalearth](https://github.com/AndySouth/rnaturalearth).  
+    
+For example, from my own parochial perspective, if you are mapping the UK, do you wish to separate England, Scotland, Wales and Northern Ireland ? Do you wish to include the Falkland Islands. If you are mapping France, do you wish to include French Guiana ?
+
+This vignette aims to help you.
+
+[rnaturalearth](https://github.com/AndySouth/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
+
+[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
+
+
+
+#### UK as an example
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+
+require(sp)
+plot(world_countries(country = 'united kingdom', classification='countries'))
+plot(world_countries(country = 'united kingdom', classification='map_units'))
+plot(world_countries(country = 'united kingdom', classification='sovereignty'))
+
+```
+
+#### France
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+
+require(sp)
+plot(world_countries(country = 'france'))
+#map_units includes French Guiana 
+plot(world_countries(country = 'france', classification='map_units'))
+plot(world_countries(country = 'france', classification='sovereignty'))
+
+```
+
+
