@@ -6,6 +6,8 @@
 #' @param classification country classification, one of 'countries', 'map_units', 'sovereignty'
 #' @param continent a character vector of continent names to get countries from.
 #' @param country a character vector of country names. 
+#' @param geounit a character vector of geounit names. 
+#' @param sovereignty a character vector of sovereignty names.  
 #' @examples
 #' spdf_world <- world_countries()
 #' spdf_africa <- world_countries(continent='africa')
@@ -22,7 +24,9 @@
 world_countries <- function(scale = 110,
                             classification = 'countries',
                             continent = NULL,
-                            country = NULL) {
+                            country = NULL,
+                            geounit = NULL,
+                            sovereignty = NULL) {
   
   # be defensive about scale & get to single format
   if ( scale==110 | scale=='110' | tolower(scale)=='small' ) {
@@ -41,6 +45,7 @@ world_countries <- function(scale = 110,
 
   # choose which map based on classification and scale
   # i could use paste to build up varname but this may be safer
+  # todo this may not be necessary if I allow filtering by geounit and sovereignt[y] fields instead
   spdf <- NULL
   if ( classification=='countries' ) {
     if ( scale==110 ) { 
@@ -87,6 +92,20 @@ world_countries <- function(scale = 110,
     filter_country <- tolower(spdf$admin) %in% tolower(country)   
     filter <- filter & filter_country
   }
+
+  # filter by geounit
+  if (!is.null(geounit)) 
+  {
+    filter_geounit <- tolower(spdf$geounit) %in% tolower(geounit)   
+    filter <- filter & filter_geounit
+  }  
+    
+  # filter by sovereignty (BEWARE its called sovereignt in ne)
+  if (!is.null(sovereignty)) 
+  {
+    filter_sovereignty <- tolower(spdf$sovereignt) %in% tolower(sovereignty)   
+    filter <- filter & filter_sovereignty
+  } 
   
   # todo I could add other optional filters e.g. iso_a3
   
