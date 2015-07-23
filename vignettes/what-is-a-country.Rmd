@@ -40,6 +40,8 @@ require(sp)
 plot(world_countries(country = 'france'))
 #map_units includes French Guiana 
 plot(world_countries(country = 'france', classification='map_units'))
+#aha need to filter by geounit to exclude (but doesn't work for classification='countries')
+plot(world_countries(geounit = 'france', classification='map_units'))
 plot(world_countries(country = 'france', classification='sovereignty'))
 
 ```
