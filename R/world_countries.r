@@ -3,6 +3,7 @@
 #' returns world country polygons at a specified scale
 #'
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}
+#' @param classification country classification, one of 'countries', 'map_units', 'sovereignty'
 #' @param continent a character vector of continent names to get countries from.
 #' @param country a character vector of country names. 
 #' @examples
@@ -19,18 +20,18 @@
 #' @export
 #' 
 world_countries <- function(scale = 110,
+                            classification = 'countries',
                             continent = NULL,
                             country = NULL) {
   
-  # choose which map
-  spdf <- NULL
+  # be defensive about scale & get to single format
   if ( scale==110 | scale=='110' | tolower(scale)=='small' ) {
     
-    spdf <- countries110    
+    scale <- 110    
     
   } else if ( scale==50 | scale=='50' | tolower(scale)=='medium' ) {
     
-    spdf <- countries50  
+    scale <- 50  
     
   } else {
     
@@ -38,6 +39,37 @@ world_countries <- function(scale = 110,
     
   }
 
+  # choose which map based on classification and scale
+  # i could use paste to build up varname but this may be safer
+  spdf <- NULL
+  if ( classification=='countries' ) {
+    if ( scale==110 ) { 
+      spdf <- countries110    
+      
+    } else if ( scale==50 ) {
+      spdf <- countries50  
+    }    
+  } else if ( classification=='map_units' ) { 
+    if ( scale==110 ) { 
+      spdf <- map_units110    
+      
+    } else if ( scale==50 ) {
+      spdf <- map_units50  
+    }     
+  } else if ( classification=='sovereignty' ) { 
+    if ( scale==110 ) { 
+      spdf <- sovereignty110    
+    
+    } else if ( scale==50 ) {
+      spdf <- sovereignty50  
+    } else {
+      
+      stop("classification needs to be one of 'countries', 'map_units', 'sovereignty' you have :",classification,"\n")    
+    } 
+  }
+
+  
+  
         
   # set default filter
   filter <- TRUE
