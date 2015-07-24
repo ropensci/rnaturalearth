@@ -3,7 +3,7 @@
 #' returns world country polygons at a specified scale
 #'
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}
-#' @param classification country classification, one of 'countries', 'map_units', 'sovereignty'
+#' @param type country type, one of 'countries', 'map_units', 'sovereignty'
 #' @param continent a character vector of continent names to get countries from.
 #' @param country a character vector of country names. 
 #' @param geounit a character vector of geounit names. 
@@ -22,7 +22,7 @@
 #' @export
 #' 
 world_countries <- function(scale = 110,
-                            classification = 'countries',
+                            type = 'countries',
                             continent = NULL,
                             country = NULL,
                             geounit = NULL,
@@ -43,25 +43,25 @@ world_countries <- function(scale = 110,
     
   }
 
-  # choose which map based on classification and scale
+  # choose which map based on type and scale
   # i could use paste to build up varname but this may be safer
   # todo this may not be necessary if I allow filtering by geounit and sovereignt[y] fields instead
   spdf <- NULL
-  if ( classification=='countries' ) {
+  if ( type=='countries' ) {
     if ( scale==110 ) { 
       spdf <- countries110    
       
     } else if ( scale==50 ) {
       spdf <- countries50  
     }    
-  } else if ( classification=='map_units' ) { 
+  } else if ( type=='map_units' ) { 
     if ( scale==110 ) { 
       spdf <- map_units110    
       
     } else if ( scale==50 ) {
       spdf <- map_units50  
     }     
-  } else if ( classification=='sovereignty' ) { 
+  } else if ( type=='sovereignty' ) { 
     if ( scale==110 ) { 
       spdf <- sovereignty110    
     
@@ -69,7 +69,7 @@ world_countries <- function(scale = 110,
       spdf <- sovereignty50  
     } else {
       
-      stop("classification needs to be one of 'countries', 'map_units', 'sovereignty' you have :",classification,"\n")    
+      stop("type needs to be one of 'countries', 'map_units', 'sovereignty' you have :",type,"\n")    
     } 
   }
 

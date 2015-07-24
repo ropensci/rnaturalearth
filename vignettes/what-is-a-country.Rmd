@@ -27,9 +27,9 @@ This vignette aims to help you.
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 require(sp)
-plot(world_countries(country = 'united kingdom', classification='countries'))
-plot(world_countries(country = 'united kingdom', classification='map_units'))
-plot(world_countries(country = 'united kingdom', classification='sovereignty'))
+plot(world_countries(country = 'united kingdom', type='countries'))
+plot(world_countries(country = 'united kingdom', type='map_units'))
+plot(world_countries(country = 'united kingdom', type='sovereignty'))
 
 ```
 
@@ -39,10 +39,10 @@ plot(world_countries(country = 'united kingdom', classification='sovereignty'))
 require(sp)
 plot(world_countries(country = 'france'))
 #map_units includes French Guiana 
-plot(world_countries(country = 'france', classification='map_units'))
-#aha need to filter by geounit to exclude (but doesn't work for classification='countries')
-plot(world_countries(geounit = 'france', classification='map_units'))
-plot(world_countries(country = 'france', classification='sovereignty'))
+plot(world_countries(country = 'france', type='map_units'))
+#aha need to filter by geounit to exclude (but doesn't work for type='countries')
+plot(world_countries(geounit = 'france', type='map_units'))
+plot(world_countries(country = 'france', type='sovereignty'))
 
 ```
 
