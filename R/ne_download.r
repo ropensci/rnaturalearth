@@ -37,10 +37,12 @@ ne_download <- function(scale = c('110','50','10'),
   
   
   #add admin_0 to known types
-  if (type=='countries' | type=='map_units' | type=='map_subunits' | type=='sovereignty' ) 
+  if (type=='countries' | type=='map_units' | type=='map_subunits' | type=='sovereignty' | type=='tiny_countries' ) 
     type <- paste0('admin_0_',type)
 
   #add admin_1 to known types
+  #this actually just expands 'states' to the name including lakes
+  #todo think about this one
   if (type == 'states')
     type <- 'admin_1_states_provinces_lakes'
   
