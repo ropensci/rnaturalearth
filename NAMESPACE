@@ -2,5 +2,6 @@
 
 export(ne_download)
 export(world_countries)
+export(world_states)
 import(rgdal)
 import(sp)
