@@ -26,10 +26,14 @@ This vignette aims to help you.
 #### UK as an example
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
-require(sp)
+require(rnaturalearth)
+
 plot(world_countries(country = 'united kingdom', type='countries'))
 plot(world_countries(country = 'united kingdom', type='map_units'))
 plot(world_countries(country = 'united kingdom', type='sovereignty'))
+
+plot(world_states(country ='united kingdom'))  
+plot(world_states(geounit='england')) 
 
 ```
 
@@ -43,6 +47,10 @@ plot(world_countries(country = 'france', type='map_units'))
 #aha need to filter by geounit to exclude (but doesn't work for type='countries')
 plot(world_countries(geounit = 'france', type='map_units'))
 plot(world_countries(country = 'france', type='sovereignty'))
+
+plot(world_states(country ='france'))  
+plot(world_states(geounit='france')) 
+
 
 ```
 
