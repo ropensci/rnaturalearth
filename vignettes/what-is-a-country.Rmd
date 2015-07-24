@@ -7,8 +7,8 @@ output: rmarkdown::html_vignette
 #output: rmarkdown::pdf_document
 vignette: >
   %\VignetteIndexEntry{What is a country ?}
-%\VignetteEngine{knitr::rmarkdown}
-\usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 
 This vignette addresses potential confusion in mapping countries in [rnaturalearth](https://github.com/AndySouth/rnaturalearth).  

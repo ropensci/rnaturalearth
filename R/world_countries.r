@@ -2,7 +2,7 @@
 #'
 #' returns world country polygons at a specified scale
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}
+#' @param scale scale of map to return, one of \code{'110'}, \code{'50'}, \code{'small'}, \code{'medium'}
 #' @param type country type, one of 'countries', 'map_units', 'sovereignty'
 #' @param continent a character vector of continent names to get countries from.
 #' @param country a character vector of country names. 
@@ -21,7 +21,7 @@
 #' @return A \code{SpatialPolygonsDataFrame} object.
 #' @export
 #' 
-world_countries <- function(scale = 110,
+world_countries <- function(scale = '110',
                             type = 'countries',
                             continent = NULL,
                             country = NULL,
@@ -29,6 +29,7 @@ world_countries <- function(scale = 110,
                             sovereignty = NULL) {
   
   # be defensive about scale & get to single format
+  #todo can replace this with match.arg
   if ( scale==110 | scale=='110' | tolower(scale)=='small' ) {
     
     scale <- 110    

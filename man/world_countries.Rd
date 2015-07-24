@@ -4,13 +4,13 @@
 \alias{world_countries}
 \title{Get world country polygons}
 \usage{
-world_countries(scale = 110, classification = "countries",
-  continent = NULL, country = NULL, geounit = NULL, sovereignty = NULL)
+world_countries(scale = "110", type = "countries", continent = NULL,
+  country = NULL, geounit = NULL, sovereignty = NULL)
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}}
+\item{scale}{scale of map to return, one of \code{'110'}, \code{'50'}, \code{'small'}, \code{'medium'}}
 
-\item{classification}{country classification, one of 'countries', 'map_units', 'sovereignty'}
+\item{type}{country type, one of 'countries', 'map_units', 'sovereignty'}
 
 \item{continent}{a character vector of continent names to get countries from.}
 

@@ -62,10 +62,10 @@ sovereignty110 <- readOGR(tempdir(), 'ne_110m_admin_0_sovereignty', encoding='UT
 
 dataFolder <- 'C:\\rsprojects\\natural earth downloads\\'
 
-file_countries110 <- paste0(dataFolder,'ne_110m_admin_0_countries.shp')
-file_map_units110 <- paste0(dataFolder,'ne_110m_admin_0_map_units.shp')
-file_states50 <- paste0(dataFolder,'ne_50m_admin_1_states_provinces_lakes.shp')
-file_tiny_countries110 <- paste0(dataFolder,'ne_110m_admin_0_tiny_countries.shp')
+# file_countries110 <- paste0(dataFolder,'ne_110m_admin_0_countries.shp')
+# file_map_units110 <- paste0(dataFolder,'ne_110m_admin_0_map_units.shp')
+# file_states50 <- paste0(dataFolder,'ne_50m_admin_1_states_provinces_lakes.shp')
+# file_tiny_countries110 <- paste0(dataFolder,'ne_110m_admin_0_tiny_countries.shp')
 
 ```
 
@@ -74,24 +74,30 @@ file_tiny_countries110 <- paste0(dataFolder,'ne_110m_admin_0_tiny_countries.shp'
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 #todo decide whether to use rgdal(better) or maptools(lighter)
 #advantage of using rgdal is that it keeps proj4string(countries50)
-require(maptools)
-require(rgdal)
+#require(maptools)
+#require(rgdal)
+require(rnaturalearth)
 
 #countries50 read in using rgdal above
-countries110 <- maptools::readShapePoly(file_countries110)
-map_units110 <- maptools::readShapePoly(file_map_units110)
-states50 <- maptools::readShapePoly(file_states50)
-tiny_countries110 <- maptools::readShapePoints(file_tiny_countries110)
+# countries110 <- maptools::readShapePoly(file_countries110)
+# map_units110 <- maptools::readShapePoly(file_map_units110)
+# states50 <- maptools::readShapePoly(file_states50)
+# tiny_countries110 <- maptools::readShapePoints(file_tiny_countries110)
+
+#?works from console but not when knitted ?
+#countries50 <- ne_download(scale='50', type='countries', category='cultural')
+countries110 <- ne_download(scale='110', type='countries', category='cultural')
+
 
 ```
 
 #### version numbers, can I check the version number from the VERSION.txt file and save it in the package somewhere
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
 ```
 
 #### investigating and trimming attribute data
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
 str(countries110@data)
 #'data.frame':	177 obs. of  63 variables:
@@ -126,7 +132,7 @@ fieldsToKeep <- c('admin','iso_a3','pop_est')
 ```
 
 #### check polygon geometries (it may no longer be necessary to correct these)
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r, eval=FALSE, echo=TRUE, message=FALSE}
 require(rgeos)
 
 countries110@polygons=lapply(countries110@polygons, checkPolygonsHoles)
