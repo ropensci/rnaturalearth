@@ -14,10 +14,10 @@ vignette: >
 [rnaturalearth](https://github.com/AndySouth/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
 
 
-[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset available at 1:10m, 1:50m, and 1:110 million scales. 
+[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset with vector and raster. 
 
 
-[rnaturalearth](https://github.com/AndySouth/rnaturalearth) will contain a selection of Natural Earth vector map data most useful for producing maps of the world in R. It will also have functions to facilitate accessing other vecxtor data from Natural Earth.
+[rnaturalearth](https://github.com/AndySouth/rnaturalearth) will contain a selection of Natural Earth vector map data most useful for producing maps of the world in R. It will also have functions to facilitate accessing other vector data from Natural Earth.
 
 
 This vignette documents the process of getting selected Natural Earth vector map data into R.
@@ -28,68 +28,34 @@ For variable names I will follow Natural Earth terminology :
 * large scale 1:10m (not in the initial version)
 
 
-
 Initially using 110 and 50 in variable names to avoid confusion (mine).
 
 It would be nice to create some kind of automation, where I can specify which files I want at the start and then the process of downloading, reading in, modifying and saving to the package will be repeated for all of them.
 
-#### downloading the data
+#### use rnaturalearth::ne_download() to download data and read into R 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
-download.file(file.path('http://www.naturalearthdata.com/http/',
-                        'www.naturalearthdata.com/download/50m/cultural',
-                        'ne_50m_admin_0_countries.zip'), 
-                        f <- tempfile())
-
-unzip(f, exdir=tempdir())
-
-countries50 <- readOGR(tempdir(), 'ne_50m_admin_0_countries', encoding='UTF-8')
-
-download.file(file.path('http://www.naturalearthdata.com/http/',
-                        'www.naturalearthdata.com/download/110m/cultural',
-                        'ne_110m_admin_0_sovereignty.zip'), 
-                        f <- tempfile())
-
-unzip(f, exdir=tempdir())
-
-sovereignty110 <- readOGR(tempdir(), 'ne_110m_admin_0_sovereignty', encoding='UTF-8')
-
-
-```
-
-#### temporary version using predownloaded data
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
-
-dataFolder <- 'C:\\rsprojects\\natural earth downloads\\'
-
-# file_countries110 <- paste0(dataFolder,'ne_110m_admin_0_countries.shp')
-# file_map_units110 <- paste0(dataFolder,'ne_110m_admin_0_map_units.shp')
-# file_states50 <- paste0(dataFolder,'ne_50m_admin_1_states_provinces_lakes.shp')
-# file_tiny_countries110 <- paste0(dataFolder,'ne_110m_admin_0_tiny_countries.shp')
-
-```
-
-#### reading the data into R
-
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
-#todo decide whether to use rgdal(better) or maptools(lighter)
-#advantage of using rgdal is that it keeps proj4string(countries50)
-#require(maptools)
-#require(rgdal)
 require(rnaturalearth)
 
-#countries50 read in using rgdal above
-# countries110 <- maptools::readShapePoly(file_countries110)
-# map_units110 <- maptools::readShapePoly(file_map_units110)
-# states50 <- maptools::readShapePoly(file_states50)
-# tiny_countries110 <- maptools::readShapePoints(file_tiny_countries110)
 
 #?works from console but not when knitted ?
-#countries50 <- ne_download(scale='50', type='countries', category='cultural')
 countries110 <- ne_download(scale='110', type='countries', category='cultural')
+map_units110 <- ne_download(scale='110', type='map_units', category='cultural')
+sovereignty110 <- ne_download(scale='110', type='sovereignty', category='cultural')
+
+countries50 <- ne_download(scale='50', type='countries', category='cultural')
+map_units50 <- ne_download(scale='50', type='map_units', category='cultural')
+sovereignty50 <- ne_download(scale='50', type='sovereignty', category='cultural')
+
+tiny_countries110 <- ne_download(scale='110', type='tiny_countries', category='cultural')
+
+states50 <- ne_download(scale='50', type='states', category='cultural')
+states10 <- ne_download(scale='10', type='states', category='cultural')
 
 
 ```
+
+
 
 #### version numbers, can I check the version number from the VERSION.txt file and save it in the package somewhere
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
@@ -120,6 +86,14 @@ map_units110data <- map_units110@data
 sovereignty110data <- sovereignty110@data
 tiny_countries110data <- tiny_countries110@data
 
+states50data <- states50@data
+states10data <- states10@data
+#states50 only has these countries
+unique(states50$admin)
+#Australia                Brazil                   Canada                   United States of America
+#length(unique(states10$admin))
+#257
+
 #which fields to keep
 #i'm thinking it may be better to keep more fields, they take up very little space 
 #and if we don't want to worry about joining it may be useful for users to have them
@@ -148,5 +122,6 @@ save(countries50, file="data/countries50.rda")
 save(map_units110, file="data/map_units110.rda")
 save(sovereignty110, file="data/sovereignty110.rda")
 save(states50, file="data/states50.rda")
+save(states10, file="data/states10.rda")
 ```
 
