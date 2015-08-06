@@ -4,6 +4,7 @@
 #'
 #' @format A \code{SpatialPolygonsDataFrame}
 #' @slot data A data frame with country attributes 
+#' @aliases countries110 countries50 countries10
 #' @name countries
 NULL
 
