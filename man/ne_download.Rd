@@ -20,7 +20,7 @@ e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
 A \code{Spatial} object depending on the vector source (points, lines or polygons).
 }
 \description{
-returns downloaded vector as a spatial object
+returns downloaded vector as a spatial object.
 }
 \examples{
 spdf_world <- ne_download( scale = '110', type = 'countries' )

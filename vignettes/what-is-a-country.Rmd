@@ -27,6 +27,7 @@ This vignette aims to help you.
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 require(rnaturalearth)
+require(sp)
 
 plot(world_countries(country = 'united kingdom', type='countries'))
 plot(world_countries(country = 'united kingdom', type='map_units'))

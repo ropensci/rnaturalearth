@@ -27,10 +27,7 @@ For variable names I will follow Natural Earth terminology :
 * medium scale 1:50m
 * large scale 1:10m (not in the initial version)
 
-
-Initially using 110 and 50 in variable names to avoid confusion (mine).
-
-It would be nice to create some kind of automation, where I can specify which files I want at the start and then the process of downloading, reading in, modifying and saving to the package will be repeated for all of them.
+Initially using 110 and 50 in variable names to avoid confusion.
 
 #### use rnaturalearth::ne_download() to download data and read into R 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
@@ -57,7 +54,8 @@ states10 <- ne_download(scale='10', type='states', category='cultural')
 
 
 
-#### version numbers, can I check the version number from the VERSION.txt file and save it in the package somewhere
+#### version numbers, can I check the version number from the VERSION.txt file and save it in the package somewhere ?
+#### would want to put that in ne_download()
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
 ```

@@ -1,6 +1,7 @@
 #' download a vector from Natural Earth and read into R
 #'
-#' returns downloaded vector as a spatial object
+#' returns downloaded vector as a spatial object.
+#' 
 #'
 #' @param scale scale of map to return, one of \code{'110'}, \code{'50'}, \code{'10'}
 #' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
@@ -45,7 +46,6 @@ ne_download <- function(scale = c('110','50','10'),
   #todo think about this one
   if (type == 'states')
     type <- 'admin_1_states_provinces_lakes'
-  
   
   
   file_name <- paste0('ne_',scale,'m_',type)
