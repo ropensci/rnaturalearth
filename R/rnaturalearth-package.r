@@ -11,5 +11,10 @@ NULL
 
 # Hide variables from R CMD check
 if (getRversion() >= "2.15.1") {
-  utils::globalVariables(c("countries110", "countries50", "map_units110", "sovereignty110"))
+  utils::globalVariables(c("countries110", "countries50", "countries10",
+                           "map_units110", "map_units50", "map_units10", 
+                           "sovereignty110", "sovereignty50", "sovereignty10",
+                           "coastline110", "coastline50", "coastline10",
+                           "states50", "states10"
+                           ))
 }
