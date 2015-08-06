@@ -1,43 +1,24 @@
-#' world sovereignty polygons from Natural Earth at 1:110m (small) resolution
+#' world sovereignty polygons from Natural Earth 
 #'
-#' there are fewer sovereign states than countries e.g. the Falkland Islands are included with the United Kingdom
-#'
+#' sovereignty polygons at scales 1:110m (small), 1:50m (medium), 1:10m (large).   
+#' There are fewer sovereign states than countries e.g. the Falkland Islands are included with the United Kingdom.
+#' 
+#' @format A \code{SpatialPolygonsDataFrame}
 #' @slot data A data frame with attributes 
-#'
-#' @format A \code{SpatialPolygonsDataFrame} with 171 elements
-#' @docType data
-#' @keywords dataset
+#' @aliases sovereignty110 sovereignty50 sovereignty10
+#' @name sovereignty
+NULL
+
 #' @source \url{http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_sovereignty.zip}
-#'
-#' @usage data(sovereignty110)
+#' @rdname sovereignty
 "sovereignty110"
 
-#' world sovereignty polygons from Natural Earth at 1:50m (medium) resolution
-#'
-#' there are fewer sovereign states than countries e.g. the Falkland Islands are included with the United Kingdom
-#'
-#' @slot data A data frame with attributes 
-#'
-#' @format A \code{SpatialPolygonsDataFrame} with 200 elements
-#' @docType data
-#' @keywords dataset
 #' @source \url{http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_sovereignty.zip}
-#'
-#' @usage data(sovereignty50)
+#' @rdname sovereignty
 "sovereignty50"
 
-#' world sovereignty polygons from Natural Earth at 1:10m (large) resolution
-#'
-#' there are fewer sovereign states than countries e.g. the Falkland Islands are included with the United Kingdom
-#'
-#' @slot data A data frame with attributes 
-#'
-#' @format A \code{SpatialPolygonsDataFrame} with 206 elements
-#' @docType data
-#' @keywords dataset
 #' @source \url{http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip}
-#'
-#' @usage data(sovereignty10)
+#' @rdname sovereignty
 "sovereignty10"
 
 
