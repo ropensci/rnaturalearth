@@ -17,7 +17,7 @@ vignette: >
 [Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset with vector and raster. 
 
 
-[rnaturalearth](https://github.com/AndySouth/rnaturalearth) will contain a selection of Natural Earth vector map data most useful for producing maps of the world in R. It will also have functions to facilitate accessing other vector data from Natural Earth.
+[rnaturalearth](https://github.com/AndySouth/rnaturalearth) contains a selection of Natural Earth vector map data most useful for producing maps of the world in R. It also has functions to facilitate accessing other vector data from Natural Earth.
 
 
 This vignette documents the process of getting selected Natural Earth vector map data into R.
@@ -25,9 +25,9 @@ This vignette documents the process of getting selected Natural Earth vector map
 For variable names I will follow Natural Earth terminology :
 * small scale 1:110m
 * medium scale 1:50m
-* large scale 1:10m (not in the initial version)
+* large scale 1:10m
 
-Initially using 110 and 50 in variable names to avoid confusion.
+Using 110, 50, 10 in variable names to avoid confusion.
 
 #### use rnaturalearth::ne_download() to download data and read into R 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
@@ -54,7 +54,10 @@ states10 <- ne_download(scale='10', type='states', category='cultural')
 #not saved yet, points for tiny countries
 tiny_countries110 <- ne_download(scale='110', type='tiny_countries', category='cultural')
 
-
+#http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip
+coastline110 <- ne_download(scale='110', type='coastline', category='physical')
+coastline50 <- ne_download(scale='50', type='coastline', category='physical')
+coastline10 <- ne_download(scale='10', type='coastline', category='physical')
 
 ```
 
@@ -139,7 +142,9 @@ save(states10, file="data/states10.rda")
 
 #save(tiny_countries110, file="data/tiny_countries110.rda")
 
-
+save(coastline110, file="data/coastline110.rda")
+save(coastline50, file="data/coastline50.rda")
+save(coastline10, file="data/coastline10.rda")
 
 ```
 

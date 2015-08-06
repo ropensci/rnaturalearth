@@ -23,20 +23,23 @@ This vignette aims to help you.
 
 This vignette uses `sp::plot` as a simple, quick way to plot maps. Similar maps could be made with `ggplot2`, `tmap` or other options.
 
-#### `world_countries`, changing `type` argument, 'countries' is default
+#### load required packages
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
-
 require(rnaturalearth)
 require(sp)
+```
 
+
+### Country types : countries, map_units and sovereignty
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 #countries, UK undivided
 plot(world_countries(country = 'united kingdom', type='countries'))
 #map_units, UK divided into England, Scotland, Wales and Northern Ireland
 plot(world_countries(country = 'united kingdom', type='map_units'))
 #sovereignty, Falkland Islands included in UK
-plot(world_countries(), border='lightgrey')
-plot(world_countries(country = 'united kingdom', type='sovereignty'), add=TRUE)
+plot(world_countries(country = 'united kingdom', type='sovereignty'), col='red')
+plot(coastline110, col='lightgrey', lty=3, add=TRUE)
 
 #France, country includes French Guiana
 plot(world_countries(country = 'france'))
@@ -45,18 +48,18 @@ plot(world_countries(country = 'france', type='map_units'))
 #France filter map_units by geounit to exclude French Guiana
 plot(world_countries(geounit = 'france', type='map_units'))
 #France sovereignty includes South Pacicic islands
-plot(world_countries(country = 'france', type='sovereignty'))
-plot(world_countries(), border='lightgrey', lty=3, add=TRUE)
+plot(world_countries(country = 'france', type='sovereignty'), col='red')
+plot(coastline110, col='lightgrey', lty=3, add=TRUE)
 
 
 
 ```
 
-#### `world_countries`, changing `scale` argument, 'small' is default
+### Country scales : small, medium and large
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 #countries, large scale
-#plot(world_countries(country = 'united kingdom', scale='large'))
+plot(world_countries(country = 'united kingdom', scale='large'))
 
 #countries, medium scale
 plot(world_countries(country = 'united kingdom', scale='medium'))
@@ -68,7 +71,7 @@ plot(world_countries(country = 'united kingdom', scale='small'))
 ```
 
 
-#### `world_states`, changing `country` and `geounit` arguments
+### States, admin level 1, select by country or geounit 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 #states country='united kingdom'

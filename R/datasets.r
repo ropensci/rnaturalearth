@@ -151,3 +151,34 @@
 #' @usage data(states50)
 "states50"
 
+
+#' world coastlines from Natural Earth at 1:110m (small) resolution
+#'
+#' @format A \code{SpatialLinesDataFrame}
+#' @docType data
+#' @keywords dataset
+#' @source \url{http//www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip}
+#'
+#' @usage data(coastline110)
+"coastline110"
+
+#' world coastlines from Natural Earth at 1:50m (medium) resolution
+#'
+#' @format A \code{SpatialLinesDataFrame}
+#' @docType data
+#' @keywords dataset
+#' @source \url{http//www.naturalearthdata.com/download/50m/physical/ne_50m_coastline.zip}
+#'
+#' @usage data(coastline50)
+"coastline50"
+
+#' world coastlines from Natural Earth at 1:10m (large) resolution
+#'
+#' @format A \code{SpatialLinesDataFrame}
+#' @docType data
+#' @keywords dataset
+#' @source \url{http//www.naturalearthdata.com/download/10m/physical/ne_10m_coastline.zip}
+#'
+#' @usage data(coastline10)
+"coastline10"
+

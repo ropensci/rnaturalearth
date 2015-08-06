@@ -38,9 +38,14 @@ world_countries <- function(scale = '110',
     
     scale <- 50  
     
-  } else {
+  } else if ( scale==10 | scale=='10' | tolower(scale)=='large' ) {
     
-    stop("scale needs to be set to one of 110, 50, 'small', 'medium' you have :",scale,"\n")
+    scale <- 10  
+    
+  } else
+  {
+    
+    stop("scale needs to be set to one of [110, 50, 10, 'small', 'medium', 'large'] you have :",scale,"\n")
     
   }
 
@@ -54,27 +59,38 @@ world_countries <- function(scale = '110',
       
     } else if ( scale==50 ) {
       spdf <- countries50  
-    }    
+      
+    } else if ( scale==10 ) {
+      spdf <- countries10  
+    }       
   } else if ( type=='map_units' ) { 
     if ( scale==110 ) { 
       spdf <- map_units110    
       
     } else if ( scale==50 ) {
       spdf <- map_units50  
-    }     
+      
+    } else if ( scale==10 ) {
+      spdf <- map_units10  
+    }         
   } else if ( type=='sovereignty' ) { 
     if ( scale==110 ) { 
       spdf <- sovereignty110    
     
     } else if ( scale==50 ) {
       spdf <- sovereignty50  
-    } else {
+      
+    } else if ( scale==10 ) {
+      spdf <- sovereignty10  
+    }
+    else {
       
       stop("type needs to be one of 'countries', 'map_units', 'sovereignty' you have :",type,"\n")    
-    } 
+    }     
   }
 
-  
+  # some large scale NE data still have old uppercase fieldnames, this to correct
+  names(spdf) <- tolower(names(spdf))
   
         
   # set default filter
