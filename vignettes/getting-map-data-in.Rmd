@@ -44,10 +44,16 @@ countries50 <- ne_download(scale='50', type='countries', category='cultural')
 map_units50 <- ne_download(scale='50', type='map_units', category='cultural')
 sovereignty50 <- ne_download(scale='50', type='sovereignty', category='cultural')
 
-tiny_countries110 <- ne_download(scale='110', type='tiny_countries', category='cultural')
+countries10 <- ne_download(scale='10', type='countries', category='cultural')
+map_units10 <- ne_download(scale='10', type='map_units', category='cultural')
+sovereignty10 <- ne_download(scale='10', type='sovereignty', category='cultural')
 
 states50 <- ne_download(scale='50', type='states', category='cultural')
 states10 <- ne_download(scale='10', type='states', category='cultural')
+
+#not saved yet, points for tiny countries
+tiny_countries110 <- ne_download(scale='110', type='tiny_countries', category='cultural')
+
 
 
 ```
@@ -115,11 +121,25 @@ countries110@polygons=lapply(countries110@polygons, checkPolygonsHoles)
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
 #this relies on working directory being set to root of the package
+
 save(countries110, file="data/countries110.rda")
-save(countries50, file="data/countries50.rda")
 save(map_units110, file="data/map_units110.rda")
 save(sovereignty110, file="data/sovereignty110.rda")
+
+save(countries50, file="data/countries50.rda")
+save(map_units50, file="data/map_units50.rda")
+save(sovereignty50, file="data/sovereignty50.rda")
+
+save(countries10, file="data/countries10.rda")
+save(map_units10, file="data/map_units10.rda")
+save(sovereignty10, file="data/sovereignty10.rda")
+
 save(states50, file="data/states50.rda")
 save(states10, file="data/states10.rda")
+
+#save(tiny_countries110, file="data/tiny_countries110.rda")
+
+
+
 ```
 
