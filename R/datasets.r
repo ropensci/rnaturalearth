@@ -22,60 +22,44 @@ NULL
 "sovereignty10"
 
 
-#' world state (admin level 1) polygons from Natural Earth at 1:10m (high) resolution
-#'
-#'
-#' @slot data A data frame with state attributes 
+#' state (admin level 1) polygons from Natural Earth 
+#' 
+#' For all world countries at 1:10m (high) resolution, for Australia, Brazil, Canada and USA, from Natural Earth at 1:50m (medium) resolution
 #'
 #' @format A \code{SpatialPolygonsDataFrame}
-#' @docType data
-#' @keywords dataset
+#' @slot data A data frame with attributes 
+#' @aliases states50 states10
+#' @name states
+NULL
+
 #' @source \url{http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states.zip}
-#'
-#' @usage data(states10)
+#' @rdname states
 "states10"
 
-
-#' state (admin level 1) polygons for Australia, Brazil, Canada and USA, from Natural Earth at 1:50m (medium) resolution
-#'
-#' @slot data A data frame with state attributes 
-#'
-#' @format A \code{SpatialPolygonsDataFrame}
-#' @docType data
-#' @keywords dataset
 #' @source \url{http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_1_states.zip}
-#'
-#' @usage data(states50)
+#' @rdname states
 "states50"
 
 
-#' world coastlines from Natural Earth at 1:110m (small) resolution
+#' world coastlines from Natural Earth 
+#' 
+#' coastline lines at scales 1:110m (small), 1:50m (medium), 1:10m (large).
 #'
 #' @format A \code{SpatialLinesDataFrame}
-#' @docType data
-#' @keywords dataset
+#' @aliases coastlines110 coastlines50 coastlines10
+#' @name coastlines
+NULL
+
+
 #' @source \url{http//www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip}
-#'
-#' @usage data(coastline110)
+#' @rdname coastlines
 "coastline110"
 
-#' world coastlines from Natural Earth at 1:50m (medium) resolution
-#'
-#' @format A \code{SpatialLinesDataFrame}
-#' @docType data
-#' @keywords dataset
 #' @source \url{http//www.naturalearthdata.com/download/50m/physical/ne_50m_coastline.zip}
-#'
-#' @usage data(coastline50)
+#' @rdname coastlines
 "coastline50"
 
-#' world coastlines from Natural Earth at 1:10m (large) resolution
-#'
-#' @format A \code{SpatialLinesDataFrame}
-#' @docType data
-#' @keywords dataset
 #' @source \url{http//www.naturalearthdata.com/download/10m/physical/ne_10m_coastline.zip}
-#'
-#' @usage data(coastline10)
+#' @rdname coastlines
 "coastline10"
 
