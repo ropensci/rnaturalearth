@@ -21,37 +21,65 @@ This vignette aims to help you.
 
 [Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
 
+This vignette uses `sp::plot` as a simple, quick way to plot maps. Similar maps could be made with `ggplot2`, `tmap` or other options.
 
-
-#### UK as an example
+#### `world_countries`, changing `type` argument, 'countries' is default
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 require(rnaturalearth)
 require(sp)
 
-plot(world_countries(country = 'united kingdom', type='countries'))
-plot(world_countries(country = 'united kingdom', type='map_units'))
-plot(world_countries(country = 'united kingdom', type='sovereignty'))
 
-plot(world_states(country ='united kingdom'))  
-plot(world_states(geounit='england')) 
+#countries, UK undivided
+plot(world_countries(country = 'united kingdom', type='countries'))
+#map_units, UK divided into England, Scotland, Wales and Northern Ireland
+plot(world_countries(country = 'united kingdom', type='map_units'))
+#sovereignty, Falkland Islands included in UK
+plot(world_countries(), border='lightgrey')
+plot(world_countries(country = 'united kingdom', type='sovereignty'), add=TRUE)
+
+#France, country includes French Guiana
+plot(world_countries(country = 'france'))
+#France map_units includes French Guiana too
+plot(world_countries(country = 'france', type='map_units'))
+#France filter map_units by geounit to exclude French Guiana
+plot(world_countries(geounit = 'france', type='map_units'))
+#France sovereignty includes South Pacicic islands
+plot(world_countries(country = 'france', type='sovereignty'))
+plot(world_countries(), border='lightgrey', lty=3, add=TRUE)
+
+
 
 ```
 
-#### France
+#### `world_countries`, changing `scale` argument, 'small' is default
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
-require(sp)
-plot(world_countries(country = 'france'))
-#map_units includes French Guiana 
-plot(world_countries(country = 'france', type='map_units'))
-#aha need to filter by geounit to exclude (but doesn't work for type='countries')
-plot(world_countries(geounit = 'france', type='map_units'))
-plot(world_countries(country = 'france', type='sovereignty'))
+#countries, large scale
+#plot(world_countries(country = 'united kingdom', scale='large'))
 
+#countries, medium scale
+plot(world_countries(country = 'united kingdom', scale='medium'))
+     
+#countries, small scale
+plot(world_countries(country = 'united kingdom', scale='small'))     
+     
+     
+```
+
+
+#### `world_states`, changing `country` and `geounit` arguments
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+
+#states country='united kingdom'
+plot(world_states(country ='united kingdom'))  
+#states geounit='england'
+plot(world_states(geounit='england')) 
+
+#states country='france'
 plot(world_states(country ='france'))  
+#states geounit='france'
 plot(world_states(geounit='france')) 
-
 
 ```
 
