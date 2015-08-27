@@ -32,6 +32,7 @@ ne_download <- function(scale = 110,
   category <- match.arg(category)  
   #type is left unchecked so users can specify any natearth filename
   
+  # todo split ne_file_name out into separate function
   
   #some combinations are not available
   if ( type=='map_subunits' & scale==110 )
@@ -56,6 +57,18 @@ ne_download <- function(scale = 110,
                     file_name,'.zip' )
   
   download.file(file.path(address), f <- tempfile())
+  
+  #todo how best to allow caching as suggested by Hadley
+  #i want to allow local save, and later to allow easy load from previous local save
+  #option1
+  #ne_download(save_shape_to=[my_folder])
+  #if (!is.null(save_shape_to)) unzip(f, exdir=save_shape_to)
+  #but then tricky to allow default saving to current dir (maybe if TRUE?)
+  #ne_download(local_location=[my_folder])
+  
+  #option2
+  #ne_download() 
+  #ne_load() allows loading from previous download, will need to check it's there
   
   unzip(f, exdir=tempdir())
   
