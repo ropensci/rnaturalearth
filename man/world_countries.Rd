@@ -4,7 +4,7 @@
 \alias{world_countries}
 \title{Get world country polygons}
 \usage{
-world_countries(scale = "110", type = "countries", continent = NULL,
+world_countries(scale = 110, type = "countries", continent = NULL,
   country = NULL, geounit = NULL, sovereignty = NULL)
 }
 \arguments{

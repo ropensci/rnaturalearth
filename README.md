@@ -37,7 +37,7 @@ vignette("what-is-a-country", package="rnaturalearth")
 
 ## To download Natural Earth data not already in the package
 ```r
-lakes110 <- ne_download(scale='110', type='lakes', category='physical')
+lakes110 <- ne_download(scale=110, type='lakes', category='physical')
 plot(lakes110)
 ```
 

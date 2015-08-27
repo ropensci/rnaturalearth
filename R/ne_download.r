@@ -10,7 +10,7 @@
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 
 #' @examples
-#' spdf_world <- ne_download( scale = '110', type = 'countries' )
+#' spdf_world <- ne_download( scale = 110, type = 'countries' )
 #' 
 #' if (require(sp)) {
 #'   plot(spdf_world)
@@ -20,7 +20,7 @@
 #' @return A \code{Spatial} object depending on the vector source (points, lines or polygons).
 #' @export
 
-ne_download <- function(scale = c('110','50','10'),
+ne_download <- function(scale = 110,
                         type = 'countries',
                         category = c('cultural', 'physical', 'raster')
                         ) 
@@ -34,7 +34,7 @@ ne_download <- function(scale = c('110','50','10'),
   
   
   #some combinations are not available
-  if ( type=='map_subunits' & scale=='110' )
+  if ( type=='map_subunits' & scale==110 )
     stop("The combination of type=",type,"and scale=",scale,"is not available in Natural Earth")
   
   

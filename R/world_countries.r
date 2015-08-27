@@ -21,7 +21,7 @@
 #' @return A \code{SpatialPolygonsDataFrame} object.
 #' @export
 #' 
-world_countries <- function(scale = '110',
+world_countries <- function(scale = 110,
                             type = 'countries',
                             continent = NULL,
                             country = NULL,

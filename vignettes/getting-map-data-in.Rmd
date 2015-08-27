@@ -36,28 +36,28 @@ require(rnaturalearth)
 
 
 #?works from console but not when knitted ?
-countries110 <- ne_download(scale='110', type='countries', category='cultural')
-map_units110 <- ne_download(scale='110', type='map_units', category='cultural')
-sovereignty110 <- ne_download(scale='110', type='sovereignty', category='cultural')
+countries110 <- ne_download(scale=110, type='countries', category='cultural')
+map_units110 <- ne_download(scale=110, type='map_units', category='cultural')
+sovereignty110 <- ne_download(scale=110, type='sovereignty', category='cultural')
 
-countries50 <- ne_download(scale='50', type='countries', category='cultural')
-map_units50 <- ne_download(scale='50', type='map_units', category='cultural')
-sovereignty50 <- ne_download(scale='50', type='sovereignty', category='cultural')
+countries50 <- ne_download(scale=50, type='countries', category='cultural')
+map_units50 <- ne_download(scale=50, type='map_units', category='cultural')
+sovereignty50 <- ne_download(scale=50, type='sovereignty', category='cultural')
 
-countries10 <- ne_download(scale='10', type='countries', category='cultural')
-map_units10 <- ne_download(scale='10', type='map_units', category='cultural')
-sovereignty10 <- ne_download(scale='10', type='sovereignty', category='cultural')
+countries10 <- ne_download(scale=10, type='countries', category='cultural')
+map_units10 <- ne_download(scale=10, type='map_units', category='cultural')
+sovereignty10 <- ne_download(scale=10, type='sovereignty', category='cultural')
 
-states50 <- ne_download(scale='50', type='states', category='cultural')
-states10 <- ne_download(scale='10', type='states', category='cultural')
+states50 <- ne_download(scale=50, type='states', category='cultural')
+states10 <- ne_download(scale=10, type='states', category='cultural')
 
 #not saved yet, points for tiny countries
-tiny_countries110 <- ne_download(scale='110', type='tiny_countries', category='cultural')
+tiny_countries110 <- ne_download(scale=110, type='tiny_countries', category='cultural')
 
 #http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip
-coastline110 <- ne_download(scale='110', type='coastline', category='physical')
-coastline50 <- ne_download(scale='50', type='coastline', category='physical')
-coastline10 <- ne_download(scale='10', type='coastline', category='physical')
+coastline110 <- ne_download(scale=110, type='coastline', category='physical')
+coastline50 <- ne_download(scale=50, type='coastline', category='physical')
+coastline10 <- ne_download(scale=10, type='coastline', category='physical')
 
 ```
 

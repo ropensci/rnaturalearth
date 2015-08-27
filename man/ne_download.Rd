@@ -4,8 +4,8 @@
 \alias{ne_download}
 \title{download a vector from Natural Earth and read into R}
 \usage{
-ne_download(scale = c("110", "50", "10"), type = "countries",
-  category = c("cultural", "physical", "raster"))
+ne_download(scale = 110, type = "countries", category = c("cultural",
+  "physical", "raster"))
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{'110'}, \code{'50'}, \code{'10'}}
@@ -23,7 +23,7 @@ A \code{Spatial} object depending on the vector source (points, lines or polygon
 returns downloaded vector as a spatial object.
 }
 \examples{
-spdf_world <- ne_download( scale = '110', type = 'countries' )
+spdf_world <- ne_download( scale = 110, type = 'countries' )
 
 if (require(sp)) {
   plot(spdf_world)
