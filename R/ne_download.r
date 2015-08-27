@@ -26,8 +26,9 @@ ne_download <- function(scale = c('110','50','10'),
                         ) 
 {
   
-  #checks on permitted arguments
-  scale <- match.arg(scale)
+  #check on permitted scales, convert names to numeric
+  scale <- check_scale(scale)
+  
   category <- match.arg(category)  
   #type is left unchecked so users can specify any natearth filename
   

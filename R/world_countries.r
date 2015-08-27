@@ -28,26 +28,9 @@ world_countries <- function(scale = '110',
                             geounit = NULL,
                             sovereignty = NULL) {
   
-  # be defensive about scale & get to single format
-  #todo can replace this with match.arg
-  if ( scale==110 | scale=='110' | tolower(scale)=='small' ) {
-    
-    scale <- 110    
-    
-  } else if ( scale==50 | scale=='50' | tolower(scale)=='medium' ) {
-    
-    scale <- 50  
-    
-  } else if ( scale==10 | scale=='10' | tolower(scale)=='large' ) {
-    
-    scale <- 10  
-    
-  } else
-  {
-    
-    stop("scale needs to be set to one of [110, 50, 10, 'small', 'medium', 'large'] you have :",scale,"\n")
-    
-  }
+
+  # check on permitted scales, convert names to numeric
+  scale <- check_scale(scale)
 
   # choose which map based on type and scale
   # i could use paste to build up varname but this may be safer
