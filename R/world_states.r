@@ -63,7 +63,7 @@ world_states <- function(   country = NULL,
   if (!is.null(iso_a2)) 
   {
     filter_iso_a2 <- tolower(spdf$iso_a2) %in% tolower(iso_a2)   
-    filter <- filter & filter_sovereignty
+    filter <- filter & filter_iso_a2
   } 
   
   
