@@ -8,7 +8,7 @@ world_countries(scale = 110, type = "countries", continent = NULL,
   country = NULL, geounit = NULL, sovereignty = NULL)
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{'110'}, \code{'50'}, \code{'small'}, \code{'medium'}}
+\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}}
 
 \item{type}{country type, one of 'countries', 'map_units', 'sovereignty'}
 

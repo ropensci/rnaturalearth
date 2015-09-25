@@ -7,7 +7,7 @@
 check_scale(x)
 }
 \arguments{
-\item{x}{scale of map to return, one of \code{'110'}, \code{'50'}, \code{'10'}}
+\item{x}{scale of map to return, one of \code{110}, \code{50}, \code{10}}
 }
 \value{
 integer scale of map

@@ -2,7 +2,7 @@
 #'
 #' check name or numeric scale representations, return numeric one 
 #' 
-#' @param x scale of map to return, one of \code{'110'}, \code{'50'}, \code{'10'}
+#' @param x scale of map to return, one of \code{110}, \code{50}, \code{10}
 #' @examples
 #' #commented out because not exported
 #' #check_scale(110)
