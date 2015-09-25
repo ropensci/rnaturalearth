@@ -1,4 +1,4 @@
-#' download a vector from Natural Earth and read into R
+#' download a vector from Natural Earth and (optionally) read into R
 #'
 #' returns downloaded vector as a spatial object.
 #' 
@@ -26,31 +26,7 @@ ne_download <- function(scale = 110,
                         ) 
 {
   
-  #check on permitted scales, convert names to numeric
-  scale <- check_scale(scale)
-  
-  category <- match.arg(category)  
-  #type is left unchecked so users can specify any natearth filename
-  
-  # todo split ne_file_name out into separate function
-  
-  #some combinations are not available
-  if ( type=='map_subunits' & scale==110 )
-    stop("The combination of type=",type,"and scale=",scale,"is not available in Natural Earth")
-  
-  
-  #add admin_0 to known types
-  if (type=='countries' | type=='map_units' | type=='map_subunits' | type=='sovereignty' | type=='tiny_countries' ) 
-    type <- paste0('admin_0_',type)
-
-  #add admin_1 to known types
-  #this actually just expands 'states' to the name including lakes
-  #todo think about this one
-  if (type == 'states')
-    type <- 'admin_1_states_provinces_lakes'
-  
-  
-  file_name <- paste0('ne_',scale,'m_',type)
+  file_name <- ne_file_name(scale=scale, type=type, category=category)
   
   address <- paste0('http://www.naturalearthdata.com/http//',
                     'www.naturalearthdata.com/download/',scale,'m/',category,'/',
@@ -60,15 +36,16 @@ ne_download <- function(scale = 110,
   
   #todo how best to allow caching as suggested by Hadley
   #i want to allow local save, and later to allow easy load from previous local save
-  #option1
-  #ne_download(save_shape_to=[my_folder])
-  #if (!is.null(save_shape_to)) unzip(f, exdir=save_shape_to)
+
+  #if (!is.null(local_folder)) unzip(f, exdir=local_folder)
   #but then tricky to allow default saving to current dir (maybe if TRUE?)
-  #ne_download(local_location=[my_folder])
+  #ne_download(local_folder=[my_folder])
   
-  #option2
-  #ne_download() 
+
+  #ne_download() download & load (+option to not load)
   #ne_load() allows loading from previous download, will need to check it's there
+  
+  #what do I want default behaviour to be ?
   
   unzip(f, exdir=tempdir())
   
