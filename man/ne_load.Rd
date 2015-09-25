@@ -27,12 +27,10 @@ A \code{Spatial} object depending on the vector source (points, lines or polygon
 returns loaded vector as a spatial object.
 }
 \examples{
-spdf_world <- ne_load( scale = 110, type = 'countries' )
-
-if (require(sp)) {
-  plot(spdf_world)
-  plot(ne_download(type='populated_places'))
-
-}
+#commented out to stop download in check
+#download to wd
+#spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
+#to load from wd later
+#spdf_world <- ne_load( scale = 110, type = 'countries', destdir = getwd() )
 }
 
