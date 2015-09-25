@@ -5,7 +5,7 @@
 \title{download a vector from Natural Earth and (optionally) read into R}
 \usage{
 ne_download(scale = 110, type = "countries", category = c("cultural",
-  "physical", "raster"))
+  "physical", "raster"), destdir = tempdir())
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{'110'}, \code{'50'}, \code{'10'}}
@@ -15,6 +15,8 @@ OR the portion of any natural earth vector url after the scale and before the .
 e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
 
 \item{category}{one of natural earth categories : 'cultural', 'physical', 'raster'}
+
+\item{destdir}{where to save files, defaults to \code{tempdir()}}
 }
 \value{
 A \code{Spatial} object depending on the vector source (points, lines or polygons).
@@ -28,7 +30,8 @@ spdf_world <- ne_download( scale = 110, type = 'countries' )
 if (require(sp)) {
   plot(spdf_world)
   plot(ne_download(type='populated_places'))
-
 }
+#to save downloaded files locally use destdir
+#spdf_world <- ne_download( scale = 110, type = 'countries', destdir=getwd() )
 }
 
