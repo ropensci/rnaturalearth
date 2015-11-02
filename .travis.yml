@@ -10,11 +10,11 @@ env:
    - CRAN: http://cran.rstudio.com
 
 r_packages:
- - rgdal
  - rmarkdown
-
-#r_binary_packages:
 # - rgdal
+
+r_binary_packages:
+ - rgdal
 
 
 notifications:
