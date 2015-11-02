@@ -62,7 +62,8 @@ sp::plot(coastline110, col='lightgrey', lty=3, add=TRUE)
 sp::plot(world_countries(country = 'united kingdom', scale='large'))
 
 #countries, medium scale
-sp::plot(world_countries(country = 'united kingdom', scale='medium'))
+#temporarily commented out to avoid utf conversion travis error with Curacao
+#sp::plot(world_countries(country = 'united kingdom', scale='medium'))
      
 #countries, small scale
 sp::plot(world_countries(country = 'united kingdom', scale='small'))     
