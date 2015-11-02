@@ -1,15 +1,20 @@
 ---
-title: "Getting Natural Earth vector map data into R"
+title: "How Natural Earth vector map data is got into rnaturalearth"
 author: "Andy South"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 #to produce a pdf
 #output: rmarkdown::pdf_document
 vignette: >
-  %\VignetteIndexEntry{Getting Natural Earth vector map data into R}
+  %\VignetteIndexEntry{How Natural Earth vector map data is got into rnaturalearth}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
+  
+This vignette documents the process of getting selected Natural Earth vector map data into [rnaturalearth](https://github.com/AndySouth/rnaturalearth). This is not something that users need to run, but creates an open, reproducible workflow that allows the data in the package to be updated e.g. when there are updates to Natural Earth. 
+
+All of the code chunks below have been set to `eval=FALSE` to avoid time and memory of downloads.
+
   
 [rnaturalearth](https://github.com/AndySouth/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
 
@@ -20,14 +25,11 @@ vignette: >
 [rnaturalearth](https://github.com/AndySouth/rnaturalearth) contains a selection of Natural Earth vector map data most useful for producing maps of the world in R. It also has functions to facilitate accessing other vector data from Natural Earth.
 
 
-This vignette documents the process of getting selected Natural Earth vector map data into R.
-
-For variable names I will follow Natural Earth terminology :
+For variable names I follow Natural Earth terminology :
 * small scale 1:110m
 * medium scale 1:50m
 * large scale 1:10m
 
-Using 110, 50, 10 in variable names to avoid confusion.
 
 #### use rnaturalearth::ne_download() to download data and read into R 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
