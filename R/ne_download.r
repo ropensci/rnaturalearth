@@ -18,6 +18,8 @@
 #' }
 #' #to save downloaded files locally use destdir
 #' #spdf_world <- ne_download( scale = 110, type = 'countries', destdir=getwd() )
+#' #then ne_load() with the same args can be used to access the saved file
+#' #spdf_world_from_saved <- ne_load( scale = 110, type = 'countries', destdir=getwd() )
 #' 
 #' @return A \code{Spatial} object depending on the vector source (points, lines or polygons).
 #' @export
