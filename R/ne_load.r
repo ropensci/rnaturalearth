@@ -8,15 +8,17 @@
 #'    OR the portion of any natural earth vector url after the scale and before the . 
 #'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
-#' @param destdir folder to load files from
+#' @param destdir folder to load files from, default=tempdir()
 #' @param file_name OPTIONAL name of file (excluding path) instead of natural earth attributes
 
 #' @examples
 #' #commented out to stop download in check
-#' #download to wd
+#' #download followed by load from tempdir()
+#' #spdf_world <- ne_download( scale = 110, type = 'countries' )
+#' #spdf_world2 <-    ne_load( scale = 110, type = 'countries' )
+#' #download followed by load from specified directory
 #' #spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
-#' #to load from wd later
-#' #spdf_world <- ne_load( scale = 110, type = 'countries', destdir = getwd() )
+#' #spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
 #' @return A \code{Spatial} object depending on the vector source (points, lines or polygons).
 #' @export
 

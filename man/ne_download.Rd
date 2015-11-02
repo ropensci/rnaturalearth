@@ -31,9 +31,12 @@ if (require(sp)) {
   plot(spdf_world)
   plot(ne_download(type='populated_places'))
 }
-#to save downloaded files locally use destdir
-#spdf_world <- ne_download( scale = 110, type = 'countries', destdir=getwd() )
-#then ne_load() with the same args can be used to access the saved file
-#spdf_world_from_saved <- ne_load( scale = 110, type = 'countries', destdir=getwd() )
+
+#reloading from the saved file in the same session with same arguments
+spdf_world2 <-    ne_load( scale = 110, type = 'countries' )
+
+#download followed by load from specified directory will work across sessions
+#spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
+#spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
 }
 
