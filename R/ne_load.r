@@ -33,11 +33,12 @@ ne_load <- function(scale = 110,
     stop("you need to specify destdir= for the local folder you previously saved the file in. 
           Use ne_download() if you have yet to download the file")
   
-  if (!is.null(file_name))  
+  if (is.null(file_name))  
     file_name <- ne_file_name(scale=scale, type=type, category=category)
   
-  if (!file.exists(file_name))
-    stop("the file ",file_name,"seems not to exist in your local folder ",destdir,"\nDid you download it using ne_download()?")
+  #add '.shp' for the exists test (it's not needed by readOGR)
+  if (!file.exists(paste0(file_name,'.shp')))
+    stop("the file ",file_name," seems not to exist in your local folder ",destdir,"\nDid you download it using ne_download()?")
   
   sp_object <- readOGR(destdir, file_name, encoding='UTF-8')
   
