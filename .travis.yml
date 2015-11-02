@@ -8,6 +8,11 @@ env:
  global:
    - CRAN: http://cran.rstudio.com
 
+#r_packages:
+r_binary_packages:
+ - rgdal
+
+
 notifications:
   email:
     on_success: change
