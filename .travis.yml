@@ -5,6 +5,10 @@ language: r
 warnings_are_errors: false
 sudo: required
 
+#try to fix rgdal fail
+before_install:
+  - sudo apt-get install libv8-dev
+
 env:
  global:
    - CRAN: http://cran.rstudio.com
