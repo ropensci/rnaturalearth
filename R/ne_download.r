@@ -29,6 +29,8 @@ ne_download <- function(scale = 110,
                         ) 
 {
   
+  category <- match.arg(category)
+  
   file_name <- ne_file_name(scale=scale, type=type, category=category)
   
   address <- paste0('http://www.naturalearthdata.com/http//',
