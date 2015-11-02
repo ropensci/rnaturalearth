@@ -5,7 +5,7 @@
 \title{return a natural earth filename based on arguments}
 \usage{
 ne_file_name(scale = 110, type = "countries", category = c("cultural",
-  "physical", "raster"))
+  "physical", "raster"), full_url = FALSE)
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}}
@@ -15,6 +15,8 @@ OR the portion of any natural earth vector url after the scale and before the .
 e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
 
 \item{category}{one of natural earth categories : 'cultural', 'physical', 'raster'}
+
+\item{full_url}{whether to return just the filename [default] or the full URL needed for download}
 }
 \value{
 string

@@ -8,16 +8,19 @@
 #'    OR the portion of any natural earth vector url after the scale and before the . 
 #'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
+#' @param full_url whether to return just the filename [default] or the full URL needed for download
 
 #' @examples
 #' ne_name <- ne_file_name( scale = 110, type = 'countries' )
+#' ne_url  <- ne_file_name( scale = 110, type = 'countries', full_url=TRUE )
 #' 
 #' @return string
 #' @export
 
 ne_file_name <- function(scale = 110,
                     type = 'countries',
-                    category = c('cultural', 'physical', 'raster')
+                    category = c('cultural', 'physical', 'raster'),
+                    full_url = FALSE
 ) 
 {
   
@@ -44,4 +47,13 @@ ne_file_name <- function(scale = 110,
   
   
   file_name <- paste0('ne_',scale,'m_',type)
+  
+  
+  if (full_url)
+    file_name <- paste0('http://www.naturalearthdata.com/http//',
+                      'www.naturalearthdata.com/download/',scale,'m/',category,'/',
+                      file_name,'.zip' )
+  
+  return(file_name)
+  
 }

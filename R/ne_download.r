@@ -36,11 +36,13 @@ ne_download <- function(scale = 110,
   
   category <- match.arg(category)
   
-  file_name <- ne_file_name(scale=scale, type=type, category=category)
-  
-  address <- paste0('http://www.naturalearthdata.com/http//',
-                    'www.naturalearthdata.com/download/',scale,'m/',category,'/',
-                    file_name,'.zip' )
+  file_name <- ne_file_name(scale=scale, type=type, category=category, full_url=FALSE)
+  address   <- ne_file_name(scale=scale, type=type, category=category, full_url=TRUE)  
+
+# this moved into ne_file_name    
+#   address <- paste0('http://www.naturalearthdata.com/http//',
+#                     'www.naturalearthdata.com/download/',scale,'m/',category,'/',
+#                     file_name,'.zip' )
   
   
   #downloads the zip to a permanent place (but do I want to keep the zip, or just keep the unzipped)
