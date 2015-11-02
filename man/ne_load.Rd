@@ -5,7 +5,7 @@
 \title{load a Natural Earth vector that has already been downloaded into R}
 \usage{
 ne_load(scale = 110, type = "countries", category = c("cultural",
-  "physical", "raster"), destdir = NULL, file_name = NULL)
+  "physical", "raster"), destdir = tempdir(), file_name = NULL)
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}}
