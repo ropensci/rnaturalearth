@@ -42,7 +42,7 @@ ne_load <- function(scale = 110,
   }
   
   #add '.shp' for the exists test (it's not needed by readOGR)
-  if (!file.exists( file.path(tempdir(), paste0(file_name,'.shp'))))
+  if (!file.exists( file.path(destdir, paste0(file_name,'.shp'))))
     stop("the file ",file_name," seems not to exist in your local folder ",destdir,"\nDid you download it using ne_download()?")
   
   
