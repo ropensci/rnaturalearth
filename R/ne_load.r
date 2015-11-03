@@ -46,7 +46,7 @@ ne_load <- function(scale = 110,
     stop("the file ",file_name," seems not to exist in your local folder ",destdir,"\nDid you download it using ne_download()?")
   
   
-  sp_object <- readOGR(destdir, file_name, encoding='UTF-8')
+  sp_object <- readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE)
   
   return(sp_object)
   

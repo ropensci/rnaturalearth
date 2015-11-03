@@ -73,7 +73,7 @@ ne_download <- function(scale = 110,
   {
     unzip(zip_file, exdir=destdir)
     
-    sp_object <- readOGR(destdir, file_name, encoding='UTF-8')
+    sp_object <- readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE)
     
     return(sp_object) 
     
