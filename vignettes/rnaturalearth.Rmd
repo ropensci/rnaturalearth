@@ -1,0 +1,85 @@
+---
+title: "rnaturalearth vignette"
+author: "Andy South"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+#to produce a pdf
+#output: rmarkdown::pdf_document
+vignette: >
+  %\VignetteIndexEntry{rnaturalearth vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+This vignette is an introduction to [rnaturalearth](https://github.com/AndySouth/rnaturalearth), an R package to hold and facilitate interaction with natural earth vector map data.
+
+[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
+
+[rnaturalearth](https://github.com/AndySouth/rnaturalearth) does two main things.
+
+1. contains commonly used, pre-downloaded, vector maps
+1. has `ne_download()` function to facilitate download of other vector maps
+
+
+This vignette uses `sp::plot` as a simple, quick way to plot maps. Similar maps could be made with `ggplot2`, `tmap` or other options.
+
+#### load required packages
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+require(rnaturalearth)
+require(sp)
+```
+
+
+## 1. maps in the package
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+
+#world at small scale (low resolution)
+sp::plot(world_countries(type='countries', scale='small'))
+
+#countries, UK undivided
+sp::plot(world_countries(country = 'united kingdom', type='countries'))
+#map_units, UK divided into England, Scotland, Wales and Northern Ireland
+sp::plot(world_countries(country = 'united kingdom', type='map_units'))
+
+
+#countries, large scale
+sp::plot(world_countries(country = 'united kingdom', scale='large'))
+
+#countries, medium scale
+#temporarily commented out to avoid utf conversion travis error with Curacao
+#sp::plot(world_countries(country = 'united kingdom', scale='medium'))
+     
+#countries, small scale
+sp::plot(world_countries(country = 'united kingdom', scale='small'))   
+
+#states country='united kingdom'
+sp::plot(world_states(country ='united kingdom'))  
+#states geounit='england'
+sp::plot(world_states(geounit='england')) 
+
+#states country='france'
+sp::plot(world_states(country ='france'))  
+
+```
+
+
+
+
+## 2. downloading other Natural Earth vectors with ne_download()  
+
+Each [Natural Earth](http://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/AndySouth/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and donload the corresponding file.
+
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
+
+#lakes
+lakes110 <- ne_download(scale=110, type='lakes', category='physical')
+sp::plot(lakes110, col='blue')
+
+#rivers
+rivers110 <- ne_download(scale=110, type='rivers_lake_centerlines', category='physical')
+sp::plot(rivers110, col='blue')
+
+
+```
+
+
