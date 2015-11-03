@@ -5,7 +5,7 @@
 \title{download a vector from Natural Earth and (optionally) read into R}
 \usage{
 ne_download(scale = 110, type = "countries", category = c("cultural",
-  "physical", "raster"), destdir = tempdir())
+  "physical", "raster"), destdir = tempdir(), load = TRUE)
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}}
@@ -17,9 +17,12 @@ e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
 \item{category}{one of natural earth categories : 'cultural', 'physical', 'raster'}
 
 \item{destdir}{where to save files, defaults to \code{tempdir()}}
+
+\item{load}{TRUE/FALSE whether to load file into R and return}
 }
 \value{
-A \code{Spatial} object depending on the vector source (points, lines or polygons).
+A \code{Spatial} object depending on the vector source (points, lines or polygons),
+   unless load=FALSE in which case it returns the name of the downloaded shapefile (without extension).
 }
 \description{
 returns downloaded vector as a spatial object.
