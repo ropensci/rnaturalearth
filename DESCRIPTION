@@ -16,5 +16,6 @@ Imports:
     rgdal
 Suggests:
     knitr,
-    testthat (>= 0.9.1)
+    testthat (>= 0.9.1),
+    httr
 VignetteBuilder: knitr
