@@ -6,7 +6,7 @@ An R package to hold and facilitate interaction with [natural earth](http://www.
 
 ## Aims :
 1. provide easy access to a pre-downloaded subset of Natural Earth vectors most commonly needed for world mapping
-1. provide a simple, reproduciple and sustainable workflow from Natural Earth data to rnaturalearth enabling updating as new versions become available
+1. provide a simple, reproducible and sustainable workflow from Natural Earth data to rnaturalearth enabling updating as new versions become available
 1. provide functions allowing users easily to download other Natural Earth vectors
 1. to clarify differences in world maps classified by countries, sovereign states and map units
 1. to follow Natural Earth naming conventions so that rnaturalearth users can use Natural Earth documentation
