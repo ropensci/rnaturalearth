@@ -3,7 +3,7 @@ context("download of data from natural earth")
 library(httr)
 
 #a non exhaustive list of ne download urls
-#initially taken from those in vignette:getting-map-data-in.Rmd
+#initially taken from those in data_download_script.r
 urls <- c(
 ne_file_name(scale=110, type='countries', category='cultural', full_url=TRUE),
 ne_file_name(scale=110, type='map_units', category='cultural', full_url=TRUE),
