@@ -1,43 +1,21 @@
----
-title: "How Natural Earth vector map data is got into rnaturalearth"
-author: "Andy South"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-#to produce a pdf
-#output: rmarkdown::pdf_document
-vignette: >
-  %\VignetteIndexEntry{How Natural Earth vector map data is got into rnaturalearth}
-  %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
----
-  
-This vignette documents the process of getting selected Natural Earth vector map data into [rnaturalearth](https://github.com/AndySouth/rnaturalearth). This is not something that users need to run, but creates an open, reproducible workflow that allows the data in the package to be updated e.g. when there are updates to Natural Earth. 
+#data-raw/data_download_script.r
 
-All of the code chunks below have been set to `eval=FALSE` to avoid time and memory of downloads.
+#how data is got into rnaturalearth
+#reproducible workflow allowing package data to be updated e.g. when there are updates to Natural Earth. 
+#just by sourcing this script
 
-  
-[rnaturalearth](https://github.com/AndySouth/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
-
-
-[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset with vector and raster. 
-
-
-[rnaturalearth](https://github.com/AndySouth/rnaturalearth) contains a selection of Natural Earth vector map data most useful for producing maps of the world in R. It also has functions to facilitate accessing other vector data from Natural Earth.
-
-
-For variable names I follow Natural Earth terminology :
-* small scale 1:110m
-* medium scale 1:50m
-* large scale 1:10m
+#For variable names I follow Natural Earth terminology :
+#* small scale 1:110m
+#* medium scale 1:50m
+#* large scale 1:10m
 
 
 #### use rnaturalearth::ne_download() to download data and read into R 
-```{r, eval=FALSE, echo=TRUE, message=FALSE}
+
 
 require(rnaturalearth)
 
 
-#?works from console but not when knitted ?
 countries110 <- ne_download(scale=110, type='countries', category='cultural')
 map_units110 <- ne_download(scale=110, type='map_units', category='cultural')
 sovereignty110 <- ne_download(scale=110, type='sovereignty', category='cultural')
@@ -61,18 +39,13 @@ coastline110 <- ne_download(scale=110, type='coastline', category='physical')
 coastline50 <- ne_download(scale=50, type='coastline', category='physical')
 coastline10 <- ne_download(scale=10, type='coastline', category='physical')
 
-```
 
-
-
+#### todo
 #### version numbers, can I check the version number from the VERSION.txt file and save it in the package somewhere ?
 #### would want to put that in ne_download()
-```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
-```
 
-#### investigating and trimming attribute data
-```{r, eval=FALSE, echo=TRUE, message=FALSE}
+#### investigating attribute data, chose not to trim
 
 str(countries110@data)
 #'data.frame':	177 obs. of  63 variables:
@@ -87,18 +60,17 @@ str(tiny_countries110@data)
 #but its a spatial points dataframe rather than polygons ...
 
 
-
 #temporary for looking at the data 
-countries110data <- countries110@data
-countries50data <- countries50@data
-map_units110data <- map_units110@data
-sovereignty110data <- sovereignty110@data
-tiny_countries110data <- tiny_countries110@data
+# countries110data <- countries110@data
+# countries50data <- countries50@data
+# map_units110data <- map_units110@data
+# sovereignty110data <- sovereignty110@data
+# tiny_countries110data <- tiny_countries110@data
+# states50data <- states50@data
+# states10data <- states10@data
 
-states50data <- states50@data
-states10data <- states10@data
 #states50 only has these countries
-unique(states50$admin)
+#unique(states50$admin)
 #Australia                Brazil                   Canada                   United States of America
 #length(unique(states10$admin))
 #257
@@ -107,24 +79,18 @@ unique(states50$admin)
 #i'm thinking it may be better to keep more fields, they take up very little space 
 #and if we don't want to worry about joining it may be useful for users to have them
 #fieldsToKeep <- c('admin','name','iso_a3','pop_est')
-fieldsToKeep <- c('admin','iso_a3','pop_est')
+#fieldsToKeep <- c('admin','iso_a3','pop_est')
 
 #remember the difference between 'admin' & 'name' in NatEarth, 'name' tends to be abbreviated
 
 
-```
 
-#### check polygon geometries (it may no longer be necessary to correct these)
-```{r, eval=FALSE, echo=TRUE, message=FALSE}
-require(rgeos)
+#### check polygon geometries (it seems to be no longer be necessary to correct these)
+# require(rgeos)
+# countries110@polygons=lapply(countries110@polygons, checkPolygonsHoles)
 
-countries110@polygons=lapply(countries110@polygons, checkPolygonsHoles)
-
-```
 
 #### saving data files to correct folder in the package
-```{r, eval=FALSE, echo=TRUE, message=FALSE}
-
 #this relies on working directory being set to root of the package
 
 save(countries110, file="data/countries110.rda")
@@ -148,5 +114,4 @@ save(coastline110, file="data/coastline110.rda")
 save(coastline50, file="data/coastline50.rda")
 save(coastline10, file="data/coastline10.rda")
 
-```
 
