@@ -1,4 +1,4 @@
-context("world countries")
+context("world countries : data saved in package")
 
 spdf_world <- world_countries()
 spdf_africa <- world_countries(continent='africa')
