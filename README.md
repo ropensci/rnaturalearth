@@ -37,7 +37,7 @@ plot(world_states(country ='spain'))
 
 ### Introductory vignette
 ```r
-vignette("what-is-a-country", package="rnaturalearth")
+vignette("rnaturalearth", package="rnaturalearth")
 ```
 
 ### To download Natural Earth data not already in the package
