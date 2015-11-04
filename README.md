@@ -2,29 +2,32 @@
 
 # rnaturalearth
 
-An R package to hold and facilitate interaction with [natural earth](http://www.naturalearthdata.com/) vector map data.
+An R package to hold and facilitate interaction with [Natural Earth](http://www.naturalearthdata.com/) vector map data.
 
-## Aims :
-1. provide easy access to a pre-downloaded subset of Natural Earth vectors most commonly needed for world mapping
+### Aims :
+1. access to a pre-downloaded subset of Natural Earth vectors commonly used in world mapping
+1. allow easy subsetting by countries and regions
+1. facilitate download of other Natural Earth vectors
 1. provide a simple, reproducible and sustainable workflow from Natural Earth data to rnaturalearth enabling updating as new versions become available
-1. provide functions allowing users easily to download other Natural Earth vectors
 1. to clarify differences in world maps classified by countries, sovereign states and map units
 1. to follow Natural Earth naming conventions so that rnaturalearth users can use Natural Earth documentation
 
-## Install
+The [Natural Earth](http://www.naturalearthdata.com/) website structures vector data by scale, category and type. These determine the filenames of downloads. rnaturalearth uses this structure to facilitate download (like an API). 
+
+### Install rnaturalearth
 
 ```r
 devtools::install_github("andysouth/rnaturalearth", build_vignettes=TRUE)
 require(rnaturalearth)
 ```
 
-## First Usage
+### First Usage
 Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options.
 ```r
 require(sp)
 
 #world countries
-plot(world_countries()
+plot(world_countries())
 #uk
 plot(world_countries(country = 'united kingdom'))
 #states, admin level1 boundaries
@@ -32,15 +35,27 @@ plot(world_states(country ='spain'))
 
 ```
 
-## Details of different country definitions and scales
+### Introductory vignette
 ```r
 vignette("what-is-a-country", package="rnaturalearth")
 ```
 
-## To download Natural Earth data not already in the package
+### To download Natural Earth data not already in the package
+Specify the `scale`, `category` and `type` of the vector you want. For example for `scale=50` and `category=physical` the available options for `type` can be found [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/).
+
 ```r
+#lakes
 lakes110 <- ne_download(scale=110, type='lakes', category='physical')
 plot(lakes110)
+
+#rivers
+rivers50 <- ne_download(scale=50, type='rivers_lake_centerlines', category='physical')
+plot(rivers50)
+```
+
+### Details of different country definitions and scales
+```r
+vignette("what-is-a-country", package="rnaturalearth")
 ```
 
 ## Reproducible download of Natural Earth data in the package
@@ -50,51 +65,29 @@ plot(lakes110)
 Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspiration from [USAboundaries](https://github.com/ropensci/USAboundaries), [Hadley Wickham](https://github.com/hadley) for comments and prompting, [Bob Rudis](https://github.com/hrbrmstr) for answers to stackoverflow questions about downloading Natural Earth data into R.
 
 
-## Earlier plans
+## Earlier plans and potential future work
 
-### suggested data
-1. Country boundaries, Small scale, 1:110m 
-    + Suitable for schematic maps of the world on a postcard.
-    + missing countries from medium scale added in, e.g. for bubble plots. see line 122 in https://github.com/AndySouth/rworldmapSetup/blob/master/saveMapPolygons.r
-    
-2. Country boundaries, Medium scale, 1:50m
-    + Suitable for making zoomed-out maps of countries and regions.
+### potential additional data
 
-3. Country synonyms lookup
+1. Country synonyms lookup
     + dataframe with ISO3 and country synonyms
     + similar to https://github.com/AndySouth/rworldmap/blob/master/data/countrySynonyms.rda
     
-4. Country larger regions lookup
+1. Country larger regions lookup
     + dataframe with ISO3 and membership of different regional groupings, e.g. continent, least developed countries etc.
     + similar to https://github.com/AndySouth/rworldmap/blob/master/data/countryRegions.rda
 
-5. Coastline, small scale, 1:110m
-    + http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip
 
-### suggested functions
+### potential additional functions
 
-1. get country boundaries at passed resolution
-    + similar to https://github.com/AndySouth/rworldmap/blob/master/R/getMap.r
-    + allow return as sp object or fortified dataframe
-    
-2. facilitate joining of user data to country boundaries
+1. facilitate joining of user data to country boundaries
     + similar to https://github.com/AndySouth/rworldmap/blob/master/R/joinCountryData2Map.R
     + ... but with a better name
     + similar allowing of join by ISO codes or names, with attempted synonym matching
     + similar reporting of country joining success and failure
 
-3. facilitate subsetting by country groupings
-    + e.g. continent, least developed countries etc.
-    
-4. download maps from http://www.naturalearthdata.com/
-    + the function used by the package maintainer to download data when updates are made available
-    + also allows users to download other natural earth vector data not stored in the package
-    + optional stripping out of unwanted attribute variables
-    + deas with non ASCII country names,  https://github.com/AndySouth/rworldmapSetup/blob/master/saveMapPolygons.r
-    + set CRS
-    + set best compression with resaveRdaFiles("data")
-    + ? check polygon geometry with checkPolygonsHoles
-    + ? deal with countries with missing ISO3 codes, see line 55 in https://github.com/AndySouth/rworldmapSetup/blob/master/saveMapPolygons.r
-    + ? move French Guiana out of France see line 182 in https://github.com/AndySouth/rworldmapSetup/blob/master/saveMapPolygons.r
+1. facilitate subsetting by country groupings
+    + e.g. least developed countries etc.
+
     
     
