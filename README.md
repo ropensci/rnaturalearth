@@ -41,7 +41,7 @@ vignette("what-is-a-country", package="rnaturalearth")
 ```
 
 ### To download Natural Earth data not already in the package
-Specify the `scale`, `category` and `type` of the vector you want. For example for `scale=50` and `category=physical` the available options for `type` can be found [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/).
+Specify the `scale`, `category` and `type` of the vector you want. For example for `scale=50` and `category=physical` the available options for `type` can be found [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/). Examples :
 
 ```r
 #lakes
@@ -62,7 +62,7 @@ vignette("what-is-a-country", package="rnaturalearth")
 `data-raw/data_download_script.r`
 
 ## Acknowledgements
-Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspiration from [USAboundaries](https://github.com/ropensci/USAboundaries), [Hadley Wickham](https://github.com/hadley) for comments and prompting, [Bob Rudis](https://github.com/hrbrmstr) for answers to stackoverflow questions about downloading Natural Earth data into R.
+Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspiration from [USAboundaries](https://github.com/ropensci/USAboundaries), [Hadley Wickham](https://github.com/hadley) for comments and prompting, [Bob Rudis](https://github.com/hrbrmstr) for answers to stackoverflow questions about downloading Natural Earth data into R. The [Natural Earth team](http://www.naturalearthdata.com/about/contributors/) and [Nathan Kelso](https://github.com/nvkelso) for providing such a great resource.
 
 
 ## Earlier plans and potential future work
