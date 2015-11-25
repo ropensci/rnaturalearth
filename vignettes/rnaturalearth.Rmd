@@ -11,7 +11,7 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-This vignette is an introduction to [rnaturalearth](https://github.com/AndySouth/rnaturalearth), an R package to hold and facilitate interaction with natural earth vector map data.
+This vignette is an introduction to [rnaturalearth](https://github.com/AndySouth/rnaturalearth), an R package to hold and facilitate interaction with natural earth vector map data. `rnaturalearth` is a data package designed to provide map data that can be visualised using other R packages.
 
 [Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country and other administrative boundaries. 
 
@@ -21,7 +21,9 @@ This vignette is an introduction to [rnaturalearth](https://github.com/AndySouth
 1. has `ne_download()` function to facilitate download of other vector maps
 
 
-This vignette uses `sp::plot` as a simple, quick way to plot maps. More elaborate maps can be made with `rnaturalearth` data using `ggplot2`, `tmap` and other options.
+This vignette uses `sp::plot` as a simple, quick way to show how different data can be accessed.`rnaturalearth` is designed to provide data allowing creation of more elaborate maps in other visualisation packages (e.g. `ggplot2`, `tmap` and `choroplethr`).
+
+
 
 #### load required packages
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
