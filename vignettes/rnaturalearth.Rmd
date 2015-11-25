@@ -13,11 +13,11 @@ vignette: >
 
 This vignette is an introduction to [rnaturalearth](https://github.com/AndySouth/rnaturalearth), an R package to hold and facilitate interaction with natural earth vector map data.
 
-[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
+[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country and other administrative boundaries. 
 
 [rnaturalearth](https://github.com/AndySouth/rnaturalearth) does two main things.
 
-1. contains commonly used, pre-downloaded, vector maps
+1. contains pre-downloaded vector maps for countries and states
 1. has `ne_download()` function to facilitate download of other vector maps
 
 
