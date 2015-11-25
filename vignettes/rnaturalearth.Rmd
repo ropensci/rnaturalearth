@@ -17,11 +17,11 @@ This vignette is an introduction to [rnaturalearth](https://github.com/AndySouth
 
 [rnaturalearth](https://github.com/AndySouth/rnaturalearth) does two main things.
 
-1. contains pre-downloaded vector maps for countries and states
+1. contains pre-downloaded vector maps for countries: `ne_countries()` and states: `ne_states()`
 1. has `ne_download()` function to facilitate download of other vector maps
 
 
-This vignette uses `sp::plot` as a simple, quick way to plot maps. Similar maps could be made with `ggplot2`, `tmap` or other options.
+This vignette uses `sp::plot` as a simple, quick way to plot maps. More elaborate maps can be made with `rnaturalearth` data using `ggplot2`, `tmap` and other options.
 
 #### load required packages
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
@@ -31,6 +31,8 @@ require(sp)
 
 
 ## 1. maps in the package
+Pre-downloaded maps can be accessed with `ne_countries()` for country (admin-0) boundaries and `ne_states()` for boundaries within countries (admin-1).
+
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 #world at small scale (low resolution)
