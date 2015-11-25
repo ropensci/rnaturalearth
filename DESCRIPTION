@@ -2,8 +2,9 @@ Package: rnaturalearth
 Title: world vector maps from Natural Earth
 Version: 0.0.0.9000
 Authors@R: person("Andy", "South", , "southandy@gmail.com", role = c("aut", "cre"))
-Description: Facilitates mapping by making natural earth map data from http://www.naturalearthdata.com/ 
-    more easily available to R users. Focuses on vector data.
+Description: Facilitates mapping by making natural earth map data from http://
+    www.naturalearthdata.com/ more easily available to R users. Focuses on vector
+    data.
 License: CC0
 LazyData: true
 LazyDataCompression: xz
@@ -19,3 +20,4 @@ Suggests:
     testthat (>= 0.9.1),
     httr
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1
