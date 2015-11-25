@@ -36,7 +36,6 @@ ne_file_name <- function(scale = 110,
   if ( type=='map_subunits' & scale==110 )
     stop("The combination of type=",type,"and scale=",scale,"is not available in Natural Earth")
   
-  
   #add admin_0 to known types
   if (type=='countries' | type=='map_units' | type=='map_subunits' | type=='sovereignty' | type=='tiny_countries' ) 
     type <- paste0('admin_0_',type)
@@ -58,6 +57,7 @@ ne_file_name <- function(scale = 110,
 #   }
 
   
+  file_name <- paste0('ne_',scale,'m_',type) 
   
   if (full_url)
     file_name <- paste0('http://www.naturalearthdata.com/http//',
