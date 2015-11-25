@@ -15,6 +15,6 @@ get_data(scale = 110, type = "countries")
 A \code{SpatialPolygonsDataFrame} object.
 }
 \description{
-returns world country polygons at a specified scale, used by world_countries()
+returns world country polygons at a specified scale, used by ne_countries()
 }
 

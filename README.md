@@ -27,11 +27,11 @@ Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be ma
 require(sp)
 
 #world countries
-plot(world_countries())
+plot(ne_countries())
 #uk
-plot(world_countries(country = 'united kingdom'))
+plot(ne_countries(country = 'united kingdom'))
 #states, admin level1 boundaries
-plot(world_states(country ='spain')) 
+plot(ne_states(country ='spain')) 
 
 ```
 

@@ -34,31 +34,31 @@ require(sp)
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 #world at small scale (low resolution)
-sp::plot(world_countries(type='countries', scale='small'))
+sp::plot(ne_countries(type='countries', scale='small'))
 
 #countries, UK undivided
-sp::plot(world_countries(country = 'united kingdom', type='countries'))
+sp::plot(ne_countries(country = 'united kingdom', type='countries'))
 #map_units, UK divided into England, Scotland, Wales and Northern Ireland
-sp::plot(world_countries(country = 'united kingdom', type='map_units'))
+sp::plot(ne_countries(country = 'united kingdom', type='map_units'))
 
 
 #countries, large scale
-sp::plot(world_countries(country = 'united kingdom', scale='large'))
+sp::plot(ne_countries(country = 'united kingdom', scale='large'))
 
 #countries, medium scale
 #temporarily commented out to avoid utf conversion travis error with Curacao
-#sp::plot(world_countries(country = 'united kingdom', scale='medium'))
+#sp::plot(ne_countries(country = 'united kingdom', scale='medium'))
      
 #countries, small scale
-sp::plot(world_countries(country = 'united kingdom', scale='small'))   
+sp::plot(ne_countries(country = 'united kingdom', scale='small'))   
 
 #states country='united kingdom'
-sp::plot(world_states(country ='united kingdom'))  
+sp::plot(ne_states(country ='united kingdom'))  
 #states geounit='england'
-sp::plot(world_states(geounit='england')) 
+sp::plot(ne_states(geounit='england')) 
 
 #states country='france'
-sp::plot(world_states(country ='france'))  
+sp::plot(ne_states(country ='france'))  
 
 ```
 

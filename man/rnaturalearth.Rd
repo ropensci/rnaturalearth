@@ -9,6 +9,6 @@
 Facilitates world mapping by making \href{http://www.naturalearthdata.com/}{Natural Earth} map data more easily available to R users. Focuses on vector data.
 }
 \seealso{
-world_countries
+ne_countries
 }
 

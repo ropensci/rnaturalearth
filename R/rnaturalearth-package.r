@@ -4,7 +4,7 @@
 #'
 #' @name rnaturalearth
 #' @docType package
-#' @seealso world_countries
+#' @seealso ne_countries
 #' @import sp rgdal
 #rgdal is needed for ne_download but we may want to put that in a separate package ?
 NULL

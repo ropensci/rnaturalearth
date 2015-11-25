@@ -1,4 +1,4 @@
-#' Get world country polygons
+#' Get natural earth world country polygons
 #'
 #' returns world country polygons at a specified scale
 #'
@@ -9,9 +9,9 @@
 #' @param geounit a character vector of geounit names. 
 #' @param sovereignty a character vector of sovereignty names.  
 #' @examples
-#' spdf_world <- world_countries()
-#' spdf_africa <- world_countries(continent='africa')
-#' spdf_france <- world_countries(country='france')
+#' spdf_world <- ne_countries()
+#' spdf_africa <- ne_countries(continent='africa')
+#' spdf_france <- ne_countries(country='france')
 #' 
 #' if (require(sp)) {
 #'   plot(spdf_world)
@@ -21,7 +21,7 @@
 #' @return A \code{SpatialPolygonsDataFrame} object.
 #' @export
 #' 
-world_countries <- function(scale = 110,
+ne_countries <- function(scale = 110,
                             type = 'countries',
                             continent = NULL,
                             country = NULL,

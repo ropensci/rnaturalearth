@@ -1,6 +1,6 @@
 #' Get data from within the package
 #'
-#' returns world country polygons at a specified scale, used by world_countries()
+#' returns world country polygons at a specified scale, used by ne_countries()
 #'
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}
 #' @param type country type, one of 'countries', 'map_units', 'sovereignty'

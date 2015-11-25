@@ -1,6 +1,6 @@
-#' Get world state (admin level 1) polygons
+#' Get natural earth world state (admin level 1) polygons
 #'
-#' returns world state polygons (administrative level 1) for specified countries
+#' returns state polygons (administrative level 1) for specified countries
 #'
 #' @param country a character vector of country names. 
 #' @param geounit a character vector of geounit names. 
@@ -9,20 +9,20 @@
 #' @examples
 #' 
 #' #comparing using country and geounit to filter
-#' spdf_france_country <- world_states(country='france')
-#' spdf_france_geounit <- world_states(geounit='france')
+#' spdf_france_country <- ne_states(country='france')
+#' spdf_france_geounit <- ne_states(geounit='france')
 #'  
 #' if (require(sp)) {
 #'   plot(spdf_france_country)
 #'   plot(spdf_france_geounit) 
 #'   
-#'   plot(world_states(country ='united kingdom'))  
-#'   plot(world_states(geounit='england'))     
+#'   plot(ne_states(country ='united kingdom'))  
+#'   plot(ne_states(geounit='england'))     
 #' }
 #' @return A \code{SpatialPolygonsDataFrame} object.
 #' @export
 #' 
-world_states <- function(   country = NULL,
+ne_states <- function(   country = NULL,
                             geounit = NULL,
                             iso_a2 = NULL,
                             spdf = NULL) {
