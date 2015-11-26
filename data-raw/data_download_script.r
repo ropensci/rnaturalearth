@@ -166,6 +166,9 @@ str(tiny_countries110@data)
 #to allow same operation on all data objects in the package
 data_object_names <- data(package = "rnaturalearth")[["results"]][,"Item"]
 
+#dangerous code to remove all non-ascii characters
+#todo I might want to do something more intelligent than this
+#e.g. currently Curaçao is converted to Curaao
 for (i in 1:length(data_object_names))
 {
   data_name <- data_object_names[i]
