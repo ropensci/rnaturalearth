@@ -84,34 +84,134 @@ str(tiny_countries110@data)
 #remember the difference between 'admin' & 'name' in NatEarth, 'name' tends to be abbreviated
 
 
-
 #### check polygon geometries (it seems to be no longer be necessary to correct these)
 # require(rgeos)
 # countries110@polygons=lapply(countries110@polygons, checkPolygonsHoles)
 
 
+#### removing non-ascii characters from data files
+
+# * checking data for non-ASCII characters ... WARNING
+# Warning: found non-ASCII strings
+# 'CuraC'ao' in object 'countries10'
+# 'St-BarthC)lemy' in object 'countries10'
+# 'CC4te d'Ivoire' in object 'countries10'
+# 'SC#o TomC) and Principe' in object 'countries10'
+# 'Saint-BarthC)lemy' in object 'countries10'
+# 'Cland Islands' in object 'countries10'
+# 'FC8royar Is. (Faeroe Is.)' in object 'countries10'
+# 'Democratic Republic of SC#o TomC) and Principe' in object 'countries10'
+# 'Nouvelle-CalC)donie' in object 'countries10'
+# 'RC)publique Togolaise' in object 'countries10'
+# 'RepC:blica Bolivariana de Venezuela' in object 'countries10'
+# 'Ctte d'Ivoire' in object 'countries110'
+# 'Nouvelle-Calidonie' in object 'countries110'
+# 'Ripublique Togolaise' in object 'countries110'
+# 'Repzblica Bolivariana de Venezuela' in object 'countries110'
+# 'Curagao' in object 'countries50'
+# 'St-Barthilemy' in object 'countries50'
+# 'Ctte d'Ivoire' in object 'countries50'
+# 'Sco Tomi and Principe' in object 'countries50'
+# 'Saint-Barthilemy' in object 'countries50'
+# 'Eland Islands' in object 'countries50'
+# 'Fxroyar Is. (Faeroe Is.)' in object 'countries50'
+# 'Democratic Republic of Sco Tomi and Principe' in object 'countries50'
+# 'Nouvelle-Calidonie' in object 'countries50'
+# 'Ripublique Togolaise' in object 'countries50'
+# 'Repzblica Bolivariana de Venezuela' in object 'countries50'
+# 'CuraC'ao' in object 'map_units10'
+# 'St-BarthC)lemy' in object 'map_units10'
+# 'CC4te d'Ivoire' in object 'map_units10'
+# 'SC#o TomC) and Principe' in object 'map_units10'
+# 'Saint-BarthC)lemy' in object 'map_units10'
+# 'Cland Islands' in object 'map_units10'
+# 'FC8royar Is. (Faeroe Is.)' in object 'map_units10'
+# 'Democratic Republic of SC#o TomC) and Principe' in object 'map_units10'
+# 'Nouvelle-CalC)donie' in object 'map_units10'
+# 'RC)publique Togolaise' in object 'map_units10'
+# 'RepC:blica Bolivariana de Venezuela' in object 'map_units10'
+# 'BouvetC8ya' in object 'map_units10'
+# 'Ctte d'Ivoire' in object 'map_units110'
+# 'Nouvelle-Calidonie' in object 'map_units110'
+# 'Ripublique Togolaise' in object 'map_units110'
+# 'Repzblica Bolivariana de Venezuela' in object 'map_units110'
+# 'Curagao' in object 'map_units50'
+# 'St-Barthilemy' in object 'map_units50'
+# 'Ctte d'Ivoire' in object 'map_units50'
+#   'Sco Tomi and Principe' in object 'map_units50'
+#   'Saint-Barthilemy' in object 'map_units50'
+#   'Eland Islands' in object 'map_units50'
+#   'Fxroyar Is. (Faeroe Is.)' in object 'map_units50'
+#   'Democratic Republic of Sco Tomi and Principe' in object 'map_units50'
+#   'Nouvelle-Calidonie' in object 'map_units50'
+#   'Ripublique Togolaise' in object 'map_units50'
+#   'Repzblica Bolivariana de Venezuela' in object 'map_units50'
+#   'CC4te d'Ivoire' in object 'sovereignty10'
+#   'SC#o TomC) and Principe' in object 'sovereignty10'
+#   'Democratic Republic of SC#o TomC) and Principe' in object 'sovereignty10'
+#   'RC)publique Togolaise' in object 'sovereignty10'
+#   'RepC:blica Bolivariana de Venezuela' in object 'sovereignty10'
+#   'Ctte d'Ivoire' in object 'sovereignty110'
+#   'Ripublique Togolaise' in object 'sovereignty110'
+#   'Repzblica Bolivariana de Venezuela' in object 'sovereignty110'
+#   'Ctte d'Ivoire' in object 'sovereignty50'
+#   'Sco Tomi and Principe' in object 'sovereignty50'
+#   'Democratic Republic of Sco Tomi and Principe' in object 'sovereignty50'
+#   'Ripublique Togolaise' in object 'sovereignty50'
+#   'Repzblica Bolivariana de Venezuela' in object 'sovereignty50'
+
+# states50@data <- data.frame( lapply(states50@data, function(x) iconv(x, "latin1", "ASCII", sub="")))
+# states10@data <- data.frame( lapply(states10@data, function(x) iconv(x, "latin1", "ASCII", sub="")))
+
+#to allow same operation on all data objects in the package
+data_object_names <- data(package = "rnaturalearth")[["results"]][,"Item"]
+
+for (i in 1:length(data_object_names))
+{
+  data_name <- data_object_names[i]
+  data_object <- eval(parse(text = data_name))
+  
+  data_object@data <- data.frame( lapply(data_object@data, function(x) iconv(x, "latin1", "ASCII", sub="")))
+  
+  #but now I want to reallocate back to the named object
+  #beware this is dangerous
+  eval(parse(text=paste(data_name,"<- data_object")))
+  
+}
+
+
 #### saving data files to correct folder in the package
 #this relies on working directory being set to root of the package
 
-save(countries110, file="data/countries110.rda")
-save(map_units110, file="data/map_units110.rda")
-save(sovereignty110, file="data/sovereignty110.rda")
+#the lines below could be replaced by this dangerous eval(parse(text=)) loop
+for (i in 1:length(data_object_names))
+{
+  data_name <- data_object_names[i]
+  #eval(parse(text=paste0("save(",data_name,", file='data/",data_name,".rda'"))) 
+  #this sorts compression
+  eval(parse(text=paste0("devtools::use_data(",data_name,", compress='xz', overwrite=TRUE)"))) 
+}
 
-save(countries50, file="data/countries50.rda")
-save(map_units50, file="data/map_units50.rda")
-save(sovereignty50, file="data/sovereignty50.rda")
-
-save(countries10, file="data/countries10.rda")
-save(map_units10, file="data/map_units10.rda")
-save(sovereignty10, file="data/sovereignty10.rda")
-
-save(states50, file="data/states50.rda")
-save(states10, file="data/states10.rda")
-
-#save(tiny_countries110, file="data/tiny_countries110.rda")
-
-save(coastline110, file="data/coastline110.rda")
-save(coastline50, file="data/coastline50.rda")
-save(coastline10, file="data/coastline10.rda")
+#devtools::use_data(countries110, compress='xz', overwrite=TRUE)
+# save(countries110, file="data/countries110.rda")
+# save(map_units110, file="data/map_units110.rda")
+# save(sovereignty110, file="data/sovereignty110.rda")
+# 
+# save(countries50, file="data/countries50.rda")
+# save(map_units50, file="data/map_units50.rda")
+# save(sovereignty50, file="data/sovereignty50.rda")
+# 
+# save(countries10, file="data/countries10.rda")
+# save(map_units10, file="data/map_units10.rda")
+# save(sovereignty10, file="data/sovereignty10.rda")
+# 
+# save(states50, file="data/states50.rda")
+# save(states10, file="data/states10.rda")
+# 
+# #save(tiny_countries110, file="data/tiny_countries110.rda")
+# 
+# save(coastline110, file="data/coastline110.rda")
+# save(coastline50, file="data/coastline50.rda")
+# save(coastline10, file="data/coastline10.rda")
 
 
