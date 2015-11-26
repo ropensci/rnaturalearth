@@ -59,7 +59,7 @@ vignette("what-is-a-country", package="rnaturalearth")
 ```
 
 ## Reproducible download of Natural Earth data in the package
-`data-raw/data_download_script.r`
+[Script](https://github.com/AndySouth/rnaturalearth/blob/master/data-raw/data_download_script.r) used to get data into the package.
 
 ## Acknowledgements
 Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspiration from [USAboundaries](https://github.com/ropensci/USAboundaries), [Hadley Wickham](https://github.com/hadley) for comments and prompting, [Bob Rudis](https://github.com/hrbrmstr) for answers to stackoverflow questions about downloading Natural Earth data into R. The [Natural Earth team](http://www.naturalearthdata.com/about/contributors/) and [Nathan Kelso](https://github.com/nvkelso) for providing such a great resource.
