@@ -17,7 +17,7 @@ This vignette is an introduction to [rnaturalearth](https://github.com/AndySouth
 
 [rnaturalearth](https://github.com/AndySouth/rnaturalearth) does two main things.
 
-1. contains pre-downloaded vector maps for countries: `ne_countries()` and states: `ne_states()`
+1. contains pre-downloaded vector maps for countries: `ne_countries()`, states: `ne_states()` and coastline: `ne_coastline()`
 1. has `ne_download()` function to facilitate download of other vector maps
 
 
@@ -33,7 +33,12 @@ require(sp)
 
 
 ## 1. maps in the package
-Pre-downloaded maps can be accessed with `ne_countries()` for country (admin-0) boundaries and `ne_states()` for boundaries within countries (admin-1).
+Pre-downloaded maps can be accessed with : 
+
+1. `ne_countries()` for country (admin-0) boundaries 
+1. `ne_states()` for boundaries within countries (admin-1)
+1. `ne_coastline()` for world coastline
+
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
@@ -50,8 +55,7 @@ sp::plot(ne_countries(country = 'united kingdom', type='map_units'))
 sp::plot(ne_countries(country = 'united kingdom', scale='large'))
 
 #countries, medium scale
-#temporarily commented out to avoid utf conversion travis error with Curacao
-#sp::plot(ne_countries(country = 'united kingdom', scale='medium'))
+sp::plot(ne_countries(country = 'united kingdom', scale='medium'))
      
 #countries, small scale
 sp::plot(ne_countries(country = 'united kingdom', scale='small'))   
@@ -63,6 +67,10 @@ sp::plot(ne_states(geounit='england'))
 
 #states country='france'
 sp::plot(ne_states(country ='france'))  
+
+#coastline of the world
+#subsetting of coastline is not possible because the Natural Earth data are not attributed in that way
+sp::plot(ne_coastline())
 
 ```
 
