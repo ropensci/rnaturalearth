@@ -1,5 +1,5 @@
 Package: rnaturalearth
-Title: world vector maps from Natural Earth
+Title: World Vector Map Data from Natural Earth
 Version: 0.0.0.9000
 Authors@R: person("Andy", "South", , "southandy@gmail.com", role = c("aut", "cre"))
 Description: Facilitates mapping by making natural earth map data from http://
