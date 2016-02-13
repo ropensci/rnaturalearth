@@ -3,27 +3,17 @@
 \docType{data}
 \name{countries}
 \alias{countries}
-\alias{countries10}
 \alias{countries110}
-\alias{countries50}
 \title{world country polygons from Natural Earth}
 \format{A \code{SpatialPolygonsDataFrame}}
 \source{
 \url{http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip}
-
-\url{http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip}
-
-\url{http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip}
 }
 \usage{
 countries110
-
-countries50
-
-countries10
 }
 \description{
-at scales 1:110m (small), 1:50m (medium), 1:10m (large)
+at 1:110m scale (small). Other data and resolutions are in the packages rnaturalearthdata and rnaturalearthhires.
 }
 \section{Slots}{
 
