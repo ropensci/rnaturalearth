@@ -13,9 +13,16 @@
 get_data <- function(scale = 110,
                      type = 'countries') {
 
-  # check for the data package and try to install if not there
+  # check for the data packages and try to install if not there
   # I may want to avoid this check for one example dataset in this package (i.e. countries110)
-  check_rnaturalearthdata()
+  if ( scale == 10 )
+  {
+    check_rnaturalearthhires()    
+  } else
+  {
+    check_rnaturalearthdata()        
+  }
+  
 
   # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
