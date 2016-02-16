@@ -54,6 +54,9 @@ ne_states <- function(   country = NULL,
   {
     filter_country <- tolower(spdf$admin) %in% tolower(country)   
     filter <- filter & filter_country
+    
+    if ( sum(filter_country) == 0 ) stop("No such country (",country,") in the data")
+    
   }
   
   # filter by geounit
@@ -64,6 +67,9 @@ ne_states <- function(   country = NULL,
     #$ geonunit  : Factor w/ 284 levels "Afghanistan",..: 15 1 1 1 1 1 1 1 1 1 ...
     filter_geounit <- tolower(spdf$geonunit) %in% tolower(geounit)   
     filter <- filter & filter_geounit
+    
+    if ( sum(filter_geounit) == 0 ) stop("No such geounit (",geounit,") in the data")    
+    
   }  
   
   # filter by iso_a2
@@ -71,6 +77,8 @@ ne_states <- function(   country = NULL,
   {
     filter_iso_a2 <- tolower(spdf$iso_a2) %in% tolower(iso_a2)   
     filter <- filter & filter_iso_a2
+    
+    if ( sum(filter_iso_a2) == 0 ) stop("No such iso_a2 (",iso_a2,") in the data")
   } 
   
   

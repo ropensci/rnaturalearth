@@ -41,7 +41,10 @@ ne_countries <- function(scale = 110,
   # filter by continent
   if (!is.null(continent)) 
   {
-    filter <- tolower(spdf$continent) %in% tolower(continent)   
+    filter <- tolower(spdf$continent) %in% tolower(continent)  
+    
+    if ( sum(filter) == 0 ) stop("No such continent (",continent,") in the data")
+    
   }
 
   # filter by country name (admin field in ne)
@@ -50,6 +53,8 @@ ne_countries <- function(scale = 110,
   {
     filter_country <- tolower(spdf$admin) %in% tolower(country)   
     filter <- filter & filter_country
+    
+    if ( sum(filter_country) == 0 ) stop("No such country (",country,") in the data")
   }
 
   # filter by geounit
@@ -57,6 +62,8 @@ ne_countries <- function(scale = 110,
   {
     filter_geounit <- tolower(spdf$geounit) %in% tolower(geounit)   
     filter <- filter & filter_geounit
+    
+    if ( sum(filter_geounit) == 0 ) stop("No such geounit (",geounit,") in the data")
   }  
     
   # filter by sovereignty (BEWARE its called sovereignt in ne)
@@ -64,6 +71,9 @@ ne_countries <- function(scale = 110,
   {
     filter_sovereignty <- tolower(spdf$sovereignt) %in% tolower(sovereignty)   
     filter <- filter & filter_sovereignty
+    
+    if ( sum(filter_sovereignty) == 0 ) stop("No such sovereignty (",sovereignty,") in the data")    
+    
   } 
   
   # todo I could add other optional filters e.g. iso_a3
