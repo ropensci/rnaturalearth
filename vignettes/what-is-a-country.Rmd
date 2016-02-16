@@ -48,7 +48,7 @@ sp::plot(ne_countries(country = 'united kingdom', type='map_units'))
 sp::plot(ne_countries(geounit = 'scotland', type='map_units'))
 #sovereignty, Falkland Islands included in UK
 sp::plot(ne_countries(country = 'united kingdom', type='sovereignty'), col='red')
-sp::plot(coastline110, col='lightgrey', lty=3, add=TRUE)
+sp::plot(ne_coastline(scale=110), col='lightgrey', lty=3, add=TRUE)
 
 #France, country includes French Guiana
 sp::plot(ne_countries(country = 'france'))
@@ -58,7 +58,7 @@ sp::plot(ne_countries(country = 'france', type='map_units'))
 sp::plot(ne_countries(geounit = 'france', type='map_units'))
 #France sovereignty includes South Pacicic islands
 sp::plot(ne_countries(country = 'france', type='sovereignty'), col='red')
-sp::plot(coastline110, col='lightgrey', lty=3, add=TRUE)
+sp::plot(ne_coastline(scale=110), col='lightgrey', lty=3, add=TRUE)
 
 ```
 

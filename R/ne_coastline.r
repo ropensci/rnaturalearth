@@ -14,6 +14,15 @@
 #' 
 ne_coastline <- function(scale = 110) {
   
+  
+  # check for the data packages and try to install if not there
+  if ( scale == 10 )
+  {
+    check_rnaturalearthhires()    
+  } else
+  {
+    check_rnaturalearthdata()        
+  }
 
   # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
@@ -23,13 +32,13 @@ ne_coastline <- function(scale = 110) {
   sldf <- NULL
   
   if ( scale==110 ) { 
-    sldf <- coastline110    
+    sldf <- rnaturalearthdata::coastline110    
     
   } else if ( scale==50 ) {
-    sldf <- coastline50  
+    sldf <- rnaturalearthdata::coastline50  
     
   } else if ( scale==10 ) {
-    sldf <- coastline10  
+    sldf <- rnaturalearthhires::coastline10  
   }   
   
   return(sldf)        

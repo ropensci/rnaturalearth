@@ -27,6 +27,8 @@ ne_states <- function(   country = NULL,
                             iso_a2 = NULL,
                             spdf = NULL) {
   
+  
+  
 
   #add check if country, geounit and iso_a2 are in the data
   
@@ -34,7 +36,12 @@ ne_states <- function(   country = NULL,
   #this adds potential to add or pass other potential state maps, e.g. without lakes
   #but no checking is done
   #may not be needed
-  if (is.null(spdf)) spdf <- states10
+  if (is.null(spdf)) 
+  {
+    check_rnaturalearthhires()
+    spdf <- rnaturalearthhires::states10    
+  }
+
   
   #states50 only has Australia  Brazil Canada United States of America
   #?not worth including option
