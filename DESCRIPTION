@@ -18,6 +18,7 @@ Imports:
 Suggests:
     knitr,
     testthat (>= 0.9.1),
-    httr
+    httr,
+    devtools
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
