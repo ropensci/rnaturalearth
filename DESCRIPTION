@@ -19,6 +19,8 @@ Suggests:
     knitr,
     testthat (>= 0.9.1),
     httr,
-    devtools
+    devtools,
+    rnaturalearthdata (>= 0.0.0.9000), 
+    rnaturalearthhires (>= 0.0.0.9000)
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
