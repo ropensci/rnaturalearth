@@ -6,7 +6,7 @@
 \alias{rnaturalearth-package}
 \title{rnaturalearth : world vector maps from Natural Earth}
 \description{
-Facilitates world mapping by making \href{http://www.naturalearthdata.com/}{Natural Earth} map data more easily available to R users. Focuses on vector data.
+Facilitates world mapping by making \href{http://www.naturalearthdata.com/}{Natural Earth} map data more easily available to R users.
 }
 \seealso{
 ne_countries
