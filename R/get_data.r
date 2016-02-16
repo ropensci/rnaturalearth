@@ -31,33 +31,33 @@ get_data <- function(scale = 110,
   spdf <- NULL
   if ( type=='countries' ) {
     if ( scale==110 ) { 
-      spdf <- countries110    
+      spdf <- rnaturalearthdata::countries110    
       
     } else if ( scale==50 ) {
-      spdf <- countries50  
+      spdf <- rnaturalearthdata::countries50  
       
     } else if ( scale==10 ) {
-      spdf <- countries10  
+      spdf <- rnaturalearthhires::countries10  
     }       
   } else if ( type=='map_units' ) { 
     if ( scale==110 ) { 
-      spdf <- map_units110    
+      spdf <- rnaturalearthdata::map_units110    
       
     } else if ( scale==50 ) {
-      spdf <- map_units50  
+      spdf <- rnaturalearthdata::map_units50  
       
     } else if ( scale==10 ) {
-      spdf <- map_units10  
+      spdf <- rnaturalearthhires::map_units10  
     }         
   } else if ( type=='sovereignty' ) { 
     if ( scale==110 ) { 
-      spdf <- sovereignty110    
+      spdf <- rnaturalearthdata::sovereignty110    
       
     } else if ( scale==50 ) {
-      spdf <- sovereignty50  
+      spdf <- rnaturalearthdata::sovereignty50  
       
     } else if ( scale==10 ) {
-      spdf <- sovereignty10  
+      spdf <- rnaturalearthhires::sovereignty10  
     }
     else {
       
