@@ -7,8 +7,8 @@
 #' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 #'    OR the portion of any natural earth vector url after the scale and before the . 
 #'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
-#' @param category one of natural earth categories : 'cultural', 'physical'
-# @param category one of natural earth categories : 'cultural', 'physical', 'raster'
+# @param category one of natural earth categories : 'cultural', 'physical'
+#' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir where to save files, defaults to \code{tempdir()}
 #' @param load TRUE/FALSE whether to load file into R and return
 #' @examples
@@ -32,8 +32,8 @@
 
 ne_download <- function(scale = 110,
                         type = 'countries',
-                        category = c('cultural', 'physical'),
-                        #category = c('cultural', 'physical', 'raster'),
+                        #category = c('cultural', 'physical'),
+                        category = c('cultural', 'physical', 'raster'),
                         destdir = tempdir(),
                         load = TRUE
                         ) 
