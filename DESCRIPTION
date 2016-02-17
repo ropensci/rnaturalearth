@@ -21,6 +21,7 @@ Suggests:
     httr,
     devtools,
     rnaturalearthdata (>= 0.0.0.9000), 
-    rnaturalearthhires (>= 0.0.0.9000)
+    rnaturalearthhires (>= 0.0.0.9000),
+    raster
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1

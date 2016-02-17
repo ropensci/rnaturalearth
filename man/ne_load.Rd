@@ -5,7 +5,7 @@
 \title{load a Natural Earth vector that has already been downloaded into R}
 \usage{
 ne_load(scale = 110, type = "countries", category = c("cultural",
-  "physical"), destdir = tempdir(), file_name = NULL)
+  "physical", "raster"), destdir = tempdir(), file_name = NULL)
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}}
@@ -14,14 +14,14 @@ ne_load(scale = 110, type = "countries", category = c("cultural",
 OR the portion of any natural earth vector url after the scale and before the . 
 e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
 
-\item{category}{one of natural earth categories : 'cultural', 'physical'}
+\item{category}{one of natural earth categories : 'cultural', 'physical', 'raster'}
 
 \item{destdir}{folder to load files from, default=tempdir()}
 
 \item{file_name}{OPTIONAL name of file (excluding path) instead of natural earth attributes}
 }
 \value{
-A \code{Spatial} object depending on the vector source (points, lines or polygons).
+A \code{Spatial} object depending on the data (points, lines, polygons or raster).
 }
 \description{
 returns loaded vector as a spatial object.
@@ -34,5 +34,13 @@ returns loaded vector as a spatial object.
 #download followed by load from specified directory works between R sessions
 #spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
 #spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
+#for raster
+#download & load
+#rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+#load after having downloaded
+#rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+#plot
+#library(raster)
+#plot(rst)
 }
 

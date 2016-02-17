@@ -7,7 +7,6 @@
 #' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 #'    OR the portion of any natural earth vector url after the scale and before the . 
 #'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
-# @param category one of natural earth categories : 'cultural', 'physical'
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir where to save files, defaults to \code{tempdir()}
 #' @param load TRUE/FALSE whether to load file into R and return
@@ -25,8 +24,17 @@
 #' #download followed by load from specified directory will work across sessions
 #' #spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
 #' #spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
-#' 
-#' @return A \code{Spatial} object depending on the vector source (points, lines or polygons), 
+#'
+#' #' #for raster
+#' #download & load
+#' #rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+#' #load after having downloaded
+#' #rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+#' #plot
+#' #library(raster)
+#' #plot(rst)
+#'  
+#' @return A \code{Spatial} object depending on the data (points, lines, polygons or raster), 
 #'    unless load=FALSE in which case it returns the name of the downloaded shapefile (without extension).
 #' @export
 
@@ -45,11 +53,6 @@ ne_download <- function(scale = 110,
   file_name <- ne_file_name(scale=scale, type=type, category=category, full_url=FALSE)
   #full url including .zip
   address   <- ne_file_name(scale=scale, type=type, category=category, full_url=TRUE)  
-
-# this moved into ne_file_name    
-#   address <- paste0('http://www.naturalearthdata.com/http//',
-#                     'www.naturalearthdata.com/download/',scale,'m/',category,'/',
-#                     file_name,'.zip' )
   
   
   #downloads the zip to a permanent place (but do I want to keep the zip, or just keep the unzipped)
@@ -69,12 +72,21 @@ ne_download <- function(scale = 110,
   #destdir=[specified_folder]  
   #destdir = getwd() #unlikely but possible
 
-
+  unzip(zip_file, exdir=destdir)
   
-  if ( load )
+  
+  if ( load & category == 'raster' )
   {
-    unzip(zip_file, exdir=destdir)
+
+    #rst <- raster::raster(file.path(tempdir(),"NE1_50M_SR_W","NE1_50M_SR_W.tif"))
+    #have to use file_name to set the folder and the tif name
+    rst <- raster::raster(file.path(destdir(), file_name ,paste0(file_name, ".tif")))
+    return(rst)
     
+    
+  } else if ( load )
+  {
+
     sp_object <- readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE)
     
     return(sp_object) 

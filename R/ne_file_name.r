@@ -2,13 +2,11 @@
 #'
 #' returns a string that can then be used to download the file.
 #' 
-#'
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
 #' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 #'    OR the portion of any natural earth vector url after the scale and before the . 
 #'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
-#' @param category one of natural earth categories : 'cultural', 'physical'
-# @param category one of natural earth categories : 'cultural', 'physical', 'raster'
+#' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param full_url whether to return just the filename [default] or the full URL needed for download
 
 #' @examples
@@ -20,8 +18,8 @@
 
 ne_file_name <- function(scale = 110,
                     type = 'countries',
-                    category = c('cultural', 'physical'),
-                    #category = c('cultural', 'physical', 'raster'),
+                    #category = c('cultural', 'physical'),
+                    category = c('cultural', 'physical', 'raster'),
                     full_url = FALSE
 ) 
 {
@@ -46,18 +44,26 @@ ne_file_name <- function(scale = 110,
   if (type == 'states')
     type <- 'admin_1_states_provinces_lakes'
 
-#later add raster capability   
-#this did work  
-#   if (category=='raster')
-#   {
-#     #raster seems not to have so straightforward naming, so require that name is passed in type
-#     file_name <- type     
-#   } else {
-#     file_name <- paste0('ne_',scale,'m_',type)    
-#   }
+ 
+  if (category=='raster')
+  {
+    #raster seems not to have so straightforward naming, so require that name is passed in type
+    #category <- 'raster-data'
+    file_name <- paste0(type)
+  } else {
+    file_name <- paste0('ne_',scale,'m_',type)
+  }
 
   
-  file_name <- paste0('ne_',scale,'m_',type) 
+  #actually this isn't needed, just need to get filenames right
+  # if (category=='raster-data') 
+  # {
+  #   subfoldname <- paste0('downloads/',scale,'m-',category) #50m-raster-data/
+  # } else
+  # {
+  #   subfoldname <- paste0('download/',scale,'m/,category')    
+  # }
+
   
   if (full_url)
     file_name <- paste0('http://www.naturalearthdata.com/http//',
