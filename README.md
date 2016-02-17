@@ -1,5 +1,7 @@
 [![Travis-CI Build Status](https://travis-ci.org/AndySouth/rnaturalearth.svg?branch=master)](https://travis-ci.org/AndySouth/rnaturalearth)
 
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/AndySouth/rnaturalearth?branch=master&svg=true)](https://ci.appveyor.com/project/AndySouth/rnaturalearth)
+
 # rnaturalearth
 
 An R package to hold and facilitate interaction with [Natural Earth](http://www.naturalearthdata.com/) vector map data.
