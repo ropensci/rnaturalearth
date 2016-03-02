@@ -16,7 +16,7 @@ e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
 
 \item{category}{one of natural earth categories : 'cultural', 'physical', 'raster'}
 
-\item{destdir}{where to save files, defaults to \code{tempdir()}}
+\item{destdir}{where to save files, defaults to \code{tempdir()}, \code{getwd()} is also possible.}
 
 \item{load}{TRUE/FALSE whether to load file into R and return}
 }
@@ -28,6 +28,16 @@ A \code{Spatial} object depending on the data (points, lines, polygons or raster
 returns downloaded data as a spatial object or the filename if \code{load=FALSE}.  
 if \code{destdir} is specified the data can be reloaded in a later R session using \code{\link{ne_load}}
 with the same arguments.
+}
+\details{
+here is a non exhaustive list of datasets available according to \code{scale} specified by the \code{type} param 
+  \tabular{lccc}{
+  type="…"	         \tab scale=110	\tab scale=50	\tab scale=10 \cr
+  category="Physical" \cr
+  coastline	       \tab y	        \tab y      	\tab y        \cr
+  land     	       \tab y	        \tab y      	\tab y        \cr
+  ocean     	       \tab y	        \tab y      	\tab y        \cr   
+  }
 }
 \examples{
 spdf_world <- ne_download( scale = 110, type = 'countries' )

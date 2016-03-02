@@ -11,7 +11,38 @@
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir where to save files, defaults to \code{tempdir()}, \code{getwd()} is also possible.
 #' @param load TRUE/FALSE whether to load file into R and return
-#' @seealso \code{\link{ne_load}}
+#' 
+#' @details A non-exhaustive list of datasets available according to \code{scale} specified by the \code{type} param 
+#'   \tabular{lccc}{
+#'          	                   \tab scale=110	\tab scale=50	\tab scale=10 \cr
+#'   category="Physical" \cr
+#'   type=""             \cr
+#'   coastline	                 \tab y	        \tab y      	\tab y        \cr
+#'   land     	                 \tab y	        \tab y      	\tab y        \cr
+#'   ocean     	                 \tab y	        \tab y      	\tab y        \cr
+#'   rivers_lake_centerlines     \tab y	        \tab y      	\tab y        \cr
+#'   lakes     	                 \tab y	        \tab y      	\tab y        \cr 
+#'   glaciated_areas     	       \tab y	        \tab y      	\tab y        \cr
+#'   antarctic_ice_shelves_polys \tab y	        \tab y      	\tab y        \cr
+#'   geographic_lines            \tab y	        \tab y      	\tab y        \cr
+#'   graticules_1     	         \tab y	        \tab y      	\tab y        \cr
+#'   graticules_30     	         \tab y	        \tab y      	\tab y        \cr
+#'   wgs84_bounding_box     	   \tab y	        \tab y      	\tab y        \cr
+#'   playas     	               \tab -	        \tab y      	\tab y        \cr
+#'   minor_islands      	       \tab -	        \tab -      	\tab y        \cr
+#'   reefs              	       \tab -	        \tab -      	\tab y        \cr 
+#'   category="Cultural" \cr
+#'   type=""             \cr    
+#'   populated_places        	   \tab y	        \tab y      	\tab y        \cr
+#'   admin_0_boundary_lines_land \tab y	        \tab y      	\tab y        \cr
+#'   admin_0_breakaway_disputed_areas \tab -	        \tab y      	\tab y        \cr
+#'   airports              	     \tab -	        \tab y      	\tab y        \cr
+#'   ports              	       \tab -	        \tab y      	\tab y        \cr
+#'   urban_areas              	 \tab -	        \tab y      	\tab y        \cr
+#'   roads              	       \tab -	        \tab -      	\tab y        \cr   
+#'   railroads              	   \tab -	        \tab -      	\tab y        \cr       
+#'   }
+#' @seealso \code{\link{ne_load}}, pre-downloaded data are available using \code{\link{ne_countries}}, \code{\link{ne_states}}
 #' @examples
 #' spdf_world <- ne_download( scale = 110, type = 'countries' )
 #' 
