@@ -81,15 +81,15 @@ sp::plot(ne_coastline())
 
 Each [Natural Earth](http://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/AndySouth/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and donload the corresponding file.
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
 #lakes
-#lakes110 <- ne_download(scale=110, type='lakes', category='physical')
-#sp::plot(lakes110, col='blue')
+lakes110 <- ne_download(scale=110, type='lakes', category='physical')
+sp::plot(lakes110, col='blue')
 
 #rivers
-#rivers110 <- ne_download(scale=110, type='rivers_lake_centerlines', category='physical')
-#sp::plot(rivers110, col='blue')
+rivers110 <- ne_download(scale=110, type='rivers_lake_centerlines', category='physical')
+sp::plot(rivers110, col='blue')
 
 
 ```
