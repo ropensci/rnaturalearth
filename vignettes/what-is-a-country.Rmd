@@ -24,8 +24,8 @@ This vignette uses `sp::plot` as a simple, quick way to plot the data obtained u
 
 #### load required packages
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
-require(rnaturalearth)
-require(sp)
+library(rnaturalearth)
+library(sp)
 ```
 
 

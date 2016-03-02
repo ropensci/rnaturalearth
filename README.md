@@ -20,13 +20,13 @@ The [Natural Earth](http://www.naturalearthdata.com/) website structures vector 
 
 ```r
 devtools::install_github("andysouth/rnaturalearth", build_vignettes=TRUE)
-require(rnaturalearth)
+library(rnaturalearth)
 ```
 
 ### First Usage
 Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options.
 ```r
-require(sp)
+library(sp)
 
 #world countries
 plot(ne_countries())

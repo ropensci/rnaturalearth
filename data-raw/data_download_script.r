@@ -13,7 +13,7 @@
 #### use rnaturalearth::ne_download() to download data and read into R 
 
 
-require(rnaturalearth)
+library(rnaturalearth)
 
 
 countries110 <- ne_download(scale=110, type='countries', category='cultural')
