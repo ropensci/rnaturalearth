@@ -8,7 +8,7 @@ ne_file_name(scale = 110, type = "countries", category = c("cultural",
   "physical", "raster"), full_url = FALSE)
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}}
+\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
 
 \item{type}{type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 OR the portion of any natural earth vector url after the scale and before the . 

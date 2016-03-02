@@ -2,7 +2,7 @@
 #'
 #' returns a string that can then be used to download the file.
 #' 
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
+#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 #'    OR the portion of any natural earth vector url after the scale and before the . 
 #'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"

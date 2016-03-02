@@ -4,19 +4,18 @@
 #' if \code{destdir} is specified the data can be reloaded in a later R session using \code{\link{ne_load}}
 #' with the same arguments.
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
+#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 #'    OR the portion of any natural earth vector url after the scale and before the . 
-#'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
+#'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas". See Details.
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir where to save files, defaults to \code{tempdir()}, \code{getwd()} is also possible.
 #' @param load TRUE/FALSE whether to load file into R and return
 #' 
 #' @details A non-exhaustive list of datasets available according to \code{scale} specified by the \code{type} param 
 #'   \tabular{lccc}{
-#'          	                   \tab scale=110	\tab scale=50	\tab scale=10 \cr
-#'   category="Physical" \cr
-#'   type=""             \cr
+#'          	                   \tab scale='small'	\tab scale='medium'	\tab scale='large' \cr
+#'   category="Physical", type="[below]" \cr
 #'   coastline	                 \tab y	        \tab y      	\tab y        \cr
 #'   land     	                 \tab y	        \tab y      	\tab y        \cr
 #'   ocean     	                 \tab y	        \tab y      	\tab y        \cr
@@ -31,8 +30,7 @@
 #'   playas     	               \tab -	        \tab y      	\tab y        \cr
 #'   minor_islands      	       \tab -	        \tab -      	\tab y        \cr
 #'   reefs              	       \tab -	        \tab -      	\tab y        \cr 
-#'   category="Cultural" \cr
-#'   type=""             \cr    
+#'   category="Cultural", type="[below]"             \cr    
 #'   populated_places        	   \tab y	        \tab y      	\tab y        \cr
 #'   admin_0_boundary_lines_land \tab y	        \tab y      	\tab y        \cr
 #'   admin_0_breakaway_disputed_areas \tab -	        \tab y      	\tab y        \cr

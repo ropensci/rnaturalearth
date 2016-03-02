@@ -8,11 +8,11 @@ ne_download(scale = 110, type = "countries", category = c("cultural",
   "physical", "raster"), destdir = tempdir(), load = TRUE)
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}}
+\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
 
 \item{type}{type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 OR the portion of any natural earth vector url after the scale and before the . 
-e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
+e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas". See Details.}
 
 \item{category}{one of natural earth categories : 'cultural', 'physical', 'raster'}
 
@@ -32,9 +32,8 @@ with the same arguments.
 \details{
 A non-exhaustive list of datasets available according to \code{scale} specified by the \code{type} param 
   \tabular{lccc}{
-         	                   \tab scale=110	\tab scale=50	\tab scale=10 \cr
-  category="Physical" \cr
-  type=""             \cr
+         	                   \tab scale='small'	\tab scale='medium'	\tab scale='large' \cr
+  category="Physical", type="[below]" \cr
   coastline	                 \tab y	        \tab y      	\tab y        \cr
   land     	                 \tab y	        \tab y      	\tab y        \cr
   ocean     	                 \tab y	        \tab y      	\tab y        \cr
@@ -49,8 +48,7 @@ A non-exhaustive list of datasets available according to \code{scale} specified 
   playas     	               \tab -	        \tab y      	\tab y        \cr
   minor_islands      	       \tab -	        \tab -      	\tab y        \cr
   reefs              	       \tab -	        \tab -      	\tab y        \cr 
-  category="Cultural" \cr
-  type=""             \cr    
+  category="Cultural", type="[below]"             \cr    
   populated_places        	   \tab y	        \tab y      	\tab y        \cr
   admin_0_boundary_lines_land \tab y	        \tab y      	\tab y        \cr
   admin_0_breakaway_disputed_areas \tab -	        \tab y      	\tab y        \cr
