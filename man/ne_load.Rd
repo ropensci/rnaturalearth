@@ -2,7 +2,7 @@
 % Please edit documentation in R/ne_load.r
 \name{ne_load}
 \alias{ne_load}
-\title{load a Natural Earth vector that has already been downloaded into R}
+\title{load a Natural Earth vector that has already been downloaded to R using \code{\link{ne_download}}}
 \usage{
 ne_load(scale = 110, type = "countries", category = c("cultural",
   "physical", "raster"), destdir = tempdir(), file_name = NULL)
@@ -10,7 +10,7 @@ ne_load(scale = 110, type = "countries", category = c("cultural",
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}}
 
-\item{type}{type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
+\item{type}{type of natural earth file one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 OR the portion of any natural earth vector url after the scale and before the . 
 e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
 
@@ -24,7 +24,7 @@ e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
 A \code{Spatial} object depending on the data (points, lines, polygons or raster).
 }
 \description{
-returns loaded vector as a spatial object.
+returns loaded data as a spatial object.
 }
 \examples{
 #commented out to stop download in check
@@ -42,5 +42,8 @@ returns loaded vector as a spatial object.
 #plot
 #library(raster)
 #plot(rst)
+}
+\seealso{
+\code{\link{ne_download}}
 }
 

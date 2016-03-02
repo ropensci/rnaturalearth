@@ -1,16 +1,17 @@
-#' load a Natural Earth vector that has already been downloaded into R
+#' load a Natural Earth vector that has already been downloaded to R using \code{\link{ne_download}}
 #'
-#' returns loaded vector as a spatial object.
+#' returns loaded data as a spatial object.
 #' 
 #'
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
-#' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
+#' @param type type of natural earth file one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 #'    OR the portion of any natural earth vector url after the scale and before the . 
 #'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir folder to load files from, default=tempdir()
 #' @param file_name OPTIONAL name of file (excluding path) instead of natural earth attributes
 
+#' @seealso \code{\link{ne_download}}
 #' @examples
 #' #commented out to stop download in check
 #' #download followed by load from tempdir() works in same R session

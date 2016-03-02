@@ -2,7 +2,7 @@
 % Please edit documentation in R/ne_download.r
 \name{ne_download}
 \alias{ne_download}
-\title{download a vector from Natural Earth and (optionally) read into R}
+\title{download data from Natural Earth and (optionally) read into R}
 \usage{
 ne_download(scale = 110, type = "countries", category = c("cultural",
   "physical", "raster"), destdir = tempdir(), load = TRUE)
@@ -25,7 +25,9 @@ A \code{Spatial} object depending on the data (points, lines, polygons or raster
    unless load=FALSE in which case it returns the name of the downloaded shapefile (without extension).
 }
 \description{
-returns downloaded vector as a spatial object.
+returns downloaded data as a spatial object or the filename if \code{load=FALSE}.  
+if \code{destdir} is specified the data can be reloaded in a later R session using \code{\link{ne_load}}
+with the same arguments.
 }
 \examples{
 spdf_world <- ne_download( scale = 110, type = 'countries' )
@@ -51,5 +53,8 @@ spdf_world2 <-    ne_load( scale = 110, type = 'countries' )
 #library(raster)
 #plot(rst)
  
+}
+\seealso{
+\code{\link{ne_load}}
 }
 

@@ -1,7 +1,8 @@
-#' download a vector from Natural Earth and (optionally) read into R
+#' download data from Natural Earth and (optionally) read into R
 #'
-#' returns downloaded vector as a spatial object.
-#' 
+#' returns downloaded data as a spatial object or the filename if \code{load=FALSE}.  
+#' if \code{destdir} is specified the data can be reloaded in a later R session using \code{\link{ne_load}}
+#' with the same arguments.
 #'
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
 #' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
@@ -10,6 +11,7 @@
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir where to save files, defaults to \code{tempdir()}
 #' @param load TRUE/FALSE whether to load file into R and return
+#' @seealso \code{\link{ne_load}}
 #' @examples
 #' spdf_world <- ne_download( scale = 110, type = 'countries' )
 #' 
