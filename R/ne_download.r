@@ -9,7 +9,7 @@
 #'    OR the portion of any natural earth vector url after the scale and before the . 
 #'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
-#' @param destdir where to save files, defaults to \code{tempdir()}
+#' @param destdir where to save files, defaults to \code{tempdir()}, \code{getwd()} is also possible.
 #' @param load TRUE/FALSE whether to load file into R and return
 #' @seealso \code{\link{ne_load}}
 #' @examples
@@ -42,7 +42,6 @@
 
 ne_download <- function(scale = 110,
                         type = 'countries',
-                        #category = c('cultural', 'physical'),
                         category = c('cultural', 'physical', 'raster'),
                         destdir = tempdir(),
                         load = TRUE
@@ -56,31 +55,19 @@ ne_download <- function(scale = 110,
   #full url including .zip
   address   <- ne_file_name(scale=scale, type=type, category=category, full_url=TRUE)  
   
-  
-  #downloads the zip to a permanent place (but do I want to keep the zip, or just keep the unzipped)
-  #download.file(file.path(address), zip_file <- file.path(getwd(), paste0(file_name,".zip"))
   #this puts zip in temporary place & unzipped files are saved later                
   download.file(file.path(address), zip_file <- tempfile())
                   
-  
-  #allowing caching as suggested by Hadley
-  #ne_download() download & load (+option to not load)
-  #ne_load() load previous download using same args or filename 
+  #an alternative downloading the zip to a permanent place
+  #download.file(file.path(address), zip_file <- file.path(getwd(), paste0(file_name,".zip"))
   
   #download.file & curl_download use 'destfile'
   #but I want to specify just the folder because the file has a set name
-  
-  #destdir = tempdir() #default
-  #destdir=[specified_folder]  
-  #destdir = getwd() #unlikely but possible
 
   unzip(zip_file, exdir=destdir)
   
-  
   if ( load & category == 'raster' )
   {
-
-    #rst <- raster::raster(file.path(tempdir(),"NE1_50M_SR_W","NE1_50M_SR_W.tif"))
     #have to use file_name to set the folder and the tif name
     rst <- raster::raster(file.path(destdir(), file_name ,paste0(file_name, ".tif")))
     return(rst)
