@@ -1,10 +1,10 @@
-#' rnaturalearth : world vector maps from Natural Earth
+#' rnaturalearth : world map data from Natural Earth
 #'
 #' Facilitates world mapping by making \href{http://www.naturalearthdata.com/}{Natural Earth} map data more easily available to R users.
 #'
 #' @name rnaturalearth
 #' @docType package
-#' @seealso ne_countries
+#' @seealso \code{\link{ne_countries}} \code{\link{ne_states}} \code{\link{ne_download}}
 #' @import sp rgdal
 NULL
 
