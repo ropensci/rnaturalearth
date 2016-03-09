@@ -1,0 +1,71 @@
+
+## responses to @lmullen
+
+### This package should be at least two packages, and probably three. 
+
+done. converted to 3 packages rnaturalearth, rnaturalearthdata & rnaturalearthhires. The first 2 air aimed at CRAN and the 3rd the rOpenSci drat repo)
+
+### @sckott, @karthik, @cboettig: To be able to test these changes effectively, @AndySouth will need to use the rOpenSci drat repository. I'd suggest that the package be provisionally accepted and moved into rOpenSci GitHub and drat repositories.
+
+
+### The README.md should be converted to README.Rmd via devtools::use_readme_rmd().
+done
+### The package should use Appveyor's CI for Windows via devtools::use_appveyor().
+done
+
+### Specify a version number for rgdal, httr, and knitr.
+
+### All the tests pass. I'll check coverage more carefully once the package structure has stabilized. In the meantime, all of the tests which download files should have skip_on_cran().
+done
+
+### The vignette should not need download anything from Natural Earth. The code block at the end with two downloads should be set to eval = FALSE.
+done
+
+### Code style
+
+### In the README and vignettes, in place of require(rnaturalearth) use library(rnaturalearth).
+done
+### Spacing is often inconsistent around = using in function definitions and calls. There should always be a single space on both sides of =. For example, in the README vignette("rnaturalearth", package="rnaturalearth") should be vignette("rnaturalearth", package = "rnaturalearth").
+I recognise this, but unless it's essential would prefer to keep my sometimes idiosyncratic use of spaces which I use to enhance my readability (and out of habit too).
+
+### Comments at the start of the line should be followed by a space. (I prefer to user sentence capitalization; but that's just a preference.) 
+done
+### Most important, all code which has been commented out needs to be deleted.
+done (mostly)
+### The same goes for the data download scripts in data-raw. At the moment, they have a lot investigating the data. Now that you've settled on what to do, you can retain that information in comments but trim unnecessary code.
+I have kept some commented code as these are the areas where it is most likely I will need to adapt old code in repsonse to potential future data changes, and least likely that users need to access. 
+
+### Functions which have limited categorical options should specify all the options in the function signature and then use match.args(). An example of this is get_data() and the type parameter. For example, a function that looks like this
+
+myfunc <- function(type = "a") {
+  if(type == "a") {
+    # ...
+  } else if (type =="b") {
+
+  } else {
+    stop("Error.")
+  }
+}
+Should be changed to this:
+
+myfunc <- function(type = c("a", "b")) {
+  type <- match.arg(type)
+  # Logic checking type here.
+}
+
+
+
+### get_data() should be renamed to something less generic, like ne_get_data(). Or, can you avoid exporting it?
+no longer exported
+
+### In the headings of the vignettes, prefer sentence-style capitalization. E.g. 1. Maps in the package. (I'd suggest the same for comments as well, but that's entirely up to you.)
+
+
+### This line in the vignette should be revised, perhaps into a bulleted list, since a sentence can only contain one colon. contains pre-downloaded vector maps for countries: ne_countries(), states: ne_states() and coastline: ne_coastline()
+
+## responses to @Robinlovelace
+
+
+
+
+
