@@ -32,7 +32,7 @@ library(sp)
 ```
 
 
-## 1. maps in the package
+## 1. Maps in the package.
 Pre-downloaded maps can be accessed with : 
 
 1. `ne_countries()` for country (admin-0) boundaries 
@@ -77,7 +77,7 @@ sp::plot(ne_coastline())
 
 
 
-## 2. downloading other Natural Earth vectors with ne_download()  
+## 2. Downloading other Natural Earth vectors with ne_download().  
 
 Each [Natural Earth](http://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/AndySouth/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and donload the corresponding file.
 

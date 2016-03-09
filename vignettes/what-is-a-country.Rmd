@@ -29,7 +29,7 @@ library(sp)
 ```
 
 
-### Country types : countries, map_units and sovereignty
+### Country types : countries, map_units and sovereignty.
 Natural Earth data are classified by `countries`, `map_units` and `sovereignty`. Below you will see that specifying `united kingdom` for 
 
 1. `countries` gives the UK undivided   
@@ -62,7 +62,7 @@ sp::plot(ne_coastline(scale=110), col='lightgrey', lty=3, add=TRUE)
 
 ```
 
-### Country scales : small, medium and large
+### Country scales : small, medium and large.
 The different definitions of a country outlined above are available at different scales.
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
@@ -80,7 +80,7 @@ sp::plot(ne_countries(country = 'united kingdom', scale='small'))
 ```
 
 
-### States, admin level 1, select by country or geounit 
+### States, admin level 1, select by country or geounit. 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 # states country='united kingdom'
