@@ -60,6 +60,7 @@ A non-exhaustive list of datasets available according to \code{scale} specified 
   }
 }
 \examples{
+\dontrun{
 spdf_world <- ne_download( scale = 110, type = 'countries' )
 
 if (require(sp)) {
@@ -71,18 +72,20 @@ if (require(sp)) {
 spdf_world2 <-    ne_load( scale = 110, type = 'countries' )
 
 # download followed by load from specified directory will work across sessions
-# spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
-# spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
+spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
+spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
 
 # for raster
 # download & load
-# rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+
 # load after having downloaded
-# rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+
 # plot
-# library(raster)
-# plot(rst)
- 
+library(raster)
+plot(rst)
+} # end dontrun
 }
 \seealso{
 \code{\link{ne_load}}, pre-downloaded data are available using \code{\link{ne_countries}}, \code{\link{ne_states}}
