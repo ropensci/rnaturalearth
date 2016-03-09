@@ -8,7 +8,7 @@
 #' @param spdf an optional alternative states map
 #' @examples
 #' 
-#' #comparing using country and geounit to filter
+#' # comparing using country and geounit to filter
 #' spdf_france_country <- ne_states(country='france')
 #' spdf_france_geounit <- ne_states(geounit='france')
 #'  
@@ -27,15 +27,12 @@ ne_states <- function(   country = NULL,
                             iso_a2 = NULL,
                             spdf = NULL) {
   
-  
-  
 
-  #add check if country, geounit and iso_a2 are in the data
+  # todo add check if country, geounit and iso_a2 are in the data
   
-  #set map from one stored
-  #this adds potential to add or pass other potential state maps, e.g. without lakes
-  #but no checking is done
-  #may not be needed
+  # set map from one stored
+  # this adds potential to add or pass other potential state maps, e.g. without lakes
+  # but no checking is done, may not be needed
   if (is.null(spdf)) 
   {
     check_rnaturalearthhires()
@@ -43,8 +40,8 @@ ne_states <- function(   country = NULL,
   }
 
   
-  #states50 only has Australia  Brazil Canada United States of America
-  #?not worth including option
+  # states50 only has Australia  Brazil Canada United States of America
+  # ?not worth including option
   
   # set default filter
   filter <- TRUE
@@ -62,9 +59,9 @@ ne_states <- function(   country = NULL,
   # filter by geounit
   if (!is.null(geounit)) 
   {
-    #BEWARE seeming natearth bug of extra n in geoNunit
-    #$ admin     : Factor w/ 257 levels "Afghanistan",..: 14 1 1 1 1 1 1 1 1 1 ...
-    #$ geonunit  : Factor w/ 284 levels "Afghanistan",..: 15 1 1 1 1 1 1 1 1 1 ...
+    # BEWARE seeming natearth bug of extra n in geoNunit
+    # $ admin     : Factor w/ 257 levels "Afghanistan",..: 14 1 1 1 1 1 1 1 1 1 ...
+    # $ geonunit  : Factor w/ 284 levels "Afghanistan",..: 15 1 1 1 1 1 1 1 1 1 ...
     filter_geounit <- tolower(spdf$geonunit) %in% tolower(geounit)   
     filter <- filter & filter_geounit
     

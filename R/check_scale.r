@@ -4,9 +4,9 @@
 #' 
 #' @param x scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @examples
-#' #commented out because not exported
-#' #check_scale(110)
-#' #check_scale("small")
+#' # commented out because not exported
+#' # check_scale(110)
+#' # check_scale("small")
 #' 
 #' @return integer scale of map
 

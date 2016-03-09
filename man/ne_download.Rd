@@ -67,21 +67,21 @@ if (require(sp)) {
   plot(ne_download(type='populated_places'))
 }
 
-#reloading from the saved file in the same session with same arguments
+# reloading from the saved file in the same session with same arguments
 spdf_world2 <-    ne_load( scale = 110, type = 'countries' )
 
-#download followed by load from specified directory will work across sessions
-#spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
-#spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
+# download followed by load from specified directory will work across sessions
+# spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
+# spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
 
-#' #for raster
-#download & load
-#rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
-#load after having downloaded
-#rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
-#plot
-#library(raster)
-#plot(rst)
+# for raster
+# download & load
+# rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+# load after having downloaded
+# rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+# plot
+# library(raster)
+# plot(rst)
  
 }
 \seealso{

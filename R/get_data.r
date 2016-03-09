@@ -27,10 +27,10 @@ get_data <- function(scale = 110,
   # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
   
-  #todo I may later be able to replace the below with this suggested by Hadley
-  #but before I do that I want to sort which datasets are going to be in the package
-  #e.g. some type,scale combinations are not available
-  #getExportedValue("rnaturalearth", paste0(type,scale))
+  # todo I may later be able to replace the below with this suggested by Hadley
+  # but before I do that I want to sort which datasets are going to be in the package
+  # e.g. some type,scale combinations are not available
+  # getExportedValue("rnaturalearth", paste0(type,scale))
   
   # choose which map based on type and scale
   # i could use paste to build up varname but this may be safer

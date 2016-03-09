@@ -42,34 +42,34 @@ Pre-downloaded maps can be accessed with :
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
-#world at small scale (low resolution)
+# world at small scale (low resolution)
 sp::plot(ne_countries(type='countries', scale='small'))
 
-#countries, UK undivided
+# countries, UK undivided
 sp::plot(ne_countries(country = 'united kingdom', type='countries'))
-#map_units, UK divided into England, Scotland, Wales and Northern Ireland
+# map_units, UK divided into England, Scotland, Wales and Northern Ireland
 sp::plot(ne_countries(country = 'united kingdom', type='map_units'))
 
 
-#countries, large scale
+# countries, large scale
 sp::plot(ne_countries(country = 'united kingdom', scale='large'))
 
-#countries, medium scale
+# countries, medium scale
 sp::plot(ne_countries(country = 'united kingdom', scale='medium'))
      
-#countries, small scale
+# countries, small scale
 sp::plot(ne_countries(country = 'united kingdom', scale='small'))   
 
-#states country='united kingdom'
+# states country='united kingdom'
 sp::plot(ne_states(country ='united kingdom'))  
-#states geounit='england'
+# states geounit='england'
 sp::plot(ne_states(geounit='england')) 
 
-#states country='france'
+# states country='france'
 sp::plot(ne_states(country ='france'))  
 
-#coastline of the world
-#subsetting of coastline is not possible because the Natural Earth data are not attributed in that way
+# coastline of the world
+# subsetting of coastline is not possible because the Natural Earth data are not attributed in that way
 sp::plot(ne_coastline())
 
 ```
@@ -83,11 +83,11 @@ Each [Natural Earth](http://www.naturalearthdata.com/) dataset is characterised 
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
-#lakes
+# lakes
 lakes110 <- ne_download(scale=110, type='lakes', category='physical')
 sp::plot(lakes110, col='blue')
 
-#rivers
+# rivers
 rivers110 <- ne_download(scale=110, type='rivers_lake_centerlines', category='physical')
 sp::plot(rivers110, col='blue')
 

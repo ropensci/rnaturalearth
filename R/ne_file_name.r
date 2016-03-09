@@ -18,51 +18,39 @@
 
 ne_file_name <- function(scale = 110,
                     type = 'countries',
-                    #category = c('cultural', 'physical'),
                     category = c('cultural', 'physical', 'raster'),
                     full_url = FALSE
 ) 
 {
   
-  #check on permitted scales, convert names to numeric
+  # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
   
   category <- match.arg(category)  
-  #type is left unchecked so users can specify any natearth filename
+  # type is left unchecked so users can specify any natearth filename
   
-  #some combinations are not available
+  # some combinations are not available
   if ( type=='map_subunits' & scale==110 )
     stop("The combination of type=",type,"and scale=",scale,"is not available in Natural Earth")
   
-  #add admin_0 to known types
+  # add admin_0 to known types
   if (type=='countries' | type=='map_units' | type=='map_subunits' | type=='sovereignty' | type=='tiny_countries' ) 
     type <- paste0('admin_0_',type)
   
-  #add admin_1 to known types
-  #this actually just expands 'states' to the name including lakes
-  #todo think about this one
+  # add admin_1 to known types
+  # this actually just expands 'states' to the name including lakes
+  # todo think about this one
   if (type == 'states')
     type <- 'admin_1_states_provinces_lakes'
 
  
   if (category=='raster')
   {
-    #raster seems not to have so straightforward naming, so require that name is passed in type
-    #category <- 'raster-data'
+    # raster seems not to have so straightforward naming, so require that name is passed in type
     file_name <- paste0(type)
   } else {
     file_name <- paste0('ne_',scale,'m_',type)
   }
-
-  
-  #actually this isn't needed, just need to get filenames right
-  # if (category=='raster-data') 
-  # {
-  #   subfoldname <- paste0('downloads/',scale,'m-',category) #50m-raster-data/
-  # } else
-  # {
-  #   subfoldname <- paste0('download/',scale,'m/,category')    
-  # }
 
   
   if (full_url)

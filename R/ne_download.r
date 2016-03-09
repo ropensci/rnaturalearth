@@ -49,21 +49,21 @@
 #'   plot(ne_download(type='populated_places'))
 #' }
 #' 
-#' #reloading from the saved file in the same session with same arguments
+#' # reloading from the saved file in the same session with same arguments
 #' spdf_world2 <-    ne_load( scale = 110, type = 'countries' )
 #' 
-#' #download followed by load from specified directory will work across sessions
-#' #spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
-#' #spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
+#' # download followed by load from specified directory will work across sessions
+#' # spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
+#' # spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
 #'
-#' #' #for raster
-#' #download & load
-#' #rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
-#' #load after having downloaded
-#' #rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
-#' #plot
-#' #library(raster)
-#' #plot(rst)
+#' # for raster
+#' # download & load
+#' # rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+#' # load after having downloaded
+#' # rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+#' # plot
+#' # library(raster)
+#' # plot(rst)
 #'  
 #' @return A \code{Spatial} object depending on the data (points, lines, polygons or raster), 
 #'    unless load=FALSE in which case it returns the name of the downloaded shapefile (without extension).
@@ -79,25 +79,25 @@ ne_download <- function(scale = 110,
   
   category <- match.arg(category)
   
-  #without extension, e.g. .shp
+  # without extension, e.g. .shp
   file_name <- ne_file_name(scale=scale, type=type, category=category, full_url=FALSE)
-  #full url including .zip
+  # full url including .zip
   address   <- ne_file_name(scale=scale, type=type, category=category, full_url=TRUE)  
   
-  #this puts zip in temporary place & unzipped files are saved later                
+  # this puts zip in temporary place & unzipped files are saved later                
   download.file(file.path(address), zip_file <- tempfile())
                   
-  #an alternative downloading the zip to a permanent place
-  #download.file(file.path(address), zip_file <- file.path(getwd(), paste0(file_name,".zip"))
+  # an alternative downloading the zip to a permanent place
+  # download.file(file.path(address), zip_file <- file.path(getwd(), paste0(file_name,".zip"))
   
-  #download.file & curl_download use 'destfile'
-  #but I want to specify just the folder because the file has a set name
+  # download.file & curl_download use 'destfile'
+  # but I want to specify just the folder because the file has a set name
 
   unzip(zip_file, exdir=destdir)
   
   if ( load & category == 'raster' )
   {
-    #have to use file_name to set the folder and the tif name
+    # have to use file_name to set the folder and the tif name
     rst <- raster::raster(file.path(destdir(), file_name ,paste0(file_name, ".tif")))
     return(rst)
     

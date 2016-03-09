@@ -23,7 +23,7 @@ returns state polygons (administrative level 1) for specified countries
 }
 \examples{
 
-#comparing using country and geounit to filter
+# comparing using country and geounit to filter
 spdf_france_country <- ne_states(country='france')
 spdf_france_geounit <- ne_states(geounit='france')
  
