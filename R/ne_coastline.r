@@ -2,7 +2,7 @@
 #'
 #' returns world coastline at specified scale
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}
+#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @examples
 #' sldf_coast <- ne_coastline()
 #' 

@@ -7,7 +7,7 @@
 ne_coastline(scale = 110)
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}}
+\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
 }
 \value{
 A \code{SpatialLinesDataFrame} object.

@@ -2,7 +2,7 @@
 #'
 #' returns world country polygons at a specified scale
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}
+#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @param type country type, one of 'countries', 'map_units', 'sovereignty'
 #' @param continent a character vector of continent names to get countries from.
 #' @param country a character vector of country names. 
