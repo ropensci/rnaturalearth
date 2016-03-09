@@ -17,8 +17,12 @@ This vignette is an introduction to [rnaturalearth](https://github.com/AndySouth
 
 [rnaturalearth](https://github.com/AndySouth/rnaturalearth) does two main things.
 
-1. contains pre-downloaded vector maps for countries: `ne_countries()`, states: `ne_states()` and coastline: `ne_coastline()`
-1. has `ne_download()` function to facilitate download of other vector maps
+1. Contains pre-downloaded vector maps for : 
+    + countries `ne_countries()`
+    + states `ne_states()`
+    + coastline `ne_coastline()`
+    
+1. Has `ne_download()` function to facilitate download of other vector and raster maps.
 
 
 This vignette uses `sp::plot` as a simple, quick way to show how different data can be accessed.`rnaturalearth` is designed to provide data allowing creation of more elaborate maps in other visualisation packages (e.g. `ggplot2`, `tmap` and `choroplethr`).
