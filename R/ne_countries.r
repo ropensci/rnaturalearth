@@ -7,7 +7,10 @@
 #' @param continent a character vector of continent names to get countries from.
 #' @param country a character vector of country names. 
 #' @param geounit a character vector of geounit names. 
-#' @param sovereignty a character vector of sovereignty names.  
+#' @param sovereignty a character vector of sovereignty names.
+#' 
+#' @aliases ne_admin0
+#'     
 #' @examples
 #' spdf_world <- ne_countries()
 #' spdf_africa <- ne_countries(continent='africa')

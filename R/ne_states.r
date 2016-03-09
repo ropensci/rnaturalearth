@@ -6,6 +6,9 @@
 #' @param geounit a character vector of geounit names. 
 #' @param iso_a2 a character vector of iso_a2 country codes  
 #' @param spdf an optional alternative states map
+#' 
+#' @aliases ne_admin1
+#' 
 #' @examples
 #' 
 #' # comparing using country and geounit to filter
