@@ -15,14 +15,14 @@
 #' @details A non-exhaustive list of datasets available according to \code{scale} specified by the \code{type} param 
 #'   \tabular{lccc}{
 #'          	                   \tab scale='small'	\tab scale='medium'	\tab scale='large' \cr
-#'   category="Physical", type="[below]" \cr
+#'   category="physical", type="[below]" \cr
 #'   coastline	                 \tab y	        \tab y      	\tab y        \cr
 #'   land     	                 \tab y	        \tab y      	\tab y        \cr
 #'   ocean     	                 \tab y	        \tab y      	\tab y        \cr
 #'   rivers_lake_centerlines     \tab y	        \tab y      	\tab y        \cr
 #'   lakes     	                 \tab y	        \tab y      	\tab y        \cr 
 #'   glaciated_areas     	       \tab y	        \tab y      	\tab y        \cr
-#'   antarctic_ice_shelves_polys \tab y	        \tab y      	\tab y        \cr
+#'   antarctic_ice_shelves_polys \tab -	        \tab y      	\tab y        \cr
 #'   geographic_lines            \tab y	        \tab y      	\tab y        \cr
 #'   graticules_1     	         \tab y	        \tab y      	\tab y        \cr
 #'   graticules_30     	         \tab y	        \tab y      	\tab y        \cr
@@ -30,7 +30,7 @@
 #'   playas     	               \tab -	        \tab y      	\tab y        \cr
 #'   minor_islands      	       \tab -	        \tab -      	\tab y        \cr
 #'   reefs              	       \tab -	        \tab -      	\tab y        \cr 
-#'   category="Cultural", type="[below]"             \cr    
+#'   category="cultural", type="[below]"             \cr    
 #'   populated_places        	   \tab y	        \tab y      	\tab y        \cr
 #'   admin_0_boundary_lines_land \tab y	        \tab y      	\tab y        \cr
 #'   admin_0_breakaway_disputed_areas \tab -	        \tab y      	\tab y        \cr
