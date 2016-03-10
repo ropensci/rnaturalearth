@@ -1,41 +1,42 @@
 
 ## responses to @lmullen
 
-### This package should be at least two packages, and probably three. 
+##### This package should be at least two packages, and probably three. 
 
 done. converted to 3 packages rnaturalearth, rnaturalearthdata & rnaturalearthhires. The first 2 air aimed at CRAN and the 3rd the rOpenSci drat repo)
 
-### @sckott, @karthik, @cboettig: To be able to test these changes effectively, @AndySouth will need to use the rOpenSci drat repository. I'd suggest that the package be provisionally accepted and moved into rOpenSci GitHub and drat repositories.
+##### @sckott, @karthik, @cboettig: To be able to test these changes effectively, @AndySouth will need to use the rOpenSci drat repository. I'd suggest that the package be provisionally accepted and moved into rOpenSci GitHub and drat repositories.
+I'm ready for that stage now if you are.
 
-
-### The README.md should be converted to README.Rmd via devtools::use_readme_rmd().
+##### The README.md should be converted to README.Rmd via devtools::use_readme_rmd().
 done
-### The package should use Appveyor's CI for Windows via devtools::use_appveyor().
-done
-
-### Specify a version number for rgdal, httr, and knitr.
-
-### All the tests pass. I'll check coverage more carefully once the package structure has stabilized. In the meantime, all of the tests which download files should have skip_on_cran().
+##### The package should use Appveyor's CI for Windows via devtools::use_appveyor().
 done
 
-### The vignette should not need download anything from Natural Earth. The code block at the end with two downloads should be set to eval = FALSE.
+##### Specify a version number for rgdal, httr, and knitr.
+I don't know what version number is needed for these packages. Feel like I would just be making one up. Where might I look ?
+
+##### All the tests pass. I'll check coverage more carefully once the package structure has stabilized. In the meantime, all of the tests which download files should have skip_on_cran().
 done
 
-### Code style
-
-### In the README and vignettes, in place of require(rnaturalearth) use library(rnaturalearth).
+##### The vignette should not need download anything from Natural Earth. The code block at the end with two downloads should be set to eval = FALSE.
 done
-### Spacing is often inconsistent around = using in function definitions and calls. There should always be a single space on both sides of =. For example, in the README vignette("rnaturalearth", package="rnaturalearth") should be vignette("rnaturalearth", package = "rnaturalearth").
+
+##### Code style
+
+##### In the README and vignettes, in place of require(rnaturalearth) use library(rnaturalearth).
+done
+##### Spacing is often inconsistent around = using in function definitions and calls. There should always be a single space on both sides of =. For example, in the README vignette("rnaturalearth", package="rnaturalearth") should be vignette("rnaturalearth", package = "rnaturalearth").
 I recognise this, but unless it's essential would prefer to keep my sometimes idiosyncratic use of spaces which I use to enhance my readability (and out of habit too).
 
-### Comments at the start of the line should be followed by a space. (I prefer to user sentence capitalization; but that's just a preference.) 
+##### Comments at the start of the line should be followed by a space. (I prefer to user sentence capitalization; but that's just a preference.) 
 done
-### Most important, all code which has been commented out needs to be deleted.
+##### Most important, all code which has been commented out needs to be deleted.
 done (mostly)
-### The same goes for the data download scripts in data-raw. At the moment, they have a lot investigating the data. Now that you've settled on what to do, you can retain that information in comments but trim unnecessary code.
+##### The same goes for the data download scripts in data-raw. At the moment, they have a lot investigating the data. Now that you've settled on what to do, you can retain that information in comments but trim unnecessary code.
 I have kept some commented code as these are the areas where it is most likely I will need to adapt old code in repsonse to potential future data changes, and least likely that users need to access. 
 
-### Functions which have limited categorical options should specify all the options in the function signature and then use match.args(). An example of this is get_data() and the type parameter. For example, a function that looks like this
+##### Functions which have limited categorical options should specify all the options in the function signature and then use match.args(). An example of this is get_data() and the type parameter. For example, a function that looks like this
 
 myfunc <- function(type = "a") {
   if(type == "a") {
@@ -53,18 +54,47 @@ myfunc <- function(type = c("a", "b")) {
   # Logic checking type here.
 }
 
+I chose not to do this initially because I wanted to give the user more guidance if they submitted an incorrect option. I'm open to further suggestions.
 
 
-### get_data() should be renamed to something less generic, like ne_get_data(). Or, can you avoid exporting it?
+##### get_data() should be renamed to something less generic, like ne_get_data(). Or, can you avoid exporting it?
 no longer exported
 
-### In the headings of the vignettes, prefer sentence-style capitalization. E.g. 1. Maps in the package. (I'd suggest the same for comments as well, but that's entirely up to you.)
+##### In the headings of the vignettes, prefer sentence-style capitalization. E.g. 1. Maps in the package. (I'd suggest the same for comments as well, but that's entirely up to you.)
+done in vignettes
 
-
-### This line in the vignette should be revised, perhaps into a bulleted list, since a sentence can only contain one colon. contains pre-downloaded vector maps for countries: ne_countries(), states: ne_states() and coastline: ne_coastline()
+##### This line in the vignette should be revised, perhaps into a bulleted list, since a sentence can only contain one colon. contains pre-downloaded vector maps for countries: ne_countries(), states: ne_states() and coastline: ne_coastline()
+done
 
 ## responses to @Robinlovelace
 
+##### The main vignette succintly describes the core purpose and functions of the package, although I think more on what extra can be downloaded via ne_download() would be interesting here.
+done
+
+##### I think the description of the @param type in ne_download could be better at conveying to the user what datasets are available. It is not clear from the function documentation, for example, that lakes can be downloaded with ne_download(type = 'lakes', category = 'physical'). To resolve this issue I suggest that a link to the dataset types is make more explicit (e.g. "see naturalearthdata.com/downloads/110m-cultural-vectors/ for the types of data that can be downloaded for cultural 110 m resolution data.")
+Thanks for pointing this out. I've added a table to the start of the man page for ne_download() which outlines the main maps available at different scales
+
+##### To assist with the 'making it clear what data is available' issue, I think that ne_download could usefully be split into ne_download10, ne_download50 and ne_download110, while keeping the generic ne_download function intact. The data available varies depending on scale, so ne_download10, for example, could provide descriptions of the very useful roads and railways datasets. 
+I think that the improved documentation in ne_download() makes splitting it into the 3 functions unnecessary.
+
+
+##### sp is an import but I think the package would benefit from making it a dependency (as it is with stplanr after some debate): all the data loaded by the package that I've seen is in an sp S4 object. Yet these will not work (e.g. plot) properly unless sp is loaded, as illustrated in the vignette. This would also make the plot commands in the vignette simpler.
+I'm open to considering making sp a dependency, how do others feel ? I wanted to keep this as light on dependencies as possible. If a user was using fortify with ggplot2 they wouldn't need sp, right ?
+
+##### scale = 10 isn't listed as an argument of ne_countries("scale of map to return, one of 110, 50, 'small', 'medium'") but it works so should be added.
+done
+
+##### It is not clear that category is a needed argument. airports <- ne_download(scale = 10, type = "airports"), for example, works the same as airports <- ne_download(scale = 10, type = "airports") - there are no types I can see that duplicate names between categories.
+Whilst you are correct, category is needed to construct the download url. If I were to dispense with it I would need to create a list of all the maps and which category they are in. I wanted to keep the link to the Natural Earth data as simple as possible so that if it changes I don't have too much work to do.
+
+##### I couldn't see how to download ice shelf data succesfully. I was expecting ne_download(scale = 10, type = "antarctic_ice_shelves", category = "physical") or ne_download(scale = 10, type = "antarctic ice shelves", category = "physical") to work but neither seemed to...
+ne_download(scale=50, type="antarctic_ice_shelves_polys", category="physical")
+I am following natural earth filenaming directly to try to keep this sustainable.
+
+##### Links to other data sources such as the SRTM (some of which can be accessed through the raster package) would be useful, perhaps in the vignette.
+
+
+Thanks @richfitz for the data storage suggestion. I chose the path more well travelled for now, but am interested in that approach for the future.
 
 
 
