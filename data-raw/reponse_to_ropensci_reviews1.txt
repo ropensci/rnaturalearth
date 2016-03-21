@@ -1,4 +1,7 @@
 
+Thanks for your patience, finally found spare time to finish addressing these useful recomendations from the reviewers.
+
+
 ## responses to @lmullen
 
 ##### This package should be at least two packages, and probably three. 
@@ -54,7 +57,7 @@ myfunc <- function(type = c("a", "b")) {
   # Logic checking type here.
 }
 
-I chose not to do this initially because I wanted to give the user more guidance if they submitted an incorrect option. I'm open to further suggestions.
+Done, except where I wanted to give the user more guidance if they submitted an incorrect option. 
 
 
 ##### get_data() should be renamed to something less generic, like ne_get_data(). Or, can you avoid exporting it?
@@ -92,7 +95,7 @@ ne_download(scale=50, type="antarctic_ice_shelves_polys", category="physical")
 I am following natural earth filenaming directly to try to keep this sustainable.
 
 ##### Links to other data sources such as the SRTM (some of which can be accessed through the raster package) would be useful, perhaps in the vignette.
-
+I added a link to seealso for ne_download()
 
 Thanks @richfitz for the data storage suggestion. I chose the path more well travelled for now, but am interested in that approach for the future.
 

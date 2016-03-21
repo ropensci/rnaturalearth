@@ -25,13 +25,12 @@
 #' @return A \code{SpatialPolygonsDataFrame} object.
 #' @export
 #' 
-ne_states <- function(   country = NULL,
-                            geounit = NULL,
-                            iso_a2 = NULL,
-                            spdf = NULL) {
+ne_states <- function( country = NULL,
+                       geounit = NULL,
+                       iso_a2 = NULL,
+                       spdf = NULL) {
   
 
-  # todo add check if country, geounit and iso_a2 are in the data
   
   # set map from one stored
   # this adds potential to add or pass other potential state maps, e.g. without lakes
@@ -40,11 +39,11 @@ ne_states <- function(   country = NULL,
   {
     check_rnaturalearthhires()
     spdf <- rnaturalearthhires::states10    
-  }
+  } 
 
   
   # states50 only has Australia  Brazil Canada United States of America
-  # ?not worth including option
+  # so not included
   
   # set default filter
   filter <- TRUE
@@ -52,6 +51,9 @@ ne_states <- function(   country = NULL,
   # filter by country name (admin field in ne)
   if (!is.null(country)) 
   {
+    #check if field in data, for passed data or if changed in future
+    if ( !("admin" %in% names(spdf))) stop("No admin field in the data : ",names(spdf))
+    
     filter_country <- tolower(spdf$admin) %in% tolower(country)   
     filter <- filter & filter_country
     
@@ -63,8 +65,12 @@ ne_states <- function(   country = NULL,
   if (!is.null(geounit)) 
   {
     # BEWARE seeming natearth bug of extra n in geoNunit
+    # todo report this bug to natural earth
     # $ admin     : Factor w/ 257 levels "Afghanistan",..: 14 1 1 1 1 1 1 1 1 1 ...
     # $ geonunit  : Factor w/ 284 levels "Afghanistan",..: 15 1 1 1 1 1 1 1 1 1 ...
+    
+    if ( !("geonunit" %in% names(spdf))) stop("No geonunit field in the data : ",names(spdf))
+    
     filter_geounit <- tolower(spdf$geonunit) %in% tolower(geounit)   
     filter <- filter & filter_geounit
     
@@ -75,6 +81,9 @@ ne_states <- function(   country = NULL,
   # filter by iso_a2
   if (!is.null(iso_a2)) 
   {
+    
+    if ( !("iso_a2" %in% names(spdf))) stop("No iso_a2 field in the data : ",names(spdf))    
+    
     filter_iso_a2 <- tolower(spdf$iso_a2) %in% tolower(iso_a2)   
     filter <- filter & filter_iso_a2
     

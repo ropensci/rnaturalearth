@@ -28,7 +28,6 @@ ne_coastline <- function(scale = 110) {
   scale <- check_scale(scale)
   
   # choose which map based on scale
-  # i could use paste to build up varname but this may be safer for now
   sldf <- NULL
   
   if ( scale==110 ) { 
