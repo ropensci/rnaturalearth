@@ -7,7 +7,7 @@
 get_data(scale = 110, type = "countries")
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}}
+\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}, \code{'small'}, \code{'medium'}, \code{'large'}}
 
 \item{type}{country type, one of 'countries', 'map_units', 'sovereignty'}
 }

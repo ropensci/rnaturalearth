@@ -2,7 +2,7 @@
 #'
 #' returns world country polygons at a specified scale, used by ne_countries()
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{'small'}, \code{'medium'}
+#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}, \code{'small'}, \code{'medium'}, \code{'large'}
 #' @param type country type, one of 'countries', 'map_units', 'sovereignty'
 # @examples
 # spdf_world <- get_data(scale = 110, type = 'countries')
@@ -13,28 +13,28 @@
 get_data <- function(scale = 110,
                      type = 'countries') {
 
+  # check on permitted scales, convert names to numeric
+  scale <- check_scale(scale)
+  
   # check for the data packages and try to install if not there
-  # I may want to avoid this check for one example dataset in this package (i.e. countries110)
+  # avoid this check for one example dataset in this package (i.e. countries110)
+  
   if ( scale == 10 )
   {
     check_rnaturalearthhires()    
-  } else
+  } else if ( !(scale == 10 && type == 'countries') )
   {
     check_rnaturalearthdata()        
   }
   
-
-  # check on permitted scales, convert names to numeric
-  scale <- check_scale(scale)
   
   # todo I may later be able to replace the below with this suggested by Hadley
   # but before I do that I want to sort which datasets are going to be in the package
   # e.g. some type,scale combinations are not available
-  # getExportedValue("rnaturalearth", paste0(type,scale))
+  # spdf <- getExportedValue("rnaturalearth", paste0(type,scale))
   
   # choose which map based on type and scale
   # i could use paste to build up varname but this may be safer
-  # todo this may not be necessary if I allow filtering by geounit and sovereignt[y] fields instead
   spdf <- NULL
   if ( type=='countries' ) {
     if ( scale==110 ) { 
