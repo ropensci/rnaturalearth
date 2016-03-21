@@ -11,10 +11,13 @@
 # @export
 #' 
 get_data <- function(scale = 110,
-                     type = 'countries') {
+                     type = c('countries', 'map_units', 'sovereignty') ) {
 
-  # check on permitted scales, convert names to numeric
+  # check on permitted scale arg, convert names to numeric
   scale <- check_scale(scale)
+  
+  # check permitted type arg
+  type <- match.arg(type) 
   
   # check for the data packages and try to install if not there
   # avoid this check for one example dataset in this package (i.e. countries110)
