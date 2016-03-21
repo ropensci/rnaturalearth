@@ -40,7 +40,8 @@
 #'   roads              	       \tab -	        \tab -      	\tab y        \cr   
 #'   railroads              	   \tab -	        \tab -      	\tab y        \cr       
 #'   }
-#' @seealso \code{\link{ne_load}}, pre-downloaded data are available using \code{\link{ne_countries}}, \code{\link{ne_states}}
+#' @seealso \code{\link{ne_load}}, pre-downloaded data are available using \code{\link{ne_countries}}, \code{\link{ne_states}}.
+#' Other geographic data are available in the raster package : \code{\link[raster]{getData}}.
 #' @examples
 #' \dontrun{
 #' spdf_world <- ne_download( scale = 110, type = 'countries' )
@@ -101,7 +102,7 @@ ne_download <- function(scale = 110,
   if ( load & category == 'raster' )
   {
     # have to use file_name to set the folder and the tif name
-    rst <- raster::raster(file.path(destdir(), file_name ,paste0(file_name, ".tif")))
+    rst <- raster::raster(file.path(destdir(), file_name, paste0(file_name, ".tif")))
     return(rst)
     
     
