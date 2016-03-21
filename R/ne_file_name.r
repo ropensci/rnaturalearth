@@ -26,6 +26,7 @@ ne_file_name <- function(scale = 110,
   # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
   
+  # check permitted category
   category <- match.arg(category)  
   # type is left unchecked so users can specify any natearth filename
   
