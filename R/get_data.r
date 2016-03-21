@@ -25,55 +25,27 @@ get_data <- function(scale = 110,
   if ( scale == 10 )
   {
     check_rnaturalearthhires()    
-  } else if ( !(scale == 10 && type == 'countries') )
+  } else if ( !(scale == 110 && type == 'countries') )
   {
     check_rnaturalearthdata()        
   }
   
+  # choose which map based on type and scale (stored in different packages)
   
-  # todo I may later be able to replace the below with this suggested by Hadley
-  # but before I do that I want to sort which datasets are going to be in the package
-  # e.g. some type,scale combinations are not available
-  # spdf <- getExportedValue("rnaturalearth", paste0(type,scale))
-  
-  # choose which map based on type and scale
-  # i could use paste to build up varname but this may be safer
-  spdf <- NULL
-  if ( type=='countries' ) {
-    if ( scale==110 ) { 
-      spdf <- rnaturalearthdata::countries110    
-      
-    } else if ( scale==50 ) {
-      spdf <- rnaturalearthdata::countries50  
-      
-    } else if ( scale==10 ) {
-      spdf <- rnaturalearthhires::countries10  
-    }       
-  } else if ( type=='map_units' ) { 
-    if ( scale==110 ) { 
-      spdf <- rnaturalearthdata::map_units110    
-      
-    } else if ( scale==50 ) {
-      spdf <- rnaturalearthdata::map_units50  
-      
-    } else if ( scale==10 ) {
-      spdf <- rnaturalearthhires::map_units10  
-    }         
-  } else if ( type=='sovereignty' ) { 
-    if ( scale==110 ) { 
-      spdf <- rnaturalearthdata::sovereignty110    
-      
-    } else if ( scale==50 ) {
-      spdf <- rnaturalearthdata::sovereignty50  
-      
-    } else if ( scale==10 ) {
-      spdf <- rnaturalearthhires::sovereignty10  
-    }
-    else {
-      
-      stop("type needs to be one of 'countries', 'map_units', 'sovereignty' you have :",type,"\n")    
-    }     
+  if ( scale == 110 && type == 'countries' ) {
+    
+    spdf <- getExportedValue("rnaturalearth", paste0(type,scale))
+    
+  } else if ( scale==110 || scale ==50 ) {
+    
+    spdf <- getExportedValue("rnaturalearthdata", paste0(type,scale))
+    
+  } else if ( scale==10 ) {
+    
+    spdf <- getExportedValue("rnaturalearthhires", paste0(type,scale))
+    
   }
+
 
   return(spdf)
 }
