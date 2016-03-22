@@ -11,7 +11,7 @@ ne_countries(scale = 110, type = "countries", continent = NULL,
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
 
-\item{type}{country type, one of 'countries', 'map_units', 'sovereignty'}
+\item{type}{country type, one of 'countries', 'map_units', 'sovereignty', 'tiny_countries'}
 
 \item{continent}{a character vector of continent names to get countries from.}
 
@@ -22,20 +22,22 @@ ne_countries(scale = 110, type = "countries", continent = NULL,
 \item{sovereignty}{a character vector of sovereignty names.}
 }
 \value{
-A \code{SpatialPolygonsDataFrame} object.
+\code{SpatialPolygonsDataFrame} or \code{SpatialPointsDataFrame} object.
 }
 \description{
-returns world country polygons at a specified scale
+returns world country polygons at a specified scale, or points of tiny_countries
 }
 \examples{
 spdf_world <- ne_countries()
 spdf_africa <- ne_countries(continent='africa')
 spdf_france <- ne_countries(country='france')
+spdf_tiny_countries <- ne_countries(type='tiny_countries', scale=50)
 
 if (require(sp)) {
   plot(spdf_world)
   plot(spdf_africa)
-  plot(spdf_france)   
+  plot(spdf_france)
+  plot(spdf_tiny_countries)   
 }
 }
 

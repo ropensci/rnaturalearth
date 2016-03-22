@@ -72,7 +72,7 @@ done
 ## responses to @Robinlovelace
 
 ##### The main vignette succintly describes the core purpose and functions of the package, although I think more on what extra can be downloaded via ne_download() would be interesting here.
-done
+started. More could definitely be added, and I will but would be good to get out first.
 
 ##### I think the description of the @param type in ne_download could be better at conveying to the user what datasets are available. It is not clear from the function documentation, for example, that lakes can be downloaded with ne_download(type = 'lakes', category = 'physical'). To resolve this issue I suggest that a link to the dataset types is make more explicit (e.g. "see naturalearthdata.com/downloads/110m-cultural-vectors/ for the types of data that can be downloaded for cultural 110 m resolution data.")
 Thanks for pointing this out. I've added a table to the start of the man page for ne_download() which outlines the main maps available at different scales
@@ -96,6 +96,11 @@ I am following natural earth filenaming directly to try to keep this sustainable
 
 ##### Links to other data sources such as the SRTM (some of which can be accessed through the raster package) would be useful, perhaps in the vignette.
 I added a link to seealso for ne_download()
+
+
+## additions
+I've added support for raster downloads and tiny_countries points.
+
 
 Thanks @richfitz for the data storage suggestion. I chose the path more well travelled for now, but am interested in that approach for the future.
 
