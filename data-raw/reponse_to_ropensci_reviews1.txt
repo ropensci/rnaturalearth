@@ -1,12 +1,13 @@
 
 Thanks for your patience, finally found spare time to finish addressing these useful recomendations from the reviewers.
 
+It fails travis checks currently due to the relationships between the 3 packages, but passes checks locally.
 
 ## responses to @lmullen
 
 ##### This package should be at least two packages, and probably three. 
 
-done. converted to 3 packages rnaturalearth, rnaturalearthdata & rnaturalearthhires. The first 2 air aimed at CRAN and the 3rd the rOpenSci drat repo)
+done. converted to 3 packages rnaturalearth, rnaturalearthdata & rnaturalearthhires. The first 2 are aimed at CRAN and the 3rd the rOpenSci drat repo)
 
 ##### @sckott, @karthik, @cboettig: To be able to test these changes effectively, @AndySouth will need to use the rOpenSci drat repository. I'd suggest that the package be provisionally accepted and moved into rOpenSci GitHub and drat repositories.
 I'm ready for that stage now if you are.
