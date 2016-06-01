@@ -1,0 +1,55 @@
+
+
+## responses to 2nd rOpenSci review from @lmullen
+
+### Separation of packages
+
+#### Using rOpenSci repository for loading data packages instead of devtools.
+
+Done for rnaturalearthhires, but rnaturalearthdata is not yet on rOpenSCi or CRAN, I have put in the code ready to change once rnaturalearthdata is on rOpenSci.
+```
+               #utils::install.packages("rnaturalearthdata",
+               #                        repos = c("http://packages.ropensci.org", "http://cran.rstudio.com"),
+               #                        type = "source")
+```
+
+#### I'd still like to see package version numbers for the dependencies in the DESCRIPTION.
+Done
+
+
+### R CMD check
+
+#### * checking R code for possible problems ... NOTE
+#### ne_download: no visible global function definition for ‘download.file’
+#### ne_download: no visible global function definition for ‘unzip’
+done
+
+#### The vignette fails to build if rnaturalearthhires is not available. Since that package won't be CRAN, I don't think this is going to pass CRAN checks. You should probably add eval = FALSE to the chunks in the vignette that use the high resolution data. 
+done
+
+#### I get a warning message when running the code in the examples in ne_download()
+#### In if (category == "raster") { :
+####   the condition has length > 1 and only the first element will be used
+done 
+
+
+### Testing / continuous integration
+
+#### Travis and Appveyor tests are failing. At least the Travis tests should be passing. It looks like the problem is that the installation of rgdal fails because you don't have the rgdal dev package installed on Ubuntu. I'm not sure why the binary package as specified in the Travis file is not working. But you should be able to install rgdal from source if you install the apt package libgdal-dev. As for Appveyor, it looks like the problem has to do with package installation as well.
+
+TODO Travis rgdal & Appveyor
+
+#### Not a requirement, but you might consider adding code coverage with covr.
+
+TODO covr
+
+### Stylistic considerations
+
+#### I'd suggest changing the title of the introductory vignette to "Introduction to rnaturalearth."
+done
+
+#### All user-facing documentation (i.e., examples and vignettes) should be made consistent in having a single space on both sides of the =. There are a few places with inconsistent spacing around parentheses as well.
+done
+
+
+
