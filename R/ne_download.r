@@ -89,7 +89,7 @@ ne_download <- function(scale = 110,
   address   <- ne_file_name(scale=scale, type=type, category=category, full_url=TRUE)  
   
   # this puts zip in temporary place & unzipped files are saved later                
-  download.file(file.path(address), zip_file <- tempfile())
+  utils::download.file(file.path(address), zip_file <- tempfile())
                   
   # an alternative downloading the zip to a permanent place
   # download.file(file.path(address), zip_file <- file.path(getwd(), paste0(file_name,".zip"))
@@ -97,7 +97,7 @@ ne_download <- function(scale = 110,
   # download.file & curl_download use 'destfile'
   # but I want to specify just the folder because the file has a set name
 
-  unzip(zip_file, exdir=destdir)
+  utils::unzip(zip_file, exdir=destdir)
   
   if ( load & category == 'raster' )
   {
@@ -109,7 +109,7 @@ ne_download <- function(scale = 110,
   } else if ( load )
   {
 
-    sp_object <- readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE)
+    sp_object <- rgdal::readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE)
     
     return(sp_object) 
     
