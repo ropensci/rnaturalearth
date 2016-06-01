@@ -17,14 +17,14 @@ Depends:
     R (>= 3.1.1)
 Imports:
     sp (>= 1.0.15),
-    rgdal
+    rgdal (>= 1.1-3)
 Suggests:
-    knitr,
+    knitr (>= 1.12.3),
     testthat (>= 0.9.1),
-    httr,
-    devtools,
+    httr (>= 1.1.0),
+    devtools (>= 1.10.0),
     rnaturalearthdata (>= 0.0.0.9000), 
     rnaturalearthhires (>= 0.0.0.9000),
-    raster
+    raster (>= 2.5-2)
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
