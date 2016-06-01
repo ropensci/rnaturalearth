@@ -45,6 +45,9 @@ ne_load <- function(scale = 110,
 ) 
 {
   
+  category <- match.arg(category)
+  
+  
   if (is.null(file_name)) 
   {
     file_name <- ne_file_name(scale=scale, type=type, category=category)    
