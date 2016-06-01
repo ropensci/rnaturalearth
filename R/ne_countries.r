@@ -13,9 +13,9 @@
 #'     
 #' @examples
 #' spdf_world <- ne_countries()
-#' spdf_africa <- ne_countries(continent='africa')
-#' spdf_france <- ne_countries(country='france')
-#' spdf_tiny_countries <- ne_countries(type='tiny_countries', scale=50)
+#' spdf_africa <- ne_countries(continent = 'africa')
+#' spdf_france <- ne_countries(country = 'france')
+#' spdf_tiny_countries <- ne_countries(type = 'tiny_countries', scale = 50)
 #' 
 #' if (require(sp)) {
 #'   plot(spdf_world)

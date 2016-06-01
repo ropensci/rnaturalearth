@@ -12,7 +12,7 @@ ne_file_name(scale = 110, type = "countries", category = c("cultural",
 
 \item{type}{type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 OR the portion of any natural earth vector url after the scale and before the . 
-e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"}
+e.g. for 'ne_50m_urban_areas.zip' this would be 'urban_areas'}
 
 \item{category}{one of natural earth categories : 'cultural', 'physical', 'raster'}
 
@@ -26,7 +26,7 @@ returns a string that can then be used to download the file.
 }
 \examples{
 ne_name <- ne_file_name( scale = 110, type = 'countries' )
-ne_url  <- ne_file_name( scale = 110, type = 'countries', full_url=TRUE )
+ne_url  <- ne_file_name( scale = 110, type = 'countries', full_url = TRUE )
 
 }
 

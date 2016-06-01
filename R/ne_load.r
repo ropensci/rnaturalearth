@@ -6,7 +6,7 @@
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @param type type of natural earth file one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 #'    OR the portion of any natural earth vector url after the scale and before the . 
-#'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
+#'    e.g. for 'ne_50m_urban_areas.zip' this would be 'urban_areas'
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir folder to load files from, default=tempdir()
 #' @param file_name OPTIONAL name of file (excluding path) instead of natural earth attributes
@@ -24,10 +24,10 @@
 #' 
 #' # for raster
 #' # download & load
-#' rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+#' rst <- ne_download(scale = 50, type = 'OB_50M', category = 'raster', destdir = getwd())
 #' 
 #' # load after having downloaded
-#' rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+#' rst <- ne_load(scale = 50, type = 'OB_50M', category = 'raster', destdir = getwd())
 #' 
 #' # plot
 #' library(raster)

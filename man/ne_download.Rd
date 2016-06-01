@@ -12,7 +12,7 @@ ne_download(scale = 110, type = "countries", category = c("cultural",
 
 \item{type}{type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 OR the portion of any natural earth vector url after the scale and before the . 
-e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas". See Details.}
+e.g. for 'ne_50m_urban_areas.zip' this would be 'urban_areas'. See Details.}
 
 \item{category}{one of natural earth categories : 'cultural', 'physical', 'raster'}
 
@@ -32,8 +32,8 @@ with the same arguments.
 \details{
 A non-exhaustive list of datasets available according to \code{scale} specified by the \code{type} param 
   \tabular{lccc}{
-         	                   \tab scale='small'	\tab scale='medium'	\tab scale='large' \cr
-  category="physical", type="[below]" \cr
+         	                   \tab scale = 'small'	\tab scale = 'medium'	\tab scale = 'large' \cr
+  category = 'physical', type = '[below]' \cr
   coastline	                 \tab y	        \tab y      	\tab y        \cr
   land     	                 \tab y	        \tab y      	\tab y        \cr
   ocean     	                 \tab y	        \tab y      	\tab y        \cr
@@ -48,7 +48,7 @@ A non-exhaustive list of datasets available according to \code{scale} specified 
   playas     	               \tab -	        \tab y      	\tab y        \cr
   minor_islands      	       \tab -	        \tab -      	\tab y        \cr
   reefs              	       \tab -	        \tab -      	\tab y        \cr 
-  category="cultural", type="[below]"             \cr    
+  category = 'cultural', type = '[below]'             \cr    
   populated_places        	   \tab y	        \tab y      	\tab y        \cr
   admin_0_boundary_lines_land \tab y	        \tab y      	\tab y        \cr
   admin_0_breakaway_disputed_areas \tab -	        \tab y      	\tab y        \cr
@@ -65,7 +65,7 @@ spdf_world <- ne_download( scale = 110, type = 'countries' )
 
 if (require(sp)) {
   plot(spdf_world)
-  plot(ne_download(type='populated_places'))
+  plot(ne_download(type = 'populated_places'))
 }
 
 # reloading from the saved file in the same session with same arguments
@@ -77,10 +77,10 @@ spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
 
 # for raster, here an example with Manual Shaded Relief (MSR)
 # download & load
-rst <- ne_download(scale = 50, type = "MSR_50M", category = "raster", destdir = getwd())
+rst <- ne_download(scale = 50, type = 'MSR_50M', category = 'raster', destdir = getwd())
 
 # load after having downloaded
-rst <- ne_load(scale = 50, type = "MSR_50M", category = "raster", destdir = getwd())
+rst <- ne_load(scale = 50, type = 'MSR_50M', category = 'raster', destdir = getwd())
 
 # plot
 library(raster)

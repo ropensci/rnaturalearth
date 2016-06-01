@@ -5,13 +5,13 @@
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 #'    OR the portion of any natural earth vector url after the scale and before the . 
-#'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas"
+#'    e.g. for 'ne_50m_urban_areas.zip' this would be 'urban_areas'
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param full_url whether to return just the filename [default] or the full URL needed for download
 
 #' @examples
 #' ne_name <- ne_file_name( scale = 110, type = 'countries' )
-#' ne_url  <- ne_file_name( scale = 110, type = 'countries', full_url=TRUE )
+#' ne_url  <- ne_file_name( scale = 110, type = 'countries', full_url = TRUE )
 #' 
 #' @return string
 #' @export

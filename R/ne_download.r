@@ -7,15 +7,15 @@
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @param type type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
 #'    OR the portion of any natural earth vector url after the scale and before the . 
-#'    e.g. for "ne_50m_urban_areas.zip" this would be "urban_areas". See Details.
+#'    e.g. for 'ne_50m_urban_areas.zip' this would be 'urban_areas'. See Details.
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir where to save files, defaults to \code{tempdir()}, \code{getwd()} is also possible.
 #' @param load TRUE/FALSE whether to load file into R and return
 #' 
 #' @details A non-exhaustive list of datasets available according to \code{scale} specified by the \code{type} param 
 #'   \tabular{lccc}{
-#'          	                   \tab scale='small'	\tab scale='medium'	\tab scale='large' \cr
-#'   category="physical", type="[below]" \cr
+#'          	                   \tab scale = 'small'	\tab scale = 'medium'	\tab scale = 'large' \cr
+#'   category = 'physical', type = '[below]' \cr
 #'   coastline	                 \tab y	        \tab y      	\tab y        \cr
 #'   land     	                 \tab y	        \tab y      	\tab y        \cr
 #'   ocean     	                 \tab y	        \tab y      	\tab y        \cr
@@ -30,7 +30,7 @@
 #'   playas     	               \tab -	        \tab y      	\tab y        \cr
 #'   minor_islands      	       \tab -	        \tab -      	\tab y        \cr
 #'   reefs              	       \tab -	        \tab -      	\tab y        \cr 
-#'   category="cultural", type="[below]"             \cr    
+#'   category = 'cultural', type = '[below]'             \cr    
 #'   populated_places        	   \tab y	        \tab y      	\tab y        \cr
 #'   admin_0_boundary_lines_land \tab y	        \tab y      	\tab y        \cr
 #'   admin_0_breakaway_disputed_areas \tab -	        \tab y      	\tab y        \cr
@@ -48,7 +48,7 @@
 #' 
 #' if (require(sp)) {
 #'   plot(spdf_world)
-#'   plot(ne_download(type='populated_places'))
+#'   plot(ne_download(type = 'populated_places'))
 #' }
 #' 
 #' # reloading from the saved file in the same session with same arguments
@@ -60,10 +60,10 @@
 #'
 #' # for raster, here an example with Manual Shaded Relief (MSR)
 #' # download & load
-#' rst <- ne_download(scale = 50, type = "MSR_50M", category = "raster", destdir = getwd())
+#' rst <- ne_download(scale = 50, type = 'MSR_50M', category = 'raster', destdir = getwd())
 #' 
 #' # load after having downloaded
-#' rst <- ne_load(scale = 50, type = "MSR_50M", category = "raster", destdir = getwd())
+#' rst <- ne_load(scale = 50, type = 'MSR_50M', category = 'raster', destdir = getwd())
 #' 
 #' # plot
 #' library(raster)
@@ -92,7 +92,7 @@ ne_download <- function(scale = 110,
   utils::download.file(file.path(address), zip_file <- tempfile())
                   
   # an alternative downloading the zip to a permanent place
-  # download.file(file.path(address), zip_file <- file.path(getwd(), paste0(file_name,".zip"))
+  # download.file(file.path(address), zip_file <- file.path(getwd(), paste0(file_name,'.zip'))
   
   # download.file & curl_download use 'destfile'
   # but I want to specify just the folder because the file has a set name
@@ -102,7 +102,7 @@ ne_download <- function(scale = 110,
   if ( load & category == 'raster' )
   {
     # have to use file_name to set the folder and the tif name
-    rst <- raster::raster(file.path(destdir, file_name, paste0(file_name, ".tif")))
+    rst <- raster::raster(file.path(destdir, file_name, paste0(file_name, '.tif')))
     return(rst)
     
     

@@ -46,7 +46,7 @@ sp::plot(ne_countries(country = 'united kingdom'))
 
 ``` r
 #states, admin level1 boundaries
-sp::plot(ne_states(country ='spain')) 
+sp::plot(ne_states(country = 'spain')) 
 ```
 
 ![](README-unnamed-chunk-2-3.png)<!-- -->
@@ -54,27 +54,27 @@ sp::plot(ne_states(country ='spain'))
 ### Introductory vignette
 
 ``` r
-vignette("rnaturalearth", package="rnaturalearth")
+vignette('rnaturalearth', package='rnaturalearth')
 ```
 
 ### To download Natural Earth data not already in the package
 
-Specify the `scale`, `category` and `type` of the vector you want. For example for `scale=50` and `category=physical` the available options for `type` can be found [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/). Examples :
+Specify the `scale`, `category` and `type` of the vector you want. For example for `scale = 50` and `category = 'physical'` the available options for `type` can be found [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/). Examples :
 
 ``` r
 #lakes
-lakes110 <- ne_download(scale=110, type='lakes', category='physical')
+lakes110 <- ne_download(scale = 110, type = 'lakes', category = 'physical')
 plot(lakes110)
 
 #rivers
-rivers50 <- ne_download(scale=50, type='rivers_lake_centerlines', category='physical')
+rivers50 <- ne_download(scale = 50, type = 'rivers_lake_centerlines', category = 'physical')
 plot(rivers50)
 ```
 
 ### Details of different country definitions and scales
 
 ``` r
-vignette("what-is-a-country", package="rnaturalearth")
+vignette('what-is-a-country', package='rnaturalearth')
 ```
 
 Reproducible download of Natural Earth data into the package
