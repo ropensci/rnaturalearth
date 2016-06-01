@@ -32,10 +32,10 @@ install_rnaturalearthhires <- function() {
                          title = "Install the rnaturalearthhires package?")
     if (input == 1) {
       message("Installing the rnaturalearthhires package.")
-      tryCatch(#utils::install.packages("rnaturalearthhires",
-               #                        repos = "http://packages.ropensci.org",
-               #                        type = "source"),
-               devtools::install_github("AndySouth/rnaturalearthhires"),
+      tryCatch(utils::install.packages("rnaturalearthhires",
+                                       repos = "http://packages.ropensci.org",
+                                       type = "source"),
+               #devtools::install_github("AndySouth/rnaturalearthhires"),
                error = error_func, warning = error_func)
     } else {
       stop(paste("The rnaturalearthhires package is necessary for that method.\n",

@@ -12,6 +12,7 @@ LazyData: true
 LazyDataCompression: xz
 URL: https://github.com/AndySouth/rnaturalearth
 BugReports: https://github.com/AndySouth/rnaturalearth/issues
+Additional_repositories: http://packages.ropensci.org
 Depends:
     R (>= 3.1.1)
 Imports:

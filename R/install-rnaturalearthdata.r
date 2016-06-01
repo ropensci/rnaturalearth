@@ -32,8 +32,9 @@ install_rnaturalearthdata <- function() {
                          title = "Install the rnaturalearthdata package?")
     if (input == 1) {
       message("Installing the rnaturalearthdata package.")
-      tryCatch(#utils::install.packages("rnaturalearthdata",
-               #                        repos = "http://packages.ropensci.org",
+      tryCatch(#TODO change from former to latter when rnaturalearthdata on rOpenSci and/or CRAN
+               #utils::install.packages("rnaturalearthdata",
+               #                        repos = c("http://packages.ropensci.org", "http://cran.rstudio.com"),
                #                        type = "source"),
                devtools::install_github("AndySouth/rnaturalearthdata"),
                error = error_func, warning = error_func)
