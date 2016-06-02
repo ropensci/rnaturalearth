@@ -6,19 +6,21 @@ warnings_are_errors: false
 sudo: required
 
 #try to fix rgdal fail
-before_install:
-  - sudo apt-get install libv8-dev
+#2/6/16 not used in repijson which passes
+#before_install:
+#  - sudo apt-get install libv8-dev
 
 env:
  global:
    - CRAN: http://cran.rstudio.com
 
-r_packages:
- - rmarkdown
+#r_packages:
+# - rmarkdown
 # - rgdal
 
 r_binary_packages:
  - rgdal
+ - rmarkdown
 
 
 notifications:
