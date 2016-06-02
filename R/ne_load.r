@@ -78,7 +78,7 @@ ne_load <- function(scale = 110,
       stop(error_msg)
     
     
-    sp_object <- readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE)
+    sp_object <- rgdal::readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE)
     
     return(sp_object)
   }
