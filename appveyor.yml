@@ -17,8 +17,11 @@ install:
 # Adapt as necessary starting from here
 
 build_script:
+  - travis-tool.sh install_github ropensci/rnaturalearthhires
+  - travis-tool.sh install_github AndySouth/rnaturalearthdata
+  - travis-tool.sh r_binary_install proto rgdal  
   - travis-tool.sh install_deps
-  - travis-tool.sh r_binary_install proto rgdal
+
 
 test_script:
   - travis-tool.sh run_tests
