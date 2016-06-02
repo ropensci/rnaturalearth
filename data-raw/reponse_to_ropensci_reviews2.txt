@@ -1,3 +1,4 @@
+@sckott I've addressed all issues except one. There's a remaining problem with Travis rgdal install that I've fought with and failed, be good to get some input as it seems you may have had similar with rnoaa. Appveyor is now building successfully.
 
 
 ## responses to 2nd rOpenSci review from @lmullen
@@ -16,7 +17,6 @@ Done for rnaturalearthhires, but rnaturalearthdata is not yet on rOpenSCi or CRA
 #### I'd still like to see package version numbers for the dependencies in the DESCRIPTION.
 Done
 
-
 ### R CMD check
 
 #### * checking R code for possible problems ... NOTE
@@ -32,16 +32,19 @@ done
 ####   the condition has length > 1 and only the first element will be used
 done 
 
-
 ### Testing / continuous integration
 
 #### Travis and Appveyor tests are failing. At least the Travis tests should be passing. It looks like the problem is that the installation of rgdal fails because you don't have the rgdal dev package installed on Ubuntu. I'm not sure why the binary package as specified in the Travis file is not working. But you should be able to install rgdal from source if you install the apt package libgdal-dev. As for Appveyor, it looks like the problem has to do with package installation as well.
 
-TODO Travis rgdal & Appveyor
+Now build success on appveyor 
+
+For Travis I've tried various fixes but still can't get rgdal to install despite the binary installation seemingly working for travis on similar packages e.g. https://github.com/Hackout2/repijson/blob/master/.travis.yml 
+
+I'd appreciate any input on this. 
 
 #### Not a requirement, but you might consider adding code coverage with covr.
+added a github issue to look at covr for future release
 
-TODO covr
 
 ### Stylistic considerations
 
