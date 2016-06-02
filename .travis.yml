@@ -11,7 +11,7 @@ sudo: required
 #2/6/16 try something similar to rnoaa without netcdf
 before_install:
 #- sudo apt-get install -y gdal-bin libgdal-dev libgdal1-dev libproj-dev libv8-dev
-- sudo apt-get install libgdal-dev libgdal1-dev
+- sudo apt-get install -y libgdal-dev libgdal1-dev
 
 env:
  global:
