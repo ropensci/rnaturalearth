@@ -3,9 +3,13 @@
 language: r
 #warnings_are_errors: false #to skip for now warnings about data size & compression
 warnings_are_errors: false
-#sudo: required
-
 dist: trusty
+cache: packages
+
+r:
+#  - oldrel
+  - release
+#  - devel
 
 addons:
   apt:
@@ -25,10 +29,9 @@ r_github_packages:
 #- sudo apt-get install -y gdal-bin libgdal-dev libgdal1-dev libproj-dev libv8-dev
 #- sudo apt-get install -y libgdal-dev
 
-
-env:
- global:
-   - CRAN: http://cran.rstudio.com
+#env:
+# global:
+#   - CRAN: http://cran.rstudio.com
 
 #r_packages:
 # - rmarkdown
