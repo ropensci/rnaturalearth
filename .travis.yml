@@ -11,11 +11,11 @@ r:
   - release
 #  - devel
 
-addons:
-  apt:
-    packages:
-      - libgdal-dev
-      - libproj-dev
+#addons:
+#  apt:
+#    packages:
+#      - libgdal-dev
+#      - libproj-dev
 
 r_github_packages:
   - AndySouth/rnaturalearthdata
@@ -37,9 +37,9 @@ r_github_packages:
 # - rmarkdown
 # - rgdal
 
-#r_binary_packages:
-# - rgdal
-# - rmarkdown
+r_binary_packages:
+ - rgdal
+ - rmarkdown
 
 
 notifications:
