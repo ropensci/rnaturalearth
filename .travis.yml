@@ -1,8 +1,7 @@
 # .travis.yml
 
 language: r
-#warnings_are_errors: false #to skip for now warnings about data size & compression
-warnings_are_errors: false
+warnings_are_errors: false #to skip for now warnings about data size & compression
 dist: trusty
 cache: packages
 
@@ -11,11 +10,11 @@ r:
   - release
 #  - devel
 
-#addons:
-#  apt:
-#    packages:
-#      - libgdal-dev
-#      - libproj-dev
+addons:
+  apt:
+    packages:
+      - libgdal-dev
+      - libproj-dev
 
 r_github_packages:
   - AndySouth/rnaturalearthdata
@@ -33,13 +32,10 @@ r_github_packages:
 # global:
 #   - CRAN: http://cran.rstudio.com
 
-#r_packages:
-# - rmarkdown
-# - rgdal
 
-r_binary_packages:
- - rgdal
- - rmarkdown
+#r_binary_packages:
+# - rgdal
+# - rmarkdown
 
 
 notifications:
