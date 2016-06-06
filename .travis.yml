@@ -1,10 +1,22 @@
-# Sample .travis.yml for R projects
+# .travis.yml
 
 language: r
 #warnings_are_errors: false #to skip for now warnings about data size & compression
 warnings_are_errors: false
-sudo: required
+#sudo: required
 
+dist: trusty
+
+addons:
+  apt:
+    packages:
+      - libgdal-dev
+      - libproj-dev
+
+r_github_packages:
+  - AndySouth/rnaturalearthdata
+  - AndySouth/rnaturalearthhires
+  
 #try to fix rgdal fail
 #2/6/16 not used in repijson which passes
 #  - sudo apt-get install libv8-dev
@@ -12,6 +24,7 @@ sudo: required
 #before_install:
 #- sudo apt-get install -y gdal-bin libgdal-dev libgdal1-dev libproj-dev libv8-dev
 #- sudo apt-get install -y libgdal-dev
+
 
 env:
  global:
@@ -21,9 +34,9 @@ env:
 # - rmarkdown
 # - rgdal
 
-r_binary_packages:
- - rgdal
- - rmarkdown
+#r_binary_packages:
+# - rgdal
+# - rmarkdown
 
 
 notifications:
