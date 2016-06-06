@@ -19,7 +19,7 @@ Imports:
     sp (>= 1.0.15),
     utils (>= 3.2.3)
 Suggests:
-    rgdal (>= 1.1-3),
+    rgdal,
     knitr (>= 1.12.3),
     testthat (>= 0.9.1),
     httr (>= 1.1.0),
