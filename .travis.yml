@@ -13,8 +13,9 @@ r:
 addons:
   apt:
     packages:
-      - libgdal-dev
       - libproj-dev
+      - libgdal-dev
+
 
 r_github_packages:
   - AndySouth/rnaturalearthdata
