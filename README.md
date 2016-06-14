@@ -6,7 +6,7 @@
 rnaturalearth
 =============
 
-An R package to hold and facilitate interaction with [Natural Earth](http://www.naturalearthdata.com/) vector map data.
+An R package to hold and facilitate interaction with [Natural Earth](http://www.naturalearthdata.com/) map data.
 
 ### Aims :
 

@@ -13,15 +13,13 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 ```
-
 [![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/rnaturalearth.svg?branch=master)](https://travis-ci.org/ropenscilabs/rnaturalearth)
-
 
 [![Build status](https://ci.appveyor.com/api/projects/status/yp26qgeb1iligrpp?svg=true)](https://ci.appveyor.com/project/AndySouth/rnaturalearth)
 
 # rnaturalearth
 
-An R package to hold and facilitate interaction with [Natural Earth](http://www.naturalearthdata.com/) vector map data.
+An R package to hold and facilitate interaction with [Natural Earth](http://www.naturalearthdata.com/) map data.
 
 ### Aims :
 1. access to a pre-downloaded subset of Natural Earth vectors commonly used in world mapping
