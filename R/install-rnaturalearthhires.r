@@ -14,7 +14,7 @@ check_rnaturalearthhires <- function() {
   }
 }
 
-#' Install the naturalearthdata package after checking with the user
+#' Install the naturalearthhires package after checking with the user
 #' @export
 install_rnaturalearthhires <- function() {
   instructions <- paste(" Please try installing the package for yourself",
