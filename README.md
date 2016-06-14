@@ -1,7 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![Travis-CI Build Status](https://travis-ci.org/AndySouth/rnaturalearth.svg?branch=master)](https://travis-ci.org/AndySouth/rnaturalearth)
 
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/AndySouth/rnaturalearth?branch=master&svg=true)](https://ci.appveyor.com/project/AndySouth/rnaturalearth)
+[![Build status](https://ci.appveyor.com/api/projects/status/yp26qgeb1iligrpp?svg=true)](https://ci.appveyor.com/project/AndySouth/rnaturalearth)
 
 rnaturalearth
 =============
