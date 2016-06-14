@@ -110,3 +110,5 @@ Potential future work
 
 2.  facilitate subsetting by country groupings
     -   e.g. least developed countries etc.
+
+[![ropensci\_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
