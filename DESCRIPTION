@@ -10,8 +10,8 @@ Description: Facilitates mapping by making natural earth map data from http://
 License: MIT + file LICENSE
 LazyData: true
 LazyDataCompression: xz
-URL: https://github.com/AndySouth/rnaturalearth
-BugReports: https://github.com/AndySouth/rnaturalearth/issues
+URL: https://github.com/ropenscilabs/rnaturalearth
+BugReports: https://github.com/ropenscilabs/rnaturalearth/issues
 Additional_repositories: http://packages.ropensci.org
 Depends:
     R (>= 3.1.1)

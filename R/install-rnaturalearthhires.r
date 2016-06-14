@@ -19,9 +19,8 @@ check_rnaturalearthhires <- function() {
 install_rnaturalearthhires <- function() {
   instructions <- paste(" Please try installing the package for yourself",
                         "using the following command: \n",
-                        'devtools::install_github("AndySouth/rnaturalearthhires")' )
-                        #"    install.packages(\"rnaturalearthhires\", repos = \"http://packages.ropensci.org\",",
-                        #"type = \"source\")")
+                        "    install.packages(\"rnaturalearthhires\", repos = \"http://packages.ropensci.org\",",
+                        "type = \"source\")")
   
   error_func <- function(e) {
     stop(paste("Failed to install the rnaturalearthhires package.\n", instructions))

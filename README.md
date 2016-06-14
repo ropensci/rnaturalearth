@@ -21,7 +21,7 @@ The [Natural Earth](http://www.naturalearthdata.com/) website structures vector 
 
 ### Install rnaturalearth
 
-    devtools::install_github("andysouth/rnaturalearth", build_vignettes=TRUE)
+    devtools::install_github("ropenscilabs/rnaturalearth", build_vignettes=TRUE)
 
 ### First Usage
 
@@ -80,7 +80,7 @@ vignette('what-is-a-country', package='rnaturalearth')
 Reproducible download of Natural Earth data into the package
 ------------------------------------------------------------
 
-[Script](https://github.com/AndySouth/rnaturalearthdata/blob/master/data-raw/data_download_script.r) used to get data into the accompanying data packages.
+[Script](https://github.com/ropenscilabs/rnaturalearthdata/blob/master/data-raw/data_download_script.r) used to get data into the accompanying data packages.
 
 Acknowledgements
 ----------------

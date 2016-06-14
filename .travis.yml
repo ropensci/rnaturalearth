@@ -18,8 +18,8 @@ addons:
 
 
 r_github_packages:
-  - AndySouth/rnaturalearthdata
-  - AndySouth/rnaturalearthhires
+  - ropenscilabs/rnaturalearthdata
+  - ropenscilabs/rnaturalearthhires
   
 #try to fix rgdal fail
 #2/6/16 not used in repijson which passes
