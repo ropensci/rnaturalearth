@@ -2,11 +2,11 @@
 % Please edit documentation in R/install-rnaturalearthhires.r
 \name{install_rnaturalearthhires}
 \alias{install_rnaturalearthhires}
-\title{Install the naturalearthdata package after checking with the user}
+\title{Install the naturalearthhires package after checking with the user}
 \usage{
 install_rnaturalearthhires()
 }
 \description{
-Install the naturalearthdata package after checking with the user
+Install the naturalearthhires package after checking with the user
 }
 

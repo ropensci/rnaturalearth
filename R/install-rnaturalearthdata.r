@@ -17,9 +17,9 @@ check_rnaturalearthdata <- function() {
 #' Install the naturalearthdata package after checking with the user
 #' @export
 install_rnaturalearthdata <- function() {
-  instructions <- paste(" Please try installing the package for yourself",
+  instructions <- paste("Please try installing the package for yourself",
                         "using the following command: \n",
-                        'devtools::install_github("ropenscilabs/rnaturalearthdata")' )
+                        "devtools::install_github('ropenscilabs/rnaturalearthdata')")
                         #todo switch to below once accepted to ropensci
                         #"    install.packages(\"rnaturalearthdata\", repos = \"http://packages.ropensci.org\",",
                         #"type = \"source\")")
