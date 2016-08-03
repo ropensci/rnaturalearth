@@ -1,0 +1,18 @@
+type,scale110, scale50,scale10
+countries,TRUE,TRUE,TRUE
+map_units,TRUE,TRUE,TRUE
+map_subunits,FALSE,TRUE,TRUE
+sovereignty,TRUE,TRUE,TRUE
+tiny_countries,TRUE,TRUE,TRUE
+states,FALSE,TRUE,TRUE
+populated_places,TRUE,TRUE,TRUE
+boundary_lines_land,TRUE,TRUE,TRUE
+pacific_groupings,TRUE,TRUE,TRUE
+breakaway_disputed_areas,FALSE,TRUE,TRUE
+boundary_lines_disputed_areas,FALSE,TRUE,TRUE
+boundary_lines_maritime_indicator,FALSE,TRUE,TRUE
+airports,FALSE,TRUE,TRUE
+ports,FALSE,TRUE,TRUE
+urban_areas,FALSE,TRUE,TRUE
+roads,FALSE,FALSE,TRUE
+railroads,FALSE,FALSE,TRUE

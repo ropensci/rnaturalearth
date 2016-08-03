@@ -27,16 +27,26 @@ ne_file_name <- function(scale = 110,
   scale <- check_scale(scale)
   
   # check permitted category
-  category <- match.arg(category)  
-  # type is left unchecked so users can specify any natearth filename
+  category <- match.arg(category) 
   
-  # some combinations are not available
-  if ( type=='map_subunits' & scale==110 )
-    stop("The combination of type=",type,"and scale=",scale,"is not available in Natural Earth")
+  # check type against lists in package to warn user if they try something
+  # that seems not to exist
+  # however continue to try the download to give user flexibility
+  # to get something I may have missed out of my list or has been added more recently
+  check_data_exist( scale = scale, category = category, type = type )
   
+
   # add admin_0 to known types
-  if (type=='countries' | type=='map_units' | type=='map_subunits' | type=='sovereignty' | type=='tiny_countries' ) 
-    type <- paste0('admin_0_',type)
+  if ( type %in% c('countries', 'map_units', 'map_subunits', 'sovereignty', 'tiny_countries',
+                   'boundary_lines_land', 
+                   'pacific_groupings', 
+                   'breakaway_disputed_areas',
+                   'boundary_lines_disputed_areas',
+                   'boundary_lines_maritime_indicator') )
+  {
+    type <- paste0('admin_0_',type)    
+  }
+
   
   # add admin_1 to known types
   # this actually just expands 'states' to the name including lakes

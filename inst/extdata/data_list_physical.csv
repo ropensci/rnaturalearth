@@ -1,0 +1,19 @@
+type,scale110, scale50,scale10
+coastline,TRUE,TRUE,TRUE
+land,TRUE,TRUE,TRUE
+ocean,TRUE,TRUE,TRUE
+rivers_lake_centerlines,TRUE,TRUE,TRUE
+lakes,TRUE,TRUE,TRUE
+glaciated_areas,TRUE,TRUE,TRUE
+antarctic_ice_shelves_polys,TRUE,TRUE,TRUE
+geographic_lines,TRUE,TRUE,TRUE
+graticules_1,TRUE,TRUE,TRUE
+graticules_5,TRUE,TRUE,TRUE
+graticules_10,TRUE,TRUE,TRUE
+graticules_15,TRUE,TRUE,TRUE
+graticules_20,TRUE,TRUE,TRUE
+graticules_30,TRUE,TRUE,TRUE
+wgs84_bounding_box,TRUE,TRUE,TRUE
+playas,FALSE,TRUE,TRUE
+minor_islands,FALSE,FALSE,TRUE
+reefs,FALSE,FALSE,TRUE

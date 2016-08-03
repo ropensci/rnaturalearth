@@ -50,8 +50,8 @@ A non-exhaustive list of datasets available according to \code{scale} specified 
   reefs              	       \tab -	        \tab -      	\tab y        \cr 
   category = 'cultural', type = '[below]'             \cr    
   populated_places        	   \tab y	        \tab y      	\tab y        \cr
-  admin_0_boundary_lines_land \tab y	        \tab y      	\tab y        \cr
-  admin_0_breakaway_disputed_areas \tab -	        \tab y      	\tab y        \cr
+  boundary_lines_land \tab y	        \tab y      	\tab y        \cr
+  breakaway_disputed_areas \tab -	        \tab y      	\tab y        \cr
   airports              	     \tab -	        \tab y      	\tab y        \cr
   ports              	       \tab -	        \tab y      	\tab y        \cr
   urban_areas              	 \tab -	        \tab y      	\tab y        \cr
