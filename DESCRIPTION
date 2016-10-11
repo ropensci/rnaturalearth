@@ -1,6 +1,6 @@
 Package: rnaturalearth
 Title: World Map Data from Natural Earth
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: c( person("Andy", "South", email = "southandy@gmail.com", role = c("aut", "cre")),
               person("Lincoln", "Mullen", role = c("rev")),
               person("Robin", "Lovelace", role = c("rev")) )
