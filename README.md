@@ -27,7 +27,7 @@ You can install the development version from GitHub using [devtools](https://git
 
 Data to support much of the package functionality are stored in a data package that you will be prompted to install when required if you do not do so here.
 
-    devtools::install_github("AndySouth/rnaturalearthdata")
+    devtools::install_github("ropenscilabs/rnaturalearthdata")
 
 ### First Usage
 
