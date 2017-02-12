@@ -109,8 +109,8 @@ ne_download <- function(scale = 110,
     
   } else if ( load )
   {
-
-    sp_object <- rgdal::readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE)
+    #use_iconv=TRUE to avoid problems with non ASCII vars
+    sp_object <- rgdal::readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE, use_iconv=TRUE)
     
     #to convert any '-99' or '-099' to NA
     sp_object@data[sp_object@data=='-99' | sp_object@data=='-099'] <- NA

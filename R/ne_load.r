@@ -78,7 +78,8 @@ ne_load <- function(scale = 110,
     if (!file.exists( file.path(destdir, paste0(file_name,'.shp'))))
       stop(error_msg)
     
-    sp_object <- rgdal::readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE)
+    #use_iconv=TRUE to avoid problems with non ASCII vars
+    sp_object <- rgdal::readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE, use_iconv=TRUE)
     
     #to convert any '-99' or '-099' to NA
     sp_object@data[sp_object@data=='-99' | sp_object@data=='-099'] <- NA
