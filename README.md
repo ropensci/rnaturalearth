@@ -21,7 +21,13 @@ The [Natural Earth](http://www.naturalearthdata.com/) website structures vector 
 
 ### Install rnaturalearth
 
-    devtools::install_github("ropenscilabs/rnaturalearth", build_vignettes=TRUE)
+You can install the development version from GitHub using [devtools](https://github.com/hadley/devtools).
+
+    devtools::install_github("ropenscilabs/rnaturalearth")
+
+Data to support much of the package functionality are stored in a data package that you will be prompted to install when required if you do not do so here.
+
+    devtools::install_github("AndySouth/rnaturalearthdata")
 
 ### First Usage
 
@@ -35,21 +41,21 @@ library(sp)
 sp::plot(ne_countries())
 ```
 
-![](README-unnamed-chunk-2-1.png)<!-- -->
+![](README-unnamed-chunk-2-1.png)
 
 ``` r
 #uk
 sp::plot(ne_countries(country = 'united kingdom'))
 ```
 
-![](README-unnamed-chunk-2-2.png)<!-- -->
+![](README-unnamed-chunk-2-2.png)
 
 ``` r
 #states, admin level1 boundaries
 sp::plot(ne_states(country = 'spain')) 
 ```
 
-![](README-unnamed-chunk-2-3.png)<!-- -->
+![](README-unnamed-chunk-2-3.png)
 
 ### Introductory vignette
 
