@@ -18,4 +18,3 @@ A \code{SpatialPolygonsDataFrame} object.
 \description{
 returns world country polygons at a specified scale, used by ne_countries()
 }
-

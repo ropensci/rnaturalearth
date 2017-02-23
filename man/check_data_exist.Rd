@@ -32,4 +32,3 @@ check_data_exist( scale = 110, category = 'physical', type = 'airports' )
 check_data_exist( scale = 110, category = 'cultural', type = 'airports' )
 
 }
-

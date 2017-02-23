@@ -9,4 +9,3 @@ install_rnaturalearthdata()
 \description{
 Install the naturalearthdata package after checking with the user
 }
-

@@ -53,4 +53,3 @@ plot(rst)
 \seealso{
 \code{\link{ne_download}}
 }
-

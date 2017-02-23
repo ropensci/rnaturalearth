@@ -22,4 +22,3 @@ if (require(sp)) {
   plot(sldf_coast)
 }
 }
-

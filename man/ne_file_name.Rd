@@ -30,4 +30,3 @@ ne_name <- ne_file_name( scale = 110, type = 'countries' )
 ne_url  <- ne_file_name( scale = 110, type = 'countries', full_url = TRUE )
 
 }
-

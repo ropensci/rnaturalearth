@@ -9,4 +9,3 @@ install_rnaturalearthhires()
 \description{
 Install the naturalearthhires package after checking with the user
 }
-

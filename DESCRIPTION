@@ -27,4 +27,4 @@ Suggests:
     rnaturalearthhires (>= 0.0.0.9000),
     raster (>= 2.5-2)
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

@@ -21,4 +21,3 @@ check name or numeric scale representations, return numeric one
 # check_scale("small")
 
 }
-

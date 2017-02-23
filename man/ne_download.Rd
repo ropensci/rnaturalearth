@@ -92,4 +92,3 @@ raster::plot(rst)
 \code{\link{ne_load}}, pre-downloaded data are available using \code{\link{ne_countries}}, \code{\link{ne_states}}.
 Other geographic data are available in the raster package : \code{\link[raster]{getData}}.
 }
-

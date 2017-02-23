@@ -11,4 +11,3 @@ Facilitates world mapping by making \href{http://www.naturalearthdata.com/}{Natu
 \seealso{
 \code{\link{ne_countries}} \code{\link{ne_states}} \code{\link{ne_download}}
 }
-
