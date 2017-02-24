@@ -26,10 +26,14 @@ install_rnaturalearthdata <- function() {
     stop(paste("Failed to install the rnaturalearthdata package.\n", instructions))
   }
   
+  #23/2/17 changed to try install if not interactive to avoid winbuilder warning
+  input <- 1
   if (interactive()) {
     input <- utils::menu(c("Yes", "No"),
                          title = "Install the rnaturalearthdata package?")
-    if (input == 1) {
+  }
+  
+  if (input == 1) {
       message("Installing the rnaturalearthdata package.")
       tryCatch(utils::install.packages("rnaturalearthdata",
                repos = c("http://packages.ropensci.org", "http://cran.rstudio.com"),
@@ -40,7 +44,8 @@ install_rnaturalearthdata <- function() {
       stop(paste("The rnaturalearthdata package is necessary for that method.\n",
                  instructions))
     }
-  } else {
-    stop(paste("Failed to install the rnaturalearthdata package.\n", instructions))
-  }
+  
+  # } else {
+  #   stop(paste("Failed to install the rnaturalearthdata package.\n", instructions))
+  # }
 }

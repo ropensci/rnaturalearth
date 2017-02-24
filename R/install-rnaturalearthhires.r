@@ -26,10 +26,14 @@ install_rnaturalearthhires <- function() {
     stop(paste("Failed to install the rnaturalearthhires package.\n", instructions))
   }
   
+  #23/2/17 changed to try install if not interactive to avoid winbuilder warning
+  input <- 1
   if (interactive()) {
     input <- utils::menu(c("Yes", "No"),
                          title = "Install the rnaturalearthhires package?")
-    if (input == 1) {
+  }
+  
+  if (input == 1) {
       message("Installing the rnaturalearthhires package.")
       tryCatch(utils::install.packages("rnaturalearthhires",
                                        repos = "http://packages.ropensci.org",
@@ -40,7 +44,8 @@ install_rnaturalearthhires <- function() {
       stop(paste("The rnaturalearthhires package is necessary for that method.\n",
                  instructions))
     }
-  } else {
-    stop(paste("Failed to install the rnaturalearthhires package.\n", instructions))
-  }
+  
+  #} else {
+  #   stop(paste("Failed to install the rnaturalearthhires package.\n", instructions))
+  # }
 }
