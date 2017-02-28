@@ -16,9 +16,12 @@ A \code{SpatialLinesDataFrame} object.
 returns world coastline at specified scale
 }
 \examples{
-sldf_coast <- ne_coastline()
 
-if (require(sp)) {
-  plot(sldf_coast)
+if (requireNamespace("rnaturalearthdata")) {
+   sldf_coast <- ne_coastline()
+
+   if (require(sp)) {
+     plot(sldf_coast)
+   }
 }
 }

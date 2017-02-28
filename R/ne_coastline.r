@@ -4,10 +4,13 @@
 #'
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @examples
-#' sldf_coast <- ne_coastline()
 #' 
-#' if (require(sp)) {
-#'   plot(sldf_coast)
+#' if (requireNamespace("rnaturalearthdata")) {
+#'    sldf_coast <- ne_coastline()
+#' 
+#'    if (require(sp)) {
+#'      plot(sldf_coast)
+#'    }
 #' }
 #' @return A \code{SpatialLinesDataFrame} object.
 #' @export
