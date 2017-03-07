@@ -72,47 +72,47 @@ There are a wealth of other data available at the [Natural Earth](http://www.nat
 
 The data available are outlined in the two tables below and online [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/).
 
-    #> 
-    #>  cultural 
-    #>                                 type scale110 scale50 scale10
-    #> 1                          countries     TRUE    TRUE    TRUE
-    #> 2                          map_units     TRUE    TRUE    TRUE
-    #> 3                       map_subunits    FALSE    TRUE    TRUE
-    #> 4                        sovereignty     TRUE    TRUE    TRUE
-    #> 5                     tiny_countries     TRUE    TRUE    TRUE
-    #> 6                             states    FALSE    TRUE    TRUE
-    #> 7                   populated_places     TRUE    TRUE    TRUE
-    #> 8                boundary_lines_land     TRUE    TRUE    TRUE
-    #> 9                  pacific_groupings     TRUE    TRUE    TRUE
-    #> 10          breakaway_disputed_areas    FALSE    TRUE    TRUE
-    #> 11     boundary_lines_disputed_areas    FALSE    TRUE    TRUE
-    #> 12 boundary_lines_maritime_indicator    FALSE    TRUE    TRUE
-    #> 13                          airports    FALSE    TRUE    TRUE
-    #> 14                             ports    FALSE    TRUE    TRUE
-    #> 15                       urban_areas    FALSE    TRUE    TRUE
-    #> 16                             roads    FALSE   FALSE    TRUE
-    #> 17                         railroads    FALSE   FALSE    TRUE
-    #> 
-    #>  physical 
-    #>                           type scale110 scale50 scale10
-    #> 1                    coastline     TRUE    TRUE    TRUE
-    #> 2                         land     TRUE    TRUE    TRUE
-    #> 3                        ocean     TRUE    TRUE    TRUE
-    #> 4      rivers_lake_centerlines     TRUE    TRUE    TRUE
-    #> 5                        lakes     TRUE    TRUE    TRUE
-    #> 6              glaciated_areas     TRUE    TRUE    TRUE
-    #> 7  antarctic_ice_shelves_polys     TRUE    TRUE    TRUE
-    #> 8             geographic_lines     TRUE    TRUE    TRUE
-    #> 9                 graticules_1     TRUE    TRUE    TRUE
-    #> 10                graticules_5     TRUE    TRUE    TRUE
-    #> 11               graticules_10     TRUE    TRUE    TRUE
-    #> 12               graticules_15     TRUE    TRUE    TRUE
-    #> 13               graticules_20     TRUE    TRUE    TRUE
-    #> 14               graticules_30     TRUE    TRUE    TRUE
-    #> 15          wgs84_bounding_box     TRUE    TRUE    TRUE
-    #> 16                      playas    FALSE    TRUE    TRUE
-    #> 17               minor_islands    FALSE   FALSE    TRUE
-    #> 18                       reefs    FALSE   FALSE    TRUE
+
+    category   cultural 
+                                    type scale110 scale50 scale10
+    1                          countries     TRUE    TRUE    TRUE
+    2                          map_units     TRUE    TRUE    TRUE
+    3                       map_subunits    FALSE    TRUE    TRUE
+    4                        sovereignty     TRUE    TRUE    TRUE
+    5                     tiny_countries     TRUE    TRUE    TRUE
+    6                             states    FALSE    TRUE    TRUE
+    7                   populated_places     TRUE    TRUE    TRUE
+    8                boundary_lines_land     TRUE    TRUE    TRUE
+    9                  pacific_groupings     TRUE    TRUE    TRUE
+    10          breakaway_disputed_areas    FALSE    TRUE    TRUE
+    11     boundary_lines_disputed_areas    FALSE    TRUE    TRUE
+    12 boundary_lines_maritime_indicator    FALSE    TRUE    TRUE
+    13                          airports    FALSE    TRUE    TRUE
+    14                             ports    FALSE    TRUE    TRUE
+    15                       urban_areas    FALSE    TRUE    TRUE
+    16                             roads    FALSE   FALSE    TRUE
+    17                         railroads    FALSE   FALSE    TRUE
+
+    category   physical 
+                              type scale110 scale50 scale10
+    1                    coastline     TRUE    TRUE    TRUE
+    2                         land     TRUE    TRUE    TRUE
+    3                        ocean     TRUE    TRUE    TRUE
+    4      rivers_lake_centerlines     TRUE    TRUE    TRUE
+    5                        lakes     TRUE    TRUE    TRUE
+    6              glaciated_areas     TRUE    TRUE    TRUE
+    7  antarctic_ice_shelves_polys     TRUE    TRUE    TRUE
+    8             geographic_lines     TRUE    TRUE    TRUE
+    9                 graticules_1     TRUE    TRUE    TRUE
+    10                graticules_5     TRUE    TRUE    TRUE
+    11               graticules_10     TRUE    TRUE    TRUE
+    12               graticules_15     TRUE    TRUE    TRUE
+    13               graticules_20     TRUE    TRUE    TRUE
+    14               graticules_30     TRUE    TRUE    TRUE
+    15          wgs84_bounding_box     TRUE    TRUE    TRUE
+    16                      playas    FALSE    TRUE    TRUE
+    17               minor_islands    FALSE   FALSE    TRUE
+    18                       reefs    FALSE   FALSE    TRUE
 
 Specify the `scale`, `category` and `type` of the vector you want as in the examples below.
 

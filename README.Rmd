@@ -9,7 +9,7 @@ output:
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
+  comment = "",
   fig.path = "README-"
 )
 ```
@@ -76,12 +76,15 @@ There are a wealth of other data available at the [Natural Earth](http://www.nat
 
 The data available are outlined in the two tables below and online [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/).
 
-```{r, eval=TRUE, echo=FALSE, results='markup'}
+```{r, eval=TRUE, echo=FALSE}
+library(knitr)
 for(category in c('cultural','physical'))
 {
   df_data <- read.csv( system.file("extdata", paste0("data_list_", category, ".csv"), package = "rnaturalearth") )
-  cat("\n",category,"\n")
+  cat("\ncategory  ",category,"\n")
+
   print(df_data)
+  #kable(df_data)
 }
 
 ```
