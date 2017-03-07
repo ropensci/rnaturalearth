@@ -8,6 +8,7 @@
 #' @param country a character vector of country names. 
 #' @param geounit a character vector of geounit names. 
 #' @param sovereignty a character vector of sovereignty names.
+#' @param returnclass 'sp' default or 'sf' for Simple Features
 #' 
 #' @aliases ne_admin0
 #'     
@@ -36,9 +37,11 @@ ne_countries <- function(scale = 110,
                             continent = NULL,
                             country = NULL,
                             geounit = NULL,
-                            sovereignty = NULL) {
+                            sovereignty = NULL,
+                            returnclass = c('sp','sf')) {
   
-
+  returnclass <- match.arg(returnclass)
+                              
   spdf <- get_data(scale=scale, type=type)
 
   # some large scale NE data still have old uppercase fieldnames, this to correct
@@ -88,5 +91,6 @@ ne_countries <- function(scale = 110,
   
   # todo I could add other optional filters e.g. iso_a3
   
-  spdf[filter, ]
+  # convert to sf if chosen
+  ne_as_sf(spdf[filter,], returnclass)
 }

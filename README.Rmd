@@ -42,10 +42,13 @@ devtools::install_github("ropenscilabs/rnaturalearth")
 
 ```
 
-Data to support much of the package functionality are stored in a data package that you will be prompted to install when required if you do not do so here.
+Data to support much of the package functionality are stored in two data packages that you will be prompted to install when required if you do not do so here.
 
 ```
 devtools::install_github("ropenscilabs/rnaturalearthdata")
+install.packages("rnaturalearthhires",
+                 repos = "http://packages.ropensci.org",
+                 type = "source")
 ```
 
 ### First Usage
@@ -69,16 +72,30 @@ vignette('rnaturalearth', package='rnaturalearth')
 ```
 
 ### To download Natural Earth data not already in the package
-Specify the `scale`, `category` and `type` of the vector you want. For example for `scale = 50` and `category = 'physical'` the available options for `type` can be found [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/). Examples :
+There are a wealth of other data available at the [Natural Earth](http://www.naturalearthdata.com/) website. `rnaturalearth` has functions to help with download of these data.
+
+The data available are outlined in the two tables below and online [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/).
+
+```{r, eval=TRUE, echo=FALSE, results='markup'}
+for(category in c('cultural','physical'))
+{
+  df_data <- read.csv( system.file("extdata", paste0("data_list_", category, ".csv"), package = "rnaturalearth") )
+  cat("\n",category,"\n")
+  print(df_data)
+}
+
+```
+
+Specify the `scale`, `category` and `type` of the vector you want as in the examples below.
 
 ```{r, eval=FALSE}
 #lakes
 lakes110 <- ne_download(scale = 110, type = 'lakes', category = 'physical')
-plot(lakes110)
+sp::plot(lakes110)
 
 #rivers
 rivers50 <- ne_download(scale = 50, type = 'rivers_lake_centerlines', category = 'physical')
-plot(rivers50)
+sp::plot(rivers50)
 ```
 
 ### Details of different country definitions and scales
