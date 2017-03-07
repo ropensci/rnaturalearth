@@ -3,6 +3,7 @@
 #' returns world coastline at specified scale
 #'
 #' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
+#' @param returnclass 'sp' default or 'sf' for Simple Features
 #' @examples
 #' 
 #' if (requireNamespace("rnaturalearthdata")) {
@@ -15,8 +16,10 @@
 #' @return A \code{SpatialLinesDataFrame} object.
 #' @export
 #' 
-ne_coastline <- function(scale = 110) {
+ne_coastline <- function(scale = 110,
+                         returnclass = c('sp','sf')) {
   
+  returnclass <- match.arg(returnclass)
   
   # check for the data packages and try to install if not there
   if ( scale == 10 )
@@ -43,6 +46,8 @@ ne_coastline <- function(scale = 110) {
     sldf <- rnaturalearthhires::coastline10  
   }   
   
-  return(sldf)        
+  # convert to sf if chosen
+  ne_as_sf(sldf, returnclass)
+
 
 }

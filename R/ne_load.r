@@ -11,7 +11,8 @@
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir folder to load files from, default=tempdir()
 #' @param file_name OPTIONAL name of file (excluding path) instead of natural earth attributes
-
+#' @param returnclass 'sp' default or 'sf' for Simple Features
+#' 
 #' @seealso \code{\link{ne_download}}
 #' @examples
 #' \dontrun{
@@ -42,12 +43,13 @@ ne_load <- function(scale = 110,
                     type = 'countries',
                     category = c('cultural', 'physical', 'raster'),
                     destdir = tempdir(),
-                    file_name = NULL
+                    file_name = NULL,
+                    returnclass = c('sp','sf')
 ) 
 {
   
   category <- match.arg(category)
-  
+  returnclass <- match.arg(returnclass)  
   
   if (is.null(file_name)) 
   {
@@ -84,7 +86,9 @@ ne_load <- function(scale = 110,
     #to convert any '-99' or '-099' to NA
     sp_object@data[sp_object@data=='-99' | sp_object@data=='-099'] <- NA
     
-    return(sp_object)
+    # convert to sf if chosen
+    return( ne_as_sf(sp_object, returnclass) )
+    
   }
   
 }

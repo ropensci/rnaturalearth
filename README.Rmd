@@ -21,13 +21,14 @@ knitr::opts_chunk$set(
 
 An R package to hold and facilitate interaction with [Natural Earth](http://www.naturalearthdata.com/) map data.
 
-### Aims :
-1. access to a pre-downloaded subset of Natural Earth vectors commonly used in world mapping
-1. allow easy subsetting by countries and regions
-1. facilitate download of other Natural Earth vectors
-1. provide a simple, reproducible and sustainable workflow from Natural Earth data to rnaturalearth enabling updating as new versions become available
-1. to clarify differences in world maps classified by countries, sovereign states and map units
-1. to follow Natural Earth naming conventions so that rnaturalearth users can use Natural Earth documentation
+### Provides :
+1. access to a pre-downloaded subset of Natural Earth vector data commonly used in world mapping
+1. easy subsetting by countries and regions
+1. functions to download other Natural Earth vector and raster data
+1. a simple, reproducible and sustainable workflow from Natural Earth data to rnaturalearth enabling updating as new versions become available
+1. clarification of differences in world maps classified by countries, sovereign states and map units
+1. consistency with Natural Earth naming conventions so that rnaturalearth users can use Natural Earth documentation
+1. data in 'sf' or 'sp' formats
 
 The [Natural Earth](http://www.naturalearthdata.com/) website structures vector data by scale, category and type. These determine the filenames of downloads. rnaturalearth uses this structure to facilitate download (like an API). 
 

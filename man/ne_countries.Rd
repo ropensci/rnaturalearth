@@ -6,7 +6,8 @@
 \title{Get natural earth world country polygons}
 \usage{
 ne_countries(scale = 110, type = "countries", continent = NULL,
-  country = NULL, geounit = NULL, sovereignty = NULL)
+  country = NULL, geounit = NULL, sovereignty = NULL,
+  returnclass = c("sp", "sf"))
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
@@ -20,6 +21,8 @@ ne_countries(scale = 110, type = "countries", continent = NULL,
 \item{geounit}{a character vector of geounit names.}
 
 \item{sovereignty}{a character vector of sovereignty names.}
+
+\item{returnclass}{'sp' default or 'sf' for Simple Features}
 }
 \value{
 \code{SpatialPolygonsDataFrame} or \code{SpatialPointsDataFrame} object.

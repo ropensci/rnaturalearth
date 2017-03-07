@@ -92,5 +92,5 @@ ne_countries <- function(scale = 110,
   # todo I could add other optional filters e.g. iso_a3
   
   # convert to sf if chosen
-  ne_as_sf(spdf[filter,], returnclass)
+  ne_as_sf(spdf[filter, ], returnclass)
 }

@@ -5,7 +5,8 @@
 \title{download data from Natural Earth and (optionally) read into R}
 \usage{
 ne_download(scale = 110, type = "countries", category = c("cultural",
-  "physical", "raster"), destdir = tempdir(), load = TRUE)
+  "physical", "raster"), destdir = tempdir(), load = TRUE,
+  returnclass = c("sp", "sf"))
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
@@ -20,6 +21,8 @@ OR the raster filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
 \item{destdir}{where to save files, defaults to \code{tempdir()}, \code{getwd()} is also possible.}
 
 \item{load}{TRUE/FALSE whether to load file into R and return}
+
+\item{returnclass}{'sp' default or 'sf' for Simple Features}
 }
 \value{
 A \code{Spatial} object depending on the data (points, lines, polygons or raster), 

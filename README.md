@@ -8,14 +8,15 @@ rnaturalearth
 
 An R package to hold and facilitate interaction with [Natural Earth](http://www.naturalearthdata.com/) map data.
 
-### Aims :
+### Provides :
 
-1.  access to a pre-downloaded subset of Natural Earth vectors commonly used in world mapping
-2.  allow easy subsetting by countries and regions
-3.  facilitate download of other Natural Earth vectors
-4.  provide a simple, reproducible and sustainable workflow from Natural Earth data to rnaturalearth enabling updating as new versions become available
-5.  to clarify differences in world maps classified by countries, sovereign states and map units
-6.  to follow Natural Earth naming conventions so that rnaturalearth users can use Natural Earth documentation
+1.  access to a pre-downloaded subset of Natural Earth vector data commonly used in world mapping
+2.  easy subsetting by countries and regions
+3.  functions to download other Natural Earth vector and raster data
+4.  a simple, reproducible and sustainable workflow from Natural Earth data to rnaturalearth enabling updating as new versions become available
+5.  clarification of differences in world maps classified by countries, sovereign states and map units
+6.  consistency with Natural Earth naming conventions so that rnaturalearth users can use Natural Earth documentation
+7.  data in 'sf' or 'sp' formats
 
 The [Natural Earth](http://www.naturalearthdata.com/) website structures vector data by scale, category and type. These determine the filenames of downloads. rnaturalearth uses this structure to facilitate download (like an API).
 

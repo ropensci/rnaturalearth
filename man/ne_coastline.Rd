@@ -4,10 +4,12 @@
 \alias{ne_coastline}
 \title{Get natural earth world coastline}
 \usage{
-ne_coastline(scale = 110)
+ne_coastline(scale = 110, returnclass = c("sp", "sf"))
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
+
+\item{returnclass}{'sp' default or 'sf' for Simple Features}
 }
 \value{
 A \code{SpatialLinesDataFrame} object.

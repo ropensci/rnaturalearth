@@ -12,6 +12,7 @@
 #' @param category one of natural earth categories : 'cultural', 'physical', 'raster'
 #' @param destdir where to save files, defaults to \code{tempdir()}, \code{getwd()} is also possible.
 #' @param load TRUE/FALSE whether to load file into R and return
+#' @param returnclass 'sp' default or 'sf' for Simple Features
 #' 
 #' @details A non-exhaustive list of datasets available according to \code{scale} specified by the \code{type} param 
 #'   \tabular{lccc}{
@@ -78,11 +79,13 @@ ne_download <- function(scale = 110,
                         type = 'countries',
                         category = c('cultural', 'physical', 'raster'),
                         destdir = tempdir(),
-                        load = TRUE
+                        load = TRUE,
+                        returnclass = c('sp','sf')
                         ) 
 {
   
   category <- match.arg(category)
+  returnclass <- match.arg(returnclass)
   
   # without extension, e.g. .shp
   file_name <- ne_file_name(scale=scale, type=type, category=category, full_url=FALSE)
@@ -115,7 +118,9 @@ ne_download <- function(scale = 110,
     #to convert any '-99' or '-099' to NA
     sp_object@data[sp_object@data=='-99' | sp_object@data=='-099'] <- NA
     
-    return(sp_object) 
+    # convert to sf if chosen
+    return( ne_as_sf(sp_object, returnclass))
+    
     
   } else
   {

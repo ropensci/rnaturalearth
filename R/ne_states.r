@@ -6,6 +6,7 @@
 #' @param geounit a character vector of geounit names. 
 #' @param iso_a2 a character vector of iso_a2 country codes  
 #' @param spdf an optional alternative states map
+#' @param returnclass 'sp' default or 'sf' for Simple Features
 #' 
 #' @aliases ne_admin1
 #' 
@@ -29,9 +30,10 @@
 ne_states <- function( country = NULL,
                        geounit = NULL,
                        iso_a2 = NULL,
-                       spdf = NULL) {
+                       spdf = NULL,
+                       returnclass = c('sp','sf')) {
   
-
+  returnclass <- match.arg(returnclass)
   
   # set map from one stored
   # this adds potential to add or pass other potential state maps, e.g. without lakes
@@ -92,7 +94,8 @@ ne_states <- function( country = NULL,
   } 
   
   
-  spdf[filter, ]
+  # convert to sf if chosen
+  ne_as_sf(spdf[filter, ], returnclass)
 }
 
 

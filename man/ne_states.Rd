@@ -5,7 +5,8 @@
 \alias{ne_admin1}
 \title{Get natural earth world state (admin level 1) polygons}
 \usage{
-ne_states(country = NULL, geounit = NULL, iso_a2 = NULL, spdf = NULL)
+ne_states(country = NULL, geounit = NULL, iso_a2 = NULL, spdf = NULL,
+  returnclass = c("sp", "sf"))
 }
 \arguments{
 \item{country}{a character vector of country names.}
@@ -15,6 +16,8 @@ ne_states(country = NULL, geounit = NULL, iso_a2 = NULL, spdf = NULL)
 \item{iso_a2}{a character vector of iso_a2 country codes}
 
 \item{spdf}{an optional alternative states map}
+
+\item{returnclass}{'sp' default or 'sf' for Simple Features}
 }
 \value{
 A \code{SpatialPolygonsDataFrame} object.
