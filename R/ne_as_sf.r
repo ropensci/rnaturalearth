@@ -2,7 +2,9 @@
 #'
 #' @param x scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}
 #' @param returnclass 'sp' default or 'sf' for Simple Features
-#'
+#' 
+# @examples
+# ne_as_sf(x,'sf')
 #' #not exported
 #' 
 #' @return an sf or sp object
