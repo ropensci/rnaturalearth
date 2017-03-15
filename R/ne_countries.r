@@ -16,6 +16,7 @@
 #' spdf_world <- ne_countries()
 #' spdf_africa <- ne_countries(continent = 'africa')
 #' spdf_france <- ne_countries(country = 'france')
+#' sf_world <- ne_countries(returnclass='sf')
 #' 
 #' if (require(sp)) {
 #'   plot(spdf_world)
@@ -29,7 +30,7 @@
 #' }
 #' 
 #' 
-#' @return \code{SpatialPolygonsDataFrame} or \code{SpatialPointsDataFrame} object.
+#' @return \code{SpatialPolygonsDataFrame},\code{SpatialPointsDataFrame} or \code{sf}
 #' @export
 #' 
 ne_countries <- function(scale = 110,

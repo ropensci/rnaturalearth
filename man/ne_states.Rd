@@ -20,7 +20,7 @@ ne_states(country = NULL, geounit = NULL, iso_a2 = NULL, spdf = NULL,
 \item{returnclass}{'sp' default or 'sf' for Simple Features}
 }
 \value{
-A \code{SpatialPolygonsDataFrame} object.
+\code{SpatialPolygonsDataFrame} or \code{sf}
 }
 \description{
 returns state polygons (administrative level 1) for specified countries

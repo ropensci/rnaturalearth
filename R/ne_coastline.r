@@ -13,7 +13,7 @@
 #'      plot(sldf_coast)
 #'    }
 #' }
-#' @return A \code{SpatialLinesDataFrame} object.
+#' @return \code{SpatialLinesDataFrame} or \code{sf}
 #' @export
 #' 
 ne_coastline <- function(scale = 110,

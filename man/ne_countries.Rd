@@ -25,7 +25,7 @@ ne_countries(scale = 110, type = "countries", continent = NULL,
 \item{returnclass}{'sp' default or 'sf' for Simple Features}
 }
 \value{
-\code{SpatialPolygonsDataFrame} or \code{SpatialPointsDataFrame} object.
+\code{SpatialPolygonsDataFrame},\code{SpatialPointsDataFrame} or \code{sf}
 }
 \description{
 returns world country polygons at a specified scale, or points of tiny_countries
@@ -34,6 +34,7 @@ returns world country polygons at a specified scale, or points of tiny_countries
 spdf_world <- ne_countries()
 spdf_africa <- ne_countries(continent = 'africa')
 spdf_france <- ne_countries(country = 'france')
+sf_world <- ne_countries(returnclass='sf')
 
 if (require(sp)) {
   plot(spdf_world)

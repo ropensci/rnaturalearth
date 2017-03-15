@@ -12,7 +12,7 @@ ne_coastline(scale = 110, returnclass = c("sp", "sf"))
 \item{returnclass}{'sp' default or 'sf' for Simple Features}
 }
 \value{
-A \code{SpatialLinesDataFrame} object.
+\code{SpatialLinesDataFrame} or \code{sf}
 }
 \description{
 returns world coastline at specified scale

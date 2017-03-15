@@ -35,7 +35,7 @@ Data to support much of the package functionality are stored in two data package
 
 ### First Usage
 
-Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options.
+Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options. All retrieval functions accept an argument `returnclass='sf'` to return package `sf` (Simple Features) objects.
 
 ``` r
 library(rnaturalearth)

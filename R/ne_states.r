@@ -24,7 +24,7 @@
 #'      plot(ne_states(geounit = 'england'))  
 #'   }
 #' }
-#' @return A \code{SpatialPolygonsDataFrame} object.
+#' @return \code{SpatialPolygonsDataFrame} or \code{sf}
 #' @export
 #' 
 ne_states <- function( country = NULL,
