@@ -14,7 +14,8 @@ ne_as_sf <- function(x, returnclass = c('sp','sf')) {
   returnclass <- match.arg(returnclass)   
 
   if (returnclass == 'sf')
-    sf::st_as_sf( x )
+    #sf::
+    st_as_sf( x )
   else
     x  
 }
