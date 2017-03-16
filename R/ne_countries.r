@@ -16,12 +16,17 @@
 #' spdf_world <- ne_countries()
 #' spdf_africa <- ne_countries(continent = 'africa')
 #' spdf_france <- ne_countries(country = 'france')
-#' sf_world <- ne_countries(returnclass='sf')
 #' 
 #' if (require(sp)) {
 #'   plot(spdf_world)
 #'   plot(spdf_africa)
 #'   plot(spdf_france)
+#' }
+#' 
+#' # get as sf
+#' if (require(sf)) { 
+#'   sf_world <- ne_countries(returnclass='sf')
+#'   plot(sf_world)
 #' }
 #' 
 #' if (require(rnaturalearthdata) & require(sp)) {
