@@ -22,8 +22,8 @@ Suggests:
     testthat (>= 0.9.1),
     httr (>= 1.1.0),
     devtools (>= 1.10.0),
-    rnaturalearthdata (>= 0.0.0.9000), 
-    rnaturalearthhires (>= 0.0.0.9000),
+    rnaturalearthdata (>= 0.1.0), 
+    rnaturalearthhires (>= 0.1.0),
     raster (>= 2.5-2),
     rgeos
 VignetteBuilder: knitr
