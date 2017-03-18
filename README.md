@@ -45,21 +45,21 @@ library(sp)
 sp::plot(ne_countries())
 ```
 
-![](README-unnamed-chunk-2-1.png)
+![](tools/README-unnamed-chunk-2-1.png)
 
 ``` r
 #uk
 sp::plot(ne_countries(country = 'united kingdom'))
 ```
 
-![](README-unnamed-chunk-2-2.png)
+![](tools/README-unnamed-chunk-2-2.png)
 
 ``` r
 #states, admin level1 boundaries
 sp::plot(ne_states(country = 'spain')) 
 ```
 
-![](README-unnamed-chunk-2-3.png)
+![](tools/README-unnamed-chunk-2-3.png)
 
 ### Introductory vignette
 
