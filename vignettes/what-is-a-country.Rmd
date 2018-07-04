@@ -11,11 +11,11 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-This vignette shows how [rnaturalearth](https://github.com/ropenscilabs/rnaturalearth) allows mapping countries using different definitions of what a country is. What a country is can be more complicated than you might expect.
+This vignette shows how [rnaturalearth](https://github.com/ropensci/rnaturalearth) allows mapping countries using different definitions of what a country is. What a country is can be more complicated than you might expect.
     
 For example, from my own parochial perspective, it allows mapping the UK as a whole or separating out England, Scotland, Wales and Northern Ireland. It also allows you to exclude far away places like the Falkland Islands, or not. Mapping France it allows the inclusion or exclusion of French Guiana and islands in the South Pacific.
 
-[rnaturalearth](https://github.com/ropenscilabs/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
+[rnaturalearth](https://github.com/ropensci/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
 
 [Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
 

@@ -1,7 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/rnaturalearth.svg?branch=master)](https://travis-ci.org/ropenscilabs/rnaturalearth) [![Build status](https://ci.appveyor.com/api/projects/status/yp26qgeb1iligrpp?svg=true)](https://ci.appveyor.com/project/AndySouth/rnaturalearth)
-
 [![CRAN Status Badge](http://www.r-pkg.org/badges/version/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth) [![CRAN Total Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth) [![CRAN Monthly Downloads](http://cranlogs.r-pkg.org/badges/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth) [![](https://badges.ropensci.org/22_status.svg)](https://github.com/ropensci/onboarding/issues/22) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+
+[![Travis-CI Build Status](https://travis-ci.org/ropensci/rnaturalearth.svg?branch=master)](https://travis-ci.org/ropensci/rnaturalearth) [![Build status](https://ci.appveyor.com/api/projects/status/yp26qgeb1iligrpp?svg=true)](https://ci.appveyor.com/project/AndySouth/rnaturalearth)
 
 rnaturalearth
 =============
@@ -24,11 +24,11 @@ The [Natural Earth](http://www.naturalearthdata.com/) website structures vector 
 
 You can install the development version from GitHub using [devtools](https://github.com/hadley/devtools).
 
-    devtools::install_github("ropenscilabs/rnaturalearth")
+    devtools::install_github("ropensci/rnaturalearth")
 
 Data to support much of the package functionality are stored in two data packages that you will be prompted to install when required if you do not do so here.
 
-    devtools::install_github("ropenscilabs/rnaturalearthdata")
+    devtools::install_github("ropensci/rnaturalearthdata")
     install.packages("rnaturalearthhires",
                      repos = "http://packages.ropensci.org",
                      type = "source")
@@ -136,7 +136,7 @@ vignette('what-is-a-country', package='rnaturalearth')
 Reproducible download of Natural Earth data into the package
 ------------------------------------------------------------
 
-[Script](https://github.com/ropenscilabs/rnaturalearthdata/blob/master/data-raw/data_download_script.r) used to get data into the accompanying data packages.
+[Script](https://github.com/ropensci/rnaturalearthdata/blob/master/data-raw/data_download_script.r) used to get data into the accompanying data packages.
 
 Acknowledgements
 ----------------

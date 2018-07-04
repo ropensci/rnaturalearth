@@ -11,11 +11,11 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-This vignette is an introduction to [rnaturalearth](https://github.com/ropenscilabs/rnaturalearth), an R package to hold and facilitate interaction with natural earth vector map data. `rnaturalearth` is a data package designed to provide map data that can be visualised using other R packages.
+This vignette is an introduction to [rnaturalearth](https://github.com/ropensci/rnaturalearth), an R package to hold and facilitate interaction with natural earth vector map data. `rnaturalearth` is a data package designed to provide map data that can be visualised using other R packages.
 
 [Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country and other administrative boundaries. 
 
-[rnaturalearth](https://github.com/ropenscilabs/rnaturalearth) does two main things.
+[rnaturalearth](https://github.com/ropensci/rnaturalearth) does two main things.
 
 1. Contains pre-downloaded vector maps for : 
     + countries `ne_countries()`
@@ -93,7 +93,7 @@ sp::plot(ne_coastline())
 
 ## 2. Downloading other Natural Earth vectors with ne_download().  
 
-Each [Natural Earth](http://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/ropenscilabs/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and download the corresponding file.
+Each [Natural Earth](http://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/ropensci/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and download the corresponding file.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 

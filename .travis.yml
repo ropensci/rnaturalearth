@@ -55,10 +55,10 @@ after_success:
 #  - ./configure --prefix=/usr
 #  - make
 #  - sudo make install
-#  - cd /home/travis/build/ropenscilabs/rnaturalearth
+#  - cd /home/travis/build/ropensci/rnaturalearth
 
 r_github_packages:
-  - ropenscilabs/rnaturalearthhires
+  - ropensci/rnaturalearthhires
 
 #notifications:
 #  email:

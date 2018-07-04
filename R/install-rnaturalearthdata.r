@@ -19,7 +19,7 @@ check_rnaturalearthdata <- function() {
 install_rnaturalearthdata <- function() {
   instructions <- paste("Please try installing the package for yourself",
                         "using the following command: \n",
-                        #"devtools::install_github('ropenscilabs/rnaturalearthdata')")
+                        #"devtools::install_github('ropensci/rnaturalearthdata')")
                         "install.packages(\"rnaturalearthdata\")")
   
   error_func <- function(e) {
@@ -38,7 +38,7 @@ install_rnaturalearthdata <- function() {
       tryCatch(utils::install.packages("rnaturalearthdata",
                repos = c("http://packages.ropensci.org", "http://cran.rstudio.com"),
                type = "source"),
-               #devtools::install_github("ropenscilabs/rnaturalearthdata"),
+               #devtools::install_github("ropensci/rnaturalearthdata"),
                error = error_func, warning = error_func)
     } else {
       stop(paste("The rnaturalearthdata package is necessary for that method.\n",
