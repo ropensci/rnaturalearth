@@ -22,7 +22,11 @@ The [Natural Earth](http://www.naturalearthdata.com/) website structures vector 
 
 ### Install rnaturalearth
 
-You can install the development version from GitHub using [devtools](https://github.com/hadley/devtools).
+Install from CRAN :
+
+    install.packages("rnaturalearth")
+
+or install the development version from GitHub using [devtools](https://github.com/hadley/devtools).
 
     devtools::install_github("ropensci/rnaturalearth")
 
