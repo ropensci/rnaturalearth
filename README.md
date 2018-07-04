@@ -1,8 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/rnaturalearth.svg?branch=master)](https://travis-ci.org/ropenscilabs/rnaturalearth) [![Build status](https://ci.appveyor.com/api/projects/status/yp26qgeb1iligrpp?svg=true)](https://ci.appveyor.com/project/AndySouth/rnaturalearth)
 
-[![CRAN Status Badge](http://www.r-pkg.org/badges/version/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth) [![CRAN Total Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth) [![CRAN Monthly Downloads](http://cranlogs.r-pkg.org/badges/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth)
-[![](https://badges.ropensci.org/22_status.svg)](https://github.com/ropensci/onboarding/issues/22)
+[![CRAN Status Badge](http://www.r-pkg.org/badges/version/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth) [![CRAN Total Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth) [![CRAN Monthly Downloads](http://cranlogs.r-pkg.org/badges/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth) [![](https://badges.ropensci.org/22_status.svg)](https://github.com/ropensci/onboarding/issues/22) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 rnaturalearth
 =============
