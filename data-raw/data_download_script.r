@@ -20,6 +20,8 @@ data_object_names <- data(package = "rnaturalearth")[["results"]][,"Item"]
 
 #### saving data files to correct folder in the package
 # relies on working directory being set to root of the package
+# BEWARE circular that it uses list of existing data in package
+# new data would have to be added outside of this
 
 # to do for all data objects in package
 for (i in 1:length(data_object_names))
