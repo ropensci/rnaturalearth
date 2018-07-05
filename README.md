@@ -10,7 +10,7 @@ An R package to hold and facilitate interaction with [Natural Earth](http://www.
 
 ### Provides :
 
-1.  access to a pre-downloaded subset of Natural Earth vector data commonly used in world mapping
+1.  access to a pre-downloaded subset of Natural Earth v4.1.0 (March 2018) vector data commonly used in world mapping
 2.  easy subsetting by countries and regions
 3.  functions to download other Natural Earth vector and raster data
 4.  a simple, reproducible and sustainable workflow from Natural Earth data to rnaturalearth enabling updating as new versions become available
