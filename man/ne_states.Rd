@@ -5,8 +5,8 @@
 \alias{ne_admin1}
 \title{Get natural earth world state (admin level 1) polygons}
 \usage{
-ne_states(country = NULL, geounit = NULL, iso_a2 = NULL, spdf = NULL,
-  returnclass = c("sp", "sf"))
+ne_states(country = NULL, geounit = NULL, iso_a2 = NULL,
+  spdf = NULL, returnclass = c("sp", "sf"))
 }
 \arguments{
 \item{country}{a character vector of country names.}

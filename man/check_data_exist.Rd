@@ -4,8 +4,8 @@
 \alias{check_data_exist}
 \title{check whether the requested data exist on Natural Earth}
 \usage{
-check_data_exist(scale = 110, type, category = c("cultural", "physical",
-  "raster"))
+check_data_exist(scale = 110, type, category = c("cultural",
+  "physical", "raster"))
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}

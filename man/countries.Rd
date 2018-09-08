@@ -4,7 +4,6 @@
 \name{countries}
 \alias{countries}
 \alias{countries110}
-\alias{countries110}
 \title{world country polygons from Natural Earth}
 \format{A \code{SpatialPolygonsDataFrame}}
 \source{
