@@ -3,6 +3,9 @@ coastline,TRUE,TRUE,TRUE
 land,TRUE,TRUE,TRUE
 ocean,TRUE,TRUE,TRUE
 rivers_lake_centerlines,TRUE,TRUE,TRUE
+rivers_lake_centerlines_scale_rank,FALSE,TRUE,TRUE
+rivers_europe,FALSE,FALSE,TRUE
+rivers_north_america,FALSE,FALSE,TRUE
 lakes,TRUE,TRUE,TRUE
 glaciated_areas,TRUE,TRUE,TRUE
 antarctic_ice_shelves_polys,TRUE,TRUE,TRUE
