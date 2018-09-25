@@ -92,8 +92,19 @@ ne_download <- function(scale = 110,
   # full url including .zip
   address   <- ne_file_name(scale=scale, type=type, category=category, full_url=TRUE)  
   
-  # this puts zip in temporary place & unzipped files are saved later                
-  utils::download.file(file.path(address), zip_file <- tempfile())
+  # download zip to temporary location, unzipped files are saved later  
+  # tryCatch catches error, returns NUll if no error
+
+  download_failed <- tryCatch( utils::download.file(file.path(address), zip_file <- tempfile()),
+     error = function(e) {
+       message(paste('download failed'))
+       # check type against lists in package to warn user if it has failed
+       check_data_exist( scale = scale, category = category, type = type ) 
+       return(TRUE)
+     })
+  
+  #return from this function if download error was caught by tryCatch
+  if (!is.null(download_failed)) return()
                   
   # an alternative downloading the zip to a permanent place
   # download.file(file.path(address), zip_file <- file.path(getwd(), paste0(file_name,'.zip'))

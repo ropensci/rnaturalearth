@@ -29,13 +29,7 @@ ne_file_name <- function(scale = 110,
   
   # check permitted category
   category <- match.arg(category) 
-  
-  # check type against lists in package to warn user if they try something
-  # that seems not to exist
-  # however continue to try the download to give user flexibility
-  # to get something I may have missed out of my list or has been added more recently
-  check_data_exist( scale = scale, category = category, type = type )
-  
+
 
   # add admin_0 to known types
   if ( type %in% c('countries', 'map_units', 'map_subunits', 'sovereignty', 'tiny_countries',

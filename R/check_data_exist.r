@@ -55,7 +55,7 @@ check_data_exist <- function(scale = 110,
   if (!exist)
   {
     warning("your combination of type, category, scale",
-            " seem not to exist in the list of Natural Earth data so you may get a download fail message.",
+            " seem not to exist in the list of Natural Earth data.",
             " Check ?ne_download or http://www.naturalearthdata.com/features/ to see data availability.")
   }
   
