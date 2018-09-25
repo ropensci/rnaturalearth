@@ -6,6 +6,7 @@ Description: Facilitates mapping by making natural earth map data from <http://w
 License: MIT + file LICENSE
 LazyData: true
 LazyDataCompression: xz
+Encoding: UTF-8
 URL: https://github.com/ropensci/rnaturalearth
 BugReports: https://github.com/ropensci/rnaturalearth/issues
 Additional_repositories: http://packages.ropensci.org
@@ -14,16 +15,21 @@ Depends:
 Imports:
     sp (>= 1.0.15),
     utils (>= 3.2.3),
-    sf (>= 0.3-4)
+    sf (>= 0.3-4),
+    httr (>= 1.1.0),
+    jsonlite
 Suggests:
     rgdal,
     knitr (>= 1.12.3),
     testthat (>= 0.9.1),
-    httr (>= 1.1.0),
     devtools (>= 1.10.0),
     rnaturalearthdata (>= 0.1.0), 
     rnaturalearthhires (>= 0.1.0),
     raster (>= 2.5-2),
-    rgeos
+    rgeos,
+    pbapply,
+    ggplot2,
+    dplyr,
+    purrr
 VignetteBuilder: knitr
 RoxygenNote: 6.1.0

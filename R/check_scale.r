@@ -13,6 +13,7 @@
 
 check_scale <- function(x) {
   
+  
   if (is.numeric(x) && length(x) == 1) {
     
     if (x %in% c(110, 50, 10)) 
@@ -20,13 +21,13 @@ check_scale <- function(x) {
     
   } else if (is.character(x) && length(x) == 1) {
     
-    x <- c(small = 110, medium = 50, large = 10)[tolower(x)]
+    xnew <- c(small = 110, medium = 50, large = 10)[tolower(x)]
     
-    if (!is.na(x))
-      return(unname(x))
+    if (!is.na(xnew))
+      return(unname(xnew))
   }
   
-  stop("Invalid `scale`. Must be one of [110, 50, 10, 'small', 'medium', 'large'] you have :",scale,"\n", 
+  stop("Invalid `scale`. Must be one of [110, 50, 10, 'small', 'medium', 'large'] you have :",x,"\n", 
        call. = FALSE)
   
 }
