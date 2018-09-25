@@ -27,13 +27,32 @@ library(sp)
 library(sf)
 library(ggplot2)
 library(ggrepel)
-library(tmap)
+#library(tmap)
+library(knitr)
+```
+
+
+### testing showing a table of available data
+```{r echo = FALSE, results = 'asis'}
+
+#category <- 'physical'
+
+#df_data <- read.csv( system.file("extdata", paste0("data_list_", category, ".csv"), package = "rnaturalearth") )
+
+#convert true,false to 0,1, but loses the name row
+#I should just store as 0/1
+#df_data <- as.data.frame(lapply(df_data[2:4],as.numeric))
+
+knitr::kable(df_layers_physical, caption = "physical vector data available via ne_download()")
+
+knitr::kable(df_layers_cultural, caption = "cultural vector data available via ne_download()")
 ```
 
 
 ### Country maps with labels in other languages
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r, eval=FALSE, echo=TRUE, message=FALSE}
+#eval FALSE while testing
 
 # Africa
 sp::plot(ne_countries(continent = 'africa'))
@@ -106,7 +125,7 @@ ggplot(sfaf) +
     direction     = "y",
     hjust         = 0
   ) +
-  geom_text_repel(aes(x=X, y=Y, label=name_es),
+  geom_text_repel(aes(x=X, y=Y, label=name_fr),
     data          = subset(sfaf, X < 21),
     nudge_x       = -19 - subset(sfaf, X < 21)$X,
     segment.size  = 0.2,
@@ -136,9 +155,9 @@ tm_shape(sfaf) +
 
 #chinese labels don't currently work, because attribute data is filled with NA
 #I suspect I may need to do something different on reading the data in ?
-tm_shape(sfaf) +
-     tm_borders() +
-     tm_text("name_zh")
+# tm_shape(sfaf) +
+#      tm_borders() +
+#      tm_text("name_zh")
 
 # The full list of
 #    languages is: name_ar, name_bn, name_de, name_en, name_es, name_fr, name_el,

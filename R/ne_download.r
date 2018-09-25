@@ -104,7 +104,7 @@ ne_download <- function(scale = 110,
      })
   
   #return from this function if download error was caught by tryCatch
-  if (!is.null(download_failed)) return()
+  if (download_failed) return()
                   
   # an alternative downloading the zip to a permanent place
   # download.file(file.path(address), zip_file <- file.path(getwd(), paste0(file_name,'.zip'))

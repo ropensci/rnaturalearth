@@ -105,7 +105,17 @@ sp::plot(lakes110, col = 'blue')
 rivers110 <- ne_download(scale = 110, type = 'rivers_lake_centerlines', category = 'physical')
 sp::plot(rivers110, col = 'blue')
 
-
 ```
 
+### Tables of vector layers available via `ne_download(type=[layer_name], scale=)`
+1=available, 0=not
 
+```{r echo = FALSE, results = 'asis'}
+
+knitr::kable(df_layers_physical, caption = "category='physical' vector data available via ne_download()")
+```
+
+```{r echo = FALSE, results = 'asis'}
+
+knitr::kable(df_layers_cultural, caption = "category='cultural' vector data available via ne_download()")
+```
