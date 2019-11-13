@@ -6,7 +6,7 @@ output: rmarkdown::html_vignette
 #to produce a pdf
 #output: rmarkdown::pdf_document
 vignette: >
-  %\VignetteIndexEntry{What is a country ?}
+  %\VignetteIndexEntry{Language Support}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
