@@ -1,10 +1,9 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- used devtools::build_readme() to update the md -->
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
