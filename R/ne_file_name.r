@@ -59,10 +59,16 @@ ne_file_name <- function(scale = 110,
 
   
   if (full_url)
-    file_name <- paste0('http://www.naturalearthdata.com/http//',
-                      'www.naturalearthdata.com/download/',scale,'m/',category,'/',
-                      file_name,'.zip' )
-  
+    # file_name <- paste0('http://www.naturalearthdata.com/http//',
+    #                   'www.naturalearthdata.com/download/',scale,'m/',category,'/',
+    #                   file_name,'.zip' )
+    
+    # 2021-10-11 changing to new Amazon addresses
+    # e.g. https://naturalearth.s3.amazonaws.com/110m_cultural/ne_110m_admin_0_countries.zip
+    file_name <- paste0('https://naturalearth.s3.amazonaws.com/',
+                        scale,'m_',category,'/',
+                        file_name,'.zip' )
+    
   return(file_name)
   
 }
