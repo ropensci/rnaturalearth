@@ -23,10 +23,10 @@ test_that("filter by country gives bigger object than by geounit", {
   #reduces efectiveness of the test
   testthat::skip_if_not_installed('rnaturalearthhires')
   
-  expect_more_than( object.size(ne_states(country='france')),
+  expect_gt( object.size(ne_states(country='france')),
                     object.size(ne_states(geounit='france')) )
   
-  expect_more_than( object.size(ne_states(country='united kingdom')),
+  expect_gt( object.size(ne_states(country='united kingdom')),
                     object.size(ne_states(geounit='england')) )
   
 })

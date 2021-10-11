@@ -37,7 +37,7 @@ test_that("urls for downloads created by the package exist", {
   
   #tests all of the urls put into the vector above
   #info=x means that test fail messages include the failed urls
-  sapply(urls, function(x) expect_true(httr::url_success(x), info=x))
+  sapply(urls, function(x) expect_false(httr::http_error(x), info=x))
   
   })
 
@@ -45,6 +45,6 @@ test_that("a bogus url does not exist", {
   
   testthat::skip_on_cran()
   
-  expect_false(httr::url_success(url_expect_fail))
+  expect_true(httr::http_error(url_expect_fail))
   
 })

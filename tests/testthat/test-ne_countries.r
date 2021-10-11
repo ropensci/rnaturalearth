@@ -21,10 +21,10 @@ test_that("number of rows/polygons in objects is as expected", {
 
 test_that("scale argument gives expected relative sizes of objects", {
 
-  expect_more_than( object.size(ne_countries(scale='medium')),
+  expect_gt( object.size(ne_countries(scale='medium')),
                     object.size(ne_countries(scale='small')) )
 
-  expect_more_than( object.size(ne_countries(scale=50)),
+  expect_gt( object.size(ne_countries(scale=50)),
                     object.size(ne_countries(scale=110)) )
   
 })
