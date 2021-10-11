@@ -60,9 +60,7 @@ Data to support much of the package functionality are stored in two data package
 
 ```
 devtools::install_github("ropensci/rnaturalearthdata")
-install.packages("rnaturalearthhires",
-                 repos = "http://packages.ropensci.org",
-                 type = "source")
+devtools::install_github("ropensci/rnaturalearthhires")
 ```
 
 ### First Usage
