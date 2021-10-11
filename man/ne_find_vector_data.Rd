@@ -4,8 +4,11 @@
 \alias{ne_find_vector_data}
 \title{Return a dataframe of available vector layers on Natural Earth}
 \usage{
-ne_find_vector_data(scale = 110, category = c("cultural", "physical"),
-  getmeta = FALSE)
+ne_find_vector_data(
+  scale = 110,
+  category = c("cultural", "physical"),
+  getmeta = FALSE
+)
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}

@@ -4,9 +4,14 @@
 \alias{ne_download}
 \title{download data from Natural Earth and (optionally) read into R}
 \usage{
-ne_download(scale = 110, type = "countries", category = c("cultural",
-  "physical", "raster"), destdir = tempdir(), load = TRUE,
-  returnclass = c("sp", "sf"))
+ne_download(
+  scale = 110,
+  type = "countries",
+  category = c("cultural", "physical", "raster"),
+  destdir = tempdir(),
+  load = TRUE,
+  returnclass = c("sp", "sf")
+)
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}

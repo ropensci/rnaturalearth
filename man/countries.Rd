@@ -5,7 +5,11 @@
 \alias{countries}
 \alias{countries110}
 \title{world country polygons from Natural Earth}
-\format{A \code{SpatialPolygonsDataFrame}}
+\format{
+A \code{SpatialPolygonsDataFrame}
+
+An object of class \code{SpatialPolygonsDataFrame} with 177 rows and 94 columns.
+}
 \source{
 \url{http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip}
 }

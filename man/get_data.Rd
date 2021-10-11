@@ -4,8 +4,10 @@
 \alias{get_data}
 \title{Get data from within the package}
 \usage{
-get_data(scale = 110, type = c("countries", "map_units", "sovereignty",
-  "tiny_countries"))
+get_data(
+  scale = 110,
+  type = c("countries", "map_units", "sovereignty", "tiny_countries")
+)
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}, \code{'small'}, \code{'medium'}, \code{'large'}}

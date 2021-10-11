@@ -4,9 +4,14 @@
 \alias{ne_load}
 \title{load a Natural Earth vector that has already been downloaded to R using \code{\link{ne_download}}}
 \usage{
-ne_load(scale = 110, type = "countries", category = c("cultural",
-  "physical", "raster"), destdir = tempdir(), file_name = NULL,
-  returnclass = c("sp", "sf"))
+ne_load(
+  scale = 110,
+  type = "countries",
+  category = c("cultural", "physical", "raster"),
+  destdir = tempdir(),
+  file_name = NULL,
+  returnclass = c("sp", "sf")
+)
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}

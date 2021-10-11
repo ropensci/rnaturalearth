@@ -5,9 +5,15 @@
 \alias{ne_admin0}
 \title{Get natural earth world country polygons}
 \usage{
-ne_countries(scale = 110, type = "countries", continent = NULL,
-  country = NULL, geounit = NULL, sovereignty = NULL,
-  returnclass = c("sp", "sf"))
+ne_countries(
+  scale = 110,
+  type = "countries",
+  continent = NULL,
+  country = NULL,
+  geounit = NULL,
+  sovereignty = NULL,
+  returnclass = c("sp", "sf")
+)
 }
 \arguments{
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
