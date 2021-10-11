@@ -1,6 +1,6 @@
 Package: rnaturalearth
 Title: World Map Data from Natural Earth
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: c( person("Andy", "South", email = "southandy@gmail.com", role = c("aut", "cre")) )
 Description: Facilitates mapping by making natural earth map data from <http://www.naturalearthdata.com/> more easily available to R users.
 License: MIT + file LICENSE

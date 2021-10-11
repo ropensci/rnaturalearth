@@ -1,3 +1,9 @@
+rnaturalearth 0.3.0 2021-10-11
+===================
+
+* fix rnaturalearthhires installation #47 thankyou Ian Taylor for #43
+
+
 rnaturalearth 0.2.0
 ===================
 
