@@ -12,4 +12,28 @@ NULL
 #' @rdname countries
 "countries110"
 
+#' list of cultural layers available from Natural Earth 
+#'
+#'
+#' @format A \code{DataFrame}
+#' @aliases df_layers_cultural
+#' @name df_layers_cultural
+#' 
+NULL
+
+#' @rdname df_layers_cultural
+"df_layers_cultural"
+
+
+#' list of physical layers available from Natural Earth 
+#'
+#'
+#' @format A \code{DataFrame}
+#' @aliases df_layers_physical
+#' @name df_layers_physical
+#' 
+NULL
+
+#' @rdname df_layers_physical
+"df_layers_physical"
 
