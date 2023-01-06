@@ -117,9 +117,8 @@ ne_download <- function(scale = 110,
   if ( load & category == 'raster' )
   {
     # have to use file_name to set the folder and the tif name
-    rst <- raster::raster(file.path(destdir, file_name, paste0(file_name, '.tif')))
+    rst <- terra::rast(file.path(destdir, file_name, paste0(file_name, '.tif')))
     return(rst)
-    
     
   } else if ( load )
   {

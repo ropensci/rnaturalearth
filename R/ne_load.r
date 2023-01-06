@@ -68,7 +68,7 @@ ne_load <- function(scale = 110,
     if (!file.exists( file_tif ) )
       stop(error_msg)
     
-    rst <- raster::raster(file_tif)
+    rst <- terra::rast(file_tif)
     
     return(rst)
     
