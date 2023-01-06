@@ -27,7 +27,7 @@ Suggests:
     devtools (>= 1.10.0),
     rnaturalearthdata (>= 0.1.0), 
     rnaturalearthhires (>= 0.1.0),
-    raster (>= 2.5-2),
+    terra,
     rgeos,
     pbapply,
     ggplot2,
