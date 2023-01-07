@@ -14,8 +14,6 @@ test_that("type of object returned is as expected", {
   expect_is(ne_states(geounit='england'), "SpatialPolygonsDataFrame")
   })
 
-
-
 test_that("filter by country gives bigger object than by geounit", {
   
   #skip tests if rnaturalearthhires not available in testing env

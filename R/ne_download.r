@@ -122,15 +122,11 @@ ne_download <- function(scale = 110,
     
   } else if ( load )
   {
-    #use_iconv=TRUE to avoid problems with non ASCII vars
-    sp_object <- rgdal::readOGR(destdir, file_name, encoding='UTF-8', stringsAsFactors=FALSE, use_iconv=TRUE)
+    # read in data as sf object
+    sf_object <- sf::read_sf(destdir, file_name)
     
-    #to convert any '-99' or '-099' to NA
-    sp_object@data[sp_object@data=='-99' | sp_object@data=='-099'] <- NA
-    
-    # convert to sf if chosen
-    return( ne_as_sf(sp_object, returnclass))
-    
+    # convert to sp if chosen
+    return( ne_as_sp(sf_object, returnclass))
     
   } else
   {
