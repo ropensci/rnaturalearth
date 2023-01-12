@@ -47,7 +47,7 @@ ne_coastline <- function(scale = 110,
   }   
   
   # convert to sf if chosen
-  ne_as_sf(sldf, returnclass)
+  ne_as_sp(sldf, returnclass)
 
 
 }

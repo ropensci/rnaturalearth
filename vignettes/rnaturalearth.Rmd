@@ -88,9 +88,6 @@ sp::plot(ne_coastline())
 
 ```
 
-
-
-
 ## 2. Downloading other Natural Earth vectors with ne_download().  
 
 Each [Natural Earth](http://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/ropensci/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and download the corresponding file.

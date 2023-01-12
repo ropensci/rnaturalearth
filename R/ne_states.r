@@ -95,7 +95,7 @@ ne_states <- function( country = NULL,
   
   
   # convert to sf if chosen
-  ne_as_sf(spdf[filter, ], returnclass)
+  ne_as_sp(spdf[filter, ], returnclass)
 }
 
 

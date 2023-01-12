@@ -136,14 +136,13 @@ ne_git_layer_names <- function(x, scale, getmeta) {
     stop(
       sprintf(
         "GitHub API request failed [%s]\n%s\n<%s>", 
-        status_code(resp),
+        httr::status_code(x$response),
         x$content$message,
-        X$content$documentation_url
+        x$content$documentation_url
       ),
       call. = FALSE
     )
   }
-
     
   ## Create the pattern that matches the prefix that should be removed
   prefix <- paste0("ne_",scale,"m_")
