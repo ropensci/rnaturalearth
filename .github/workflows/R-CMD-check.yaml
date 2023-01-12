@@ -37,6 +37,7 @@ jobs:
 
       - name: Query dependencies
         run: |
+          install.packages("devtools")
           devtools::install_github("ropensci/rnaturalearthhires")
         shell: Rscript {0}
 
