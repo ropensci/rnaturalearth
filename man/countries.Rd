@@ -11,7 +11,7 @@ A \code{SpatialPolygonsDataFrame}
 An object of class \code{SpatialPolygonsDataFrame} with 177 rows and 94 columns.
 }
 \source{
-\url{http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip}
+\url{https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip}
 }
 \usage{
 countries110
