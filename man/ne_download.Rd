@@ -17,7 +17,7 @@ ne_download(
 \item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
 
 \item{type}{type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
-OR the portion of any natural earth vector url after the scale and before the . 
+OR the portion of any natural earth vector url after the scale and before the .
 e.g. for 'ne_50m_urban_areas.zip' this would be 'urban_areas'. See Details.
 OR the raster filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
 
@@ -30,16 +30,16 @@ OR the raster filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
 \item{returnclass}{'sp' default or 'sf' for Simple Features}
 }
 \value{
-A \code{Spatial} object depending on the data (points, lines, polygons or raster), 
+A \code{Spatial} object depending on the data (points, lines, polygons or raster),
    unless load=FALSE in which case it returns the name of the downloaded shapefile (without extension).
 }
 \description{
-returns downloaded data as a spatial object or the filename if \code{load=FALSE}.  
+returns downloaded data as a spatial object or the filename if \code{load=FALSE}.
 if \code{destdir} is specified the data can be reloaded in a later R session using \code{\link{ne_load}}
 with the same arguments.
 }
 \details{
-A non-exhaustive list of datasets available according to \code{scale} specified by the \code{type} param 
+A non-exhaustive list of datasets available according to \code{scale} specified by the \code{type} param
   \tabular{lccc}{
          	                   \tab scale = 'small'	\tab scale = 'medium'	\tab scale = 'large' \cr
   category = 'physical', type = '[below]' \cr
@@ -47,7 +47,7 @@ A non-exhaustive list of datasets available according to \code{scale} specified 
   land     	                 \tab y	        \tab y      	\tab y        \cr
   ocean     	                 \tab y	        \tab y      	\tab y        \cr
   rivers_lake_centerlines     \tab y	        \tab y      	\tab y        \cr
-  lakes     	                 \tab y	        \tab y      	\tab y        \cr 
+  lakes     	                 \tab y	        \tab y      	\tab y        \cr
   glaciated_areas     	       \tab y	        \tab y      	\tab y        \cr
   antarctic_ice_shelves_polys \tab -	        \tab y      	\tab y        \cr
   geographic_lines            \tab y	        \tab y      	\tab y        \cr
@@ -56,45 +56,46 @@ A non-exhaustive list of datasets available according to \code{scale} specified 
   wgs84_bounding_box     	   \tab y	        \tab y      	\tab y        \cr
   playas     	               \tab -	        \tab y      	\tab y        \cr
   minor_islands      	       \tab -	        \tab -      	\tab y        \cr
-  reefs              	       \tab -	        \tab -      	\tab y        \cr 
-  category = 'cultural', type = '[below]'             \cr    
+  reefs              	       \tab -	        \tab -      	\tab y        \cr
+  category = 'cultural', type = '[below]'             \cr
   populated_places        	   \tab y	        \tab y      	\tab y        \cr
   boundary_lines_land \tab y	        \tab y      	\tab y        \cr
   breakaway_disputed_areas \tab -	        \tab y      	\tab y        \cr
   airports              	     \tab -	        \tab y      	\tab y        \cr
   ports              	       \tab -	        \tab y      	\tab y        \cr
   urban_areas              	 \tab -	        \tab y      	\tab y        \cr
-  roads              	       \tab -	        \tab -      	\tab y        \cr   
-  railroads              	   \tab -	        \tab -      	\tab y        \cr       
+  roads              	       \tab -	        \tab -      	\tab y        \cr
+  railroads              	   \tab -	        \tab -      	\tab y        \cr
   }
 }
 \examples{
 \dontrun{
-spdf_world <- ne_download( scale = 110, type = 'countries' )
+spdf_world <- ne_download(scale = 110, type = "countries")
 
 if (require(sp)) {
   plot(spdf_world)
-  plot(ne_download(type = 'populated_places'))
+  plot(ne_download(type = "populated_places"))
 }
 
 # reloading from the saved file in the same session with same arguments
-spdf_world2 <-    ne_load( scale = 110, type = 'countries' )
+spdf_world2 <- ne_load(scale = 110, type = "countries")
 
 # download followed by load from specified directory will work across sessions
-spdf_world <- ne_download( scale = 110, type = 'countries', destdir = getwd() )
-spdf_world2 <-    ne_load( scale = 110, type = 'countries', destdir = getwd() )
+spdf_world <- ne_download(scale = 110, type = "countries", destdir = getwd())
+spdf_world2 <- ne_load(scale = 110, type = "countries", destdir = getwd())
 
 # for raster, here an example with Manual Shaded Relief (MSR)
 # download & load
-rst <- ne_download(scale = 50, type = 'MSR_50M', category = 'raster', destdir = getwd())
+rst <- ne_download(scale = 50, type = "MSR_50M", category = "raster", destdir = getwd())
 
 # load after having downloaded
-rst <- ne_load(scale = 50, type = 'MSR_50M', category = 'raster', destdir = getwd())
+rst <- ne_load(scale = 50, type = "MSR_50M", category = "raster", destdir = getwd())
 
 # plot
-library(raster)
-raster::plot(rst)
-} # end dontrun
+library(terra)
+terra::plot(rst)
+# end dontrun
+}
 }
 \seealso{
 \code{\link{ne_load}}, pre-downloaded data are available using \code{\link{ne_countries}}, \code{\link{ne_states}}.
