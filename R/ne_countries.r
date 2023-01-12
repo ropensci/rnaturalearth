@@ -53,7 +53,6 @@ ne_countries <- function(scale = 110,
   # some large scale NE data still have old uppercase fieldnames, this to correct
   names(spdf) <- tolower(names(spdf))
   
-        
   # set default filter
   filter <- TRUE
   
@@ -97,6 +96,6 @@ ne_countries <- function(scale = 110,
   
   # todo I could add other optional filters e.g. iso_a3
   
-  # convert to sf if chosen
-  ne_as_sf(spdf[filter, ], returnclass)
+  # convert to sp if chosen
+  ne_as_sp(spdf[filter, ], returnclass)
 }
