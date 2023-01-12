@@ -9,10 +9,10 @@ Badge](http://www.r-pkg.org/badges/version/rnaturalearth)](https://cran.r-projec
 Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth)
 [![CRAN Monthly
 Downloads](http://cranlogs.r-pkg.org/badges/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth)
-[![](https://badges.ropensci.org/22_status.svg)](https://github.com/ropensci/onboarding/issues/22)
+[![](https://badges.ropensci.org/22_status.svg)](https://github.com/ropensci/software-review/issues/22)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 [![Travis-CI Build
 Status](https://travis-ci.org/ropensci/rnaturalearth.svg?branch=master)](https://travis-ci.org/ropensci/rnaturalearth)
@@ -22,7 +22,7 @@ status](https://ci.appveyor.com/api/projects/status/yp26qgeb1iligrpp?svg=true)](
 # rnaturalearth
 
 An R package to hold and facilitate interaction with [Natural
-Earth](http://www.naturalearthdata.com/) map data.
+Earth](https://www.naturalearthdata.com/) map data.
 
 ### Provides :
 
@@ -39,10 +39,10 @@ Earth](http://www.naturalearthdata.com/) map data.
     rnaturalearth users can use Natural Earth documentation
 7.  data in ‘sf’ or ‘sp’ formats
 
-The [Natural Earth](http://www.naturalearthdata.com/) website structures
-vector data by scale, category and type. These determine the filenames
-of downloads. rnaturalearth uses this structure to facilitate download
-(like an API).
+The [Natural Earth](https://www.naturalearthdata.com/) website
+structures vector data by scale, category and type. These determine the
+filenames of downloads. rnaturalearth uses this structure to facilitate
+download (like an API).
 
 ### Install rnaturalearth
 
@@ -51,7 +51,7 @@ Install from CRAN :
     install.packages("rnaturalearth")
 
 or install the development version from GitHub using
-[devtools](https://github.com/hadley/devtools).
+[devtools](https://github.com/r-lib/devtools).
 
     devtools::install_github("ropensci/rnaturalearth")
 
@@ -72,27 +72,23 @@ functions accept an argument `returnclass='sf'` to return package `sf`
 ``` r
 library(rnaturalearth)
 library(sp)
-Warning: package 'sp' was built under R version 4.0.5
 
-#world countries
+# world countries
 sp::plot(ne_countries())
-Warning in wkt(obj): CRS object has no comment
 ```
 
 ![](tools/README-unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
-#uk
-sp::plot(ne_countries(country = 'united kingdom'))
-Warning in wkt(obj): CRS object has no comment
+# uk
+sp::plot(ne_countries(country = "united kingdom"))
 ```
 
 ![](tools/README-unnamed-chunk-2-2.png)<!-- -->
 
 ``` r
-#states, admin level1 boundaries
-sp::plot(ne_states(country = 'spain')) 
-Warning in wkt(obj): CRS object has no comment
+# states, admin level1 boundaries
+sp::plot(ne_states(country = "spain"))
 ```
 
 ![](tools/README-unnamed-chunk-2-3.png)<!-- -->
@@ -100,17 +96,17 @@ Warning in wkt(obj): CRS object has no comment
 ### Introductory vignette
 
 ``` r
-vignette('rnaturalearth', package='rnaturalearth')
+vignette("rnaturalearth", package = "rnaturalearth")
 ```
 
 ### To download Natural Earth data not already in the package
 
 There are a wealth of other data available at the [Natural
-Earth](http://www.naturalearthdata.com/) website. `rnaturalearth` has
+Earth](https://www.naturalearthdata.com/) website. `rnaturalearth` has
 functions to help with download of these data.
 
 The data available are outlined in the two tables below and online
-[here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/).
+[here](https://www.naturalearthdata.com/downloads/50m-physical-vectors/).
 
 ``` 
 
@@ -163,19 +159,19 @@ Specify the `scale`, `category` and `type` of the vector you want as in
 the examples below.
 
 ``` r
-#lakes
-lakes110 <- ne_download(scale = 110, type = 'lakes', category = 'physical')
+# lakes
+lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
 sp::plot(lakes110)
 
-#rivers
-rivers50 <- ne_download(scale = 50, type = 'rivers_lake_centerlines', category = 'physical')
+# rivers
+rivers50 <- ne_download(scale = 50, type = "rivers_lake_centerlines", category = "physical")
 sp::plot(rivers50)
 ```
 
 ### Details of different country definitions and scales
 
 ``` r
-vignette('what-is-a-country', package='rnaturalearth')
+vignette("what-is-a-country", package = "rnaturalearth")
 ```
 
 ## Reproducible download of Natural Earth data into the package
@@ -191,7 +187,7 @@ structure inspiration from
 Wickham](https://github.com/hadley) for comments and prompting, [Bob
 Rudis](https://github.com/hrbrmstr) for answers to stackoverflow
 questions about downloading Natural Earth data into R. The [Natural
-Earth team](http://www.naturalearthdata.com/about/contributors/) and
+Earth team](https://www.naturalearthdata.com/about/contributors/) and
 [Nathan Kelso](https://github.com/nvkelso) for providing such a great
 resource.
 
@@ -221,4 +217,4 @@ resource.
 2.  facilitate subsetting by country groupings
       - e.g. least developed countries etc.
 
-[![ropensci\_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci\_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)

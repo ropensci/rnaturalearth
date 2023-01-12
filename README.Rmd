@@ -16,8 +16,8 @@ knitr::opts_chunk$set(
 [![CRAN Status Badge](http://www.r-pkg.org/badges/version/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth)
 [![CRAN Total Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth)
 [![CRAN Monthly Downloads](http://cranlogs.r-pkg.org/badges/rnaturalearth)](https://cran.r-project.org/package=rnaturalearth)
-[![](https://badges.ropensci.org/22_status.svg)](https://github.com/ropensci/onboarding/issues/22)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![](https://badges.ropensci.org/22_status.svg)](https://github.com/ropensci/software-review/issues/22)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 [![Travis-CI Build Status](https://travis-ci.org/ropensci/rnaturalearth.svg?branch=master)](https://travis-ci.org/ropensci/rnaturalearth)
 [![Build status](https://ci.appveyor.com/api/projects/status/yp26qgeb1iligrpp?svg=true)](https://ci.appveyor.com/project/AndySouth/rnaturalearth)
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 # rnaturalearth
 
-An R package to hold and facilitate interaction with [Natural Earth](http://www.naturalearthdata.com/) map data.
+An R package to hold and facilitate interaction with [Natural Earth](https://www.naturalearthdata.com/) map data.
 
 ### Provides :
 1. access to a pre-downloaded subset of Natural Earth v4.1.0 (March 2018) vector data commonly used in world mapping
@@ -36,7 +36,7 @@ An R package to hold and facilitate interaction with [Natural Earth](http://www.
 1. consistency with Natural Earth naming conventions so that rnaturalearth users can use Natural Earth documentation
 1. data in 'sf' or 'sp' formats
 
-The [Natural Earth](http://www.naturalearthdata.com/) website structures vector data by scale, category and type. These determine the filenames of downloads. rnaturalearth uses this structure to facilitate download (like an API). 
+The [Natural Earth](https://www.naturalearthdata.com/) website structures vector data by scale, category and type. These determine the filenames of downloads. rnaturalearth uses this structure to facilitate download (like an API). 
 
 
 
@@ -48,7 +48,7 @@ Install from CRAN :
 install.packages("rnaturalearth")
 ```
 
-or install the development version from GitHub using [devtools](https://github.com/hadley/devtools). 
+or install the development version from GitHub using [devtools](https://github.com/r-lib/devtools). 
 
 ```
 devtools::install_github("ropensci/rnaturalearth")
@@ -68,60 +68,58 @@ Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be ma
 library(rnaturalearth)
 library(sp)
 
-#world countries
+# world countries
 sp::plot(ne_countries())
-#uk
-sp::plot(ne_countries(country = 'united kingdom'))
-#states, admin level1 boundaries
-sp::plot(ne_states(country = 'spain')) 
-
+# uk
+sp::plot(ne_countries(country = "united kingdom"))
+# states, admin level1 boundaries
+sp::plot(ne_states(country = "spain"))
 ```
 
 ### Introductory vignette
 ```{r, eval=FALSE}
-vignette('rnaturalearth', package='rnaturalearth')
+vignette("rnaturalearth", package = "rnaturalearth")
 ```
 
 ### To download Natural Earth data not already in the package
-There are a wealth of other data available at the [Natural Earth](http://www.naturalearthdata.com/) website. `rnaturalearth` has functions to help with download of these data.
+There are a wealth of other data available at the [Natural Earth](https://www.naturalearthdata.com/) website. `rnaturalearth` has functions to help with download of these data.
 
-The data available are outlined in the two tables below and online [here](http://www.naturalearthdata.com/downloads/50m-physical-vectors/).
+The data available are outlined in the two tables below and online [here](https://www.naturalearthdata.com/downloads/50m-physical-vectors/).
 
 ```{r, eval=TRUE, echo=FALSE}
 library(knitr)
-for(category in c('cultural','physical'))
+for (category in c("cultural", "physical"))
 {
-  df_data <- read.csv( system.file("extdata", paste0("data_list_", category, ".csv"), package = "rnaturalearth") )
-  cat("\ncategory  ",category,"\n")
+  df_data <- read.csv(system.file("extdata", paste0("data_list_", category, ".csv"), package = "rnaturalearth"))
+  cat("\ncategory  ", category, "\n")
 
   print(df_data)
-  #kable(df_data)
+  # kable(df_data)
 }
-
 ```
 
 Specify the `scale`, `category` and `type` of the vector you want as in the examples below.
 
 ```{r, eval=FALSE}
-#lakes
-lakes110 <- ne_download(scale = 110, type = 'lakes', category = 'physical')
+# lakes
+lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
 sp::plot(lakes110)
 
-#rivers
-rivers50 <- ne_download(scale = 50, type = 'rivers_lake_centerlines', category = 'physical')
+# rivers
+rivers50 <- ne_download(scale = 50, type = "rivers_lake_centerlines", category = "physical")
 sp::plot(rivers50)
 ```
 
 ### Details of different country definitions and scales
 ```{r, eval=FALSE}
-vignette('what-is-a-country', package='rnaturalearth')
+vignette("what-is-a-country", package = "rnaturalearth")
 ```
 
 ## Reproducible download of Natural Earth data into the package
 [Script](https://github.com/ropensci/rnaturalearthdata/blob/master/data-raw/data_download_script.r) used to get data into the accompanying data packages.
 
 ## Acknowledgements
-Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspiration from [USAboundaries](https://github.com/ropensci/USAboundaries), [Hadley Wickham](https://github.com/hadley) for comments and prompting, [Bob Rudis](https://github.com/hrbrmstr) for answers to stackoverflow questions about downloading Natural Earth data into R. The [Natural Earth team](http://www.naturalearthdata.com/about/contributors/) and [Nathan Kelso](https://github.com/nvkelso) for providing such a great resource.
+Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspiration from [USAboundaries](https://github.com/ropensci/USAboundaries), [Hadley Wickham](https://github.com/hadley) for comments and prompting, [Bob Rudis](https://github.com/hrbrmstr) for answers to stackoverflow questions about downloading Natural Earth data into R. The [Natural Earth team](https://www.naturalearthdata.com/about/contributors/) and [Nathan Kelso](https://github.com/nvkelso) for providing such a great resource.
 
 
 ## Potential future work
@@ -149,4 +147,4 @@ Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspir
     + e.g. least developed countries etc.
 
     
-[![ropensci\_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)    
+[![ropensci\_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)    

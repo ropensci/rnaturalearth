@@ -17,7 +17,7 @@ For example, from my own parochial perspective, it allows mapping the UK as a wh
 
 [rnaturalearth](https://github.com/ropensci/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
 
-[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
+[Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
 
 This vignette uses `sp::plot` as a simple, quick way to plot the data obtained using `rnaturalearth`. `rnaturalearth` data can also be used to make more elaborate maps with `ggplot2`, `tmap` and other options.
 

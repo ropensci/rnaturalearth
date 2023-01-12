@@ -17,7 +17,7 @@ This vignette shows how [rnaturalearth](https://github.com/ropensci/rnaturaleart
 
 [rnaturalearth](https://github.com/ropensci/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
 
-[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
+[Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
 
 
 #### load required packages
@@ -27,7 +27,7 @@ library(sp)
 library(sf)
 library(ggplot2)
 library(ggrepel)
-#library(tmap)
+# library(tmap)
 library(knitr)
 ```
 
@@ -35,13 +35,13 @@ library(knitr)
 ### testing showing a table of available data
 ```{r echo = FALSE, results = 'asis'}
 
-#category <- 'physical'
+# category <- 'physical'
 
-#df_data <- read.csv( system.file("extdata", paste0("data_list_", category, ".csv"), package = "rnaturalearth") )
+# df_data <- read.csv( system.file("extdata", paste0("data_list_", category, ".csv"), package = "rnaturalearth") )
 
-#convert true,false to 0,1, but loses the name row
-#I should just store as 0/1
-#df_data <- as.data.frame(lapply(df_data[2:4],as.numeric))
+# convert true,false to 0,1, but loses the name row
+# I should just store as 0/1
+# df_data <- as.data.frame(lapply(df_data[2:4],as.numeric))
 
 knitr::kable(df_layers_physical, caption = "physical vector data available via ne_download()")
 
@@ -52,51 +52,51 @@ knitr::kable(df_layers_cultural, caption = "cultural vector data available via n
 ### Country maps with labels in other languages
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
-#eval FALSE while testing
+# eval FALSE while testing
 
 # Africa
-sp::plot(ne_countries(continent = 'africa'))
+sp::plot(ne_countries(continent = "africa"))
 
-sfaf <- ne_countries(continent = 'africa', returnclass = 'sf')
+sfaf <- ne_countries(continent = "africa", returnclass = "sf")
 sfafc <- st_centroid(sfaf)
 
 sfaf <- cbind(sfaf, st_coordinates(st_centroid(sfaf$geometry)))
 
-#G = cbind(G, st_coordinates(st_centroid(G$geometry)))
+# G = cbind(G, st_coordinates(st_centroid(G$geometry)))
 
-#this adds centroids in the middle of countries
+# this adds centroids in the middle of countries
 ggplot(sfaf) +
   geom_sf() +
-  geom_sf(data=sfafc)
+  geom_sf(data = sfafc)
 
-#trying labels in the middle of countries, doesn't quite work needs x,y,label
-#but once x & y added on with st_coordinates ...
-#seems getting the coords might not be necessary for much longer https://github.com/slowkow/ggrepel/issues/111
-#cool nearly there ...
+# trying labels in the middle of countries, doesn't quite work needs x,y,label
+# but once x & y added on with st_coordinates ...
+# seems getting the coords might not be necessary for much longer https://github.com/slowkow/ggrepel/issues/111
+# cool nearly there ...
 ggplot(sfaf) +
   geom_sf() +
-  geom_text_repel(aes(x=X, y=Y, label=name))
-  #geom_text_repel(data=sfafc, aes(x=X, y=Y, label=name))
-  #geom_label_repel(data=sfafc, aes(x=X, y=Y, label=name))
-  #geom_text(data=sfafc, label='name_es', x='X', y='Y')
+  geom_text_repel(aes(x = X, y = Y, label = name))
+# geom_text_repel(data=sfafc, aes(x=X, y=Y, label=name))
+# geom_label_repel(data=sfafc, aes(x=X, y=Y, label=name))
+# geom_text(data=sfafc, label='name_es', x='X', y='Y')
 
-#getting there, labels still overlap a bit 
-#maybe make map bigger to allow space for labels
+# getting there, labels still overlap a bit
+# maybe make map bigger to allow space for labels
 ggplot(sfaf) +
-     geom_sf() +
-     geom_text_repel(aes(x=X, y=Y, label=name_es))
+  geom_sf() +
+  geom_text_repel(aes(x = X, y = Y, label = name_es))
 
 # point.padding=NA allows labels to overlap the centroid
 ggplot(sfaf) +
-     geom_sf() +
-     geom_text_repel(aes(x=X, y=Y, label=name_es), point.padding = NA)
+  geom_sf() +
+  geom_text_repel(aes(x = X, y = Y, label = name_es), point.padding = NA)
 
-#Africa labels just down left & right sides
-#works pretty well I think
+# Africa labels just down left & right sides
+# works pretty well I think
 ggplot(sfaf) +
   geom_sf() +
-  xlim(-28,61) +
-  geom_text_repel(aes(x=X, y=Y, label=name_es),
+  xlim(-28, 61) +
+  geom_text_repel(aes(x = X, y = Y, label = name_es),
     data          = subset(sfaf, X > 21),
     nudge_x       = 60 - subset(sfaf, X > 21)$X,
     segment.size  = 0.2,
@@ -104,7 +104,7 @@ ggplot(sfaf) +
     direction     = "y",
     hjust         = 0
   ) +
-  geom_text_repel(aes(x=X, y=Y, label=name_es),
+  geom_text_repel(aes(x = X, y = Y, label = name_es),
     data          = subset(sfaf, X < 21),
     nudge_x       = -19 - subset(sfaf, X < 21)$X,
     segment.size  = 0.2,
@@ -113,11 +113,11 @@ ggplot(sfaf) +
     hjust         = 1
   )
 
-#french labels
+# french labels
 ggplot(sfaf) +
   geom_sf() +
-  xlim(-28,61) +
-  geom_text_repel(aes(x=X, y=Y, label=name_fr),
+  xlim(-28, 61) +
+  geom_text_repel(aes(x = X, y = Y, label = name_fr),
     data          = subset(sfaf, X > 21),
     nudge_x       = 60 - subset(sfaf, X > 21)$X,
     segment.size  = 0.2,
@@ -125,7 +125,7 @@ ggplot(sfaf) +
     direction     = "y",
     hjust         = 0
   ) +
-  geom_text_repel(aes(x=X, y=Y, label=name_fr),
+  geom_text_repel(aes(x = X, y = Y, label = name_fr),
     data          = subset(sfaf, X < 21),
     nudge_x       = -19 - subset(sfaf, X < 21)$X,
     segment.size  = 0.2,
@@ -136,25 +136,25 @@ ggplot(sfaf) +
 
 
 
-#tmap good but labels currently overlap
+# tmap good but labels currently overlap
 
-#english labels
+# english labels
 tm_shape(sfaf) +
   tm_borders() +
   tm_text("name")
 
-#spanish labels
+# spanish labels
 tm_shape(sfaf) +
-     tm_borders() +
-     tm_text("name_es")
+  tm_borders() +
+  tm_text("name_es")
 
-#other languages de, fr, nl, 
+# other languages de, fr, nl,
 tm_shape(sfaf) +
-     tm_borders() +
-     tm_text("name_de", size=0.5)
+  tm_borders() +
+  tm_text("name_de", size = 0.5)
 
-#chinese labels don't currently work, because attribute data is filled with NA
-#I suspect I may need to do something different on reading the data in ?
+# chinese labels don't currently work, because attribute data is filled with NA
+# I suspect I may need to do something different on reading the data in ?
 # tm_shape(sfaf) +
 #      tm_borders() +
 #      tm_text("name_zh")
@@ -163,10 +163,7 @@ tm_shape(sfaf) +
 #    languages is: name_ar, name_bn, name_de, name_en, name_es, name_fr, name_el,
 #    name_hi, name_hu, name_id, name_it, name_ja, name_ko, name_nl, name_pl,
 #    name_pt, name_ru, name_sv, name_tr, name_vi, and name_zh.
-# A 2-character language code decoder ring is here:https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes. 
-
-
-
+# A 2-character language code decoder ring is here:https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes.
 ```
 
 

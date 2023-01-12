@@ -22,12 +22,12 @@ Authors@R: c(
     role = c("ctb"),
     comment = c(ORCID = "0000-0002-5070-8109")
   ))
-Description: Facilitates mapping by making natural earth map data from <http://www.naturalearthdata.com/> more easily available to R users.
+Description: Facilitates mapping by making natural earth map data from <https://www.naturalearthdata.com/> more easily available to R users.
 License: MIT + file LICENSE
 LazyData: true
 LazyDataCompression: xz
 Encoding: UTF-8
-URL: https://docs.ropensci.org/rnaturalearth (website)
+URL: https://docs.ropensci.org/rnaturalearth/
     https://github.com/ropensci/rnaturalearth
 BugReports: https://github.com/ropensci/rnaturalearth/issues
 Additional_repositories: http://packages.ropensci.org
@@ -54,4 +54,4 @@ Suggests:
     dplyr,
     purrr
 VignetteBuilder: knitr
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3

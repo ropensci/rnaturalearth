@@ -13,7 +13,7 @@ vignette: >
 
 This vignette is an introduction to [rnaturalearth](https://github.com/ropensci/rnaturalearth), an R package to hold and facilitate interaction with natural earth vector map data. `rnaturalearth` is a data package designed to provide map data that can be visualised using other R packages.
 
-[Natural Earth](http://www.naturalearthdata.com/) is a public domain map dataset including vector country and other administrative boundaries. 
+[Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country and other administrative boundaries. 
 
 [rnaturalearth](https://github.com/ropensci/rnaturalearth) does two main things.
 
@@ -47,20 +47,19 @@ Pre-downloaded maps can be accessed with :
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 
 # world at small scale (low resolution)
-sp::plot(ne_countries(type = 'countries', scale = 'small'))
+sp::plot(ne_countries(type = "countries", scale = "small"))
 
 # countries, UK undivided
-sp::plot(ne_countries(country = 'united kingdom', type='countries'))
+sp::plot(ne_countries(country = "united kingdom", type = "countries"))
 # map_units, UK divided into England, Scotland, Wales and Northern Ireland
-sp::plot(ne_countries(country = 'united kingdom', type='map_units'))
+sp::plot(ne_countries(country = "united kingdom", type = "map_units"))
 
-     
+
 # countries, small scale
-sp::plot(ne_countries(country = 'united kingdom', scale = 'small'))   
+sp::plot(ne_countries(country = "united kingdom", scale = "small"))
 
 # countries, medium scale
-sp::plot(ne_countries(country = 'united kingdom', scale = 'medium'))
-
+sp::plot(ne_countries(country = "united kingdom", scale = "medium"))
 ```
 
 
@@ -68,16 +67,15 @@ sp::plot(ne_countries(country = 'united kingdom', scale = 'medium'))
 # not evaluated because rely on rnaturalearthhires data which are on rOpenSci so CRAN check likely to fail
 
 # countries, large scale
-sp::plot(ne_countries(country = 'united kingdom', scale = 'large'))
+sp::plot(ne_countries(country = "united kingdom", scale = "large"))
 
 # states country='united kingdom'
-sp::plot(ne_states(country = 'united kingdom'))  
+sp::plot(ne_states(country = "united kingdom"))
 # states geounit='england'
-sp::plot(ne_states(geounit = 'england')) 
+sp::plot(ne_states(geounit = "england"))
 
 # states country='france'
-sp::plot(ne_states(country = 'france'))
-
+sp::plot(ne_states(country = "france"))
 ```
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
@@ -85,23 +83,21 @@ sp::plot(ne_states(country = 'france'))
 # coastline of the world
 # subsetting of coastline is not possible because the Natural Earth data are not attributed in that way
 sp::plot(ne_coastline())
-
 ```
 
 ## 2. Downloading other Natural Earth vectors with ne_download().  
 
-Each [Natural Earth](http://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/ropensci/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and download the corresponding file.
+Each [Natural Earth](https://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/ropensci/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and download the corresponding file.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
 # lakes
-lakes110 <- ne_download(scale = 110, type = 'lakes', category = 'physical')
-sp::plot(lakes110, col = 'blue')
+lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
+sp::plot(lakes110, col = "blue")
 
 # rivers
-rivers110 <- ne_download(scale = 110, type = 'rivers_lake_centerlines', category = 'physical')
-sp::plot(rivers110, col = 'blue')
-
+rivers110 <- ne_download(scale = 110, type = "rivers_lake_centerlines", category = "physical")
+sp::plot(rivers110, col = "blue")
 ```
 
 ### Tables of vector layers available via `ne_download(type=[layer_name], scale=)`
