@@ -1,7 +1,15 @@
 ## R CMD check results
 
-* The package was tested on rhub and on winbuilder. There are 0 errors and 0 warnings.
+- The package was tested on:
 
-* There are two notes:
-  * Package suggested but not available for checking: 'rnaturalearthhires'.
-  * Found 416 marked Latin-1 strings because some files contains country names.
+  - os: macos-latest with r: 'release'
+  - os: windows-latest with r: 'release'
+  - os: ubuntu-latest with r: 'devel'
+  - os: ubuntu-latest with r: 'release'
+  - os: ubuntu-latest with r: 'oldrel-1'
+
+- The package was tested on rhub and on winbuilder.
+
+- There are two notes:
+  - Package suggested but not available for checking: 'rnaturalearthhires'.
+  - Found 416 marked Latin-1 strings because some files contains country names.
