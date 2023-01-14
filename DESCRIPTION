@@ -53,5 +53,6 @@ Suggests:
     ggplot2,
     dplyr,
     purrr
+Remotes: ropensci/rnaturalearthhires
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3

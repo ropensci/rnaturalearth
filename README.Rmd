@@ -15,15 +15,9 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/rnaturalearth)](https://CRAN.R-project.org/package=rnaturalearth)
-
 [![](https://badges.ropensci.org/22_status.svg)](https://github.com/ropensci/software-review/issues/22)
-
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-
-[![Travis-CI Build Status](https://travis-ci.org/ropensci/rnaturalearth.svg?branch=master)](https://travis-ci.org/ropensci/rnaturalearth)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/yp26qgeb1iligrpp?svg=true)](https://ci.appveyor.com/project/AndySouth/rnaturalearth)
-
+[![R-CMD-check](https://github.com/ropensci/rnaturalearth/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/rnaturalearth/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 # rnaturalearth
