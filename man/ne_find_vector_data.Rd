@@ -11,7 +11,8 @@ ne_find_vector_data(
 )
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
+\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}
+or \code{'small'}, \code{'medium'}, \code{'large'}}
 
 \item{category}{one of natural earth categories : 'cultural', 'physical'}
 
