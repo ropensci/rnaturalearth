@@ -5,7 +5,8 @@
 * Using terra over raster ([#63](https://github.com/ropensci/rnaturalearth/pull/63))
   * See https://r-spatial.org/r/2022/04/12/evolution.html#packages-depending-on-sp-and-raster and https://r-spatial.org/r/2022/12/14/evolution2.html#deprecations-in-retiring-packages
 
-* Using Amazon hosted URLs as the primary source for downloading data ([#48](https://github.com/ropensci/rnaturalearth/issues/48), [#64](https://github.com/ropensci/rnaturalearth/issues/64)).
+* Fixes broken data download links.
+  * Now using Amazon hosted URLs as the primary source for downloading data ([#48](https://github.com/ropensci/rnaturalearth/issues/48), [#64](https://github.com/ropensci/rnaturalearth/issues/64)).
 
 # rnaturalearth 0.3.0 2021-10-11
 
