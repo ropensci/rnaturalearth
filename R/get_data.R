@@ -9,7 +9,6 @@
 #' 'tiny_countries'
 #'
 #' @return A \code{SpatialPolygonsDataFrame} object.
-#'
 get_data <- function(scale = 110,
                      type = c(
                        "countries",

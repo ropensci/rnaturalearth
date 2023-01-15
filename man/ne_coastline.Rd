@@ -19,7 +19,6 @@ or \code{'small'}, \code{'medium'}, \code{'large'}}
 returns world coastline at specified scale
 }
 \examples{
-
 if (requireNamespace("rnaturalearthdata")) {
   sldf_coast <- ne_coastline()
 

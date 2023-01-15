@@ -11,29 +11,33 @@ check_data_exist(
 )
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10} or \code{'small'}, \code{'medium'}, \code{'large'}}
+\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}
+or \code{'small'}, \code{'medium'}, \code{'large'}}
 
-\item{type}{type of natural earth file to download one of 'countries', 'map_units', 'map_subunits', 'sovereignty', 'states'
-OR the portion of any natural earth vector url after the scale and before the .
-e.g. for 'ne_50m_urban_areas.zip' this would be 'urban_areas'
-OR the raster filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
+\item{type}{type of natural earth file to download one of 'countries',
+'map_units', 'map_subunits', 'sovereignty', 'states' OR the portion of any
+natural earth vector url after the scale and before the . e.g. for
+'ne_50m_urban_areas.zip' this would be 'urban_areas' OR the raster
+filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
 
-\item{category}{one of natural earth categories : 'cultural', 'physical', 'raster'}
+\item{category}{one of natural earth categories : 'cultural', 'physical',
+'raster'}
 }
 \value{
 TRUE or FALSE
 }
 \description{
-checks from a list dependent on type, category and scale. If it returns FALSE the data may still exist on the website.
-Doesn't yet do checking on raster names because I found the naming convention too tricky.
+checks from a list dependent on type, category and scale. If it returns FALSE
+the data may still exist on the website. Doesn't yet do checking on raster
+names because I found the naming convention too tricky.
 }
 \examples{
 check_data_exist(scale = 110, category = "cultural", type = "countries")
 
-# type not in list for this category
+# Type not in list for this category
 check_data_exist(scale = 110, category = "physical", type = "airports")
 
-# type in list but scale shows FALSE
+# Type in list but scale shows FALSE
 check_data_exist(scale = 110, category = "cultural", type = "airports")
 
 }

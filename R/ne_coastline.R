@@ -8,7 +8,6 @@
 #' @param returnclass 'sp' default or 'sf' for Simple Features
 #'
 #' @examples
-#'
 #' if (requireNamespace("rnaturalearthdata")) {
 #'   sldf_coast <- ne_coastline()
 #'
@@ -20,7 +19,6 @@
 #' @return \code{SpatialLinesDataFrame} or \code{sf}
 #'
 #' @export
-#'
 ne_coastline <- function(scale = 110,
                          returnclass = c("sp", "sf")) {
   returnclass <- match.arg(returnclass)

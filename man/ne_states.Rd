@@ -36,6 +36,7 @@ returns state polygons (administrative level 1) for specified countries
 if (requireNamespace("rnaturalearthhires")) {
   spdf_france_country <- ne_states(country = "france")
   spdf_france_geounit <- ne_states(geounit = "france")
+
   if (require(sp)) {
     plot(spdf_france_country)
     plot(spdf_france_geounit)
@@ -44,4 +45,5 @@ if (requireNamespace("rnaturalearthhires")) {
     plot(ne_states(geounit = "england"))
   }
 }
+
 }

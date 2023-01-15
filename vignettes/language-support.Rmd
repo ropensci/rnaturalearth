@@ -20,7 +20,8 @@ This vignette shows how [rnaturalearth](https://github.com/ropensci/rnaturaleart
 [Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
 
 
-#### load required packages
+## Load required packages
+
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 library(rnaturalearth)
 library(sp)
@@ -31,8 +32,8 @@ library(ggrepel)
 library(knitr)
 ```
 
+## Testing showing a table of available data
 
-### testing showing a table of available data
 ```{r echo = FALSE, results = 'asis'}
 
 # category <- 'physical'
@@ -48,8 +49,7 @@ knitr::kable(df_layers_physical, caption = "physical vector data available via n
 knitr::kable(df_layers_cultural, caption = "cultural vector data available via ne_download()")
 ```
 
-
-### Country maps with labels in other languages
+## Country maps with labels in other languages
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 # eval FALSE while testing
@@ -133,8 +133,6 @@ ggplot(sfaf) +
     direction     = "y",
     hjust         = 1
   )
-
-
 
 # tmap good but labels currently overlap
 

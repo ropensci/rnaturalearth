@@ -16,7 +16,7 @@
 #'
 #' @param full_url whether to return just the filename [default] or the full URL
 #' needed for download
-
+#'
 #' @examples
 #' ne_name <- ne_file_name(scale = 110, type = "countries")
 #' ne_url <- ne_file_name(scale = 110, type = "countries", full_url = TRUE)
@@ -24,7 +24,6 @@
 #' @return string
 #'
 #' @export
-
 ne_file_name <- function(scale = 110,
                          type = "countries",
                          category = c("cultural", "physical", "raster"),

@@ -6,7 +6,6 @@
 #' @param returnclass 'sp' default or 'sf' for Simple Features
 #'
 #' @return an sf or sp object
-
 ne_as_sp <- function(x, returnclass = c("sp", "sf")) {
   returnclass <- match.arg(returnclass)
 

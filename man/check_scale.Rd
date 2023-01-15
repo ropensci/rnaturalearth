@@ -16,9 +16,3 @@ integer scale of map
 \description{
 check name or numeric scale representations, return numeric one
 }
-\examples{
-# commented out because not exported
-# check_scale(110)
-# check_scale("small")
-
-}

@@ -5,14 +5,7 @@
 #' @param x scale of map to return, one of \code{110}, \code{50}, \code{10} or
 #' \code{'small'}, \code{'medium'}, \code{'large'}
 #'
-#' @examples
-#' # commented out because not exported
-#' # check_scale(110)
-#' # check_scale("small")
-#'
 #' @return integer scale of map
-
-
 check_scale <- function(x) {
   if (is.numeric(x) && length(x) == 1) {
     if (x %in% c(110, 50, 10)) {

@@ -47,7 +47,6 @@
 #' \code{sf}
 #'
 #' @export
-#'
 ne_countries <- function(scale = 110,
                          type = "countries",
                          continent = NULL,

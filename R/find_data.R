@@ -10,7 +10,6 @@
 #'
 #' @param getmeta whether to get url of the metadata for each layer
 #'
-#'
 #' @return dataframe with two variables: layer and metadata
 #'
 #' @export

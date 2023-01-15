@@ -51,17 +51,15 @@ ne_load(scale = 110, type = "countries")
 spdf_world <- ne_download(scale = 110, type = "countries", destdir = getwd())
 spdf_world2 <- ne_load(scale = 110, type = "countries", destdir = getwd())
 
-# for raster
-# download & load
-rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir
-= getwd())
+# for raster download & load
+rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
 
 # load after having downloaded
 rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir =
 getwd())
 
 # plot
-library(raster) plot(rst)
+library(terra) plot(rst)
 # end dontrun
 }
 

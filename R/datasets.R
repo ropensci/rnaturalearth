@@ -11,15 +11,14 @@
 #'
 #' @name countries
 NULL
-
+#'
 #' @source
 #' \url{https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip}
 #'
 #' @rdname countries
 "countries110"
-
-#' list of cultural layers available from Natural Earth
 #'
+#' list of cultural layers available from Natural Earth
 #'
 #' @format A \code{DataFrame}
 #' @aliases df_layers_cultural
@@ -29,7 +28,6 @@ NULL
 
 #' @rdname df_layers_cultural
 "df_layers_cultural"
-
 
 #' list of physical layers available from Natural Earth
 #'
