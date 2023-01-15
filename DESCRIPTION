@@ -45,14 +45,16 @@ Suggests:
     knitr (>= 1.12.3),
     testthat (>= 0.9.1),
     devtools (>= 1.10.0),
-    rnaturalearthdata (>= 0.1.0), 
+    rnaturalearthdata (>= 0.1.0),
     rnaturalearthhires (>= 0.1.0),
     terra,
     rgeos,
     pbapply,
     ggplot2,
     dplyr,
-    purrr
+    purrr,
+    rmarkdown,
+    tmap
 Remotes: ropensci/rnaturalearthhires
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3

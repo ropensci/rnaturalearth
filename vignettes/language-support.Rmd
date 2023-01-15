@@ -6,7 +6,7 @@ output: rmarkdown::html_vignette
 #to produce a pdf
 #output: rmarkdown::pdf_document
 vignette: >
-  %\VignetteIndexEntry{Language Support}
+  %\VignetteIndexEntry{Language support in rnaturalearth}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
@@ -17,10 +17,18 @@ This vignette shows how [rnaturalearth](https://github.com/ropensci/rnaturaleart
 
 [rnaturalearth](https://github.com/ropensci/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
 
-[Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
+[Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries.
 
 
 ## Load required packages
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dev = "svg"
+)
+```
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 library(rnaturalearth)
@@ -28,34 +36,31 @@ library(sp)
 library(sf)
 library(ggplot2)
 library(ggrepel)
-# library(tmap)
+library(tmap)
 library(knitr)
+
+
+sf_use_s2(FALSE)
 ```
 
 ## Testing showing a table of available data
 
 ```{r echo = FALSE, results = 'asis'}
 
-# category <- 'physical'
-
-# df_data <- read.csv( system.file("extdata", paste0("data_list_", category, ".csv"), package = "rnaturalearth") )
-
-# convert true,false to 0,1, but loses the name row
-# I should just store as 0/1
-# df_data <- as.data.frame(lapply(df_data[2:4],as.numeric))
+data(df_layers_physical)
+data(df_layers_cultural)
 
 knitr::kable(df_layers_physical, caption = "physical vector data available via ne_download()")
-
 knitr::kable(df_layers_cultural, caption = "cultural vector data available via ne_download()")
 ```
 
 ## Country maps with labels in other languages
 
-```{r, eval=FALSE, echo=TRUE, message=FALSE}
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
 # eval FALSE while testing
 
 # Africa
-sp::plot(ne_countries(continent = "africa"))
+terra::plot(ne_countries(continent = "africa"))
 
 sfaf <- ne_countries(continent = "africa", returnclass = "sf")
 sfafc <- st_centroid(sfaf)
@@ -70,18 +75,15 @@ ggplot(sfaf) +
   geom_sf(data = sfafc)
 
 # trying labels in the middle of countries, doesn't quite work needs x,y,label
-# but once x & y added on with st_coordinates ...
-# seems getting the coords might not be necessary for much longer https://github.com/slowkow/ggrepel/issues/111
+# but once x & y added on with st_coordinates ... seems getting the coords might
+# not be necessary for much longer https://github.com/slowkow/ggrepel/issues/111
 # cool nearly there ...
 ggplot(sfaf) +
   geom_sf() +
   geom_text_repel(aes(x = X, y = Y, label = name))
-# geom_text_repel(data=sfafc, aes(x=X, y=Y, label=name))
-# geom_label_repel(data=sfafc, aes(x=X, y=Y, label=name))
-# geom_text(data=sfafc, label='name_es', x='X', y='Y')
 
-# getting there, labels still overlap a bit
-# maybe make map bigger to allow space for labels
+# getting there, labels still overlap a bit maybe make map bigger to allow space
+# for labels
 ggplot(sfaf) +
   geom_sf() +
   geom_text_repel(aes(x = X, y = Y, label = name_es))
@@ -91,8 +93,7 @@ ggplot(sfaf) +
   geom_sf() +
   geom_text_repel(aes(x = X, y = Y, label = name_es), point.padding = NA)
 
-# Africa labels just down left & right sides
-# works pretty well I think
+# Africa labels just down left & right sides works pretty well I think
 ggplot(sfaf) +
   geom_sf() +
   xlim(-28, 61) +

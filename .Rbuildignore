@@ -7,3 +7,5 @@
 ^README-.*\.png$
 ^cran-comments.md$
 ^\.github$
+^doc$
+^Meta$

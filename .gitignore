@@ -1,3 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
+/doc/
+/Meta/
+inst/doc

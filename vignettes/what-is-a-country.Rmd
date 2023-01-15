@@ -11,30 +11,37 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dev = "svg"
+)
+```
+
 This vignette shows how [rnaturalearth](https://github.com/ropensci/rnaturalearth) allows mapping countries using different definitions of what a country is. What a country is can be more complicated than you might expect.
-    
+
 For example, from my own parochial perspective, it allows mapping the UK as a whole or separating out England, Scotland, Wales and Northern Ireland. It also allows you to exclude far away places like the Falkland Islands, or not. Mapping France it allows the inclusion or exclusion of French Guiana and islands in the South Pacific.
 
 [rnaturalearth](https://github.com/ropensci/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
 
-[Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries. 
+[Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries.
 
 This vignette uses `sp::plot` as a simple, quick way to plot the data obtained using `rnaturalearth`. `rnaturalearth` data can also be used to make more elaborate maps with `ggplot2`, `tmap` and other options.
 
+## load required packages
 
-#### load required packages
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 library(rnaturalearth)
 library(sp)
 ```
 
+## Country types : countries, map_units and sovereignty.
+Natural Earth data are classified by `countries`, `map_units` and `sovereignty`. Below you will see that specifying `united kingdom` for
 
-### Country types : countries, map_units and sovereignty.
-Natural Earth data are classified by `countries`, `map_units` and `sovereignty`. Below you will see that specifying `united kingdom` for 
-
-1. `countries` gives the UK undivided   
-1. `map_units` gives England, Scotland, Wales and Northern Ireland   
-1. `sovereignty` includes the Falkland Islands   
+- `countries` gives the UK undivided
+- `map_units` gives England, Scotland, Wales and Northern Ireland
+- `sovereignty` includes the Falkland Islands
 
 Filtering by `geounit` can give finer control, e.g. to plot Scotland alone, or France without French Guiana.
 
@@ -61,23 +68,24 @@ sp::plot(ne_countries(country = "france", type = "sovereignty"), col = "red")
 sp::plot(ne_coastline(scale = 110), col = "lightgrey", lty = 3, add = TRUE)
 ```
 
-### Country scales : small, medium and large.
+## Country scales : small, medium and large.
+
 The different definitions of a country outlined above are available at different scales.
+
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
 # countries, large scale
 sp::plot(ne_countries(country = "united kingdom", scale = "large"))
 
 # countries, medium scale
-# temporarily commented out to avoid utf conversion travis error with Curacao
-# sp::plot(ne_countries(country = 'united kingdom', scale = 'medium'))
+sp::plot(ne_countries(country = "united kingdom", scale = "medium"))
 
 # countries, small scale
 sp::plot(ne_countries(country = "united kingdom", scale = "small"))
 ```
 
+## States, admin level 1, select by country or geounit.
 
-### States, admin level 1, select by country or geounit. 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 
 # states country='united kingdom'
