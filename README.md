@@ -47,19 +47,25 @@ s## Install rnaturalearth
 
 Install from CRAN :
 
-    install.packages("rnaturalearth")
+``` r
+install.packages("rnaturalearth")
+```
 
 or install the development version from GitHub using
 [devtools](https://github.com/r-lib/devtools).
 
-    devtools::install_github("ropensci/rnaturalearth")
+``` r
+devtools::install_github("ropensci/rnaturalearth")
+```
 
 Data to support much of the package functionality are stored in two data
 packages that you will be prompted to install when required if you do
 not do so here.
 
-    devtools::install_github("ropensci/rnaturalearthdata")
-    devtools::install_github("ropensci/rnaturalearthhires")
+``` r
+devtools::install_github("ropensci/rnaturalearthdata")
+devtools::install_github("ropensci/rnaturalearthhires")
+```
 
 ## First usage
 
@@ -124,10 +130,16 @@ sp::plot(lakes110)
 rivers50 <- ne_download(
   scale = 50,
   type = "rivers_lake_centerlines",
-  category = "physical"
+  category = "physical",
+  returnclass = "sf"
 )
 
-sp::plot(rivers50)
+library(ggplot2)
+library(sf)
+
+ggplot(rivers50) +
+  geom_sf() +
+  theme_minimal()
 ```
 
 ## Details of different country definitions and scales
