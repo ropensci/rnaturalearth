@@ -1,3 +1,7 @@
+## Resubmission
+
+This is a resubmission because DESCRIPTION contained an invalid field (Remotes) which has been removed.
+
 ## R CMD check results
 
 - The package was tested on:
@@ -14,6 +18,3 @@
 
   - Package suggested but not available for checking: 'rnaturalearthhires'.
   - Found 416 marked Latin-1 strings because some files contains country names.
-
-- There is another note appearing depending on the testing environment.
-  - Unknown, possibly misspelled, fields in DESCRIPTION: 'Remotes'.
