@@ -8,7 +8,7 @@
 \format{
 A \code{SpatialPolygonsDataFrame}
 
-An object of class \code{SpatialPolygonsDataFrame} with 177 rows and 94 columns.
+An object of class \code{SpatialPolygonsDataFrame} with 177 rows and 168 columns.
 }
 \source{
 \url{https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip}

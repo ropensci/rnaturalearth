@@ -38,8 +38,7 @@
 #' rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
 #'
 #' # load after having downloaded
-#' rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir =
-#' getwd())
+#' rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
 #'
 #' # plot
 #' library(terra) plot(rst)
