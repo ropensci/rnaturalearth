@@ -1,6 +1,6 @@
 Package: rnaturalearth
 Title: World Map Data from Natural Earth
-Version: 0.3.2
+Version: 0.3.2.9000
 Authors@R: c(
   person(
     family = "Massicotte",
@@ -58,4 +58,3 @@ Suggests:
     svglite
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
-

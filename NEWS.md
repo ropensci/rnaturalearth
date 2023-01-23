@@ -1,3 +1,5 @@
+# rnaturalearth (development version)
+
 # rnaturalearth 0.3.2
 
 * Added new maintainer and contributors ([#62](https://github.com/ropensci/rnaturalearth/issues/62)).
