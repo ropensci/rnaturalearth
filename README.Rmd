@@ -9,16 +9,17 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "",
-  fig.path = "tools/README-",
   dev = "svg"
 )
 ```
 
 <!-- badges: start -->
+
 [![CRAN status](https://www.r-pkg.org/badges/version/rnaturalearth)](https://CRAN.R-project.org/package=rnaturalearth)
 [![](https://badges.ropensci.org/22_status.svg)](https://github.com/ropensci/software-review/issues/22)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-CMD-check](https://github.com/ropensci/rnaturalearth/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/rnaturalearth/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 # rnaturalearth
@@ -41,9 +42,9 @@ This package provides :
 
 - data in 'sf' or 'sp' formats
 
-The [Natural Earth](https://www.naturalearthdata.com/) website structures vector data by scale, category and type. These determine the filenames of downloads. rnaturalearth uses this structure to facilitate download (like an API). 
+The [Natural Earth](https://www.naturalearthdata.com/) website structures vector data by scale, category and type. These determine the filenames of downloads. rnaturalearth uses this structure to facilitate download (like an API).
 
-s## Install rnaturalearth
+## Install rnaturalearth
 
 Install from CRAN :
 
@@ -51,7 +52,7 @@ Install from CRAN :
 install.packages("rnaturalearth")
 ```
 
-or install the development version from GitHub using [devtools](https://github.com/r-lib/devtools). 
+or install the development version from GitHub using [devtools](https://github.com/r-lib/devtools).
 
 ```r
 devtools::install_github("ropensci/rnaturalearth")
@@ -67,7 +68,7 @@ devtools::install_github("ropensci/rnaturalearthhires")
 
 ## First usage
 
-Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options. All retrieval functions accept an argument `returnclass='sf'` to return package `sf` (Simple Features) objects. 
+Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options. All retrieval functions accept an argument `returnclass='sf'` to return package `sf` (Simple Features) objects.
 
 ```{r, eval=TRUE}
 library(rnaturalearth)
@@ -155,15 +156,14 @@ Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspir
 - Country synonyms lookup
   - dataframe with ISO3 and country synonyms
   - similar to https://github.com/AndySouth/rworldmap/blob/master/data/countrySynonyms.rda
-    
 - Country larger regions lookup
   - dataframe with ISO3 and membership of different regional groupings, e.g. continent, least developed countries etc.
   - similar to https://github.com/AndySouth/rworldmap/blob/master/data/countryRegions.rda
 
-
 ### Potential additional functions
 
 - facilitate joining of user data to country boundaries
+
   - similar to https://github.com/AndySouth/rworldmap/blob/master/R/joinCountryData2Map.R
   - ... but with a better name
   - similar allowing of join by ISO codes or names, with attempted synonym matching
@@ -171,5 +171,5 @@ Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspir
 
 - facilitate subsetting by country groupings
   - e.g. least developed countries etc.
-    
-[![ropensci\_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)    
+
+[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
