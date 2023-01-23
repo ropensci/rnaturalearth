@@ -68,7 +68,7 @@ devtools::install_github("ropensci/rnaturalearthhires")
 
 ## First usage
 
-Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options. All retrieval functions accept an argument `returnclass='sf'` to return package `sf` (Simple Features) objects.
+Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options. All retrieval functions accept an argument `returnclass = "sf"` to return package `sf` (Simple Features) objects.
 
 ```{r, eval=TRUE}
 library(rnaturalearth)
