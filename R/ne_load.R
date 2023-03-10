@@ -27,8 +27,8 @@
 #'
 #' @examples \dontrun{
 #' # download followed by load from tempdir() works in same R session
-#' spdf_world <- ne_download(scale = 110, type = "countries") spdf_world2 <-
-#' ne_load(scale = 110, type = "countries")
+#' spdf_world <- ne_download(scale = 110, type = "countries") 
+#' spdf_world2 <-ne_load(scale = 110, type = "countries")
 #'
 #' # download followed by load from specified directory works between R sessions
 #' spdf_world <- ne_download(scale = 110, type = "countries", destdir = getwd())
