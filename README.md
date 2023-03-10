@@ -83,21 +83,21 @@ library(sp)
 sp::plot(ne_countries())
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.svg)<!-- -->
+![](man/figures/README-unnamed-chunk-2-1.svg)<!-- -->
 
 ``` r
 # uk
 sp::plot(ne_countries(country = "united kingdom"))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-2.svg)<!-- -->
+![](man/figures/README-unnamed-chunk-2-2.svg)<!-- -->
 
 ``` r
 # states, admin level1 boundaries
 sp::plot(ne_states(country = "spain"))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-3.svg)<!-- -->
+![](man/figures/README-unnamed-chunk-2-3.svg)<!-- -->
 
 ## Introductory vignette
 
@@ -194,5 +194,3 @@ resource.
 -   facilitate subsetting by country groupings
 
     -   e.g. least developed countries etc.
-
-

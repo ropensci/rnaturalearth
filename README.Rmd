@@ -8,6 +8,7 @@ output: github_document
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  fig.path = "man/figures/README-",
   comment = "",
   dev = "svg"
 )
@@ -97,7 +98,6 @@ There are a wealth of other data available at the [Natural Earth](https://www.na
 The data available are outlined in the two tables below and online [here](https://www.naturalearthdata.com/downloads/50m-physical-vectors/).
 
 ```{r, eval=TRUE, echo=FALSE}
-
 for (category in c("cultural", "physical")) {
   df_data <- read.csv(
     system.file(
