@@ -195,4 +195,4 @@ resource.
 
     -   e.g. least developed countries etc.
 
-[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
+
