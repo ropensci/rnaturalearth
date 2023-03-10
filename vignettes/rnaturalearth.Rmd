@@ -14,8 +14,7 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  dev = "svglite"
+  comment = "#>"
 )
 ```
 
@@ -50,7 +49,6 @@ Pre-downloaded maps can be accessed with :
 - `ne_coastline()` for world coastline
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
-
 # world at small scale (low resolution)
 sp::plot(ne_countries(type = "countries", scale = "small"))
 
@@ -82,7 +80,6 @@ sp::plot(ne_states(country = "france"))
 ```
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
-
 # coastline of the world
 # subsetting of coastline is not possible because the Natural Earth data are not attributed in that way
 sp::plot(ne_coastline())
@@ -93,7 +90,6 @@ sp::plot(ne_coastline())
 Each [Natural Earth](https://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/ropensci/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and download the corresponding file.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
-
 # lakes
 lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
 sp::plot(lakes110, col = "blue")

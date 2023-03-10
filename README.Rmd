@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   fig.path = "man/figures/README-",
   comment = "",
-  dev = "svg"
+  dev = "png"
 )
 ```
 

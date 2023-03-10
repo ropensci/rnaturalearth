@@ -52,8 +52,7 @@ Suggests:
     dplyr,
     purrr,
     rmarkdown,
-    tmap,
-    svglite
+    tmap
 Config/Needs/website:  ropensci/rnaturalearthhires
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
