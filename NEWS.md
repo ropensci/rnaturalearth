@@ -1,5 +1,7 @@
 # rnaturalearth (development version)
 
+- `terra` is now included in the Imports section.
+
 # rnaturalearth 0.3.2
 
 * Added new maintainer and contributors ([#62](https://github.com/ropensci/rnaturalearth/issues/62)).
