@@ -38,7 +38,8 @@ Imports:
     utils (>= 3.2.3),
     sf (>= 0.3-4),
     httr (>= 1.1.0),
-    jsonlite
+    jsonlite,
+    terra
 Suggests:
     ggrepel,
     knitr (>= 1.12.3),
@@ -46,7 +47,6 @@ Suggests:
     devtools (>= 1.10.0),
     rnaturalearthdata (>= 0.1.0),
     rnaturalearthhires (>= 0.1.0),
-    terra,
     pbapply,
     ggplot2,
     dplyr,
