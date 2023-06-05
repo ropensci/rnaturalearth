@@ -95,6 +95,10 @@ ne_download <- function(scale = 110,
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
+  if (returnclass == "sp") {
+    deprecate_sp("ne_download(returnclass = 'sp')")
+  }
+
   # without extension, e.g. .shp
   file_name <- ne_file_name(
     scale = scale, type = type, category = category, full_url = FALSE

@@ -40,6 +40,10 @@ ne_states <- function(country = NULL,
                       returnclass = c("sp", "sf")) {
   returnclass <- match.arg(returnclass)
 
+  if (returnclass == "sp") {
+    deprecate_sp("ne_download(returnclass = 'sp')")
+  }
+
   # set map from one stored this adds potential to add or pass other potential
   # state maps, e.g. without lakes but no checking is done, may not be needed
   if (is.null(spdf)) {
