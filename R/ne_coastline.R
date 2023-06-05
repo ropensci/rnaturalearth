@@ -23,6 +23,10 @@ ne_coastline <- function(scale = 110,
                          returnclass = c("sp", "sf")) {
   returnclass <- match.arg(returnclass)
 
+  if (returnclass == "sp") {
+    deprecate_sp("ne_download(returnclass = 'sp')")
+  }
+
   # check for the data packages and try to install if not there
   if (scale == 10) {
     check_rnaturalearthhires()

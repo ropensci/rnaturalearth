@@ -56,6 +56,10 @@ ne_countries <- function(scale = 110,
                          returnclass = c("sp", "sf")) {
   returnclass <- match.arg(returnclass)
 
+  if (returnclass == "sp") {
+    deprecate_sp("ne_download(returnclass = 'sp')")
+  }
+
   spdf <- get_data(scale = scale, type = type)
 
   # some large scale NE data still have old uppercase fieldnames, this to

@@ -57,7 +57,12 @@ ne_load <- function(scale = 110,
                     file_name = NULL,
                     returnclass = c("sp", "sf")) {
   category <- match.arg(category)
+
   returnclass <- match.arg(returnclass)
+
+  if (returnclass == "sp") {
+    deprecate_sp("ne_download(returnclass = 'sp')")
+  }
 
   if (is.null(file_name)) {
     file_name <- ne_file_name(scale = scale, type = type, category = category)

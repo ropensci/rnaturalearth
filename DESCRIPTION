@@ -52,7 +52,9 @@ Suggests:
     dplyr,
     purrr,
     rmarkdown,
-    tmap
+    tmap,
+    lifecycle (>= 1.0.3),
+    rlang
 Config/Needs/website:  ropensci/rnaturalearthhires
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
