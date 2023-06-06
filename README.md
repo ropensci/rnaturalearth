@@ -77,27 +77,38 @@ functions accept an argument `returnclass = "sf"` to return package `sf`
 
 ``` r
 library(rnaturalearth)
+The legacy packages maptools, rgdal, and rgeos, underpinning this package
+will retire shortly. Please refer to R-spatial evolution reports on
+https://r-spatial.org/r/2023/05/15/evolution4.html for details.
+This package is now running under evolution status 0 
+Support for Spatial objects (`sp`) will be deprecated in {rnaturalearth} and will be removed in a future release of the package. Please use `sf` objects with {rnaturalearth}. For example: `ne_download(returnclass = 'sf')`
 library(sp)
 
 # world countries
 sp::plot(ne_countries())
+Warning: The `returnclass` argument of `ne_download()` sp as of rnaturalearth 1.0.0.
+ℹ Please use `sf` objects with {rnaturalearth}, support for Spatial objects
+  (sp) will be removed in a future release of the package.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
 ```
 
-![](man/figures/README-unnamed-chunk-2-1.svg)<!-- -->
+![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
 # uk
 sp::plot(ne_countries(country = "united kingdom"))
 ```
 
-![](man/figures/README-unnamed-chunk-2-2.svg)<!-- -->
+![](man/figures/README-unnamed-chunk-2-2.png)<!-- -->
 
 ``` r
 # states, admin level1 boundaries
 sp::plot(ne_states(country = "spain"))
 ```
 
-![](man/figures/README-unnamed-chunk-2-3.svg)<!-- -->
+![](man/figures/README-unnamed-chunk-2-3.png)<!-- -->
 
 ## Introductory vignette
 
