@@ -1,3 +1,5 @@
+# rnaturalearth (development version)
+
 # rnaturalearth 0.3.3
 
 - Using `lifecycle` to indicate that support of `sp` object will be eventually droped. Users should now use `ne_download(returnclass = "sf")`, instead of `ne_download(returnclass = "sp")`.
