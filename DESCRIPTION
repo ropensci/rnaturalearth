@@ -1,6 +1,6 @@
 Package: rnaturalearth
 Title: World Map Data from Natural Earth
-Version: 0.3.2.9000
+Version: 0.3.3
 Authors@R: c(
   person(
     family = "Massicotte",
@@ -55,6 +55,6 @@ Suggests:
     tmap,
     lifecycle (>= 1.0.3),
     rlang
-Config/Needs/website:  ropensci/rnaturalearthhires
+Config/Needs/website: ropensci/rnaturalearthhires
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
