@@ -1,3 +1,6 @@
+This is a maintenance release that document/use the new special sentinel "_PACKAGE".
+
+
 ## revdepcheck results
 
 We checked 34 reverse dependencies (13 from CRAN + 21 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.

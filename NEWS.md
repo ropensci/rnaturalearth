@@ -1,8 +1,11 @@
 # rnaturalearth (development version)
 
+- This is a maintenance release that document/use the new special sentinel "_PACKAGE".
+
+
 # rnaturalearth 0.3.3
 
-- Using `lifecycle` to indicate that support of `sp` object will be eventually droped. Users should now use `ne_download(returnclass = "sf")`, instead of `ne_download(returnclass = "sp")`.
+- Using `lifecycle` to indicate that support of `sp` object will be eventually dropped. Users should now use `ne_download(returnclass = "sf")`, instead of `ne_download(returnclass = "sp")`.
 - `terra` is now included in the Imports section.
 
 # rnaturalearth 0.3.2
@@ -17,7 +20,7 @@
 
 # rnaturalearth 0.3.0 2021-10-11
 
-* fix rnaturalearthhires installation #47 thankyou Ian Taylor for #43
+* fix rnaturalearthhires installation #47 thank you Ian Taylor for #43
 
 # rnaturalearth 0.2.0
 
