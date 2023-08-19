@@ -11,7 +11,8 @@ Facilitates mapping by making natural earth map data from \url{https://www.natur
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://docs.ropensci.org/rnaturalearth/ https://github.com/ropensci/rnaturalearth}
+  \item \url{https://docs.ropensci.org/rnaturalearth/}
+  \item \url{https://github.com/ropensci/rnaturalearth}
   \item Report bugs at \url{https://github.com/ropensci/rnaturalearth/issues}
 }
 
