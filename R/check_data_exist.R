@@ -44,23 +44,30 @@ check_data_exist <- function(scale = 110,
   scale <- check_scale(scale)
 
 
-  df_data <- read.csv(system.file("extdata", paste0("data_list_", category, ".csv"), package = "rnaturalearth"))
+  df_data <- read.csv(
+    system.file(
+      "extdata",
+      paste0("data_list_", category, ".csv"),
+      package = "rnaturalearth"
+    )
+  )
 
 
   # first check if type is within the list
   if (!type %in% df_data$type) {
-    warning(type, " seems not to be in the list for category=", category, " maybe try the other category of c('cultural', 'physical')")
+    warning(
+      type,
+      " seems not to be in the list for category=",
+      category,
+      " maybe try the other category of c('cultural', 'physical')"
+    )
     return(FALSE)
   }
 
-  # df_data[df_data$type=='roads', 'scale110']
-
   exist <- df_data[df_data$type == type, paste0("scale", scale)]
-
 
   if (!exist) {
     warning(
-      "your combination of type, category, scale",
       " seem not to exist in the list of Natural Earth data.",
       " Check ?ne_download or http://www.naturalearthdata.com/features/ to see data availability."
     )

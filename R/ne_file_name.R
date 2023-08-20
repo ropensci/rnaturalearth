@@ -24,10 +24,11 @@
 #' @return string
 #'
 #' @export
-ne_file_name <- function(scale = 110,
-                         type = "countries",
-                         category = c("cultural", "physical", "raster"),
-                         full_url = FALSE) {
+ne_file_name <- function(
+    scale = 110,
+    type = "countries",
+    category = c("cultural", "physical", "raster"),
+    full_url = FALSE) {
   # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
 

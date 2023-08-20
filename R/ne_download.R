@@ -86,12 +86,13 @@
 #'    the downloaded shapefile (without extension).
 #'
 #' @export
-ne_download <- function(scale = 110,
-                        type = "countries",
-                        category = c("cultural", "physical", "raster"),
-                        destdir = tempdir(),
-                        load = TRUE,
-                        returnclass = c("sp", "sf")) {
+ne_download <- function(
+    scale = 110,
+    type = "countries",
+    category = c("cultural", "physical", "raster"),
+    destdir = tempdir(),
+    load = TRUE,
+    returnclass = c("sp", "sf")) {
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 

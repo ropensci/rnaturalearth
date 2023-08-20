@@ -47,13 +47,14 @@
 #' \code{sf}
 #'
 #' @export
-ne_countries <- function(scale = 110,
-                         type = "countries",
-                         continent = NULL,
-                         country = NULL,
-                         geounit = NULL,
-                         sovereignty = NULL,
-                         returnclass = c("sp", "sf")) {
+ne_countries <- function(
+    scale = 110,
+    type = "countries",
+    continent = NULL,
+    country = NULL,
+    geounit = NULL,
+    sovereignty = NULL,
+    returnclass = c("sp", "sf")) {
   returnclass <- match.arg(returnclass)
 
   if (returnclass == "sp") {

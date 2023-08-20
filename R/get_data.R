@@ -9,13 +9,14 @@
 #' 'tiny_countries'
 #'
 #' @return A \code{SpatialPolygonsDataFrame} object.
-get_data <- function(scale = 110,
-                     type = c(
-                       "countries",
-                       "map_units",
-                       "sovereignty",
-                       "tiny_countries"
-                     )) {
+get_data <- function(
+    scale = 110,
+    type = c(
+      "countries",
+      "map_units",
+      "sovereignty",
+      "tiny_countries"
+    )) {
   # check on permitted scale arg, convert names to numeric
   scale <- check_scale(scale)
 

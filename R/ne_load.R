@@ -50,12 +50,13 @@
 #' polygons or raster).
 #'
 #' @export
-ne_load <- function(scale = 110,
-                    type = "countries",
-                    category = c("cultural", "physical", "raster"),
-                    destdir = tempdir(),
-                    file_name = NULL,
-                    returnclass = c("sp", "sf")) {
+ne_load <- function(
+    scale = 110,
+    type = "countries",
+    category = c("cultural", "physical", "raster"),
+    destdir = tempdir(),
+    file_name = NULL,
+    returnclass = c("sp", "sf")) {
   category <- match.arg(category)
 
   returnclass <- match.arg(returnclass)
