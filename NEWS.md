@@ -1,4 +1,4 @@
-# rnaturalearth (development version)
+# rnaturalearth 0.3.4
 
 - This is a maintenance release that document/use the new special sentinel "_PACKAGE".
 
