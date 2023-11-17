@@ -13,8 +13,21 @@ ne_countries(returnclass = "sv")
 
 Affected functions are `ne_countries()`,`ne_coastline()`, `ne_states()`, `ne_load()` and `ne_download()`. 
 
+If changing the return type to `sf` creates too many problems to your existing code, you can still convert it back to `sp` :
 
-More information about R-spatial evolution: retirement of `rgdal`, `rgeos` and `maptools`: https://r-spatial.org/r/2022/04/12/evolution.html
+```
+countries <- ne_countries(returnclass = "sf")
+
+# option 1
+sf::as_Spatial(countries)
+
+
+# option 2
+as(countries, "Spatial")
+```
+
+More information about the retirement of `rgdal`, `rgeos` and `maptools`: https://r-spatial.org/r/2022/04/12/evolution.html
+
 
 # rnaturalearth 0.3.4
 
