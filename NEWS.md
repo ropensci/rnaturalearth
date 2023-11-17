@@ -1,12 +1,31 @@
+# rnaturalearth 1.0.0 (development version)
+
+## Breaking changes
+
+This is a breaking changes release that ends support to `sp` object in favour of more modern interfaces (`sf` and `terra`). Although that `sp` is still available on CRAN, it is no longer being actively developed (https://geocompx.org/post/2023/rgdal-retirement/). This is the main reason that motivated the choice to transition toward `sf` (the default) and `terra`.
+
+Users can choose either get an `sf` or `SpatVector` using the `returnclass` argument:
+
+```
+ne_countries(returnclass = "sf")
+ne_countries(returnclass = "sv")
+```
+
+Affected functions are `ne_countries()`,`ne_coastline()`, `ne_states()`, `ne_load()` and `ne_download()`. 
+
+
+More information about R-spatial evolution: retirement of `rgdal`, `rgeos` and `maptools`: https://r-spatial.org/r/2022/04/12/evolution.html
+
 # rnaturalearth 0.3.4
 
-- This is a maintenance release that document/use the new special sentinel "_PACKAGE".
+* This is a maintenance release that document/use the new special sentinel "_PACKAGE".
 
 
 # rnaturalearth 0.3.3
 
-- Using `lifecycle` to indicate that support of `sp` object will be eventually dropped. Users should now use `ne_download(returnclass = "sf")`, instead of `ne_download(returnclass = "sp")`.
-- `terra` is now included in the Imports section.
+* Using `lifecycle` to indicate that support of `sp` object will be eventually dropped. Users should now use `ne_download(returnclass = "sf")`, instead of `ne_download(returnclass = "sp")`.
+
+* `terra` is now included in the Imports section.
 
 # rnaturalearth 0.3.2
 
