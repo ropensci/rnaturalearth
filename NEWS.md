@@ -11,7 +11,7 @@ ne_countries(returnclass = "sf")
 ne_countries(returnclass = "sv")
 ```
 
-Affected functions are `ne_countries()`,`ne_coastline()`, `ne_states()`, `ne_load()` and `ne_download()`. 
+Affected functions are `ne_countries()`, `ne_coastline()`, `ne_states()`, `ne_load()` and `ne_download()`. 
 
 If changing the return type to `sf` creates too many problems to your existing code, you can still convert it back to `sp` :
 
