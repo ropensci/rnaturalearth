@@ -1,4 +1,4 @@
-# rnaturalearth 1.0.0 (development version)
+# rnaturalearth (development version)
 
 ## Breaking changes
 
