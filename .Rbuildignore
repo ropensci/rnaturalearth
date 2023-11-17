@@ -10,3 +10,6 @@
 ^doc$
 ^Meta$
 ^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

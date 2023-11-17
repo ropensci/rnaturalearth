@@ -27,8 +27,7 @@ License: MIT + file LICENSE
 LazyData: true
 LazyDataCompression: xz
 Encoding: UTF-8
-URL: https://docs.ropensci.org/rnaturalearth/,
-    https://github.com/ropensci/rnaturalearth
+URL: https://docs.ropensci.org/rnaturalearth/, https://github.com/ropensci/rnaturalearth, http://ropensci.github.io/rnaturalearth/
 BugReports: https://github.com/ropensci/rnaturalearth/issues
 Additional_repositories: http://packages.ropensci.org
 Depends:
