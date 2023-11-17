@@ -37,7 +37,7 @@ This package provides :
 -   consistency with Natural Earth naming conventions so that
     rnaturalearth users can use Natural Earth documentation
 
--   data in ‘sf’ or ‘sp’ formats
+-   data in ‘sf’ or ‘sv’ formats
 
 The [Natural Earth](https://www.naturalearthdata.com/) website
 structures vector data by scale, category and type. These determine the
@@ -77,14 +77,6 @@ Features) objects.
 
 ``` r
 library(rnaturalearth)
-The legacy packages maptools, rgdal, and rgeos, underpinning the sp package,
-which was just loaded, will retire in October 2023.
-Please refer to R-spatial evolution reports for details, especially
-https://r-spatial.org/r/2023/05/15/evolution4.html.
-It may be desirable to make the sf package available;
-package maintainers should consider adding sf to Suggests:.
-The sp package is now running under evolution status 2
-     (status 2 uses the sf package in place of rgdal)
 
 # world countries
 plot(ne_countries())
