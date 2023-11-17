@@ -4,27 +4,36 @@
 \alias{ne_coastline}
 \title{Get natural earth world coastline}
 \usage{
-ne_coastline(scale = 110, returnclass = c("sp", "sf"))
+ne_coastline(scale = 110, returnclass = c("sf", "sv"))
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}
-or \code{'small'}, \code{'medium'}, \code{'large'}}
+\item{scale}{The scale of map to return, one of `110`, `50`, `10` or `small`,
+`medium`, `large`.}
 
-\item{returnclass}{'sp' default or 'sf' for Simple Features}
+\item{returnclass}{A string determining the spatial object to return. Either
+"sf" for for simple feature (from `sf`, the default) or "sv" for a
+`SpatVector` (from `terra`).}
 }
 \value{
-\code{SpatialLinesDataFrame} or \code{sf}
+An object of class `sf` for simple feature (from `sf`, the default)
+or `SpatVector` (from `terra`).
 }
 \description{
 returns world coastline at specified scale
 }
+\details{
+Note that the filename of the requested object will be returned if
+`load = FALSE`.
+}
 \examples{
 if (requireNamespace("rnaturalearthdata")) {
-  sldf_coast <- ne_coastline()
-
-  if (require(sp)) {
-    plot(sldf_coast)
-  }
+  coast <- ne_coastline()
+  plot(coast)
 }
 
+}
+\seealso{
+\code{\link{ne_load}}, pre-downloaded data are available using
+  \code{\link{ne_countries}}, \code{\link{ne_states}}. Other geographic data
+  are available in the raster package : \code{\link[raster]{getData}}.
 }

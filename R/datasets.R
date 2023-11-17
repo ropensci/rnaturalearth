@@ -3,9 +3,9 @@
 #' at 1:110m scale (small). Other data and resolutions are in the packages
 #' rnaturalearthdata and rnaturalearthhires.
 #'
-#' @format A \code{SpatialPolygonsDataFrame}
+#' @format A \code{sf} object.
 #'
-#' @slot data A data frame with country attributes
+#' @slot data A data frame with country attributes.
 #'
 #' @aliases countries110
 #'

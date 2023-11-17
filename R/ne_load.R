@@ -3,9 +3,7 @@
 #'
 #' returns loaded data as a spatial object.
 #'
-#'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
-#' or \code{'small'}, \code{'medium'}, \code{'large'}
+#' @inherit ne_download
 #'
 #' @param type type of natural earth file one of 'countries', 'map_units',
 #'    'map_subunits', 'sovereignty', 'states' OR the portion of any natural
@@ -20,8 +18,6 @@
 #'
 #' @param file_name OPTIONAL name of file (excluding path) instead of natural
 #' earth attributes
-#'
-#' @param returnclass 'sp' default or 'sf' for Simple Features
 #'
 #' @seealso \code{\link{ne_download}}
 #'
@@ -46,9 +42,6 @@
 #' # end dontrun
 #' }
 #'
-#' @return A \code{Spatial} object depending on the data (points, lines,
-#' polygons or raster).
-#'
 #' @export
 ne_load <- function(
     scale = 110,
@@ -56,7 +49,7 @@ ne_load <- function(
     category = c("cultural", "physical", "raster"),
     destdir = tempdir(),
     file_name = NULL,
-    returnclass = c("sp", "sf")) {
+    returnclass = c("sf", "sv")) {
   category <- match.arg(category)
 
   returnclass <- match.arg(returnclass)
@@ -68,7 +61,6 @@ ne_load <- function(
   if (is.null(file_name)) {
     file_name <- ne_file_name(scale = scale, type = type, category = category)
   }
-
 
   error_msg <- paste0(
     "the file ",
@@ -94,10 +86,12 @@ ne_load <- function(
       stop(error_msg)
     }
 
-    # read in data as sf object
-    sf_object <- sf::read_sf(destdir, file_name)
+    # read in data as either sf of spatvector
+    spatial_object <- read_spatial(
+      paste0(destdir, "/", file_name, ".shp"),
+      returnclass
+    )
 
-    # convert to sp if chosen
-    return(ne_as_sp(sf_object, returnclass))
+    return(spatial_object)
   }
 }

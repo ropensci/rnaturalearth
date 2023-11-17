@@ -12,8 +12,8 @@ ne_file_name(
 )
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}
-or \code{'small'}, \code{'medium'}, \code{'large'}}
+\item{scale}{The scale of map to return, one of `110`, `50`, `10` or `small`,
+`medium`, `large`.}
 
 \item{type}{type of natural earth file to download one of 'countries',
 'map_units', 'map_subunits', 'sovereignty', 'states' OR the portion of any
@@ -24,7 +24,7 @@ filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
 \item{category}{one of natural earth categories : 'cultural', 'physical',
 'raster'}
 
-\item{full_url}{whether to return just the filename [default] or the full URL
+\item{full_url}{whether to return just the filename (default) or the full URL
 needed for download}
 }
 \value{
@@ -33,8 +33,17 @@ string
 \description{
 returns a string that can then be used to download the file.
 }
+\details{
+Note that the filename of the requested object will be returned if
+`load = FALSE`.
+}
 \examples{
 ne_name <- ne_file_name(scale = 110, type = "countries")
 ne_url <- ne_file_name(scale = 110, type = "countries", full_url = TRUE)
 
+}
+\seealso{
+\code{\link{ne_load}}, pre-downloaded data are available using
+  \code{\link{ne_countries}}, \code{\link{ne_states}}. Other geographic data
+  are available in the raster package : \code{\link[raster]{getData}}.
 }

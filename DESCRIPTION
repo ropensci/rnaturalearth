@@ -34,27 +34,26 @@ Additional_repositories: http://packages.ropensci.org
 Depends:
     R (>= 3.1.1)
 Imports:
-    sp (>= 1.0.15),
-    utils (>= 3.2.3),
-    sf (>= 0.3-4),
     httr (>= 1.1.0),
     jsonlite,
-    terra
+    sf (>= 0.3-4),
+    terra,
+    utils (>= 3.2.3)
 Suggests:
+    devtools (>= 1.10.0),
+    dplyr,
+    ggplot2,
     ggrepel,
     knitr (>= 1.12.3),
-    testthat (>= 0.9.1),
-    devtools (>= 1.10.0),
+    lifecycle (>= 1.0.3),
+    pbapply,
+    purrr,
+    rlang,
+    rmarkdown,
     rnaturalearthdata (>= 0.1.0),
     rnaturalearthhires (>= 0.1.0),
-    pbapply,
-    ggplot2,
-    dplyr,
-    purrr,
-    rmarkdown,
-    tmap,
-    lifecycle (>= 1.0.3),
-    rlang
+    testthat (>= 0.9.1),
+    tmap
 Config/Needs/website: ropensci/rnaturalearthhires
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3

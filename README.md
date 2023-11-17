@@ -70,10 +70,10 @@ devtools::install_github("ropensci/rnaturalearthhires")
 
 ## First usage
 
-Here using `sp::plot` as a simple, quick way to plot maps. Maps could
-also be made with `ggplot2`, `tmap` or other options. All retrieval
-functions accept an argument `returnclass = "sf"` to return package `sf`
-(Simple Features) objects.
+Here using `plot` as a simple, quick way to plot maps. Maps could also
+be made with `ggplot2`, `tmap` or other options. All retrieval functions
+accept an argument `returnclass = "sf"` to return package `sf` (Simple
+Features) objects.
 
 ``` r
 library(rnaturalearth)
@@ -85,31 +85,29 @@ It may be desirable to make the sf package available;
 package maintainers should consider adding sf to Suggests:.
 The sp package is now running under evolution status 2
      (status 2 uses the sf package in place of rgdal)
-Support for Spatial objects (`sp`) will be deprecated in {rnaturalearth} and will be removed in a future release of the package. Please use `sf` objects with {rnaturalearth}. For example: `ne_download(returnclass = 'sf')`
-library(sp)
 
 # world countries
-sp::plot(ne_countries())
-Warning: The `returnclass` argument of `ne_download()` sp as of rnaturalearth 1.0.0.
-ℹ Please use `sf` objects with {rnaturalearth}, support for Spatial objects
-  (sp) will be removed in a future release of the package.
-This warning is displayed once every 8 hours.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-generated.
+plot(ne_countries())
+Warning: plotting the first 9 out of 168 attributes; use max.plot = 168 to plot
+all
 ```
 
 ![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
 # uk
-sp::plot(ne_countries(country = "united kingdom"))
+plot(ne_countries(country = "united kingdom"))
+Warning: plotting the first 10 out of 168 attributes; use max.plot = 168 to
+plot all
 ```
 
 ![](man/figures/README-unnamed-chunk-2-2.png)<!-- -->
 
 ``` r
 # states, admin level1 boundaries
-sp::plot(ne_states(country = "spain"))
+plot(ne_states(country = "spain"))
+Warning: plotting the first 9 out of 121 attributes; use max.plot = 121 to plot
+all
 ```
 
 ![](man/figures/README-unnamed-chunk-2-3.png)<!-- -->
@@ -140,7 +138,7 @@ the examples below.
 ``` r
 # lakes
 lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
-sp::plot(lakes110)
+plot(lakes110)
 
 # rivers
 rivers50 <- ne_download(

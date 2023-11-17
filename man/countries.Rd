@@ -6,9 +6,9 @@
 \alias{countries110}
 \title{world country polygons from Natural Earth}
 \format{
-A \code{SpatialPolygonsDataFrame}
+A \code{sf} object.
 
-An object of class \code{SpatialPolygonsDataFrame} with 177 rows and 168 columns.
+An object of class \code{sf} (inherits from \code{data.frame}) with 177 rows and 169 columns.
 }
 \source{
 \url{https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip}
@@ -23,7 +23,7 @@ rnaturalearthdata and rnaturalearthhires.
 \section{Slots}{
 
 \describe{
-\item{\code{data}}{A data frame with country attributes}
+\item{\code{data}}{A data frame with country attributes.}
 }}
 
 \keyword{datasets}

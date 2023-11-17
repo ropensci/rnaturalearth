@@ -9,8 +9,8 @@ ne_states(
   country = NULL,
   geounit = NULL,
   iso_a2 = NULL,
-  spdf = NULL,
-  returnclass = c("sp", "sf")
+  spat_object = NULL,
+  returnclass = c("sf", "sv")
 )
 }
 \arguments{
@@ -20,15 +20,22 @@ ne_states(
 
 \item{iso_a2}{a character vector of iso_a2 country codes}
 
-\item{spdf}{an optional alternative states map}
+\item{spat_object}{an optional alternative states map}
 
-\item{returnclass}{'sp' default or 'sf' for Simple Features}
+\item{returnclass}{A string determining the spatial object to return. Either
+"sf" for for simple feature (from `sf`, the default) or "sv" for a
+`SpatVector` (from `terra`).}
 }
 \value{
-\code{SpatialPolygonsDataFrame} or \code{sf}
+An object of class `sf` for simple feature (from `sf`, the default)
+or `SpatVector` (from `terra`).
 }
 \description{
 returns state polygons (administrative level 1) for specified countries
+}
+\details{
+Note that the filename of the requested object will be returned if
+`load = FALSE`.
 }
 \examples{
 
@@ -37,13 +44,16 @@ if (requireNamespace("rnaturalearthhires")) {
   spdf_france_country <- ne_states(country = "france")
   spdf_france_geounit <- ne_states(geounit = "france")
 
-  if (require(sp)) {
-    plot(spdf_france_country)
-    plot(spdf_france_geounit)
+  plot(spdf_france_country)
+  plot(spdf_france_geounit)
 
-    plot(ne_states(country = "united kingdom"))
-    plot(ne_states(geounit = "england"))
-  }
+  plot(ne_states(country = "united kingdom"))
+  plot(ne_states(geounit = "england"))
 }
 
+}
+\seealso{
+\code{\link{ne_load}}, pre-downloaded data are available using
+  \code{\link{ne_countries}}, \code{\link{ne_states}}. Other geographic data
+  are available in the raster package : \code{\link[raster]{getData}}.
 }

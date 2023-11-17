@@ -3,8 +3,7 @@
 #' Checks the Natural Earth Github repository for current vector layers and
 #' provides the file name required in the type argument of ne_download.
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
-#' or \code{'small'}, \code{'medium'}, \code{'large'}
+#' @inherit ne_download
 #'
 #' @param category one of natural earth categories : 'cultural', 'physical'
 #'
@@ -63,8 +62,6 @@ ne_find_vector_data <- function(scale = 110,
   return(layers)
 }
 
-
-
 #' Return contents of Natural Earth Github directory
 #'
 #' Uses the Github API to return contents of Natural Earth Github directories.
@@ -77,7 +74,7 @@ ne_find_vector_data <- function(scale = 110,
 #' @import httr
 #'
 #' @importFrom jsonlite fromJSON
-
+#'
 #' @keywords internal
 ne_git_contents <- function(path) {
   ## create pathnames to natural earth vector folders on github use httr::GET

@@ -11,12 +11,12 @@ ne_load(
   category = c("cultural", "physical", "raster"),
   destdir = tempdir(),
   file_name = NULL,
-  returnclass = c("sp", "sf")
+  returnclass = c("sf", "sv")
 )
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}
-or \code{'small'}, \code{'medium'}, \code{'large'}}
+\item{scale}{The scale of map to return, one of `110`, `50`, `10` or `small`,
+`medium`, `large`.}
 
 \item{type}{type of natural earth file one of 'countries', 'map_units',
 'map_subunits', 'sovereignty', 'states' OR the portion of any natural
@@ -32,14 +32,20 @@ filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
 \item{file_name}{OPTIONAL name of file (excluding path) instead of natural
 earth attributes}
 
-\item{returnclass}{'sp' default or 'sf' for Simple Features}
+\item{returnclass}{A string determining the spatial object to return. Either
+"sf" for for simple feature (from `sf`, the default) or "sv" for a
+`SpatVector` (from `terra`).}
 }
 \value{
-A \code{Spatial} object depending on the data (points, lines,
-polygons or raster).
+An object of class `sf` for simple feature (from `sf`, the default)
+or `SpatVector` (from `terra`).
 }
 \description{
 returns loaded data as a spatial object.
+}
+\details{
+Note that the filename of the requested object will be returned if
+`load = FALSE`.
 }
 \examples{
 \dontrun{

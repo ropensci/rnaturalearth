@@ -2,8 +2,7 @@
 #'
 #' returns a string that can then be used to download the file.
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
-#' or \code{'small'}, \code{'medium'}, \code{'large'}
+#' @inherit ne_download
 #'
 #' @param type type of natural earth file to download one of 'countries',
 #'    'map_units', 'map_subunits', 'sovereignty', 'states' OR the portion of any
@@ -14,7 +13,7 @@
 #' @param category one of natural earth categories : 'cultural', 'physical',
 #' 'raster'
 #'
-#' @param full_url whether to return just the filename [default] or the full URL
+#' @param full_url whether to return just the filename (default) or the full URL
 #' needed for download
 #'
 #' @examples

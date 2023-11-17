@@ -69,20 +69,19 @@ devtools::install_github("ropensci/rnaturalearthhires")
 
 ## First usage
 
-Here using `sp::plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options. All retrieval functions accept an argument `returnclass = "sf"` to return package `sf` (Simple Features) objects.
+Here using `plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options. All retrieval functions accept an argument `returnclass = "sf"` to return package `sf` (Simple Features) objects.
 
 ```{r, eval=TRUE}
 library(rnaturalearth)
-library(sp)
 
 # world countries
-sp::plot(ne_countries())
+plot(ne_countries())
 
 # uk
-sp::plot(ne_countries(country = "united kingdom"))
+plot(ne_countries(country = "united kingdom"))
 
 # states, admin level1 boundaries
-sp::plot(ne_states(country = "spain"))
+plot(ne_states(country = "spain"))
 ```
 
 ## Introductory vignette
@@ -117,7 +116,7 @@ Specify the `scale`, `category` and `type` of the vector you want as in the exam
 ```{r, eval=FALSE}
 # lakes
 lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
-sp::plot(lakes110)
+plot(lakes110)
 
 # rivers
 rivers50 <- ne_download(

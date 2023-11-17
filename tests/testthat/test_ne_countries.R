@@ -1,23 +1,3 @@
-context("ne countries : data saved in package")
-
-spdf_world <- ne_countries()
-spdf_africa <- ne_countries(continent = "africa")
-spdf_france <- ne_countries(country = "france")
-
-test_that("type of object returned is as expected", {
-  expect_is(spdf_world, "SpatialPolygonsDataFrame")
-  expect_is(spdf_africa, "SpatialPolygonsDataFrame")
-  expect_is(spdf_france, "SpatialPolygonsDataFrame")
-})
-
-# not sure whether I want to test num polygons explicitly
-# I might want to allow flexibility for these to change as the data changes
-test_that("number of rows/polygons in objects is as expected", {
-  expect_equal(length(spdf_world), 177)
-  expect_equal(length(spdf_africa), 51)
-  expect_equal(length(spdf_france), 1)
-})
-
 test_that("scale argument gives expected relative sizes of objects", {
   expect_gt(
     object.size(ne_countries(scale = "medium")),

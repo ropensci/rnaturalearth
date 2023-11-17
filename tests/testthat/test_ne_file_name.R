@@ -1,5 +1,3 @@
-context("download of data from natural earth")
-
 library(httr)
 
 # a non exhaustive list of ne download urls

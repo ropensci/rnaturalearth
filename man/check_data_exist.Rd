@@ -11,8 +11,8 @@ check_data_exist(
 )
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}
-or \code{'small'}, \code{'medium'}, \code{'large'}}
+\item{scale}{The scale of map to return, one of `110`, `50`, `10` or `small`,
+`medium`, `large`.}
 
 \item{type}{type of natural earth file to download one of 'countries',
 'map_units', 'map_subunits', 'sovereignty', 'states' OR the portion of any
@@ -31,6 +31,10 @@ checks from a list dependent on type, category and scale. If it returns FALSE
 the data may still exist on the website. Doesn't yet do checking on raster
 names because I found the naming convention too tricky.
 }
+\details{
+Note that the filename of the requested object will be returned if
+`load = FALSE`.
+}
 \examples{
 check_data_exist(scale = 110, category = "cultural", type = "countries")
 
@@ -40,4 +44,9 @@ check_data_exist(scale = 110, category = "physical", type = "airports")
 # Type in list but scale shows FALSE
 check_data_exist(scale = 110, category = "cultural", type = "airports")
 
+}
+\seealso{
+\code{\link{ne_load}}, pre-downloaded data are available using
+  \code{\link{ne_countries}}, \code{\link{ne_states}}. Other geographic data
+  are available in the raster package : \code{\link[raster]{getData}}.
 }

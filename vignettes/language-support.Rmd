@@ -31,13 +31,11 @@ knitr::opts_chunk$set(
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 library(rnaturalearth)
-library(sp)
 library(sf)
 library(ggplot2)
 library(ggrepel)
 library(tmap)
 library(knitr)
-
 
 sf_use_s2(FALSE)
 ```

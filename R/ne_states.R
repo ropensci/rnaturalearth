@@ -2,15 +2,12 @@
 #'
 #' returns state polygons (administrative level 1) for specified countries
 #'
+#' @inherit ne_download
+#'
 #' @param country a character vector of country names.
-
 #' @param geounit a character vector of geounit names.
-
 #' @param iso_a2 a character vector of iso_a2 country codes
-
-#' @param spdf an optional alternative states map
-
-#' @param returnclass 'sp' default or 'sf' for Simple Features
+#' @param spat_object an optional alternative states map
 #'
 #' @aliases ne_admin1
 #'
@@ -21,36 +18,30 @@
 #'   spdf_france_country <- ne_states(country = "france")
 #'   spdf_france_geounit <- ne_states(geounit = "france")
 #'
-#'   if (require(sp)) {
-#'     plot(spdf_france_country)
-#'     plot(spdf_france_geounit)
+#'   plot(spdf_france_country)
+#'   plot(spdf_france_geounit)
 #'
-#'     plot(ne_states(country = "united kingdom"))
-#'     plot(ne_states(geounit = "england"))
-#'   }
+#'   plot(ne_states(country = "united kingdom"))
+#'   plot(ne_states(geounit = "england"))
 #' }
 #'
-#' @return \code{SpatialPolygonsDataFrame} or \code{sf}
-
 #' @export
 ne_states <- function(country = NULL,
                       geounit = NULL,
                       iso_a2 = NULL,
-                      spdf = NULL,
-                      returnclass = c("sp", "sf")) {
+                      spat_object = NULL,
+                      returnclass = c("sf", "sv")) {
   returnclass <- match.arg(returnclass)
 
   if (returnclass == "sp") {
     deprecate_sp("ne_download(returnclass = 'sp')")
   }
-
   # set map from one stored this adds potential to add or pass other potential
   # state maps, e.g. without lakes but no checking is done, may not be needed
-  if (is.null(spdf)) {
+  if (is.null(spat_object)) {
     check_rnaturalearthhires()
-    spdf <- rnaturalearthhires::states10
+    spat_object <- rnaturalearthhires::states10
   }
-
 
   # states50 only has Australia  Brazil Canada United States of America so not
   # included
@@ -61,11 +52,11 @@ ne_states <- function(country = NULL,
   # filter by country name (admin field in ne)
   if (!is.null(country)) {
     # check if field in data, for passed data or if changed in future
-    if (!("admin" %in% names(spdf))) {
-      stop("No admin field in the data : ", names(spdf))
+    if (!("admin" %in% names(spat_object))) {
+      stop("No admin field in the data : ", names(spat_object))
     }
 
-    filter_country <- tolower(spdf$admin) %in% tolower(country)
+    filter_country <- tolower(spat_object$admin) %in% tolower(country)
     filter <- filter & filter_country
 
     if (sum(filter_country) == 0) {
@@ -75,16 +66,11 @@ ne_states <- function(country = NULL,
 
   # filter by geounit
   if (!is.null(geounit)) {
-    # BEWARE seeming natearth bug of extra n in geoNunit
-    # todo report this bug to natural earth
-    # $ admin     : Factor w/ 257 levels "Afghanistan",..: 14 1 1 1 1 1 1 1 1 1 ...
-    # $ geonunit  : Factor w/ 284 levels "Afghanistan",..: 15 1 1 1 1 1 1 1 1 1 ...
-
-    if (!("geonunit" %in% names(spdf))) {
-      stop("No geonunit field in the data : ", names(spdf))
+    if (!("geonunit" %in% names(spat_object))) {
+      stop("No geonunit field in the data : ", names(spat_object))
     }
 
-    filter_geounit <- tolower(spdf$geonunit) %in% tolower(geounit)
+    filter_geounit <- tolower(spat_object$geonunit) %in% tolower(geounit)
     filter <- filter & filter_geounit
 
     if (sum(filter_geounit) == 0) {
@@ -94,11 +80,11 @@ ne_states <- function(country = NULL,
 
   # filter by iso_a2
   if (!is.null(iso_a2)) {
-    if (!("iso_a2" %in% names(spdf))) {
-      stop("No iso_a2 field in the data : ", names(spdf))
+    if (!("iso_a2" %in% names(spat_object))) {
+      stop("No iso_a2 field in the data : ", names(spat_object))
     }
 
-    filter_iso_a2 <- tolower(spdf$iso_a2) %in% tolower(iso_a2)
+    filter_iso_a2 <- tolower(spat_object$iso_a2) %in% tolower(iso_a2)
     filter <- filter & filter_iso_a2
 
     if (sum(filter_iso_a2) == 0) {
@@ -106,7 +92,6 @@ ne_states <- function(country = NULL,
     }
   }
 
-
-  # convert to sf if chosen
-  ne_as_sp(spdf[filter, ], returnclass)
+  # Convert to the desired class
+  convert_spatial_class(spat_object[filter, ], returnclass)
 }

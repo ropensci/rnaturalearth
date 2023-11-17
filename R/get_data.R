@@ -2,13 +2,12 @@
 #'
 #' returns world country polygons at a specified scale, used by ne_countries()
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10},
-#' \code{'small'}, \code{'medium'}, \code{'large'}
+#' @inherit ne_download
 #'
 #' @param type country type, one of 'countries', 'map_units', 'sovereignty',
 #' 'tiny_countries'
 #'
-#' @return A \code{SpatialPolygonsDataFrame} object.
+#' @return A \code{sf} object.
 get_data <- function(
     scale = 110,
     type = c(
@@ -19,7 +18,6 @@ get_data <- function(
     )) {
   # check on permitted scale arg, convert names to numeric
   scale <- check_scale(scale)
-
   # check permitted type arg
   type <- match.arg(type)
 
@@ -40,13 +38,13 @@ get_data <- function(
   # choose which map based on type and scale (stored in different packages)
 
   if (scale == 110 && type == "countries") {
-    spdf <- getExportedValue("rnaturalearth", paste0(type, scale))
+    sf_object <- getExportedValue("rnaturalearth", paste0(type, scale))
   } else if (scale == 110 || scale == 50) {
-    spdf <- getExportedValue("rnaturalearthdata", paste0(type, scale))
+    sf_object <- getExportedValue("rnaturalearthdata", paste0(type, scale))
   } else if (scale == 10) {
-    spdf <- getExportedValue("rnaturalearthhires", paste0(type, scale))
+    sf_object <- getExportedValue("rnaturalearthhires", paste0(type, scale))
   }
 
 
-  return(spdf)
+  return(sf_object)
 }

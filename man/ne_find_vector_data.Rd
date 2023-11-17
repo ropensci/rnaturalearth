@@ -11,8 +11,8 @@ ne_find_vector_data(
 )
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}
-or \code{'small'}, \code{'medium'}, \code{'large'}}
+\item{scale}{The scale of map to return, one of `110`, `50`, `10` or `small`,
+`medium`, `large`.}
 
 \item{category}{one of natural earth categories : 'cultural', 'physical'}
 
@@ -25,8 +25,17 @@ dataframe with two variables: layer and metadata
 Checks the Natural Earth Github repository for current vector layers and
 provides the file name required in the type argument of ne_download.
 }
+\details{
+Note that the filename of the requested object will be returned if
+`load = FALSE`.
+}
 \examples{
 \dontrun{
 ne_find_vector_data(scale = 10, category = "physical")
 }
+}
+\seealso{
+\code{\link{ne_load}}, pre-downloaded data are available using
+  \code{\link{ne_countries}}, \code{\link{ne_states}}. Other geographic data
+  are available in the raster package : \code{\link[raster]{getData}}.
 }

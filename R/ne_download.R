@@ -1,61 +1,46 @@
-#' download data from Natural Earth and (optionally) read into R
+#' Download data from Natural Earth and (optionally) read into R
 #'
 #' returns downloaded data as a spatial object or the filename if
 #' \code{load=FALSE}. if \code{destdir} is specified the data can be reloaded in
 #' a later R session using \code{\link{ne_load}} with the same arguments.
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
-#' or \code{'small'}, \code{'medium'}, \code{'large'}
+#' @param scale The scale of map to return, one of `110`, `50`, `10` or `small`,
+#' `medium`, `large`.
 #'
 #' @param type type of natural earth file to download one of 'countries',
-#'    'map_units', 'map_subunits', 'sovereignty', 'states' OR the portion of any
-#'    natural earth vector url after the scale and before the . e.g. for
-#'    'ne_50m_urban_areas.zip' this would be 'urban_areas'. See Details. OR the
+#' 'map_units', 'map_subunits', 'sovereignty', 'states' OR the portion of any
+#' natural earth vector url after the scale and before the . e.g. for
+#' 'ne_50m_urban_areas.zip' this would be 'urban_areas'. See Details. OR the
 #' raster filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'
 #'
 #' @param category one of natural earth categories : 'cultural', 'physical',
 #' 'raster'
-
+#'
 #' @param destdir where to save files, defaults to \code{tempdir()},
 #' \code{getwd()} is also possible.
 #'
-#' @param load TRUE/FALSE whether to load file into R and return
+#' @param load `TRUE` load the spatial object into R, `FALSE` return the
+#' filename of the downloaded object.
 #'
-#' @param returnclass 'sp' default or 'sf' for Simple Features
-#'
-#' @details A non-exhaustive list of datasets available according to
-#'   \code{scale} specified by the \code{type} param \tabular{lccc}{ \tab scale
-#'                               = 'small' \tab scale = 'medium' \tab scale =
-#'   'large' \cr category = 'physical', type = '[below]' \cr coastline \tab y
-#'   \tab y        \tab y        \cr land \tab y         \tab y        \tab y
-#'   \cr ocean \tab y         \tab y        \tab y        \cr
-#'   rivers_lake_centerlines \tab y         \tab y        \tab y        \cr
-#'   lakes \tab y         \tab y        \tab y        \cr glaciated_areas \tab y
-#'   \tab y        \tab y        \cr antarctic_ice_shelves_polys \tab - \tab y
-#'   \tab y        \cr geographic_lines \tab y         \tab y \tab y        \cr
-#'   graticules_1 \tab y         \tab y        \tab y \cr graticules_30 \tab y
-#'   \tab y        \tab y        \cr wgs84_bounding_box \tab y         \tab y
-#'   \tab y        \cr playas \tab -         \tab y        \tab y        \cr
-#'   minor_islands \tab - \tab -        \tab y        \cr reefs \tab - \tab -
-#'   \tab y \cr category = 'cultural', type = '[below]' \cr populated_places
-#'   \tab y         \tab y        \tab y \cr boundary_lines_land \tab y \tab y
-#'   \tab y        \cr breakaway_disputed_areas \tab -          \tab y \tab y
-#'   \cr airports \tab -         \tab y \tab y        \cr ports \tab - \tab y
-#'   \tab y        \cr urban_areas                 \tab - \tab y \tab y \cr
-#'   roads                       \tab -         \tab - \tab y \cr railroads \tab
-#'   -         \tab - \tab y \cr }
+#' @details Note that the filename of the requested object will be returned if
+#' `load = FALSE`.
 #'
 #' @seealso \code{\link{ne_load}}, pre-downloaded data are available using
 #'   \code{\link{ne_countries}}, \code{\link{ne_states}}. Other geographic data
 #'   are available in the raster package : \code{\link[raster]{getData}}.
 #'
+#' @param returnclass A string determining the spatial object to return. Either
+#' "sf" for for simple feature (from `sf`, the default) or "sv" for a
+#' `SpatVector` (from `terra`).
+#'
+#' @return An object of class `sf` for simple feature (from `sf`, the default)
+#' or `SpatVector` (from `terra`).
+#'
 #' @examples \dontrun{
 #' spdf_world <- ne_download(scale = 110, type = "countries")
 #'
-#' if (require(sp)) {
-#'   plot(spdf_world)
-#'   plot(ne_download(type = "populated_places"))
-#' }
+#' plot(spdf_world)
+#' plot(ne_download(type = "populated_places"))
 #'
 #' # reloading from the saved file in the same session with same arguments
 #'
@@ -81,10 +66,6 @@
 #' # end dontrun
 #' }
 #'
-#' @return A \code{Spatial} object depending on the data (points, lines,
-#' polygons or raster), unless load=FALSE in which case it returns the name of
-#'    the downloaded shapefile (without extension).
-#'
 #' @export
 ne_download <- function(
     scale = 110,
@@ -92,7 +73,7 @@ ne_download <- function(
     category = c("cultural", "physical", "raster"),
     destdir = tempdir(),
     load = TRUE,
-    returnclass = c("sp", "sf")) {
+    returnclass = c("sf", "sv")) {
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
@@ -138,11 +119,12 @@ ne_download <- function(
     rst <- terra::rast(file.path(destdir, file_name, paste0(file_name, ".tif")))
     return(rst)
   } else if (load) {
-    # read in data as sf object
-    sf_object <- sf::read_sf(destdir, file_name)
-
-    # convert to sp if chosen
-    return(ne_as_sp(sf_object, returnclass))
+    # read in data as either sf of spatvector
+    spatial_object <- read_spatial(
+      paste0(destdir, "/", file_name, ".shp"),
+      returnclass
+    )
+    return(spatial_object)
   } else {
     return(file_name)
   }

@@ -12,12 +12,12 @@ ne_countries(
   country = NULL,
   geounit = NULL,
   sovereignty = NULL,
-  returnclass = c("sp", "sf")
+  returnclass = c("sf", "sv")
 )
 }
 \arguments{
-\item{scale}{scale of map to return, one of \code{110}, \code{50}, \code{10}
-or \code{'small'}, \code{'medium'}, \code{'large'}}
+\item{scale}{The scale of map to return, one of `110`, `50`, `10` or `small`,
+`medium`, `large`.}
 
 \item{type}{country type, one of 'countries', 'map_units', 'sovereignty',
 'tiny_countries'}
@@ -30,36 +30,41 @@ or \code{'small'}, \code{'medium'}, \code{'large'}}
 
 \item{sovereignty}{a character vector of sovereignty names.}
 
-\item{returnclass}{'sp' default or 'sf' for Simple Features}
+\item{returnclass}{A string determining the spatial object to return. Either
+"sf" for for simple feature (from `sf`, the default) or "sv" for a
+`SpatVector` (from `terra`).}
 }
 \value{
-\code{SpatialPolygonsDataFrame},\code{SpatialPointsDataFrame} or
-\code{sf}
+An object of class `sf` for simple feature (from `sf`, the default)
+or `SpatVector` (from `terra`).
 }
 \description{
 returns world country polygons at a specified scale, or points of
 tiny_countries
 }
+\details{
+Note that the filename of the requested object will be returned if
+`load = FALSE`.
+}
 \examples{
-spdf_world <- ne_countries()
-spdf_africa <- ne_countries(continent = "africa")
-spdf_france <- ne_countries(country = "france")
+world <- ne_countries()
+africa <- ne_countries(continent = "africa")
+france <- ne_countries(country = "france")
 
-if (require(sp)) {
-  plot(spdf_world)
-  plot(spdf_africa)
-  plot(spdf_france)
+plot(world$geometry)
+plot(africa$geometry)
+plot(france$geometry)
+
+# get as SpatVector
+world <- ne_countries(returnclass = "sv")
+terra::plot(world)
+
+tiny_countries <- ne_countries(type = "tiny_countries", scale = 50)
+plot(tiny_countries)
+
 }
-
-# get as sf
-if (require(sf)) {
-  sf_world <- ne_countries(returnclass = "sf")
-  plot(sf_world)
-}
-
-if (require(rnaturalearthdata) & require(sp)) {
-  spdf_tiny_countries <- ne_countries(type = "tiny_countries", scale = 50)
-  plot(spdf_tiny_countries)
-}
-
+\seealso{
+\code{\link{ne_load}}, pre-downloaded data are available using
+  \code{\link{ne_countries}}, \code{\link{ne_states}}. Other geographic data
+  are available in the raster package : \code{\link[raster]{getData}}.
 }

@@ -4,8 +4,7 @@
 #' the data may still exist on the website. Doesn't yet do checking on raster
 #' names because I found the naming convention too tricky.
 #'
-#' @param scale scale of map to return, one of \code{110}, \code{50}, \code{10}
-#' or \code{'small'}, \code{'medium'}, \code{'large'}
+#' @inherit ne_download
 #'
 #' @param type type of natural earth file to download one of 'countries',
 #'    'map_units', 'map_subunits', 'sovereignty', 'states' OR the portion of any

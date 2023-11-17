@@ -26,13 +26,12 @@ For example, from my own parochial perspective, it allows mapping the UK as a wh
 
 [Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries.
 
-This vignette uses `sp::plot` as a simple, quick way to plot the data obtained using `rnaturalearth`. `rnaturalearth` data can also be used to make more elaborate maps with `ggplot2`, `tmap` and other options.
+This vignette uses `plot` as a simple, quick way to plot the data obtained using `rnaturalearth`. `rnaturalearth` data can also be used to make more elaborate maps with `ggplot2`, `tmap` and other options.
 
 ## load required packages
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 library(rnaturalearth)
-library(sp)
 ```
 
 ## Country types : countries, map_units and sovereignty.
@@ -46,24 +45,24 @@ Filtering by `geounit` can give finer control, e.g. to plot Scotland alone, or F
 
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 # countries, UK undivided
-sp::plot(ne_countries(country = "united kingdom", type = "countries"))
+plot(ne_countries(country = "united kingdom", type = "countries"))
 # map_units, UK divided into England, Scotland, Wales and Northern Ireland
-sp::plot(ne_countries(country = "united kingdom", type = "map_units"))
+plot(ne_countries(country = "united kingdom", type = "map_units"))
 # map_units, select by geounit to plot Scotland alone
-sp::plot(ne_countries(geounit = "scotland", type = "map_units"))
+plot(ne_countries(geounit = "scotland", type = "map_units"))
 # sovereignty, Falkland Islands included in UK
-sp::plot(ne_countries(country = "united kingdom", type = "sovereignty"), col = "red")
-sp::plot(ne_coastline(scale = 110), col = "lightgrey", lty = 3, add = TRUE)
+plot(ne_countries(country = "united kingdom", type = "sovereignty"), col = "red")
+plot(ne_coastline(scale = 110), col = "lightgrey", lty = 3, add = TRUE)
 
 # France, country includes French Guiana
-sp::plot(ne_countries(country = "france"))
+plot(ne_countries(country = "france"))
 # France map_units includes French Guiana too
-sp::plot(ne_countries(country = "france", type = "map_units"))
+plot(ne_countries(country = "france", type = "map_units"))
 # France filter map_units by geounit to exclude French Guiana
-sp::plot(ne_countries(geounit = "france", type = "map_units"))
+plot(ne_countries(geounit = "france", type = "map_units"))
 # France sovereignty includes South Pacicic islands
-sp::plot(ne_countries(country = "france", type = "sovereignty"), col = "red")
-sp::plot(ne_coastline(scale = 110), col = "lightgrey", lty = 3, add = TRUE)
+plot(ne_countries(country = "france", type = "sovereignty"), col = "red")
+plot(ne_coastline(scale = 110), col = "lightgrey", lty = 3, add = TRUE)
 ```
 
 ## Country scales : small, medium and large.
@@ -72,27 +71,27 @@ The different definitions of a country outlined above are available at different
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 # countries, large scale
-sp::plot(ne_countries(country = "united kingdom", scale = "large"))
+plot(ne_countries(country = "united kingdom", scale = "large"))
 
 # countries, medium scale
-sp::plot(ne_countries(country = "united kingdom", scale = "medium"))
+plot(ne_countries(country = "united kingdom", scale = "medium"))
 
 # countries, small scale
-sp::plot(ne_countries(country = "united kingdom", scale = "small"))
+plot(ne_countries(country = "united kingdom", scale = "small"))
 ```
 
 ## States, admin level 1, select by country or geounit.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE}
 # states country='united kingdom'
-sp::plot(ne_states(country = "united kingdom"))
+plot(ne_states(country = "united kingdom"))
 # states geounit='england'
-sp::plot(ne_states(geounit = "england"))
+plot(ne_states(geounit = "england"))
 
 # states country='france'
-sp::plot(ne_states(country = "france"))
+plot(ne_states(country = "france"))
 # states geounit='france'
-sp::plot(ne_states(geounit = "france"))
+plot(ne_states(geounit = "france"))
 ```
 
 

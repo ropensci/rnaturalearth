@@ -1,16 +1,14 @@
-context("ne states : data saved in package")
-
-
+# TODO: Change to sf in rnaturalearthhires
 test_that("type of object returned is as expected", {
   # skip tests if rnaturalearthhires not available in testing env
   # specifically on winbuilder and CRAN
   # reduces efectiveness of the test
   testthat::skip_if_not_installed("rnaturalearthhires")
 
-  expect_is(ne_states(country = "france"), "SpatialPolygonsDataFrame")
-  expect_is(ne_states(geounit = "france"), "SpatialPolygonsDataFrame")
-  expect_is(ne_states(country = "united kingdom"), "SpatialPolygonsDataFrame")
-  expect_is(ne_states(geounit = "england"), "SpatialPolygonsDataFrame")
+  expect_is(ne_states(country = "france"), "sf")
+  expect_is(ne_states(geounit = "france"), "sf")
+  expect_is(ne_states(country = "united kingdom"), "sf")
+  expect_is(ne_states(geounit = "england"), "sf")
 })
 
 test_that("filter by country gives bigger object than by geounit", {
