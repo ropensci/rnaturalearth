@@ -1,3 +1,9 @@
+# rnaturalearth (development version)
+
+## Bugfix
+
+* Correctly downloading and reading raster object (#96, closes #52).
+
 # rnaturalearth 0.3.4
 
 - This is a maintenance release that document/use the new special sentinel "_PACKAGE".
