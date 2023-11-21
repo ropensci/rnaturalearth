@@ -96,7 +96,9 @@ ne_download <- function(
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
-  if (returnclass == "sp") {
+  warn <- returnclass == "sp" & load & category == "raster"
+
+  if (warn) {
     deprecate_sp("ne_download(returnclass = 'sp')")
   }
 
