@@ -1,0 +1,129 @@
+---
+title: "Finding data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Finding data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(rnaturalearth)
+library(sf)
+```
+
+## Available data
+
+There are a lot of data that can be downloaded from [Natural Earth](https://www.naturalearthdata.com/) with `ne_download()`. These data are divided into two main categories: *physical* and *cultural* vector data. The `df_layers_physical` and `df_layers_cultural` data frames included in the `rnaturalearth` packages show what layer of data can be downloaded.
+
+### Physical vector data
+
+```{r, eval=TRUE}
+data(df_layers_physical)
+
+knitr::kable(
+  df_layers_physical,
+  caption = "physical vector data available via ne_download()"
+)
+```
+
+Based on the previous table, we know that we can download the `ocean` vector at small scale (110). Note that scales are defined as one of `110`, `50`, `10` or `small`, `medium`, `large`.
+
+```{r}
+plot(
+  ne_download(type = "ocean", category = "physical", scale = "small")["geometry"],
+  col = "lightblue"
+)
+```
+
+### Cultural vector data
+
+```{r, eval=TRUE}
+data(df_layers_cultural)
+
+knitr::kable(
+  df_layers_cultural,
+  caption = "cultural vector data available via ne_download()"
+)
+```
+
+```{r}
+plot(
+  ne_download(
+    type = "airports",
+    category = "cultural",
+    scale = 10
+  )["geometry"],
+  pch = 21,
+  bg = "grey"
+)
+```
+
+## Searching for countries and continents
+
+In this article, we explore how we can search for data available to download within `rnaturalearth`. Let's begin by loading country data using the `read_sf()` function from the `sf` package. In the following code snippet, we read the Natural Earth dataset, which contains information about the sovereignty of countries.
+
+
+```{r}
+df <- read_sf("/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip")
+
+head(df)
+```
+
+### Finding countries
+
+One way to search for countries is to search within the `ADMIN` vector. Let's start by plotting some of the first countries.
+
+```{r, echo=-1, fig.show="hold", out.width="50%", results='hide'}
+par(mfrow = c(2, 3))
+lapply(df$ADMIN[1:6], \(x) {
+  plot(ne_countries(country = x)["geometry"], main = x)
+})
+```
+
+Suppose that we want to search the polygons for the US, how should we spell it?
+
+```{r, eval=FALSE}
+ne_countries(country = "USA")
+ne_countries(country = "United States")
+ne_countries(country = "United States Of America")
+ne_countries(country = "United States of America")
+```
+
+One possibility consists to search within the `ADMIN` vector using a regular expression to find all occurrences of the word *states*.
+
+```{r}
+df$ADMIN[grepl("states", df$ADMIN, ignore.case = TRUE)]
+```
+We can now get the data.
+
+```{r}
+plot(ne_countries(country = "United States of America")["geometry"])
+```
+### Continents
+
+Finally, let's create plots for each continent using the `ne_countries` function with the continent parameter.
+
+```{r}
+unique(df$CONTINENT)
+```
+
+```{r, echo=-1, fig.show="hold", out.width="50%", results='hide'}
+par(mfrow = c(2, 4))
+lapply(unique(df$CONTINENT), \(x) {
+  plot(
+    ne_countries(
+      continent = x,
+      scale = "medium"
+    )["geometry"],
+    main = x
+  )
+})
+```

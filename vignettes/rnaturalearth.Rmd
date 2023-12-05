@@ -1,14 +1,10 @@
 ---
 title: "Introduction to rnaturalearth."
-author: "Andy South"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
-#to produce a pdf
-#output: rmarkdown::pdf_document
 vignette: >
   %\VignetteIndexEntry{Introduction to rnaturalearth.}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}                                              
 ---
 
 ```{r, include = FALSE}

@@ -1,4 +1,3 @@
 url: http://ropensci.github.io/rnaturalearth/
 template:
-  bootstrap: 5
-
+  package: rotemplate

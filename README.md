@@ -37,7 +37,7 @@ This package provides :
 -   consistency with Natural Earth naming conventions so that
     rnaturalearth users can use Natural Earth documentation
 
--   data in ‘sf’ or ‘sv’ formats
+-   data in `sf` or `sv` formats
 
 The [Natural Earth](https://www.naturalearthdata.com/) website
 structures vector data by scale, category and type. These determine the

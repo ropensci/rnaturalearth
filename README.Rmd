@@ -41,7 +41,7 @@ This package provides :
 
 - consistency with Natural Earth naming conventions so that rnaturalearth users can use Natural Earth documentation
 
-- data in 'sf' or 'sv' formats
+- data in `sf` or `sv` formats
 
 The [Natural Earth](https://www.naturalearthdata.com/) website structures vector data by scale, category and type. These determine the filenames of downloads. rnaturalearth uses this structure to facilitate download (like an API).
 
@@ -69,7 +69,7 @@ devtools::install_github("ropensci/rnaturalearthhires")
 
 ## First usage
 
-Here using `plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options. All retrieval functions accept an argument `returnclass = "sf"` to return package `sf` (Simple Features) objects.
+Here using `plot` as a simple, quick way to plot maps. Maps could also be made with `ggplot2`, `tmap` or other options. All retrieval functions accept an argument `returnclass = "sf"` to return package `sf` (Simple Features) or `returnclass = "sv"` (SpatVector) objects.
 
 ```{r, eval=TRUE}
 library(rnaturalearth)
