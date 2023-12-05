@@ -6,6 +6,8 @@
 \alias{rnaturalearth-package}
 \title{rnaturalearth: World Map Data from Natural Earth}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 Facilitates mapping by making natural earth map data from \url{https://www.naturalearthdata.com/} more easily available to R users.
 }
 \seealso{

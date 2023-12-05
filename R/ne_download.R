@@ -77,7 +77,9 @@ ne_download <- function(
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
-  if (returnclass == "sp") {
+  warn <- returnclass == "sp" & load & category == "raster"
+
+  if (warn) {
     deprecate_sp("ne_download(returnclass = 'sp')")
   }
 
@@ -116,7 +118,7 @@ ne_download <- function(
 
   if (load && category == "raster") {
     # have to use file_name to set the folder and the tif name
-    rst <- terra::rast(file.path(destdir, file_name, paste0(file_name, ".tif")))
+    rst <- terra::rast(file.path(destdir, paste0(file_name, ".tif")))
     return(rst)
   } else if (load) {
     # read in data as either sf of spatvector
