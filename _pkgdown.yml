@@ -1,3 +1,7 @@
 url: http://ropensci.github.io/rnaturalearth/
 template:
   package: rotemplate
+
+authors:
+  Philippe Massicotte:
+    href: https://www.pmassicotte.com
