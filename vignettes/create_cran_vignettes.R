@@ -10,6 +10,6 @@ outfiles <- fs::path_ext_remove(infiles)
 
 purrr::walk2(infiles, outfiles, knitr::knit)
 
-fs::dir_delete("vignettes/figure")
-fs::dir_copy("figure", "vignettes/figure", overwrite = TRUE)
-fs::dir_delete("figure")
+figfiles <- fs::dir_ls(glob = "*.png")
+
+fs::file_move(figfiles, "vignettes")

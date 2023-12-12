@@ -47,7 +47,7 @@ plot(ne_countries(type = "countries", scale = "small"))
 #> max.plot = 168 to plot all
 ```
 
-![](figure/rnaturalearth.Rmd-3-1.png)
+![](rnaturalearth.Rmd-3-1.png)
 
 ```r
 
@@ -57,7 +57,7 @@ plot(ne_countries(country = "united kingdom", type = "countries"))
 #> max.plot = 168 to plot all
 ```
 
-![](figure/rnaturalearth.Rmd-3-2.png)
+![](rnaturalearth.Rmd-3-2.png)
 
 ```r
 # map_units, UK divided into England, Scotland, Wales and Northern Ireland
@@ -66,7 +66,7 @@ plot(ne_countries(country = "united kingdom", type = "map_units"))
 #> max.plot = 168 to plot all
 ```
 
-![](figure/rnaturalearth.Rmd-3-3.png)
+![](rnaturalearth.Rmd-3-3.png)
 
 ```r
 
@@ -76,7 +76,7 @@ plot(ne_countries(country = "united kingdom", scale = "small"))
 #> max.plot = 168 to plot all
 ```
 
-![](figure/rnaturalearth.Rmd-3-4.png)
+![](rnaturalearth.Rmd-3-4.png)
 
 ```r
 
@@ -86,7 +86,7 @@ plot(ne_countries(country = "united kingdom", scale = "medium"))
 #> max.plot = 168 to plot all
 ```
 
-![](figure/rnaturalearth.Rmd-3-5.png)
+![](rnaturalearth.Rmd-3-5.png)
 
 
 ```r
@@ -111,7 +111,7 @@ plot(ne_states(country = "france"))
 plot(ne_coastline())
 ```
 
-![](figure/rnaturalearth.Rmd-5-1.png)
+![](rnaturalearth.Rmd-5-1.png)
 
 ## Downloading other Natural Earth vectors with ne_download().
 

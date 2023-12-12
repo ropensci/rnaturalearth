@@ -10,7 +10,8 @@ vignette: >
 ```{r what-is-a-country.Rmd-1, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = ""
 )
 ```
 

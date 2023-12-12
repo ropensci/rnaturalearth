@@ -78,10 +78,10 @@ plot(
   col = "lightblue"
 )
 #> Reading layer `ne_110m_ocean' from data source 
-#>   `/tmp/Rtmp5JxffY/ne_110m_ocean.shp' using driver `ESRI Shapefile'
+#>   `/tmp/RtmpapHyoT/ne_110m_ocean.shp' using driver `ESRI Shapefile'
 #> Warning in CPL_read_ogr(dsn, layer, query,
 #> as.character(options), quiet, : GDAL Message 1:
-#> /tmp/Rtmp5JxffY/ne_110m_ocean.shp contains polygon(s) with
+#> /tmp/RtmpapHyoT/ne_110m_ocean.shp contains polygon(s) with
 #> rings with invalid winding order. Autocorrecting them, but
 #> that shapefile should be corrected using ogr2ogr for
 #> example.
@@ -92,7 +92,7 @@ plot(
 #> Geodetic CRS:  WGS 84
 ```
 
-![](figure/finding-data.Rmd-3-1.png)
+![](finding-data.Rmd-3-1.png)
 
 ### Cultural vector data
 
@@ -170,7 +170,7 @@ plot(
   bg = "grey"
 )
 #> Reading layer `ne_10m_airports' from data source 
-#>   `/tmp/Rtmp5JxffY/ne_10m_airports.shp' using driver `ESRI Shapefile'
+#>   `/tmp/RtmpapHyoT/ne_10m_airports.shp' using driver `ESRI Shapefile'
 #> Simple feature collection with 893 features and 40 fields
 #> Geometry type: POINT
 #> Dimension:     XY
@@ -178,7 +178,7 @@ plot(
 #> Geodetic CRS:  WGS 84
 ```
 
-![](figure/finding-data.Rmd-5-1.png)
+![](finding-data.Rmd-5-1.png)
 
 ## Searching for countries and continents
 
@@ -196,18 +196,18 @@ head(df)
 #> Bounding box:  xmin: -109.4537 ymin: -55.9185 xmax: 140.9776 ymax: 7.35578
 #> Geodetic CRS:  WGS 84
 #> # A tibble: 6 × 169
-#>   featurecla  scalerank LABELRANK SOVEREIGNT SOV_A3 ADM0_DIF
-#>   <chr>           <int>     <int> <chr>      <chr>     <int>
-#> 1 Admin-0 so…         5         2 Indonesia  IDN           0
-#> 2 Admin-0 so…         5         3 Malaysia   MYS           0
-#> 3 Admin-0 so…         0         2 Chile      CHL           0
-#> 4 Admin-0 so…         0         3 Bolivia    BOL           0
-#> 5 Admin-0 so…         0         2 Peru       PER           0
-#> 6 Admin-0 so…         0         2 Argentina  ARG           0
+#>   featurecla   scalerank LABELRANK SOVEREIGNT SOV_A3 ADM0_DIF
+#>   <chr>            <int>     <int> <chr>      <chr>     <int>
+#> 1 Admin-0 sov…         5         2 Indonesia  IDN           0
+#> 2 Admin-0 sov…         5         3 Malaysia   MYS           0
+#> 3 Admin-0 sov…         0         2 Chile      CHL           0
+#> 4 Admin-0 sov…         0         3 Bolivia    BOL           0
+#> 5 Admin-0 sov…         0         2 Peru       PER           0
+#> 6 Admin-0 sov…         0         2 Argentina  ARG           0
 #> # ℹ 163 more variables: LEVEL <int>, TYPE <chr>, TLC <chr>,
 #> #   ADMIN <chr>, ADM0_A3 <chr>, GEOU_DIF <int>,
-#> #   GEOUNIT <chr>, GU_A3 <chr>, SU_DIF <int>,
-#> #   SUBUNIT <chr>, SU_A3 <chr>, BRK_DIFF <int>, NAME <chr>,
+#> #   GEOUNIT <chr>, GU_A3 <chr>, SU_DIF <int>, SUBUNIT <chr>,
+#> #   SU_A3 <chr>, BRK_DIFF <int>, NAME <chr>,
 #> #   NAME_LONG <chr>, BRK_A3 <chr>, BRK_NAME <chr>,
 #> #   BRK_GROUP <chr>, ABBREV <chr>, POSTAL <chr>,
 #> #   FORMAL_EN <chr>, FORMAL_FR <chr>, NAME_CIAWF <chr>, …
@@ -224,7 +224,7 @@ lapply(df$ADMIN[1:6], \(x) {
 })
 ```
 
-<img src="figure/finding-data.Rmd-7-1.png" width="50%" /><img src="figure/finding-data.Rmd-7-2.png" width="50%" /><img src="figure/finding-data.Rmd-7-3.png" width="50%" /><img src="figure/finding-data.Rmd-7-4.png" width="50%" /><img src="figure/finding-data.Rmd-7-5.png" width="50%" /><img src="figure/finding-data.Rmd-7-6.png" width="50%" />
+<img src="finding-data.Rmd-7-1.png" width="50%" /><img src="finding-data.Rmd-7-2.png" width="50%" /><img src="finding-data.Rmd-7-3.png" width="50%" /><img src="finding-data.Rmd-7-4.png" width="50%" /><img src="finding-data.Rmd-7-5.png" width="50%" /><img src="finding-data.Rmd-7-6.png" width="50%" />
 
 Suppose that we want to search the polygons for the US, how should we spell it?
 
@@ -251,7 +251,7 @@ We can now get the data.
 plot(ne_countries(country = "United States of America")["geometry"])
 ```
 
-![](figure/finding-data.Rmd-10-1.png)
+![](finding-data.Rmd-10-1.png)
 ### Continents
 
 Finally, let's create plots for each continent using the `ne_countries` function with the continent parameter.
@@ -278,4 +278,4 @@ lapply(unique(df$CONTINENT), \(x) {
 })
 ```
 
-<img src="figure/finding-data.Rmd-12-1.png" width="50%" /><img src="figure/finding-data.Rmd-12-2.png" width="50%" /><img src="figure/finding-data.Rmd-12-3.png" width="50%" /><img src="figure/finding-data.Rmd-12-4.png" width="50%" /><img src="figure/finding-data.Rmd-12-5.png" width="50%" /><img src="figure/finding-data.Rmd-12-6.png" width="50%" /><img src="figure/finding-data.Rmd-12-7.png" width="50%" /><img src="figure/finding-data.Rmd-12-8.png" width="50%" />
+<img src="finding-data.Rmd-12-1.png" width="50%" /><img src="finding-data.Rmd-12-2.png" width="50%" /><img src="finding-data.Rmd-12-3.png" width="50%" /><img src="finding-data.Rmd-12-4.png" width="50%" /><img src="finding-data.Rmd-12-5.png" width="50%" /><img src="finding-data.Rmd-12-6.png" width="50%" /><img src="finding-data.Rmd-12-7.png" width="50%" /><img src="finding-data.Rmd-12-8.png" width="50%" />

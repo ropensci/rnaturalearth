@@ -10,7 +10,8 @@ vignette: >
 ```{r rnaturalearth.Rmd-1, include = FALSE, fig.cap=''}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = ""
 )
 ```
 
