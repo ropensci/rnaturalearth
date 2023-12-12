@@ -7,7 +7,12 @@ vignette: >
   %\VignetteEncoding{UTF-8}                                              
 ---
 
-
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 This vignette shows how [rnaturalearth](https://github.com/ropensci/rnaturalearth) allows mapping countries using different definitions of what a country is. What a country is can be more complicated than you might expect.
 
@@ -21,8 +26,7 @@ This vignette uses `plot` as a simple, quick way to plot the data obtained using
 
 ## Load required packages
 
-
-```r
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
 library(rnaturalearth)
 ```
 
@@ -35,93 +39,50 @@ Natural Earth data are classified by `countries`, `map_units` and `sovereignty`.
 
 Filtering by `geounit` can give finer control, e.g. to plot Scotland alone, or France without French Guiana.
 
-
-```r
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
 # countries, UK undivided
 plot(ne_countries(country = "united kingdom", type = "countries")["geometry"])
-```
-
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
-
-```r
 
 # map_units, UK divided into England, Scotland, Wales and Northern Ireland
 plot(ne_countries(country = "united kingdom", type = "map_units")["geometry"])
-```
-
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-2.png)
-
-```r
 
 # map_units, select by geounit to plot Scotland alone
 plot(ne_countries(geounit = "scotland", type = "map_units")["geometry"])
-```
-
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-3.png)
-
-```r
 
 # sovereignty, Falkland Islands included in UK
 plot(ne_countries(country = "united kingdom", type = "sovereignty")["geometry"], col = "red")
 plot(ne_coastline(scale = 110)["geometry"], col = "lightgrey", lty = 3, add = TRUE)
-```
-
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-4.png)
-
-```r
 
 # France, country includes French Guiana
 plot(ne_countries(country = "france")["geometry"])
 
 # France map_units includes French Guiana too
 plot(ne_countries(country = "france", type = "map_units")["geometry"])
-```
-
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-5.png)
-
-```r
 
 # France filter map_units by geounit to exclude French Guiana
 plot(ne_countries(geounit = "france", type = "map_units")["geometry"])
-```
-
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-6.png)
-
-```r
 
 # France sovereignty includes South Pacicic islands
 plot(ne_countries(country = "france", type = "sovereignty")["geometry"], col = "red")
 plot(ne_coastline(scale = 110)["geometry"], col = "lightgrey", lty = 3, add = TRUE)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-7.png)
-
 ## Country scales : small, medium and large
 
 The different definitions of a country outlined above are available at different scales.
 
-
-```r
+```{r, eval=TRUE, echo=-1, message=FALSE}
+# countries, large scale
 plot(
   ne_countries(country = "united kingdom", scale = "large")["geometry"],
   main = "large scale"
 )
-```
-
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
-
-```r
 
 # countries, medium scale
 plot(
   ne_countries(country = "united kingdom", scale = "medium")["geometry"],
   main = "medium scale"
 )
-```
-
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-2.png)
-
-```r
 
 # countries, small scale
 plot(
@@ -130,40 +91,20 @@ plot(
 )
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-3.png)
-
 ## States, admin level 1, select by country or geounit
 
-
-```r
+```{r, eval=TRUE, echo=TRUE, message=FALSE}
 # states country='united kingdom'
 plot(ne_states(country = "united kingdom")["geometry"])
-```
-
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
-
-```r
 
 # states geounit='england'
 plot(ne_states(geounit = "england")["geometry"])
-```
-
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-2.png)
-
-```r
 
 # states country='france'
 plot(ne_states(country = "france")["geometry"])
-```
-
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-3.png)
-
-```r
 
 # states geounit='france'
 plot(ne_states(geounit = "france")["geometry"])
 ```
-
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-4.png)
 
 
