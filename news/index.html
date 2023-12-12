@@ -10,7 +10,7 @@
     <a href="https://ropensci.org" class="external-link"><img src="https://ropensci.org/img/icon_short_white.svg" id="hexlogo" alt="rOpenSci"></a>
     <a class="navbar-brand me-2" href="../index.html">rnaturalearth</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.4.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,9 +56,9 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="rnaturalearth-development-version">rnaturalearth (development version)<a class="anchor" aria-label="anchor" href="#rnaturalearth-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.0.0" id="rnaturalearth-100">rnaturalearth 1.0.0<a class="anchor" aria-label="anchor" href="#rnaturalearth-100"></a></h2>
 <div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<h3 id="breaking-changes-1-0-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-1-0-0"></a></h3>
 <p>This is a breaking changes release that ends support to <code>sp</code> object in favour of more modern interfaces (<code>sf</code> and <code>terra</code>). Although that <code>sp</code> is still available on CRAN, it is no longer being actively developed (<a href="https://geocompx.org/post/2023/rgdal-retirement/" class="external-link uri">https://geocompx.org/post/2023/rgdal-retirement/</a>). This is the main reason that motivated the choice to transition toward <code>sf</code> (the default) and <code>terra</code>.</p>
 <p>Users can choose either get an <code>sf</code> or <code>SpatVector</code> using the <code>returnclass</code> argument:</p>
 <pre><code><span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>returnclass <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span></span>
@@ -76,7 +76,7 @@
 <p>More information about the retirement of <code>rgdal</code>, <code>rgeos</code> and <code>maptools</code>: <a href="https://r-spatial.org/r/2022/04/12/evolution.html" class="external-link uri">https://r-spatial.org/r/2022/04/12/evolution.html</a></p>
 </div>
 <div class="section level3">
-<h3 id="bugfix-development-version">Bugfix<a class="anchor" aria-label="anchor" href="#bugfix-development-version"></a></h3>
+<h3 id="bugfix-1-0-0">Bugfix<a class="anchor" aria-label="anchor" href="#bugfix-1-0-0"></a></h3>
 <ul><li>Correctly downloading and reading raster object (<a href="https://github.com/ropensci/rnaturalearth/issues/96" class="external-link">#96</a>, closes <a href="https://github.com/ropensci/rnaturalearth/issues/52" class="external-link">#52</a>).</li>
 </ul></div>
 </div>
