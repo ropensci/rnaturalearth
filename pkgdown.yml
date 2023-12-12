@@ -1,0 +1,13 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  finding-data: finding-data.html
+  language-support: language-support.html
+  rnaturalearth: rnaturalearth.html
+  what-is-a-country: what-is-a-country.html
+last_built: 2023-12-12T13:25Z
+urls:
+  reference: http://ropensci.github.io/rnaturalearth/reference
+  article: http://ropensci.github.io/rnaturalearth/articles
+
