@@ -142,34 +142,34 @@ other visualisation packages (e.g. <code>ggplot2</code>,
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"countries"</span>, scale <span class="op">=</span> <span class="st">"small"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: plotting the first 10 out of 168 attributes; use</span></span>
 <span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
-<p><img src="figure/rnaturalearth.Rmd-3-1.png"></p>
+<p><img src="rnaturalearth.Rmd-3-1.png"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># countries, UK undivided</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, type <span class="op">=</span> <span class="st">"countries"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use</span></span>
 <span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
-<p><img src="figure/rnaturalearth.Rmd-3-2.png"></p>
+<p><img src="rnaturalearth.Rmd-3-2.png"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># map_units, UK divided into England, Scotland, Wales and Northern Ireland</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, type <span class="op">=</span> <span class="st">"map_units"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use</span></span>
 <span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
-<p><img src="figure/rnaturalearth.Rmd-3-3.png"></p>
+<p><img src="rnaturalearth.Rmd-3-3.png"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># countries, small scale</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, scale <span class="op">=</span> <span class="st">"small"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use</span></span>
 <span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
-<p><img src="figure/rnaturalearth.Rmd-3-4.png"></p>
+<p><img src="rnaturalearth.Rmd-3-4.png"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># countries, medium scale</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, scale <span class="op">=</span> <span class="st">"medium"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: plotting the first 10 out of 168 attributes; use</span></span>
 <span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
-<p><img src="figure/rnaturalearth.Rmd-3-5.png"></p>
+<p><img src="rnaturalearth.Rmd-3-5.png"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># not evaluated because rely on rnaturalearthhires data which are on rOpenSci so CRAN check likely to fail</span></span>
 <span></span>
@@ -187,7 +187,7 @@ other visualisation packages (e.g. <code>ggplot2</code>,
 <code class="sourceCode R"><span><span class="co"># coastline of the world</span></span>
 <span><span class="co"># subsetting of coastline is not possible because the Natural Earth data are not attributed in that way</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_coastline.html">ne_coastline</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/rnaturalearth.Rmd-5-1.png"></p>
+<p><img src="rnaturalearth.Rmd-5-1.png"></p>
 </div>
 <div class="section level2">
 <h2 id="downloading-other-natural-earth-vectors-with-ne_download-">Downloading other Natural Earth vectors with ne_download().<a class="anchor" aria-label="anchor" href="#downloading-other-natural-earth-vectors-with-ne_download-"></a>

@@ -307,10 +307,10 @@ defined as one of <code>110</code>, <code>50</code>, <code>10</code> or
 <span>  col <span class="op">=</span> <span class="st">"lightblue"</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; Reading layer `ne_110m_ocean' from data source </span></span>
-<span><span class="co">#&gt;   `/tmp/Rtmp5JxffY/ne_110m_ocean.shp' using driver `ESRI Shapefile'</span></span>
+<span><span class="co">#&gt;   `/tmp/RtmpapHyoT/ne_110m_ocean.shp' using driver `ESRI Shapefile'</span></span>
 <span><span class="co">#&gt; Warning in CPL_read_ogr(dsn, layer, query,</span></span>
 <span><span class="co">#&gt; as.character(options), quiet, : GDAL Message 1:</span></span>
-<span><span class="co">#&gt; /tmp/Rtmp5JxffY/ne_110m_ocean.shp contains polygon(s) with</span></span>
+<span><span class="co">#&gt; /tmp/RtmpapHyoT/ne_110m_ocean.shp contains polygon(s) with</span></span>
 <span><span class="co">#&gt; rings with invalid winding order. Autocorrecting them, but</span></span>
 <span><span class="co">#&gt; that shapefile should be corrected using ogr2ogr for</span></span>
 <span><span class="co">#&gt; example.</span></span>
@@ -319,7 +319,7 @@ defined as one of <code>110</code>, <code>50</code>, <code>10</code> or
 <span><span class="co">#&gt; Dimension:     XY</span></span>
 <span><span class="co">#&gt; Bounding box:  xmin: -180 ymin: -85.60904 xmax: 180 ymax: 90</span></span>
 <span><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span></code></pre></div>
-<p><img src="figure/finding-data.Rmd-3-1.png"></p>
+<p><img src="finding-data.Rmd-3-1.png"></p>
 </div>
 <div class="section level3">
 <h3 id="cultural-vector-data">Cultural vector data<a class="anchor" aria-label="anchor" href="#cultural-vector-data"></a>
@@ -617,13 +617,13 @@ defined as one of <code>110</code>, <code>50</code>, <code>10</code> or
 <span>  bg <span class="op">=</span> <span class="st">"grey"</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; Reading layer `ne_10m_airports' from data source </span></span>
-<span><span class="co">#&gt;   `/tmp/Rtmp5JxffY/ne_10m_airports.shp' using driver `ESRI Shapefile'</span></span>
+<span><span class="co">#&gt;   `/tmp/RtmpapHyoT/ne_10m_airports.shp' using driver `ESRI Shapefile'</span></span>
 <span><span class="co">#&gt; Simple feature collection with 893 features and 40 fields</span></span>
 <span><span class="co">#&gt; Geometry type: POINT</span></span>
 <span><span class="co">#&gt; Dimension:     XY</span></span>
 <span><span class="co">#&gt; Bounding box:  xmin: -175.1356 ymin: -53.78147 xmax: 179.1954 ymax: 78.24672</span></span>
 <span><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span></code></pre></div>
-<p><img src="figure/finding-data.Rmd-5-1.png"></p>
+<p><img src="finding-data.Rmd-5-1.png"></p>
 </div>
 </div>
 <div class="section level2">
@@ -645,18 +645,18 @@ of countries.</p>
 <span><span class="co">#&gt; Bounding box:  xmin: -109.4537 ymin: -55.9185 xmax: 140.9776 ymax: 7.35578</span></span>
 <span><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 169</span></span>
-<span><span class="co">#&gt;   featurecla  scalerank LABELRANK SOVEREIGNT SOV_A3 ADM0_DIF</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;           &lt;int&gt;     &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;</span></span>
-<span><span class="co">#&gt; 1 Admin-0 so…         5         2 Indonesia  IDN           0</span></span>
-<span><span class="co">#&gt; 2 Admin-0 so…         5         3 Malaysia   MYS           0</span></span>
-<span><span class="co">#&gt; 3 Admin-0 so…         0         2 Chile      CHL           0</span></span>
-<span><span class="co">#&gt; 4 Admin-0 so…         0         3 Bolivia    BOL           0</span></span>
-<span><span class="co">#&gt; 5 Admin-0 so…         0         2 Peru       PER           0</span></span>
-<span><span class="co">#&gt; 6 Admin-0 so…         0         2 Argentina  ARG           0</span></span>
+<span><span class="co">#&gt;   featurecla   scalerank LABELRANK SOVEREIGNT SOV_A3 ADM0_DIF</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;            &lt;int&gt;     &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1 Admin-0 sov…         5         2 Indonesia  IDN           0</span></span>
+<span><span class="co">#&gt; 2 Admin-0 sov…         5         3 Malaysia   MYS           0</span></span>
+<span><span class="co">#&gt; 3 Admin-0 sov…         0         2 Chile      CHL           0</span></span>
+<span><span class="co">#&gt; 4 Admin-0 sov…         0         3 Bolivia    BOL           0</span></span>
+<span><span class="co">#&gt; 5 Admin-0 sov…         0         2 Peru       PER           0</span></span>
+<span><span class="co">#&gt; 6 Admin-0 sov…         0         2 Argentina  ARG           0</span></span>
 <span><span class="co">#&gt; # ℹ 163 more variables: LEVEL &lt;int&gt;, TYPE &lt;chr&gt;, TLC &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   ADMIN &lt;chr&gt;, ADM0_A3 &lt;chr&gt;, GEOU_DIF &lt;int&gt;,</span></span>
-<span><span class="co">#&gt; #   GEOUNIT &lt;chr&gt;, GU_A3 &lt;chr&gt;, SU_DIF &lt;int&gt;,</span></span>
-<span><span class="co">#&gt; #   SUBUNIT &lt;chr&gt;, SU_A3 &lt;chr&gt;, BRK_DIFF &lt;int&gt;, NAME &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   GEOUNIT &lt;chr&gt;, GU_A3 &lt;chr&gt;, SU_DIF &lt;int&gt;, SUBUNIT &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   SU_A3 &lt;chr&gt;, BRK_DIFF &lt;int&gt;, NAME &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   NAME_LONG &lt;chr&gt;, BRK_A3 &lt;chr&gt;, BRK_NAME &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   BRK_GROUP &lt;chr&gt;, ABBREV &lt;chr&gt;, POSTAL &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   FORMAL_EN &lt;chr&gt;, FORMAL_FR &lt;chr&gt;, NAME_CIAWF &lt;chr&gt;, …</span></span></code></pre></div>
@@ -670,7 +670,7 @@ countries.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">ADMIN</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, main <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/finding-data.Rmd-7-1.png" width="50%"><img src="figure/finding-data.Rmd-7-2.png" width="50%"><img src="figure/finding-data.Rmd-7-3.png" width="50%"><img src="figure/finding-data.Rmd-7-4.png" width="50%"><img src="figure/finding-data.Rmd-7-5.png" width="50%"><img src="figure/finding-data.Rmd-7-6.png" width="50%"></p>
+<p><img src="finding-data.Rmd-7-1.png" width="50%"><img src="finding-data.Rmd-7-2.png" width="50%"><img src="finding-data.Rmd-7-3.png" width="50%"><img src="finding-data.Rmd-7-4.png" width="50%"><img src="finding-data.Rmd-7-5.png" width="50%"><img src="finding-data.Rmd-7-6.png" width="50%"></p>
 <p>Suppose that we want to search the polygons for the US, how should we
 spell it?</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -688,7 +688,7 @@ vector using a regular expression to find all occurrences of the word
 <p>We can now get the data.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"United States of America"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/finding-data.Rmd-10-1.png"> ### Continents</p>
+<p><img src="finding-data.Rmd-10-1.png"> ### Continents</p>
 <p>Finally, let’s create plots for each continent using the
 <code>ne_countries</code> function with the continent parameter.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -707,7 +707,7 @@ vector using a regular expression to find all occurrences of the word
 <span>    main <span class="op">=</span> <span class="va">x</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/finding-data.Rmd-12-1.png" width="50%"><img src="figure/finding-data.Rmd-12-2.png" width="50%"><img src="figure/finding-data.Rmd-12-3.png" width="50%"><img src="figure/finding-data.Rmd-12-4.png" width="50%"><img src="figure/finding-data.Rmd-12-5.png" width="50%"><img src="figure/finding-data.Rmd-12-6.png" width="50%"><img src="figure/finding-data.Rmd-12-7.png" width="50%"><img src="figure/finding-data.Rmd-12-8.png" width="50%"></p>
+<p><img src="finding-data.Rmd-12-1.png" width="50%"><img src="finding-data.Rmd-12-2.png" width="50%"><img src="finding-data.Rmd-12-3.png" width="50%"><img src="finding-data.Rmd-12-4.png" width="50%"><img src="finding-data.Rmd-12-5.png" width="50%"><img src="finding-data.Rmd-12-6.png" width="50%"><img src="finding-data.Rmd-12-7.png" width="50%"><img src="finding-data.Rmd-12-8.png" width="50%"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

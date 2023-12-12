@@ -122,7 +122,7 @@ public domain map dataset including vector country boundaries.</p>
 <span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="st">"africa"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use</span></span>
 <span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-1.png"></p>
+<p><img src="language-support.Rmd-3-1.png"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">sfaf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="st">"africa"</span>, returnclass <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span></span>
@@ -141,7 +141,7 @@ public domain map dataset including vector country boundaries.</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">sfaf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">sfafc</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-2.png"></p>
+<p><img src="language-support.Rmd-3-2.png"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># trying labels in the middle of countries, doesn't quite work needs x,y,label</span></span>
@@ -151,7 +151,7 @@ public domain map dataset including vector country boundaries.</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">sfaf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html" class="external-link">geom_text_repel</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">X</span>, y <span class="op">=</span> <span class="va">Y</span>, label <span class="op">=</span> <span class="va">name</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-3.png"></p>
+<p><img src="language-support.Rmd-3-3.png"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># getting there, labels still overlap a bit maybe make map bigger to allow space</span></span>
@@ -159,7 +159,7 @@ public domain map dataset including vector country boundaries.</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">sfaf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html" class="external-link">geom_text_repel</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">X</span>, y <span class="op">=</span> <span class="va">Y</span>, label <span class="op">=</span> <span class="va">name_es</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-4.png"></p>
+<p><img src="language-support.Rmd-3-4.png"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># point.padding=NA allows labels to overlap the centroid</span></span>
@@ -170,7 +170,7 @@ public domain map dataset including vector country boundaries.</p>
 <span>    point.padding <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>    size <span class="op">=</span> <span class="fl">3</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-5.png"></p>
+<p><img src="language-support.Rmd-3-5.png"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Africa labels just down left &amp; right sides works pretty well I think</span></span>
@@ -197,7 +197,7 @@ public domain map dataset including vector country boundaries.</p>
 <span>    hjust <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>    size <span class="op">=</span> <span class="fl">3</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-6.png"></p>
+<p><img src="language-support.Rmd-3-6.png"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># french labels</span></span>
@@ -224,7 +224,7 @@ public domain map dataset including vector country boundaries.</p>
 <span>    hjust <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>    size <span class="op">=</span> <span class="fl">3</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-7.png"></p>
+<p><img src="language-support.Rmd-3-7.png"></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># tmap good but labels currently overlap</span></span>
@@ -233,21 +233,21 @@ public domain map dataset including vector country boundaries.</p>
 <span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html" class="external-link">tm_shape</a></span><span class="op">(</span><span class="va">sfaf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html" class="external-link">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_text.html" class="external-link">tm_text</a></span><span class="op">(</span><span class="st">"name"</span>, size <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-8.png"></p>
+<p><img src="language-support.Rmd-3-8.png"></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># spanish labels</span></span>
 <span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html" class="external-link">tm_shape</a></span><span class="op">(</span><span class="va">sfaf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html" class="external-link">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_text.html" class="external-link">tm_text</a></span><span class="op">(</span><span class="st">"name_es"</span>, size <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-9.png"></p>
+<p><img src="language-support.Rmd-3-9.png"></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># other languages de, fr, nl,</span></span>
 <span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html" class="external-link">tm_shape</a></span><span class="op">(</span><span class="va">sfaf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html" class="external-link">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_text.html" class="external-link">tm_text</a></span><span class="op">(</span><span class="st">"name_de"</span>, size <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/language-support.Rmd-3-10.png"></p>
+<p><img src="language-support.Rmd-3-10.png"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

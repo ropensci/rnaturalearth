@@ -133,23 +133,23 @@ plot Scotland alone, or France without French Guiana.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># countries, UK undivided</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, type <span class="op">=</span> <span class="st">"countries"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-3-1.png"></p>
+<p><img src="what-is-a-country.Rmd-3-1.png"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># map_units, UK divided into England, Scotland, Wales and Northern Ireland</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, type <span class="op">=</span> <span class="st">"map_units"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-3-2.png"></p>
+<p><img src="what-is-a-country.Rmd-3-2.png"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># map_units, select by geounit to plot Scotland alone</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>geounit <span class="op">=</span> <span class="st">"scotland"</span>, type <span class="op">=</span> <span class="st">"map_units"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-3-3.png"></p>
+<p><img src="what-is-a-country.Rmd-3-3.png"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># sovereignty, Falkland Islands included in UK</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, type <span class="op">=</span> <span class="st">"sovereignty"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_coastline.html">ne_coastline</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">3</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-3-4.png"></p>
+<p><img src="what-is-a-country.Rmd-3-4.png"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># France, country includes French Guiana</span></span>
@@ -157,18 +157,18 @@ plot Scotland alone, or France without French Guiana.</p>
 <span></span>
 <span><span class="co"># France map_units includes French Guiana too</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span>, type <span class="op">=</span> <span class="st">"map_units"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-3-5.png"></p>
+<p><img src="what-is-a-country.Rmd-3-5.png"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># France filter map_units by geounit to exclude French Guiana</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>geounit <span class="op">=</span> <span class="st">"france"</span>, type <span class="op">=</span> <span class="st">"map_units"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-3-6.png"></p>
+<p><img src="what-is-a-country.Rmd-3-6.png"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># France sovereignty includes South Pacicic islands</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span>, type <span class="op">=</span> <span class="st">"sovereignty"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_coastline.html">ne_coastline</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">3</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-3-7.png"></p>
+<p><img src="what-is-a-country.Rmd-3-7.png"></p>
 </div>
 <div class="section level2">
 <h2 id="country-scales-small-medium-and-large">Country scales : small, medium and large<a class="anchor" aria-label="anchor" href="#country-scales-small-medium-and-large"></a>
@@ -180,7 +180,7 @@ at different scales.</p>
 <span>  <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, scale <span class="op">=</span> <span class="st">"large"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>,</span>
 <span>  main <span class="op">=</span> <span class="st">"large scale"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-4-1.png"></p>
+<p><img src="what-is-a-country.Rmd-4-1.png"></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># countries, medium scale</span></span>
@@ -188,7 +188,7 @@ at different scales.</p>
 <span>  <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, scale <span class="op">=</span> <span class="st">"medium"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>,</span>
 <span>  main <span class="op">=</span> <span class="st">"medium scale"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-4-2.png"></p>
+<p><img src="what-is-a-country.Rmd-4-2.png"></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># countries, small scale</span></span>
@@ -196,7 +196,7 @@ at different scales.</p>
 <span>  <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, scale <span class="op">=</span> <span class="st">"small"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>,</span>
 <span>  main <span class="op">=</span> <span class="st">"small scale"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-4-3.png"></p>
+<p><img src="what-is-a-country.Rmd-4-3.png"></p>
 </div>
 <div class="section level2">
 <h2 id="states-admin-level-1-select-by-country-or-geounit">States, admin level 1, select by country or geounit<a class="anchor" aria-label="anchor" href="#states-admin-level-1-select-by-country-or-geounit"></a>
@@ -204,22 +204,22 @@ at different scales.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># states country='united kingdom'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_states.html">ne_states</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-5-1.png"></p>
+<p><img src="what-is-a-country.Rmd-5-1.png"></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># states geounit='england'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_states.html">ne_states</a></span><span class="op">(</span>geounit <span class="op">=</span> <span class="st">"england"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-5-2.png"></p>
+<p><img src="what-is-a-country.Rmd-5-2.png"></p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># states country='france'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_states.html">ne_states</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-5-3.png"></p>
+<p><img src="what-is-a-country.Rmd-5-3.png"></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># states geounit='france'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_states.html">ne_states</a></span><span class="op">(</span>geounit <span class="op">=</span> <span class="st">"france"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure/what-is-a-country.Rmd-5-4.png"></p>
+<p><img src="what-is-a-country.Rmd-5-4.png"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
