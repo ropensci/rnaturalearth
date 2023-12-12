@@ -92,7 +92,7 @@ plot(
 #> Geodetic CRS:  WGS 84
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![](figure/finding-data.Rmd-3-1.png)
 
 ### Cultural vector data
 
@@ -178,7 +178,7 @@ plot(
 #> Geodetic CRS:  WGS 84
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+![](figure/finding-data.Rmd-5-1.png)
 
 ## Searching for countries and continents
 
@@ -196,18 +196,18 @@ head(df)
 #> Bounding box:  xmin: -109.4537 ymin: -55.9185 xmax: 140.9776 ymax: 7.35578
 #> Geodetic CRS:  WGS 84
 #> # A tibble: 6 × 169
-#>   featurecla   scalerank LABELRANK SOVEREIGNT SOV_A3 ADM0_DIF
-#>   <chr>            <int>     <int> <chr>      <chr>     <int>
-#> 1 Admin-0 sov…         5         2 Indonesia  IDN           0
-#> 2 Admin-0 sov…         5         3 Malaysia   MYS           0
-#> 3 Admin-0 sov…         0         2 Chile      CHL           0
-#> 4 Admin-0 sov…         0         3 Bolivia    BOL           0
-#> 5 Admin-0 sov…         0         2 Peru       PER           0
-#> 6 Admin-0 sov…         0         2 Argentina  ARG           0
+#>   featurecla  scalerank LABELRANK SOVEREIGNT SOV_A3 ADM0_DIF
+#>   <chr>           <int>     <int> <chr>      <chr>     <int>
+#> 1 Admin-0 so…         5         2 Indonesia  IDN           0
+#> 2 Admin-0 so…         5         3 Malaysia   MYS           0
+#> 3 Admin-0 so…         0         2 Chile      CHL           0
+#> 4 Admin-0 so…         0         3 Bolivia    BOL           0
+#> 5 Admin-0 so…         0         2 Peru       PER           0
+#> 6 Admin-0 so…         0         2 Argentina  ARG           0
 #> # ℹ 163 more variables: LEVEL <int>, TYPE <chr>, TLC <chr>,
 #> #   ADMIN <chr>, ADM0_A3 <chr>, GEOU_DIF <int>,
-#> #   GEOUNIT <chr>, GU_A3 <chr>, SU_DIF <int>, SUBUNIT <chr>,
-#> #   SU_A3 <chr>, BRK_DIFF <int>, NAME <chr>,
+#> #   GEOUNIT <chr>, GU_A3 <chr>, SU_DIF <int>,
+#> #   SUBUNIT <chr>, SU_A3 <chr>, BRK_DIFF <int>, NAME <chr>,
 #> #   NAME_LONG <chr>, BRK_A3 <chr>, BRK_NAME <chr>,
 #> #   BRK_GROUP <chr>, ABBREV <chr>, POSTAL <chr>,
 #> #   FORMAL_EN <chr>, FORMAL_FR <chr>, NAME_CIAWF <chr>, …
@@ -224,10 +224,7 @@ lapply(df$ADMIN[1:6], \(x) {
 })
 ```
 
-<div class="figure">
-<img src="figure/unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7" width="50%" /><img src="figure/unnamed-chunk-7-2.png" alt="plot of chunk unnamed-chunk-7" width="50%" /><img src="figure/unnamed-chunk-7-3.png" alt="plot of chunk unnamed-chunk-7" width="50%" /><img src="figure/unnamed-chunk-7-4.png" alt="plot of chunk unnamed-chunk-7" width="50%" /><img src="figure/unnamed-chunk-7-5.png" alt="plot of chunk unnamed-chunk-7" width="50%" /><img src="figure/unnamed-chunk-7-6.png" alt="plot of chunk unnamed-chunk-7" width="50%" />
-<p class="caption">plot of chunk unnamed-chunk-7</p>
-</div>
+<img src="figure/finding-data.Rmd-7-1.png" width="50%" /><img src="figure/finding-data.Rmd-7-2.png" width="50%" /><img src="figure/finding-data.Rmd-7-3.png" width="50%" /><img src="figure/finding-data.Rmd-7-4.png" width="50%" /><img src="figure/finding-data.Rmd-7-5.png" width="50%" /><img src="figure/finding-data.Rmd-7-6.png" width="50%" />
 
 Suppose that we want to search the polygons for the US, how should we spell it?
 
@@ -254,7 +251,7 @@ We can now get the data.
 plot(ne_countries(country = "United States of America")["geometry"])
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
+![](figure/finding-data.Rmd-10-1.png)
 ### Continents
 
 Finally, let's create plots for each continent using the `ne_countries` function with the continent parameter.
@@ -281,7 +278,4 @@ lapply(unique(df$CONTINENT), \(x) {
 })
 ```
 
-<div class="figure">
-<img src="figure/unnamed-chunk-12-1.png" alt="plot of chunk unnamed-chunk-12" width="50%" /><img src="figure/unnamed-chunk-12-2.png" alt="plot of chunk unnamed-chunk-12" width="50%" /><img src="figure/unnamed-chunk-12-3.png" alt="plot of chunk unnamed-chunk-12" width="50%" /><img src="figure/unnamed-chunk-12-4.png" alt="plot of chunk unnamed-chunk-12" width="50%" /><img src="figure/unnamed-chunk-12-5.png" alt="plot of chunk unnamed-chunk-12" width="50%" /><img src="figure/unnamed-chunk-12-6.png" alt="plot of chunk unnamed-chunk-12" width="50%" /><img src="figure/unnamed-chunk-12-7.png" alt="plot of chunk unnamed-chunk-12" width="50%" /><img src="figure/unnamed-chunk-12-8.png" alt="plot of chunk unnamed-chunk-12" width="50%" />
-<p class="caption">plot of chunk unnamed-chunk-12</p>
-</div>
+<img src="figure/finding-data.Rmd-12-1.png" width="50%" /><img src="figure/finding-data.Rmd-12-2.png" width="50%" /><img src="figure/finding-data.Rmd-12-3.png" width="50%" /><img src="figure/finding-data.Rmd-12-4.png" width="50%" /><img src="figure/finding-data.Rmd-12-5.png" width="50%" /><img src="figure/finding-data.Rmd-12-6.png" width="50%" /><img src="figure/finding-data.Rmd-12-7.png" width="50%" /><img src="figure/finding-data.Rmd-12-8.png" width="50%" />

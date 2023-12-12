@@ -42,7 +42,7 @@ terra::plot(ne_countries(continent = "africa"))
 #> max.plot = 168 to plot all
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![](figure/language-support.Rmd-3-1.png)
 
 ```r
 
@@ -64,7 +64,7 @@ ggplot(sfaf) +
   geom_sf(data = sfafc)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-2.png)
+![](figure/language-support.Rmd-3-2.png)
 
 ```r
 
@@ -77,7 +77,7 @@ ggplot(sfaf) +
   geom_text_repel(aes(x = X, y = Y, label = name), size = 3)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-3.png)
+![](figure/language-support.Rmd-3-3.png)
 
 ```r
 
@@ -88,7 +88,7 @@ ggplot(sfaf) +
   geom_text_repel(aes(x = X, y = Y, label = name_es), size = 3)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-4.png)
+![](figure/language-support.Rmd-3-4.png)
 
 ```r
 
@@ -102,7 +102,7 @@ ggplot(sfaf) +
   )
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-5.png)
+![](figure/language-support.Rmd-3-5.png)
 
 ```r
 
@@ -132,7 +132,7 @@ ggplot(sfaf) +
   )
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-6.png)
+![](figure/language-support.Rmd-3-6.png)
 
 ```r
 
@@ -162,7 +162,7 @@ ggplot(sfaf) +
   )
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-7.png)
+![](figure/language-support.Rmd-3-7.png)
 
 ```r
 
@@ -174,7 +174,7 @@ tm_shape(sfaf) +
   tm_text("name", size = 0.75)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-8.png)
+![](figure/language-support.Rmd-3-8.png)
 
 ```r
 
@@ -184,7 +184,7 @@ tm_shape(sfaf) +
   tm_text("name_es", size = 0.75)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-9.png)
+![](figure/language-support.Rmd-3-9.png)
 
 ```r
 
@@ -194,4 +194,4 @@ tm_shape(sfaf) +
   tm_text("name_de", size = 0.75)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-10.png)
+![](figure/language-support.Rmd-3-10.png)

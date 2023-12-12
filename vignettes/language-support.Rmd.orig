@@ -16,14 +16,14 @@ This vignette shows how [rnaturalearth](https://github.com/ropensci/rnaturaleart
 
 ## Load required packages
 
-```{r, include = FALSE}
+```{r language-support.Rmd-1, include = FALSE, fig.cap=''}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 ```
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r language-support.Rmd-2, eval=TRUE, echo=TRUE, message=FALSE, fig.cap=''}
 library(rnaturalearth)
 library(sf)
 library(ggplot2)
@@ -38,7 +38,7 @@ sf_use_s2(FALSE)
 
 ## Country maps with labels in other languages
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r language-support.Rmd-3, eval=TRUE, echo=TRUE, message=FALSE, fig.cap=''}
 # Africa
 terra::plot(ne_countries(continent = "africa"))
 

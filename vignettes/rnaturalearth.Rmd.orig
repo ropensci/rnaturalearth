@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}                                              
 ---
 
-```{r, include = FALSE}
+```{r rnaturalearth.Rmd-1, include = FALSE, fig.cap=''}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -31,7 +31,7 @@ This vignette uses `plot` as a simple, quick way to show how different data can 
 
 ## load required packages
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r rnaturalearth.Rmd-2, eval=TRUE, echo=TRUE, message=FALSE, fig.cap=''}
 library(rnaturalearth)
 ```
 
@@ -43,7 +43,7 @@ Pre-downloaded maps can be accessed with :
 - `ne_states()` for boundaries within countries (admin-1)
 - `ne_coastline()` for world coastline
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r rnaturalearth.Rmd-3, eval=TRUE, echo=TRUE, message=FALSE, fig.cap=''}
 # world at small scale (low resolution)
 plot(ne_countries(type = "countries", scale = "small"))
 
@@ -59,7 +59,7 @@ plot(ne_countries(country = "united kingdom", scale = "small"))
 plot(ne_countries(country = "united kingdom", scale = "medium"))
 ```
 
-```{r, eval=FALSE, echo=TRUE, message=FALSE}
+```{r rnaturalearth.Rmd-4, eval=FALSE, echo=TRUE, message=FALSE, fig.cap=''}
 # not evaluated because rely on rnaturalearthhires data which are on rOpenSci so CRAN check likely to fail
 
 # countries, large scale
@@ -74,7 +74,7 @@ plot(ne_states(geounit = "england"))
 plot(ne_states(country = "france"))
 ```
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r rnaturalearth.Rmd-5, eval=TRUE, echo=TRUE, message=FALSE, fig.cap=''}
 # coastline of the world
 # subsetting of coastline is not possible because the Natural Earth data are not attributed in that way
 plot(ne_coastline())
@@ -84,7 +84,7 @@ plot(ne_coastline())
 
 Each [Natural Earth](https://www.naturalearthdata.com/) dataset is characterised on the website according to `scale`, `type` and `category`. [rnaturalearth](https://github.com/ropensci/rnaturalearth) allows you to specify `scale`, `type` and `category` and will construct the url and download the corresponding file.
 
-```{r, eval=FALSE, echo=TRUE, message=FALSE}
+```{r rnaturalearth.Rmd-6, eval=FALSE, echo=TRUE, message=FALSE, fig.cap=''}
 # lakes
 lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
 plot(lakes110, col = "blue")
@@ -97,10 +97,10 @@ plot(rivers110, col = "blue")
 ## Tables of vector layers available via `ne_download(type=[layer_name], scale=)`
 1=available, 0=not
 
-```{r echo = FALSE, results = 'asis'}
+```{r rnaturalearth.Rmd-7, echo = FALSE, results = 'asis', fig.cap=''}
 knitr::kable(df_layers_physical, caption = "category='physical' vector data available via ne_download()")
 ```
 
-```{r echo = FALSE, results = 'asis'}
+```{r rnaturalearth.Rmd-8, echo = FALSE, results = 'asis', fig.cap=''}
 knitr::kable(df_layers_cultural, caption = "category='cultural' vector data available via ne_download()")
 ```

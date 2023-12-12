@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}                                              
 ---
 
-```{r, include = FALSE}
+```{r what-is-a-country.Rmd-1, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -26,7 +26,7 @@ This vignette uses `plot` as a simple, quick way to plot the data obtained using
 
 ## Load required packages
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r what-is-a-country.Rmd-2, eval=TRUE, echo=TRUE, message=FALSE, fig.cap=''}
 library(rnaturalearth)
 ```
 
@@ -39,7 +39,7 @@ Natural Earth data are classified by `countries`, `map_units` and `sovereignty`.
 
 Filtering by `geounit` can give finer control, e.g. to plot Scotland alone, or France without French Guiana.
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r what-is-a-country.Rmd-3, eval=TRUE, echo=TRUE, message=FALSE, fig.cap=''}
 # countries, UK undivided
 plot(ne_countries(country = "united kingdom", type = "countries")["geometry"])
 
@@ -51,7 +51,7 @@ plot(ne_countries(geounit = "scotland", type = "map_units")["geometry"])
 
 # sovereignty, Falkland Islands included in UK
 plot(ne_countries(country = "united kingdom", type = "sovereignty")["geometry"], col = "red")
-plot(ne_coastline(scale = 110)["geometry"], col = "lightgrey", lty = 3, add = TRUE)
+plot(ne_coastline(scale = 110)["geometry"], lty = 3, add = TRUE)
 
 # France, country includes French Guiana
 plot(ne_countries(country = "france")["geometry"])
@@ -64,14 +64,14 @@ plot(ne_countries(geounit = "france", type = "map_units")["geometry"])
 
 # France sovereignty includes South Pacicic islands
 plot(ne_countries(country = "france", type = "sovereignty")["geometry"], col = "red")
-plot(ne_coastline(scale = 110)["geometry"], col = "lightgrey", lty = 3, add = TRUE)
+plot(ne_coastline(scale = 110)["geometry"], lty = 3, add = TRUE)
 ```
 
 ## Country scales : small, medium and large
 
 The different definitions of a country outlined above are available at different scales.
 
-```{r, eval=TRUE, echo=-1, message=FALSE}
+```{r what-is-a-country.Rmd-4, eval=TRUE, echo=-1, message=FALSE, fig.cap=''}
 # countries, large scale
 plot(
   ne_countries(country = "united kingdom", scale = "large")["geometry"],
@@ -93,7 +93,7 @@ plot(
 
 ## States, admin level 1, select by country or geounit
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r what-is-a-country.Rmd-5, eval=TRUE, echo=TRUE, message=FALSE, fig.cap=''}
 # states country='united kingdom'
 plot(ne_states(country = "united kingdom")["geometry"])
 

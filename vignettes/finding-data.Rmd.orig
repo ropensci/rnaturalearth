@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r finding-data.Rmd-1, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -25,7 +25,7 @@ There are a lot of data that can be downloaded from [Natural Earth](https://www.
 
 ### Physical vector data
 
-```{r, eval=TRUE}
+```{r finding-data.Rmd-2, eval=TRUE, fig.cap=''}
 data(df_layers_physical)
 
 knitr::kable(
@@ -36,7 +36,7 @@ knitr::kable(
 
 Based on the previous table, we know that we can download the `ocean` vector at small scale (110). Note that scales are defined as one of `110`, `50`, `10` or `small`, `medium`, `large`.
 
-```{r}
+```{r finding-data.Rmd-3, fig.cap=''}
 plot(
   ne_download(type = "ocean", category = "physical", scale = "small")["geometry"],
   col = "lightblue"
@@ -45,7 +45,7 @@ plot(
 
 ### Cultural vector data
 
-```{r, eval=TRUE}
+```{r finding-data.Rmd-4, eval=TRUE, fig.cap=''}
 data(df_layers_cultural)
 
 knitr::kable(
@@ -54,7 +54,7 @@ knitr::kable(
 )
 ```
 
-```{r}
+```{r finding-data.Rmd-5, fig.cap=''}
 plot(
   ne_download(
     type = "airports",
@@ -71,7 +71,7 @@ plot(
 In this article, we explore how we can search for data available to download within `rnaturalearth`. Let's begin by loading country data using the `read_sf()` function from the `sf` package. In the following code snippet, we read the Natural Earth dataset, which contains information about the sovereignty of countries.
 
 
-```{r}
+```{r finding-data.Rmd-6, fig.cap=''}
 df <- read_sf("/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip")
 
 head(df)
@@ -81,7 +81,7 @@ head(df)
 
 One way to search for countries is to search within the `ADMIN` vector. Let's start by plotting some of the first countries.
 
-```{r, echo=-1, fig.show="hold", out.width="50%", results='hide'}
+```{r finding-data.Rmd-7, echo=-1, fig.show="hold", out.width="50%", results='hide', fig.cap=''}
 par(mfrow = c(2, 3))
 lapply(df$ADMIN[1:6], \(x) {
   plot(ne_countries(country = x)["geometry"], main = x)
@@ -90,7 +90,7 @@ lapply(df$ADMIN[1:6], \(x) {
 
 Suppose that we want to search the polygons for the US, how should we spell it?
 
-```{r, eval=FALSE}
+```{r finding-data.Rmd-8, eval=FALSE, fig.cap=''}
 ne_countries(country = "USA")
 ne_countries(country = "United States")
 ne_countries(country = "United States Of America")
@@ -99,23 +99,23 @@ ne_countries(country = "United States of America")
 
 One possibility consists to search within the `ADMIN` vector using a regular expression to find all occurrences of the word *states*.
 
-```{r}
+```{r finding-data.Rmd-9, fig.cap=''}
 df$ADMIN[grepl("states", df$ADMIN, ignore.case = TRUE)]
 ```
 We can now get the data.
 
-```{r}
+```{r finding-data.Rmd-10, fig.cap=''}
 plot(ne_countries(country = "United States of America")["geometry"])
 ```
 ### Continents
 
 Finally, let's create plots for each continent using the `ne_countries` function with the continent parameter.
 
-```{r}
+```{r finding-data.Rmd-11, fig.cap=''}
 unique(df$CONTINENT)
 ```
 
-```{r, echo=-1, fig.show="hold", out.width="50%", results='hide'}
+```{r finding-data.Rmd-12, echo=-1, fig.show="hold", out.width="50%", results='hide', fig.cap=''}
 par(mfrow = c(2, 4))
 lapply(unique(df$CONTINENT), \(x) {
   plot(
