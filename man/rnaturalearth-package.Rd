@@ -15,6 +15,7 @@ Useful links:
 \itemize{
   \item \url{https://docs.ropensci.org/rnaturalearth/}
   \item \url{https://github.com/ropensci/rnaturalearth}
+  \item \url{https://docs.ropensci.org/rnaturalearthhires/}
   \item Report bugs at \url{https://github.com/ropensci/rnaturalearth/issues}
 }
 
