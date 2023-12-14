@@ -1,3 +1,5 @@
+# rnaturalearth (development version)
+
 # rnaturalearth 1.0.1
 
 # rnaturalearth 1.0.0
