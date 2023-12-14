@@ -1,4 +1,8 @@
 test_that("scale argument gives expected relative sizes of objects", {
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
+
   expect_gt(
     object.size(ne_countries(scale = "medium")),
     object.size(ne_countries(scale = "small"))
@@ -11,6 +15,10 @@ test_that("scale argument gives expected relative sizes of objects", {
 })
 
 test_that("equivalent scale arguments as numeric or text give identical results", {
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
+
   expect_identical(
     ne_countries(scale = "medium"),
     ne_countries(scale = 50)
@@ -23,6 +31,10 @@ test_that("equivalent scale arguments as numeric or text give identical results"
 })
 
 test_that("Error message if incorrect filters are applied", {
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
+
   expect_error(ne_countries(continent = "madeupname"))
   expect_error(ne_countries(country = "madeupname"))
   expect_error(ne_countries(geounit = "madeupname"))
@@ -30,5 +42,9 @@ test_that("Error message if incorrect filters are applied", {
 })
 
 test_that("Error message if incorrect type argument", {
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
+
   expect_error(ne_countries(type = "madeupname"))
 })

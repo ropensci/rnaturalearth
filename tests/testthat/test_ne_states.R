@@ -1,9 +1,8 @@
 # TODO: Change to sf in rnaturalearthhires
 test_that("type of object returned is as expected", {
-  # skip tests if rnaturalearthhires not available in testing env
-  # specifically on winbuilder and CRAN
-  # reduces efectiveness of the test
-  testthat::skip_if_not_installed("rnaturalearthhires")
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
 
   expect_is(ne_states(country = "france"), "sf")
   expect_is(ne_states(geounit = "france"), "sf")
@@ -12,10 +11,9 @@ test_that("type of object returned is as expected", {
 })
 
 test_that("filter by country gives bigger object than by geounit", {
-  # skip tests if rnaturalearthhires not available in testing env
-  # specifically on winbuilder and CRAN
-  # reduces efectiveness of the test
-  testthat::skip_if_not_installed("rnaturalearthhires")
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
 
   expect_gt(
     object.size(ne_states(country = "france")),
@@ -29,10 +27,9 @@ test_that("filter by country gives bigger object than by geounit", {
 })
 
 test_that("equivalent country and iso_a2 arguments give identical results", {
-  # skip tests if rnaturalearthhires not available in testing env
-  # specifically on winbuilder and CRAN
-  # reduces efectiveness of the test
-  testthat::skip_if_not_installed("rnaturalearthhires")
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
 
   expect_identical(
     ne_states(country = "france"),
@@ -46,10 +43,9 @@ test_that("equivalent country and iso_a2 arguments give identical results", {
 })
 
 test_that("Error message if incorrect filters are applied", {
-  # skip tests if rnaturalearthhires not available in testing env
-  # specifically on winbuilder and CRAN
-  # reduces efectiveness of the test
-  testthat::skip_if_not_installed("rnaturalearthhires")
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
 
   expect_error(ne_states(country = "madeupname"))
   expect_error(ne_states(geounit = "madeupname"))

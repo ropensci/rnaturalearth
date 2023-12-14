@@ -23,7 +23,9 @@ urls <- c(
 url_expect_fail <- ne_file_name(scale = 110, type = "expect_fail", category = "cultural", full_url = TRUE)
 
 test_that("urls for downloads created by the package exist", {
-  testthat::skip_on_cran()
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
 
   # tests all of the urls put into the vector above
   # info=x means that test fail messages include the failed urls
@@ -31,7 +33,9 @@ test_that("urls for downloads created by the package exist", {
 })
 
 test_that("a bogus url does not exist", {
-  testthat::skip_on_cran()
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
 
   expect_true(httr::http_error(url_expect_fail))
 })

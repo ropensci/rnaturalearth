@@ -1,4 +1,8 @@
 test_that("type of object returned is sf", {
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
+
   world <- ne_countries()
   africa <- ne_countries(continent = "africa")
   france <- ne_countries(country = "france")
@@ -9,6 +13,10 @@ test_that("type of object returned is sf", {
 })
 
 test_that("type of object returned is SpatVector", {
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
+
   world <- ne_countries(returnclass = "sv")
   africa <- ne_countries(continent = "africa", returnclass = "sv")
   france <- ne_countries(country = "france", returnclass = "sv")
@@ -20,6 +28,10 @@ test_that("type of object returned is SpatVector", {
 
 # Check if I should do all the tests for all the scales.
 test_that("type of object returned is either sf or SpatVector for coastlines", {
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
+
   expect_true(inherits(ne_coastline(returnclass = "sf", scale = 10), "sf"))
   expect_true(inherits(ne_coastline(returnclass = "sf", scale = 50), "sf"))
   expect_true(inherits(ne_coastline(returnclass = "sf", scale = 110), "sf"))
@@ -27,6 +39,10 @@ test_that("type of object returned is either sf or SpatVector for coastlines", {
 })
 
 test_that("type of object returned is either sf or SpatVector for states", {
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+  skip_if_not_installed("rnaturalearthhires")
+
   expect_true(inherits(ne_states(returnclass = "sf"), "sf"))
   expect_true(inherits(ne_states(returnclass = "sv"), "SpatVector"))
 })

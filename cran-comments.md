@@ -1,4 +1,6 @@
-This is a breaking change release.
+This fix tests that could run using packages not available on CRAN.
+
+- Package suggested but not available for checking: ‘rnaturalearthhires’
 
 ## revdepcheck results
 
