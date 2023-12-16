@@ -49,8 +49,8 @@ Suggests:
     purrr,
     rlang,
     rmarkdown,
-    rnaturalearthdata (>= 0.1.0),
-    rnaturalearthhires (>= 0.1.0),
+    rnaturalearthdata (>= 1.0.0),
+    rnaturalearthhires (>= 1.0.0),
     testthat (>= 0.9.1),
     tmap
 Config/Needs/website: ropensci/rnaturalearthhires

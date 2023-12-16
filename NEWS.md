@@ -1,6 +1,10 @@
 # rnaturalearth (development version)
 
+- `rnaturalearth` now requires rnaturalearthdata (>= 1.0.0) and rnaturalearthhires (>= 1.0.0).
+
 # rnaturalearth 1.0.1
+
+- Do not test functions who rely on `rnaturalearthhires` because it is not available on CRAN.
 
 # rnaturalearth 1.0.0
 
