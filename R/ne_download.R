@@ -118,7 +118,8 @@ ne_download <- function(
 
   if (load && category == "raster") {
     # have to use file_name to set the folder and the tif name
-    rst <- terra::rast(file.path(destdir, paste0(file_name, ".tif")))
+    filename <- file.path(destdir, file_name, paste0(file_name, ".tif"))
+    rst <- terra::rast(filename)
     return(rst)
   } else if (load) {
     # read in data as either sf of spatvector
