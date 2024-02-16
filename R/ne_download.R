@@ -129,6 +129,10 @@ ne_download <- function(
     )
     return(spatial_object)
   } else {
+    file_name <- switch(category,
+      "raster" = file.path(destdir, file_name, paste0(file_name, ".tif")),
+      file.path(destdir, paste0(file_name, ".shp"))
+    )
     return(file_name)
   }
 }

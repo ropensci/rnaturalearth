@@ -2,6 +2,18 @@
 
 - `rnaturalearth` now requires rnaturalearthdata (>= 1.0.0) and rnaturalearthhires (>= 1.0.0).
 
+-
+
+```r
+ne_download(
+  type = "MSR_50M",
+  category = "raster",
+  scale = 50,
+  load = TRUE
+)
+
+```
+
 # rnaturalearth 1.0.1
 
 - Do not test functions who rely on `rnaturalearthhires` because it is not available on CRAN.
