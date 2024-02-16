@@ -302,7 +302,7 @@ layer of data can be downloaded.</p>
 defined as one of <code>110</code>, <code>50</code>, <code>10</code> or
 <code>small</code>, <code>medium</code>, <code>large</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"ocean"</span>, category <span class="op">=</span> <span class="st">"physical"</span>, scale <span class="op">=</span> <span class="st">"small"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>,</span>
 <span>  col <span class="op">=</span> <span class="st">"lightblue"</span></span>
 <span><span class="op">)</span></span>
@@ -607,7 +607,7 @@ defined as one of <code>110</code>, <code>50</code>, <code>10</code> or
 </tbody>
 </table>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
 <span>    type <span class="op">=</span> <span class="st">"airports"</span>,</span>
 <span>    category <span class="op">=</span> <span class="st">"cultural"</span>,</span>
@@ -638,7 +638,7 @@ of countries.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">read_sf</a></span><span class="op">(</span><span class="st">"/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Simple feature collection with 6 features and 168 fields</span></span>
 <span><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
 <span><span class="co">#&gt; Dimension:     XY</span></span>
@@ -668,7 +668,7 @@ of countries.</p>
 countries.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">ADMIN</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, main <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, main <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
 <p><img src="finding-data.Rmd-7-1.png" width="50%"><img src="finding-data.Rmd-7-2.png" width="50%"><img src="finding-data.Rmd-7-3.png" width="50%"><img src="finding-data.Rmd-7-4.png" width="50%"><img src="finding-data.Rmd-7-5.png" width="50%"><img src="finding-data.Rmd-7-6.png" width="50%"></p>
 <p>Suppose that we want to search the polygons for the US, how should we
@@ -687,19 +687,19 @@ vector using a regular expression to find all occurrences of the word
 <span><span class="co">#&gt; [2] "Federated States of Micronesia"</span></span></code></pre></div>
 <p>We can now get the data.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"United States of America"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"United States of America"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p><img src="finding-data.Rmd-10-1.png"> ### Continents</p>
 <p>Finally, let’s create plots for each continent using the
 <code>ne_countries</code> function with the continent parameter.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">CONTINENT</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">CONTINENT</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Asia"                    "South America"          </span></span>
 <span><span class="co">#&gt; [3] "Europe"                  "Africa"                 </span></span>
 <span><span class="co">#&gt; [5] "North America"           "Oceania"                </span></span>
 <span><span class="co">#&gt; [7] "Antarctica"              "Seven seas (open ocean)"</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">CONTINENT</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">CONTINENT</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span></span>
 <span>      continent <span class="op">=</span> <span class="va">x</span>,</span>
 <span>      scale <span class="op">=</span> <span class="st">"medium"</span></span>
