@@ -57,7 +57,6 @@ or install the development version from GitHub using [devtools](https://github.c
 
 ```r
 devtools::install_github("ropensci/rnaturalearth")
-
 ```
 
 Data to support much of the package functionality are stored in two data packages that you will be prompted to install when required if you do not do so here.
@@ -144,6 +143,10 @@ vignette("what-is-a-country", package = "rnaturalearth")
 
 [Script](https://github.com/ropensci/rnaturalearthdata/blob/master/data-raw/data_download_script.r) used to get data into the accompanying data packages.
 
+## Errors in the data?
+
+If you believe there is an issue with data provided by [Natural Earth](https://www.naturalearthdata.com/), please do not report it here. We are not responsible for the accuracy or maintenance of Natural Earth data. For any concerns regarding this data, please contact [Natural Earth](https://www.naturalearthdata.com/).
+
 ## Acknowledgements
 
 Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspiration from [USAboundaries](https://github.com/ropensci/USAboundaries), [Hadley Wickham](https://github.com/hadley) for comments and prompting, [Bob Rudis](https://github.com/hrbrmstr) for answers to stackoverflow questions about downloading Natural Earth data into R. The [Natural Earth team](https://www.naturalearthdata.com/about/contributors/) and [Nathan Kelso](https://github.com/nvkelso) for providing such a great resource.
@@ -170,5 +173,3 @@ Thanks to [Lincoln Mullen](https://github.com/lmullen) for code structure inspir
 
 - facilitate subsetting by country groupings
   - e.g. least developed countries etc.
-
-
