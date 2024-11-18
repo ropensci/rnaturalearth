@@ -51,6 +51,15 @@ ne_file_name <- function(
     type <- paste0("admin_0_", type)
   }
 
+  if (type %in% c(
+    "parks_and_protected_lands_area",
+    "parks_and_protected_lands_line",
+    "parks_and_protected_lands_point",
+    "parks_and_protected_lands_scale_rank"
+  ) && full_url) {
+    type <- "parks_and_protected_lands"
+  }
+
 
   # add admin_1 to known types
   # this actually just expands 'states' to the name including lakes
