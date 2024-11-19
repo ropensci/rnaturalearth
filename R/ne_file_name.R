@@ -51,6 +51,10 @@ ne_file_name <- function(
     type <- paste0("admin_0_", type)
   }
 
+  # Different types such as area, line, etc. are all included within the same
+  # zip file for the parks and protected lands type. Therefore, we need to
+  # download the zip file and then select the
+  # appropriate shapefile to read.
   if (type %in% c(
     "parks_and_protected_lands_area",
     "parks_and_protected_lands_line",
@@ -59,7 +63,6 @@ ne_file_name <- function(
   ) && full_url) {
     type <- "parks_and_protected_lands"
   }
-
 
   # add admin_1 to known types
   # this actually just expands 'states' to the name including lakes
