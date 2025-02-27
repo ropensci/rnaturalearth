@@ -44,12 +44,13 @@
 #'
 #' @export
 ne_load <- function(
-    scale = 110,
-    type = "countries",
-    category = c("cultural", "physical", "raster"),
-    destdir = tempdir(),
-    file_name = NULL,
-    returnclass = c("sf", "sv")) {
+  scale = 110L,
+  type = "countries",
+  category = c("cultural", "physical", "raster"),
+  destdir = tempdir(),
+  file_name = NULL,
+  returnclass = c("sf", "sv")
+) {
   category <- match.arg(category)
 
   returnclass <- match.arg(returnclass)
@@ -64,7 +65,8 @@ ne_load <- function(
 
   error_msg <- paste0(
     "the file ",
-    file_name, " seems not to exist in your local folder ",
+    file_name,
+    " seems not to exist in your local folder ",
     destdir,
     "\nDid you download it using ne_download()?"
   )
@@ -79,7 +81,8 @@ ne_load <- function(
     rst <- terra::rast(file_tif)
 
     return(rst)
-  } else { # for shapefiles
+  } else {
+    # for shapefiles
 
     # add '.shp' for the exists test (it's not needed by readOGR)
     if (!file.exists(file.path(destdir, paste0(file_name, ".shp")))) {

@@ -5,7 +5,7 @@
 \title{return a natural earth filename based on arguments}
 \usage{
 ne_file_name(
-  scale = 110,
+  scale = 110L,
   type = "countries",
   category = c("cultural", "physical", "raster"),
   full_url = FALSE

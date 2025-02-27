@@ -10,7 +10,8 @@ check_rnaturalearthdata <- function() {
     message("The rnaturalearthdata package needs to be installed.")
     install_rnaturalearthdata()
   } else if (
-    utils::packageVersion("rnaturalearthdata") < rnaturalearthdata_version) {
+    utils::packageVersion("rnaturalearthdata") < rnaturalearthdata_version
+  ) {
     message("The rnaturalearthdata package needs to be updated.")
     install_rnaturalearthdata()
   }
@@ -34,21 +35,24 @@ install_rnaturalearthdata <- function() {
 
   # 23/2/17 changed to try install if not interactive to avoid winbuilder
   # warning
-  input <- 1
+  input <- 1L
   if (interactive()) {
-    input <- utils::menu(c("Yes", "No"),
+    input <- utils::menu(
+      c("Yes", "No"),
       title = "Install the rnaturalearthdata package?"
     )
   }
 
-  if (input == 1) {
+  if (input == 1L) {
     message("Installing the rnaturalearthdata package.")
     tryCatch(
-      utils::install.packages("rnaturalearthdata",
+      utils::install.packages(
+        "rnaturalearthdata",
         repos = c("http://packages.ropensci.org", "http://cran.rstudio.com"),
         type = "source"
       ),
-      error = error_func, warning = error_func
+      error = error_func,
+      warning = error_func
     )
   } else {
     stop(paste(

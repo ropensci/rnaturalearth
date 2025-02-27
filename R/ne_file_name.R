@@ -24,30 +24,33 @@
 #'
 #' @export
 ne_file_name <- function(
-    scale = 110,
-    type = "countries",
-    category = c("cultural", "physical", "raster"),
-    full_url = FALSE) {
+  scale = 110L,
+  type = "countries",
+  category = c("cultural", "physical", "raster"),
+  full_url = FALSE
+) {
   # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
 
   # check permitted category
   category <- match.arg(category)
 
-
   # add admin_0 to known types
-  if (type %in% c(
-    "countries",
-    "map_units",
-    "map_subunits",
-    "sovereignty",
-    "tiny_countries",
-    "boundary_lines_land",
-    "pacific_groupings",
-    "breakaway_disputed_areas",
-    "boundary_lines_disputed_areas",
-    "boundary_lines_maritime_indicator"
-  )) {
+  if (
+    type %in%
+      c(
+        "countries",
+        "map_units",
+        "map_subunits",
+        "sovereignty",
+        "tiny_countries",
+        "boundary_lines_land",
+        "pacific_groupings",
+        "breakaway_disputed_areas",
+        "boundary_lines_disputed_areas",
+        "boundary_lines_maritime_indicator"
+      )
+  ) {
     type <- paste0("admin_0_", type)
   }
 
@@ -55,12 +58,16 @@ ne_file_name <- function(
   # zip file for the parks and protected lands type. Therefore, we need to
   # download the zip file and then select the
   # appropriate shapefile to read.
-  if (type %in% c(
-    "parks_and_protected_lands_area",
-    "parks_and_protected_lands_line",
-    "parks_and_protected_lands_point",
-    "parks_and_protected_lands_scale_rank"
-  ) && full_url) {
+  if (
+    type %in%
+      c(
+        "parks_and_protected_lands_area",
+        "parks_and_protected_lands_line",
+        "parks_and_protected_lands_point",
+        "parks_and_protected_lands_scale_rank"
+      ) &&
+      full_url
+  ) {
     type <- "parks_and_protected_lands"
   }
 
@@ -70,7 +77,6 @@ ne_file_name <- function(
     type <- "admin_1_states_provinces_lakes"
   }
 
-
   if (category == "raster") {
     # raster seems not to have so straightforward naming, so require that name
     # is passed in type
@@ -79,13 +85,16 @@ ne_file_name <- function(
     file_name <- paste0("ne_", scale, "m_", type)
   }
 
-
   # https://naturalearth.s3.amazonaws.com/110m_cultural/ne_110m_admin_0_countries.zip
   if (full_url) {
     file_name <- paste0(
       "https://naturalearth.s3.amazonaws.com/",
-      scale, "m_", category, "/",
-      file_name, ".zip"
+      scale,
+      "m_",
+      category,
+      "/",
+      file_name,
+      ".zip"
     )
   }
 

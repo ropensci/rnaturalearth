@@ -5,7 +5,7 @@
 \title{Get data from within the package}
 \usage{
 get_data(
-  scale = 110,
+  scale = 110L,
   type = c("countries", "map_units", "sovereignty", "tiny_countries")
 )
 }

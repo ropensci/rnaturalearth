@@ -5,7 +5,7 @@
 \title{Return a dataframe of available vector layers on Natural Earth}
 \usage{
 ne_find_vector_data(
-  scale = 110,
+  scale = 110L,
   category = c("cultural", "physical"),
   getmeta = FALSE
 )

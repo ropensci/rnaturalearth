@@ -5,7 +5,7 @@
 \title{check whether the requested data exist on Natural Earth}
 \usage{
 check_data_exist(
-  scale = 110,
+  scale = 110L,
   type,
   category = c("cultural", "physical", "raster")
 )

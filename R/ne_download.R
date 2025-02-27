@@ -68,12 +68,13 @@
 #'
 #' @export
 ne_download <- function(
-    scale = 110,
-    type = "countries",
-    category = c("cultural", "physical", "raster"),
-    destdir = tempdir(),
-    load = TRUE,
-    returnclass = c("sf", "sv")) {
+  scale = 110L,
+  type = "countries",
+  category = c("cultural", "physical", "raster"),
+  destdir = tempdir(),
+  load = TRUE,
+  returnclass = c("sf", "sv")
+) {
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
@@ -85,12 +86,18 @@ ne_download <- function(
 
   # without extension, e.g. .shp
   file_name <- ne_file_name(
-    scale = scale, type = type, category = category, full_url = FALSE
+    scale = scale,
+    type = type,
+    category = category,
+    full_url = FALSE
   )
 
   # full url including .zip
   address <- ne_file_name(
-    scale = scale, type = type, category = category, full_url = TRUE
+    scale = scale,
+    type = type,
+    category = category,
+    full_url = TRUE
   )
 
   # download zip to temporary location, unzipped files are saved later
@@ -129,7 +136,8 @@ ne_download <- function(
     )
     return(spatial_object)
   } else {
-    file_name <- switch(category,
+    file_name <- switch(
+      category,
       "raster" = file.path(destdir, file_name, paste0(file_name, ".tif")),
       file.path(destdir, paste0(file_name, ".shp"))
     )

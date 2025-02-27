@@ -26,11 +26,13 @@
 #' }
 #'
 #' @export
-ne_states <- function(country = NULL,
-                      geounit = NULL,
-                      iso_a2 = NULL,
-                      spat_object = NULL,
-                      returnclass = c("sf", "sv")) {
+ne_states <- function(
+  country = NULL,
+  geounit = NULL,
+  iso_a2 = NULL,
+  spat_object = NULL,
+  returnclass = c("sf", "sv")
+) {
   returnclass <- match.arg(returnclass)
 
   if (returnclass == "sp") {
@@ -59,7 +61,7 @@ ne_states <- function(country = NULL,
     filter_country <- tolower(spat_object$admin) %in% tolower(country)
     filter <- filter & filter_country
 
-    if (sum(filter_country) == 0) {
+    if (sum(filter_country) == 0L) {
       stop("No such country (", country, ") in the data")
     }
   }
@@ -73,7 +75,7 @@ ne_states <- function(country = NULL,
     filter_geounit <- tolower(spat_object$geonunit) %in% tolower(geounit)
     filter <- filter & filter_geounit
 
-    if (sum(filter_geounit) == 0) {
+    if (sum(filter_geounit) == 0L) {
       stop("No such geounit (", geounit, ") in the data")
     }
   }
@@ -87,7 +89,7 @@ ne_states <- function(country = NULL,
     filter_iso_a2 <- tolower(spat_object$iso_a2) %in% tolower(iso_a2)
     filter <- filter & filter_iso_a2
 
-    if (sum(filter_iso_a2) == 0) {
+    if (sum(filter_iso_a2) == 0L) {
       stop("No such iso_a2 (", iso_a2, ") in the data")
     }
   }

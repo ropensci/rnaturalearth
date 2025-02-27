@@ -16,9 +16,11 @@
 #' @examples \dontrun{
 #' ne_find_vector_data(scale = 10, category = "physical")
 #' }
-ne_find_vector_data <- function(scale = 110,
-                                category = c("cultural", "physical"),
-                                getmeta = FALSE) {
+ne_find_vector_data <- function(
+  scale = 110L,
+  category = c("cultural", "physical"),
+  getmeta = FALSE
+) {
   ## check permitted category (no way to check against available rasters)
   category <- match.arg(category)
 
@@ -30,7 +32,6 @@ ne_find_vector_data <- function(scale = 110,
 
   # scale has already been checked in check_scale, and category in match.arg
   path <- paste0(scale, "m_", category)
-
 
   ## call to ne_git_contents returns a list with contents of
   ## github directory (based on specified path), github api
@@ -57,7 +58,6 @@ ne_find_vector_data <- function(scale = 110,
       scale = scale
     )
   }
-
 
   return(layers)
 }
@@ -94,7 +94,7 @@ ne_git_contents <- function(path) {
   df <- httr::content(x = resp, as = "text", encoding = "UTF-8")
   df <- jsonlite::fromJSON(df)
 
-  if (httr::status_code(resp) != 200) {
+  if (httr::status_code(resp) != 200L) {
     stop(
       sprintf(
         "GitHub API request failed [%s]\n%s\n<%s>",
@@ -135,7 +135,7 @@ ne_git_layer_names <- function(x, scale, getmeta) {
   ## creates a list of available layer names and
   ## list of metadata links
 
-  if (httr::status_code(x$response) != 200) {
+  if (httr::status_code(x$response) != 200L) {
     stop(
       sprintf(
         "GitHub API request failed [%s]\n%s\n<%s>",
@@ -149,7 +149,6 @@ ne_git_layer_names <- function(x, scale, getmeta) {
 
   ## Create the pattern that matches the prefix that should be removed
   prefix <- paste0("ne_", scale, "m_")
-
 
   ## clean and return layer names
   l <- x$content
@@ -181,7 +180,6 @@ ne_git_layer_names <- function(x, scale, getmeta) {
     link <- gsub("<link rel=\"canonical\" href=\"", "", link)
     link <- gsub("\" />", "", link)
   }
-
 
   ## iterate findlinks function through each html page to
   ## pull out the metadata link. Adding an optional status bar

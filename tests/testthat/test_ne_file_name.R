@@ -2,25 +2,31 @@ library(httr)
 
 # a non exhaustive list of ne download urls
 # initially taken from those in data_download_script.r
+# fmt: skip
 urls <- c(
-  ne_file_name(scale = 110, type = "countries", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 110, type = "map_units", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 110, type = "sovereignty", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 50, type = "countries", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 50, type = "map_units", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 50, type = "sovereignty", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 10, type = "countries", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 10, type = "map_units", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 10, type = "sovereignty", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 50, type = "states", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 10, type = "states", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 110, type = "tiny_countries", category = "cultural", full_url = TRUE),
-  ne_file_name(scale = 110, type = "coastline", category = "physical", full_url = TRUE),
-  ne_file_name(scale = 50, type = "coastline", category = "physical", full_url = TRUE),
-  ne_file_name(scale = 10, type = "coastline", category = "physical", full_url = TRUE)
+  ne_file_name(scale = 110L, type = "countries", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 110L, type = "map_units", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 110L, type = "sovereignty", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 50L, type = "countries", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 50L, type = "map_units", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 50L, type = "sovereignty", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 10L, type = "countries", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 10L, type = "map_units", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 10L, type = "sovereignty", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 50L, type = "states", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 10L, type = "states", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 110L, type = "tiny_countries", category = "cultural", full_url = TRUE),
+  ne_file_name(scale = 110L, type = "coastline", category = "physical", full_url = TRUE),
+  ne_file_name(scale = 50L, type = "coastline", category = "physical", full_url = TRUE),
+  ne_file_name(scale = 10L, type = "coastline", category = "physical", full_url = TRUE)
 )
 
-url_expect_fail <- ne_file_name(scale = 110, type = "expect_fail", category = "cultural", full_url = TRUE)
+url_expect_fail <- ne_file_name(
+  scale = 110L,
+  type = "expect_fail",
+  category = "cultural",
+  full_url = TRUE
+)
 
 test_that("urls for downloads created by the package exist", {
   skip_on_cran()

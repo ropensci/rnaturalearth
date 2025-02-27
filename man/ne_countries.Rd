@@ -6,7 +6,7 @@
 \title{Get natural earth world country polygons}
 \usage{
 ne_countries(
-  scale = 110,
+  scale = 110L,
   type = "countries",
   continent = NULL,
   country = NULL,

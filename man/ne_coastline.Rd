@@ -4,7 +4,7 @@
 \alias{ne_coastline}
 \title{Get natural earth world coastline}
 \usage{
-ne_coastline(scale = 110, returnclass = c("sf", "sv"))
+ne_coastline(scale = 110L, returnclass = c("sf", "sv"))
 }
 \arguments{
 \item{scale}{The scale of map to return, one of `110`, `50`, `10` or `small`,

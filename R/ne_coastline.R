@@ -11,8 +11,7 @@
 #' }
 #'
 #' @export
-ne_coastline <- function(scale = 110,
-                         returnclass = c("sf", "sv")) {
+ne_coastline <- function(scale = 110L, returnclass = c("sf", "sv")) {
   returnclass <- match.arg(returnclass)
 
   if (returnclass == "sp") {
@@ -20,7 +19,7 @@ ne_coastline <- function(scale = 110,
   }
 
   # check for the data packages and try to install if not there
-  if (scale == 10) {
+  if (scale == 10L) {
     check_rnaturalearthhires()
   } else {
     check_rnaturalearthdata()
@@ -32,11 +31,11 @@ ne_coastline <- function(scale = 110,
   # choose which map based on scale
   sldf <- NULL
 
-  if (scale == 110) {
+  if (scale == 110L) {
     sldf <- rnaturalearthdata::coastline110
-  } else if (scale == 50) {
+  } else if (scale == 50L) {
     sldf <- rnaturalearthdata::coastline50
-  } else if (scale == 10) {
+  } else if (scale == 10L) {
     sldf <- rnaturalearthhires::coastline10
   }
 

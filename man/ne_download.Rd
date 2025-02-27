@@ -5,7 +5,7 @@
 \title{Download data from Natural Earth and (optionally) read into R}
 \usage{
 ne_download(
-  scale = 110,
+  scale = 110L,
   type = "countries",
   category = c("cultural", "physical", "raster"),
   destdir = tempdir(),

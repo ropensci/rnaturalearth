@@ -27,9 +27,11 @@
 #' @return TRUE or FALSE
 #'
 #' @export
-check_data_exist <- function(scale = 110,
-                             type,
-                             category = c("cultural", "physical", "raster")) {
+check_data_exist <- function(
+  scale = 110L,
+  type,
+  category = c("cultural", "physical", "raster")
+) {
   # check permitted category
   category <- match.arg(category)
 
@@ -42,7 +44,6 @@ check_data_exist <- function(scale = 110,
   # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
 
-
   df_data <- read.csv(
     system.file(
       "extdata",
@@ -50,7 +51,6 @@ check_data_exist <- function(scale = 110,
       package = "rnaturalearth"
     )
   )
-
 
   # first check if type is within the list
   if (!type %in% df_data$type) {

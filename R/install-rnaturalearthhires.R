@@ -10,7 +10,8 @@ check_rnaturalearthhires <- function() {
     message("The rnaturalearthhires package needs to be installed.")
     install_rnaturalearthhires()
   } else if (
-    utils::packageVersion("rnaturalearthhires") < rnaturalearthhires_version) {
+    utils::packageVersion("rnaturalearthhires") < rnaturalearthhires_version
+  ) {
     message("The rnaturalearthhires package needs to be updated.")
     install_rnaturalearthhires()
   }
@@ -33,18 +34,20 @@ install_rnaturalearthhires <- function() {
 
   # 23/2/17 changed to try install if not interactive to avoid winbuilder
   # warning
-  input <- 1
+  input <- 1L
   if (interactive()) {
-    input <- utils::menu(c("Yes", "No"),
+    input <- utils::menu(
+      c("Yes", "No"),
       title = "Install the rnaturalearthhires package?"
     )
   }
 
-  if (input == 1) {
+  if (input == 1L) {
     message("Installing the rnaturalearthhires package.")
     tryCatch(
       devtools::install_github("ropensci/rnaturalearthhires"),
-      error = error_func, warning = error_func
+      error = error_func,
+      warning = error_func
     )
   } else {
     stop(paste(

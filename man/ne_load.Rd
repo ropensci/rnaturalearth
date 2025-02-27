@@ -6,7 +6,7 @@
 \code{\link{ne_download}}}
 \usage{
 ne_load(
-  scale = 110,
+  scale = 110L,
   type = "countries",
   category = c("cultural", "physical", "raster"),
   destdir = tempdir(),
