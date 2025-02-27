@@ -33,6 +33,7 @@ Additional_repositories: http://packages.ropensci.org
 Depends:
     R (>= 3.1.1)
 Imports:
+    cli,
     httr (>= 1.1.0),
     jsonlite,
     sf (>= 0.3-4),
