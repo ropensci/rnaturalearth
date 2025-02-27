@@ -40,14 +40,34 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="rnaturalearth-development-version">rnaturalearth (development version)<a class="anchor" aria-label="anchor" href="#rnaturalearth-development-version"></a></h2>
-<ul><li>Correctly downloading parks and protected areas (<a href="https://github.com/ropensci/rnaturalearth/issues/114" class="external-link">#114</a>)</li>
+<ul><li><p>Using the <code>cli</code> package for better messages.</p></li>
+<li><p>Correctly downloading parks and protected areas (<a href="https://github.com/ropensci/rnaturalearth/issues/114" class="external-link">#114</a>)</p></li>
 </ul><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">10</span>, type <span class="op">=</span> <span class="st">"parks_and_protected_lands_line"</span>, category <span class="op">=</span> <span class="st">"cultural"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">10</span>, type <span class="op">=</span> <span class="st">"parks_and_protected_lands_line"</span>, category <span class="op">=</span> <span class="st">"cultural"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">10</span>, type <span class="op">=</span> <span class="st">"parks_and_protected_lands_point"</span>, category <span class="op">=</span> <span class="st">"cultural"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">10</span>, type <span class="op">=</span> <span class="st">"parks_and_protected_lands_scale_rank"</span>, category <span class="op">=</span> <span class="st">"cultural"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
+<span>  scale <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"parks_and_protected_lands_line"</span>,</span>
+<span>  category <span class="op">=</span> <span class="st">"cultural"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
+<span>  scale <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"parks_and_protected_lands_line"</span>,</span>
+<span>  category <span class="op">=</span> <span class="st">"cultural"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
+<span>  scale <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"parks_and_protected_lands_point"</span>,</span>
+<span>  category <span class="op">=</span> <span class="st">"cultural"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
+<span>  scale <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"parks_and_protected_lands_scale_rank"</span>,</span>
+<span>  category <span class="op">=</span> <span class="st">"cultural"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <ul><li><p><code>rnaturalearth</code> now requires rnaturalearthdata (&gt;= 1.0.0) and rnaturalearthhires (&gt;= 1.0.0).</p></li>
-<li><p>correctly returning the filename in <code><a href="../reference/ne_download.html">ne_download()</a></code> when setting <code>load = FALSE</code></p></li>
+<li><p>correctly returning the file name in <code><a href="../reference/ne_download.html">ne_download()</a></code> when setting <code>load = FALSE</code></p></li>
 </ul><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
 <span>  type <span class="op">=</span> <span class="st">"MSR_50M"</span>,</span>

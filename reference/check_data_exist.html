@@ -103,12 +103,15 @@ filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Type not in list for this category</span></span></span>
 <span class="r-in"><span><span class="fu">check_data_exist</span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span>, category <span class="op">=</span> <span class="st">"physical"</span>, type <span class="op">=</span> <span class="st">"airports"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>airports seems not to be in the list for category=physical maybe try the other category of c('cultural', 'physical')</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`airports` seems not to be in the list for category= <span style="color: #0000BB;">"physical"</span> maybe try the</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> other category of c('cultural', 'physical')</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Type in list but scale shows FALSE</span></span></span>
 <span class="r-in"><span><span class="fu">check_data_exist</span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span>, category <span class="op">=</span> <span class="st">"cultural"</span>, type <span class="op">=</span> <span class="st">"airports"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span> seem not to exist in the list of Natural Earth data. Check ?ne_download or http://www.naturalearthdata.com/features/ to see data availability.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The requested daa seem not to exist in the list of Natural Earth data. Check</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> `?ne_download` or <span style="color: #0000BB; font-style: italic;">&lt;http://www.naturalearthdata.com/features/&gt;</span> to see data</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> availability.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
