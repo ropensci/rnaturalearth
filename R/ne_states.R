@@ -55,42 +55,46 @@ ne_states <- function(
   if (!is.null(country)) {
     # check if field in data, for passed data or if changed in future
     if (!("admin" %in% names(spat_object))) {
-      stop("No admin field in the data : ", names(spat_object))
+      cli::cli_abort("No admin field in the data : {.val {names(spat_object)}}")
     }
 
     filter_country <- tolower(spat_object$admin) %in% tolower(country)
     filter <- filter & filter_country
 
     if (sum(filter_country) == 0L) {
-      stop("No such country (", country, ") in the data")
+      cli::cli_abort("No such country ({.val {country}}) in the data.")
     }
   }
 
   # filter by geounit
   if (!is.null(geounit)) {
     if (!("geonunit" %in% names(spat_object))) {
-      stop("No geonunit field in the data : ", names(spat_object))
+      cli::cli_abort(
+        "No geonunit field in the data : {names(spat_object)}"
+      )
     }
 
     filter_geounit <- tolower(spat_object$geonunit) %in% tolower(geounit)
     filter <- filter & filter_geounit
 
     if (sum(filter_geounit) == 0L) {
-      stop("No such geounit (", geounit, ") in the data")
+      cli::cli_abort("No such geounit ({.val {geounit}}) in the data.")
     }
   }
 
   # filter by iso_a2
   if (!is.null(iso_a2)) {
     if (!("iso_a2" %in% names(spat_object))) {
-      stop("No iso_a2 field in the data : ", names(spat_object))
+      cli::cli_abort(
+        "No {.var iso_a2} field in the data : {names(spat_object)}."
+      )
     }
 
     filter_iso_a2 <- tolower(spat_object$iso_a2) %in% tolower(iso_a2)
     filter <- filter & filter_iso_a2
 
     if (sum(filter_iso_a2) == 0L) {
-      stop("No such iso_a2 (", iso_a2, ") in the data")
+      cli::cli_abort("No such iso_a2 ({.val {iso_a2}}) in the data.")
     }
   }
 

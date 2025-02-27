@@ -20,16 +20,9 @@ check_rnaturalearthdata <- function() {
 #' Install the naturalearthdata package after checking with the user
 #' @export
 install_rnaturalearthdata <- function() {
-  instructions <- paste(
-    "Please try installing the package for yourself",
-    "using the following command: \n",
-    # "devtools::install_github('ropensci/rnaturalearthdata')")
-    "install.packages(\"rnaturalearthdata\")"
-  )
-
   error_func <- function(e) {
-    stop(
-      paste("Failed to install the rnaturalearthdata package.\n", instructions)
+    cli::cli_abort(
+      "Failed to install the {.pkg rnaturalearthdata} package.\nPlease try installing the package for yourself using the following command: {.code install.packages(\"rnaturalearthdata\")}"
     )
   }
 
@@ -44,7 +37,7 @@ install_rnaturalearthdata <- function() {
   }
 
   if (input == 1L) {
-    message("Installing the rnaturalearthdata package.")
+    cli::cli_inform("Installing the {.pkg rnaturalearthdata} package.")
     tryCatch(
       utils::install.packages(
         "rnaturalearthdata",
@@ -55,9 +48,8 @@ install_rnaturalearthdata <- function() {
       warning = error_func
     )
   } else {
-    stop(paste(
-      "The rnaturalearthdata package is necessary for that method.\n",
-      instructions
-    ))
+    cli::cli_abort(
+      "The {.pkg rnaturalearthdata} package is necessary for that method."
+    )
   }
 }

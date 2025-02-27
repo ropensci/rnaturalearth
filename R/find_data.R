@@ -88,21 +88,20 @@ ne_git_contents <- function(path) {
   resp <- httr::GET(url, ua)
 
   if (httr::http_type(resp) != "application/json") {
-    stop("API did not return json", call. = FALSE)
+    cli::cli_abort("API did not return json")
   }
 
   df <- httr::content(x = resp, as = "text", encoding = "UTF-8")
   df <- jsonlite::fromJSON(df)
 
   if (httr::status_code(resp) != 200L) {
-    stop(
+    cli::cli_abort(
       sprintf(
         "GitHub API request failed [%s]\n%s\n<%s>",
         httr::status_code(resp),
         df$message,
         df$documentation_url
-      ),
-      call. = FALSE
+      )
     )
   }
 
@@ -136,14 +135,13 @@ ne_git_layer_names <- function(x, scale, getmeta) {
   ## list of metadata links
 
   if (httr::status_code(x$response) != 200L) {
-    stop(
+    cli::cli_abort(
       sprintf(
         "GitHub API request failed [%s]\n%s\n<%s>",
         httr::status_code(x$response),
         x$content$message,
         x$content$documentation_url
-      ),
-      call. = FALSE
+      )
     )
   }
 

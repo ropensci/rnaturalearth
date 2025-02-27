@@ -1,17 +1,38 @@
 # rnaturalearth (development version)
 
+- Using the `cli` package for better messages.
+
 - Correctly downloading parks and protected areas (#114)
 
 ```r
-ne_download(scale = 10, type = "parks_and_protected_lands_line", category = "cultural")
-ne_download(scale = 10, type = "parks_and_protected_lands_line", category = "cultural")
-ne_download(scale = 10, type = "parks_and_protected_lands_point", category = "cultural")
-ne_download(scale = 10, type = "parks_and_protected_lands_scale_rank", category = "cultural")
+ne_download(
+  scale = 10,
+  type = "parks_and_protected_lands_line",
+  category = "cultural"
+)
+
+ne_download(
+  scale = 10,
+  type = "parks_and_protected_lands_line",
+  category = "cultural"
+)
+
+ne_download(
+  scale = 10,
+  type = "parks_and_protected_lands_point",
+  category = "cultural"
+)
+
+ne_download(
+  scale = 10,
+  type = "parks_and_protected_lands_scale_rank",
+  category = "cultural"
+)
 ```
 
 - `rnaturalearth` now requires rnaturalearthdata (>= 1.0.0) and rnaturalearthhires (>= 1.0.0).
 
-- correctly returning the filename in `ne_download()` when setting `load = FALSE`
+- correctly returning the file name in `ne_download()` when setting `load = FALSE`
 
 ```r
 ne_download(

@@ -54,21 +54,18 @@ check_data_exist <- function(
 
   # first check if type is within the list
   if (!type %in% df_data$type) {
-    warning(
-      type,
-      " seems not to be in the list for category=",
-      category,
-      " maybe try the other category of c('cultural', 'physical')"
+    cli::cli_warn(
+      "{.arg {type}} seems not to be in the list for category= {.val {category}} maybe try the other category of c('cultural', 'physical')"
     )
+
     return(FALSE)
   }
 
   exist <- df_data[df_data$type == type, paste0("scale", scale)]
 
   if (!exist) {
-    warning(
-      " seem not to exist in the list of Natural Earth data.",
-      " Check ?ne_download or http://www.naturalearthdata.com/features/ to see data availability."
+    cli::cli_warn(
+      "The requested daa seem not to exist in the list of Natural Earth data. Check {.code ?ne_download} or {.url http://www.naturalearthdata.com/features/} to see data availability."
     )
   }
 

@@ -62,7 +62,7 @@ ne_countries <- function(
     filter <- tolower(spat_object$continent) %in% tolower(continent)
 
     if (sum(filter) == 0L) {
-      stop("No such continent (", continent, ") in the data")
+      cli::cli_abort("No such continent ({.val {continent}}) in the data.")
     }
   }
 
@@ -73,7 +73,7 @@ ne_countries <- function(
     filter <- filter & filter_country
 
     if (sum(filter_country) == 0L) {
-      stop("No such country (", country, ") in the data")
+      cli::cli_abort("No such country ({.val {country}}) in the data.")
     }
   }
 
@@ -83,7 +83,7 @@ ne_countries <- function(
     filter <- filter & filter_geounit
 
     if (sum(filter_geounit) == 0L) {
-      stop("No such geounit (", geounit, ") in the data")
+      cli::cli_abort("No such geounit ({.val {geounit}}) in the data.")
     }
   }
 
@@ -94,7 +94,7 @@ ne_countries <- function(
     filter <- filter & filter_sovereignty
 
     if (sum(filter_sovereignty) == 0L) {
-      stop("No such sovereignty (", sovereignty, ") in the data")
+      cli::cli_abort("No such sovereignty ({.val {sovereignty}}) in the data")
     }
   }
 

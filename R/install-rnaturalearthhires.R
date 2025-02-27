@@ -5,14 +5,19 @@
 #'
 #' @export
 check_rnaturalearthhires <- function() {
+  # TODO: This should be done dynamically by checking the version on Github
   rnaturalearthhires_version <- "0.0.0.9000"
   if (!requireNamespace("rnaturalearthhires", quietly = TRUE)) {
-    message("The rnaturalearthhires package needs to be installed.")
+    cli::cli_inform(
+      "The {.pkg rnaturalearthhires} package needs to be installed."
+    )
     install_rnaturalearthhires()
   } else if (
     utils::packageVersion("rnaturalearthhires") < rnaturalearthhires_version
   ) {
-    message("The rnaturalearthhires package needs to be updated.")
+    cli::cli_inform(
+      "The {.pkg rnaturalearthhires} package needs to be updated."
+    )
     install_rnaturalearthhires()
   }
 }
@@ -20,21 +25,8 @@ check_rnaturalearthhires <- function() {
 #' Install the naturalearthhires package after checking with the user
 #' @export
 install_rnaturalearthhires <- function() {
-  instructions <- paste(
-    " Please try installing the package for yourself",
-    "using the following command: \n",
-    "    devtools::install_github(\"ropensci/rnaturalearthhires\")"
-  )
-
-  error_func <- function(e) {
-    stop(
-      paste("Failed to install the rnaturalearthhires package.\n", instructions)
-    )
-  }
-
-  # 23/2/17 changed to try install if not interactive to avoid winbuilder
-  # warning
   input <- 1L
+
   if (interactive()) {
     input <- utils::menu(
       c("Yes", "No"),
@@ -42,17 +34,18 @@ install_rnaturalearthhires <- function() {
     )
   }
 
-  if (input == 1L) {
-    message("Installing the rnaturalearthhires package.")
-    tryCatch(
-      devtools::install_github("ropensci/rnaturalearthhires"),
-      error = error_func,
-      warning = error_func
+  if (input != 1L) {
+    cli::cli_abort(
+      "The {.pkg rnaturalearthhires} package is necessary for that method.\n Please try installing the package yourself with {.code devtools::install_github(\"ropensci/rnaturalearthhires\")}"
     )
-  } else {
-    stop(paste(
-      "The rnaturalearthhires package is necessary for that method.\n",
-      instructions
-    ))
   }
+
+  cli::cli_inform("Installing the {.pkg rnaturalearthhires} package.")
+
+  tryCatch(
+    devtools::install_github("ropensci/rnaturalearthhires"),
+    error = function(e) {
+      cli::cli_inform(conditionMessage(e))
+    }
+  )
 }

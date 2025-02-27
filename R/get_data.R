@@ -24,7 +24,9 @@ get_data <- function(
 
   # tiny_countries not available at scale 10
   if (type == "tiny_countries" && scale == 10L) {
-    stop("tiny_countries are not available at scale 10, use scale 50 or 110")
+    cli::cli_abort(
+      "{.arg tiny_countries} are not available at scale 10, use scale 50 or 110."
+    )
   }
 
   # check for the data packages and try to install if not there

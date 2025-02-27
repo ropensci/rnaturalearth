@@ -63,19 +63,13 @@ ne_load <- function(
     file_name <- ne_file_name(scale = scale, type = type, category = category)
   }
 
-  error_msg <- paste0(
-    "the file ",
-    file_name,
-    " seems not to exist in your local folder ",
-    destdir,
-    "\nDid you download it using ne_download()?"
-  )
+  error_msg <- "The file {.path {file_name}} seems not to exist in your local folder {.path {destdir}}. Did you download it using {.fn rnaturalearth::ne_download}?"
 
   if (category == "raster") {
     file_tif <- file.path(destdir, file_name, paste0(file_name, ".tif"))
 
     if (!file.exists(file_tif)) {
-      stop(error_msg)
+      cli::cli_abort(error_msg)
     }
 
     rst <- terra::rast(file_tif)
@@ -86,7 +80,7 @@ ne_load <- function(
 
     # add '.shp' for the exists test (it's not needed by readOGR)
     if (!file.exists(file.path(destdir, paste0(file_name, ".shp")))) {
-      stop(error_msg)
+      cli::cli_abort(error_msg)
     }
 
     # read in data as either sf of spatvector
