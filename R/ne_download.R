@@ -108,7 +108,7 @@ ne_download <- function(
     error = function(e) {
       message(paste("download failed"))
       # check type against lists in package to warn user if it has failed
-      check_data_exist(scale = scale, category = category, type = type)
+      check_data_exist(type = type, scale = scale, category = category)
       return(TRUE)
     }
   )

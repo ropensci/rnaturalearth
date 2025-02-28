@@ -16,26 +16,25 @@
 #' 'raster'
 
 #' @examples
-#' check_data_exist(scale = 110, category = "cultural", type = "countries")
+#' check_data_exist(type = "countries", scale = 110, category = "cultural")
 #'
 #' # Type not in list for this category
-#' check_data_exist(scale = 110, category = "physical", type = "airports")
+#' check_data_exist(type = "airports", scale = 110, category = "physical")
 #'
 #' # Type in list but scale shows FALSE
-#' check_data_exist(scale = 110, category = "cultural", type = "airports")
+#' check_data_exist(type = "airports", scale = 110, category = "cultural")
 #'
 #' @return TRUE or FALSE
 #'
 #' @export
 check_data_exist <- function(
-  scale = 110L,
   type,
+  scale = 110L,
   category = c("cultural", "physical", "raster")
 ) {
   # check permitted category
   category <- match.arg(category)
 
-  # todo doesn't yet check raster
   # I would need to create a data_list_raster.csv file
   if (category == "raster") {
     return(TRUE)
@@ -61,7 +60,7 @@ check_data_exist <- function(
     return(FALSE)
   }
 
-  exist <- df_data[df_data$type == type, paste0("scale", scale)]
+  exist <- df_data[df_data[["type"]] == type, paste0("scale", scale)]
 
   if (!exist) {
     cli::cli_warn(
