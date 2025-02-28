@@ -48,13 +48,13 @@ ne_find_vector_data <- function(
 
   if (getmeta) {
     layers <- data.frame(
-      layer = layers$layer,
+      layer = layers[["layer"]],
       scale = scale,
-      metadata = layers$metalink
+      metadata = layers[["metalink"]]
     )
   } else {
     layers <- data.frame(
-      layer = layers$layer,
+      layer = layers[["layer"]],
       scale = scale
     )
   }
@@ -99,8 +99,8 @@ ne_git_contents <- function(path) {
       sprintf(
         "GitHub API request failed [%s]\n%s\n<%s>",
         httr::status_code(resp),
-        df$message,
-        df$documentation_url
+        df[["message"]],
+        df[["documentation_url"]]
       )
     )
   }

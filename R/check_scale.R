@@ -20,6 +20,6 @@ check_scale <- function(x) {
   }
 
   cli::cli_abort(
-    "Invalid {.arg scale} argument. Must be one of [110, 50, 10, 'small', 'medium', 'large'] you provided : {.val {x}}."
+    "Invalid {.arg scale} argument. Must be one of {.val [110, 50, 10, 'small', 'medium', 'large']} you provided : {.val {x}}."
   )
 }

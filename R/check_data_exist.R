@@ -52,7 +52,7 @@ check_data_exist <- function(
   )
 
   # first check if type is within the list
-  if (!type %in% df_data$type) {
+  if (!type %in% df_data[["type"]]) {
     cli::cli_warn(
       "{.arg {type}} seems not to be in the list for category= {.val {category}} maybe try the other category of c('cultural', 'physical')"
     )

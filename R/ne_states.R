@@ -27,12 +27,12 @@
 #'
 #' @export
 ne_states <- function(
-  country = NULL,
-  geounit = NULL,
-  iso_a2 = NULL,
-  spat_object = NULL,
-  returnclass = c("sf", "sv")
-) {
+    country = NULL,
+    geounit = NULL,
+    iso_a2 = NULL,
+    spat_object = NULL,
+    returnclass = c("sf", "sv")
+    ) {
   returnclass <- match.arg(returnclass)
 
   if (returnclass == "sp") {
@@ -58,7 +58,7 @@ ne_states <- function(
       cli::cli_abort("No admin field in the data : {.val {names(spat_object)}}")
     }
 
-    filter_country <- tolower(spat_object$admin) %in% tolower(country)
+    filter_country <- tolower(spat_object[["admin"]]) %in% tolower(country)
     filter <- filter & filter_country
 
     if (sum(filter_country) == 0L) {
@@ -74,7 +74,7 @@ ne_states <- function(
       )
     }
 
-    filter_geounit <- tolower(spat_object$geonunit) %in% tolower(geounit)
+    filter_geounit <- tolower(spat_object[["geonunit"]]) %in% tolower(geounit)
     filter <- filter & filter_geounit
 
     if (sum(filter_geounit) == 0L) {
@@ -90,7 +90,7 @@ ne_states <- function(
       )
     }
 
-    filter_iso_a2 <- tolower(spat_object$iso_a2) %in% tolower(iso_a2)
+    filter_iso_a2 <- tolower(spat_object[["iso_a2"]]) %in% tolower(iso_a2)
     filter <- filter & filter_iso_a2
 
     if (sum(filter_iso_a2) == 0L) {

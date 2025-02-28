@@ -100,14 +100,12 @@ ne_download <- function(
     full_url = TRUE
   )
 
-  # download zip to temporary location, unzipped files are saved later
-  # tryCatch catches error, returns NUll if no error
+  zip_file <- tempfile()
 
   download_failed <- tryCatch(
-    utils::download.file(file.path(address), zip_file <- tempfile()),
+    utils::download.file(file.path(address), zip_file),
     error = function(e) {
-      message(paste("download failed"))
-      # check type against lists in package to warn user if it has failed
+      cli::cli_inform("download failed")
       check_data_exist(type = type, scale = scale, category = category)
       return(TRUE)
     }

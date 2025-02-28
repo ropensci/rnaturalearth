@@ -7,12 +7,14 @@
 check_rnaturalearthdata <- function() {
   rnaturalearthdata_version <- "0.0.0.9000"
   if (!requireNamespace("rnaturalearthdata", quietly = TRUE)) {
-    message("The rnaturalearthdata package needs to be installed.")
+    cli::cli_inform(
+      "The {.pkg rnaturalearthdata} package needs to be installed."
+    )
     install_rnaturalearthdata()
   } else if (
     utils::packageVersion("rnaturalearthdata") < rnaturalearthdata_version
   ) {
-    message("The rnaturalearthdata package needs to be updated.")
+    cli::cli_inform("The {.pkg rnaturalearthdata} package needs to be updated.")
     install_rnaturalearthdata()
   }
 }
