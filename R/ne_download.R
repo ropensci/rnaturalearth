@@ -68,13 +68,13 @@
 #'
 #' @export
 ne_download <- function(
-  scale = 110L,
-  type = "countries",
-  category = c("cultural", "physical", "raster"),
-  destdir = tempdir(),
-  load = TRUE,
-  returnclass = c("sf", "sv")
-) {
+    scale = 110L,
+    type = "countries",
+    category = c("cultural", "physical", "raster"),
+    destdir = tempdir(),
+    load = TRUE,
+    returnclass = c("sf", "sv")
+    ) {
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
