@@ -27,12 +27,12 @@
 #'
 #' @export
 ne_states <- function(
-    country = NULL,
-    geounit = NULL,
-    iso_a2 = NULL,
-    spat_object = NULL,
-    returnclass = c("sf", "sv")
-    ) {
+  country = NULL,
+  geounit = NULL,
+  iso_a2 = NULL,
+  spat_object = NULL,
+  returnclass = c("sf", "sv")
+) {
   returnclass <- match.arg(returnclass)
 
   if (returnclass == "sp") {

@@ -36,14 +36,14 @@
 #'
 #' @export
 ne_countries <- function(
-    scale = 110L,
-    type = "countries",
-    continent = NULL,
-    country = NULL,
-    geounit = NULL,
-    sovereignty = NULL,
-    returnclass = c("sf", "sv")
-    ) {
+  scale = 110L,
+  type = "countries",
+  continent = NULL,
+  country = NULL,
+  geounit = NULL,
+  sovereignty = NULL,
+  returnclass = c("sf", "sv")
+) {
   returnclass <- match.arg(returnclass)
   if (returnclass == "sp") {
     deprecate_sp("ne_download(returnclass = 'sp')")
