@@ -25,6 +25,11 @@
 #' @details Note that the filename of the requested object will be returned if
 #' `load = FALSE`.
 #'
+#' @details
+#' If the data is to be loaded into memory (`load = TRUE`), the download will
+#' be handled using the GDAL virtual file system, allowing direct access to the
+#' data without writing it to disk.
+#'
 #' @seealso \code{\link{ne_load}}, pre-downloaded data are available using
 #'   \code{\link{ne_countries}}, \code{\link{ne_states}}. Other geographic data
 #'   are available in the raster package : \code{\link[raster]{getData}}.
@@ -78,67 +83,46 @@ ne_download <- function(
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
+  if (!dir.exists(destdir)) {
+    cli::cli_abort("{.arg destdir} must be an existing directory")
+  }
   warn <- returnclass == "sp" & load & category == "raster"
 
   if (warn) {
     deprecate_sp("ne_download(returnclass = 'sp')")
   }
 
-  # without extension, e.g. .shp
-  file_name <- ne_file_name(
+  gdal_url <- ne_file_name(
     scale = scale,
     type = type,
-    category = category,
-    full_url = FALSE
+    category = category
   )
 
-  # full url including .zip
-  address <- ne_file_name(
-    scale = scale,
-    type = type,
-    category = category,
-    full_url = TRUE
-  )
-
-  zip_file <- tempfile()
-
-  download_failed <- tryCatch(
-    utils::download.file(file.path(address), zip_file),
-    error = function(e) {
-      cli::cli_inform("download failed")
-      check_data_exist(type = type, scale = scale, category = category)
-      return(TRUE)
+  if (load) {
+    if (category == "raster") {
+      rst <- terra::rast(gdal_url)
+      return(rst)
+    } else {
+      spatial_object <- read_spatial_vector(gdal_url, returnclass)
+      return(spatial_object)
     }
-  )
-
-  # return from this function if download error was caught by tryCatch
-  if (download_failed) {
-    return()
   }
 
-  # download.file & curl_download use 'destfile'
-  # but I want to specify just the folder because the file has a set name
+  # Extract the base url from the /vsizip/vsicurl/ url
+  url <- sanitize_gdal_url(gdal_url)
 
-  utils::unzip(zip_file, exdir = destdir)
+  dest_file <- file.path(destdir, basename(url))
 
-  if (load && category == "raster") {
-    # have to use file_name to set the folder and the tif name
-    filename <- file.path(destdir, file_name, paste0(file_name, ".tif"))
-    rst <- terra::rast(filename)
-    return(rst)
-  } else if (load) {
-    # read in data as either sf of spatvector
-    spatial_object <- read_spatial(
-      paste0(destdir, "/", file_name, ".shp"),
-      returnclass
-    )
-    return(spatial_object)
+  utils::download.file(url, destfile = dest_file)
+
+  utils::unzip(dest_file, exdir = dirname(dest_file))
+  base_name <- tools::file_path_sans_ext(dest_file)
+
+  unzip_file <- if (category == "raster") {
+    file.path(base_name, sprintf("%s.tif", type))
   } else {
-    file_name <- switch(
-      category,
-      "raster" = file.path(destdir, file_name, paste0(file_name, ".tif")),
-      file.path(destdir, paste0(file_name, ".shp"))
-    )
-    return(file_name)
+    file.path(sprintf("%s.shp", base_name))
   }
+
+  return(unzip_file)
 }

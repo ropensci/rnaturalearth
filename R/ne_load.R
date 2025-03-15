@@ -84,7 +84,7 @@ ne_load <- function(
     }
 
     # read in data as either sf of spatvector
-    spatial_object <- read_spatial(
+    spatial_object <- read_spatial_vector(
       paste0(destdir, "/", file_name, ".shp"),
       returnclass
     )

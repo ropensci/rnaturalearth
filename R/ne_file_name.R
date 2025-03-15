@@ -13,12 +13,8 @@
 #' @param category one of natural earth categories : 'cultural', 'physical',
 #' 'raster'
 #'
-#' @param full_url whether to return just the filename (default) or the full URL
-#' needed for download
-#'
 #' @examples
-#' ne_name <- ne_file_name(scale = 110, type = "countries")
-#' ne_url <- ne_file_name(scale = 110, type = "countries", full_url = TRUE)
+#' ne_url <- ne_file_name(scale = 110, type = "countries")
 #'
 #' @return string
 #'
@@ -26,8 +22,7 @@
 ne_file_name <- function(
   scale = 110L,
   type = "countries",
-  category = c("cultural", "physical", "raster"),
-  full_url = FALSE
+  category = c("cultural", "physical", "raster")
 ) {
   # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
@@ -56,8 +51,7 @@ ne_file_name <- function(
 
   # Different types such as area, line, etc. are all included within the same
   # zip file for the parks and protected lands type. Therefore, we need to
-  # download the zip file and then select the
-  # appropriate shapefile to read.
+  # download the zip file and then select the appropriate shapefile to read.
   if (
     type %in%
       c(
@@ -65,8 +59,7 @@ ne_file_name <- function(
         "parks_and_protected_lands_line",
         "parks_and_protected_lands_point",
         "parks_and_protected_lands_scale_rank"
-      ) &&
-      full_url
+      )
   ) {
     type <- "parks_and_protected_lands"
   }
@@ -76,25 +69,39 @@ ne_file_name <- function(
   if (type == "states") {
     type <- "admin_1_states_provinces_lakes"
   }
-
+  # terra::rast(
+  #   fs::path(
+  #     "/vsizip",
+  #     "vsicurl",
+  #     "https:",
+  #     "naturalearth.s3.amazonaws.com",
+  #     "50m_raster",
+  #     "MSR_50M.zip",
+  #     "MSR_50M",
+  #     "MSR_50M.tif"
+  #   )
+  # )
+  base_url <- "/vsizip/vsicurl/https://naturalearth.s3.amazonaws.com/"
   if (category == "raster") {
     # raster seems not to have so straightforward naming, so require that name
     # is passed in type
-    file_name <- paste0(type)
-  } else {
-    file_name <- paste0("ne_", scale, "m_", type)
-  }
-
-  # https://naturalearth.s3.amazonaws.com/110m_cultural/ne_110m_admin_0_countries.zip
-  if (full_url) {
-    file_name <- paste0(
-      "https://naturalearth.s3.amazonaws.com/",
+    file_name <- sprintf(
+      "%s%sm_%s/%s.zip/%s/%s.tif",
+      base_url,
       scale,
-      "m_",
       category,
-      "/",
-      file_name,
-      ".zip"
+      type,
+      type,
+      type
+    )
+  } else {
+    file_name <- sprintf(
+      "%s%sm_%s/ne_%sm_%s.zip",
+      base_url,
+      scale,
+      category,
+      scale,
+      type
     )
   }
 
