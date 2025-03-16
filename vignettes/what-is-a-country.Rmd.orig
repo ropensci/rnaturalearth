@@ -56,7 +56,8 @@ plot(
   ne_countries(country = "united kingdom", type = "sovereignty")["geometry"],
   col = "red"
 )
-plot(ne_coastline(scale = 110)["geometry"], lty = 3, add = TRUE)
+
+plot(ne_coastline(scale = 110L)["geometry"], lty = 3L, add = TRUE)
 
 # France, country includes French Guiana
 plot(ne_countries(country = "france")["geometry"])
@@ -72,7 +73,8 @@ plot(
   ne_countries(country = "france", type = "sovereignty")["geometry"],
   col = "red"
 )
-plot(ne_coastline(scale = 110)["geometry"], lty = 3, add = TRUE)
+
+plot(ne_coastline(scale = 110L)["geometry"], lty = 3L, add = TRUE)
 ```
 
 ## Country scales : small, medium and large

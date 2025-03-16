@@ -4,7 +4,7 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Language support in rnaturalearth}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}                                             
+  %\VignetteEncoding{UTF-8}
 ---
 
 This vignette shows how [rnaturalearth](https://github.com/ropensci/rnaturalearth) makes it easier to make maps with labels in languages other than Engish, and to make thematic maps if you have data that is referenced in languages other than Engish.
@@ -12,7 +12,6 @@ This vignette shows how [rnaturalearth](https://github.com/ropensci/rnaturaleart
 [rnaturalearth](https://github.com/ropensci/rnaturalearth) is an R package to hold and facilitate interaction with natural earth vector map data.
 
 [Natural Earth](https://www.naturalearthdata.com/) is a public domain map dataset including vector country boundaries.
-
 
 ## Load required packages
 
@@ -59,13 +58,13 @@ ggplot(sfaf) +
 # cool nearly there ...
 ggplot(sfaf) +
   geom_sf() +
-  geom_text_repel(aes(x = X, y = Y, label = name), size = 3)
+  geom_text_repel(aes(x = X, y = Y, label = name), size = 3L)
 
 # getting there, labels still overlap a bit maybe make map bigger to allow space
 # for labels
 ggplot(sfaf) +
   geom_sf() +
-  geom_text_repel(aes(x = X, y = Y, label = name_es), size = 3)
+  geom_text_repel(aes(x = X, y = Y, label = name_es), size = 3L)
 
 # point.padding=NA allows labels to overlap the centroid
 ggplot(sfaf) +
@@ -73,57 +72,57 @@ ggplot(sfaf) +
   geom_text_repel(
     aes(x = X, y = Y, label = name_es),
     point.padding = NA,
-    size = 3
+    size = 3L
   )
 
 # Africa labels just down left & right sides works pretty well I think
 ggplot(sfaf) +
   geom_sf() +
-  xlim(-28, 61) +
+  xlim(-28L, 61L) +
   geom_text_repel(
     aes(x = X, y = Y, label = name_es),
-    data = subset(sfaf, X > 21),
-    nudge_x = 60 - subset(sfaf, X > 21)$X,
+    data = subset(sfaf, X > 21L),
+    nudge_x = 60L - subset(sfaf, X > 21L)$X,
     segment.size = 0.2,
     segment.color = "grey50",
     direction = "y",
-    hjust = 0,
-    size = 3
+    hjust = 0L,
+    size = 3L
   ) +
   geom_text_repel(
     aes(x = X, y = Y, label = name_es),
-    data = subset(sfaf, X < 21),
-    nudge_x = -19 - subset(sfaf, X < 21)$X,
+    data = subset(sfaf, X < 21L),
+    nudge_x = -19L - subset(sfaf, X < 21L)$X,
     segment.size = 0.2,
     segment.color = "grey50",
     direction = "y",
-    hjust = 1,
-    size = 3
+    hjust = 1L,
+    size = 3L
   )
 
 # french labels
 ggplot(sfaf) +
   geom_sf() +
-  xlim(-28, 61) +
+  xlim(-28L, 61L) +
   geom_text_repel(
     aes(x = X, y = Y, label = name_fr),
-    data = subset(sfaf, X > 21),
-    nudge_x = 60 - subset(sfaf, X > 21)$X,
+    data = subset(sfaf, X > 21L),
+    nudge_x = 60L - subset(sfaf, X > 21L)$X,
     segment.size = 0.2,
     segment.color = "grey50",
     direction = "y",
-    hjust = 0,
-    size = 3
+    hjust = 0L,
+    size = 3L
   ) +
   geom_text_repel(
     aes(x = X, y = Y, label = name_fr),
-    data = subset(sfaf, X < 21),
-    nudge_x = -19 - subset(sfaf, X < 21)$X,
+    data = subset(sfaf, X < 21L),
+    nudge_x = -19L - subset(sfaf, X < 21L)$X,
     segment.size = 0.2,
     segment.color = "grey50",
     direction = "y",
-    hjust = 1,
-    size = 3
+    hjust = 1L,
+    size = 3L
   )
 
 # tmap good but labels currently overlap

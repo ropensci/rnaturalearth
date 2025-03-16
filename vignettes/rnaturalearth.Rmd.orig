@@ -62,7 +62,8 @@ plot(ne_countries(country = "united kingdom", scale = "medium"))
 ```
 
 ```{r rnaturalearth.Rmd-4, eval=FALSE, echo=TRUE, message=FALSE, fig.cap=''}
-# not evaluated because rely on rnaturalearthhires data which are on rOpenSci so CRAN check likely to fail
+# not evaluated because rely on rnaturalearthhires data which are on rOpenSci
+# so CRAN check likely to fail
 
 # countries, large scale
 plot(ne_countries(country = "united kingdom", scale = "large"))
@@ -78,7 +79,8 @@ plot(ne_states(country = "france"))
 
 ```{r rnaturalearth.Rmd-5, eval=TRUE, echo=TRUE, message=FALSE, fig.cap=''}
 # coastline of the world
-# subsetting of coastline is not possible because the Natural Earth data are not attributed in that way
+# subsetting of coastline is not possible because the Natural Earth data are
+# not attributed in that way
 plot(ne_coastline())
 ```
 
@@ -88,12 +90,12 @@ Each [Natural Earth](https://www.naturalearthdata.com/) dataset is characterised
 
 ```{r rnaturalearth.Rmd-6, eval=FALSE, echo=TRUE, message=FALSE, fig.cap=''}
 # lakes
-lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
+lakes110 <- ne_download(scale = 110L, type = "lakes", category = "physical")
 plot(lakes110, col = "blue")
 
 # rivers
 rivers110 <- ne_download(
-  scale = 110,
+  scale = 110L,
   type = "rivers_lake_centerlines",
   category = "physical"
 )

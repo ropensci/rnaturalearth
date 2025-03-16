@@ -62,9 +62,9 @@ plot(
   ne_download(
     type = "airports",
     category = "cultural",
-    scale = 10
+    scale = 10L
   )["geometry"],
-  pch = 21,
+  pch = 21L,
   bg = "grey"
 )
 ```
@@ -75,7 +75,7 @@ In this article, we explore how we can search for data available to download wit
 
 ```{r finding-data.Rmd-6, fig.cap=''}
 df <- read_sf(
-  "/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip"
+  "/vsizip/vsicurl/https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_sovereignty.zip"
 )
 
 head(df)
@@ -86,10 +86,12 @@ head(df)
 One way to search for countries is to search within the `ADMIN` vector. Let's start by plotting some of the first countries.
 
 ```{r finding-data.Rmd-7, echo=-1, fig.show="hold", out.width="50%", results='hide', fig.cap=''}
-par(mfrow = c(2, 3))
-lapply(df$ADMIN[1:6], \(x) {
-  plot(ne_countries(country = x)["geometry"], main = x)
-})
+par(mfrow = c(2L, 3L))
+
+lapply(
+  df$ADMIN[1L:6L],
+  \(x) plot(ne_countries(country = x)["geometry"], main = x)
+)
 ```
 
 Suppose that we want to search the polygons for the US, how should we spell it?
@@ -104,7 +106,7 @@ ne_countries(country = "United States of America")
 One possibility consists to search within the `ADMIN` vector using a regular expression to find all occurrences of the word _states_.
 
 ```{r finding-data.Rmd-9, fig.cap=''}
-df$ADMIN[grepl("states", df$ADMIN, ignore.case = TRUE)]
+grep("states", df$ADMIN, ignore.case = TRUE, value = TRUE)
 ```
 
 We can now get the data.
@@ -122,14 +124,17 @@ unique(df$CONTINENT)
 ```
 
 ```{r finding-data.Rmd-12, echo=-1, fig.show="hold", out.width="50%", results='hide', fig.cap=''}
-par(mfrow = c(2, 4))
-lapply(unique(df$CONTINENT), \(x) {
-  plot(
-    ne_countries(
-      continent = x,
-      scale = "medium"
-    )["geometry"],
-    main = x
-  )
-})
+par(mfrow = c(2L, 4L))
+
+lapply(
+  unique(df$CONTINENT),
+  \(x)
+    plot(
+      ne_countries(
+        continent = x,
+        scale = "medium"
+      )["geometry"],
+      main = x
+    )
+)
 ```
