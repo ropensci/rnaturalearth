@@ -101,22 +101,19 @@ public domain map dataset including vector country boundaries.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Africa</span></span>
 <span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="st">"africa"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use</span></span>
-<span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
+<span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use max.plot = 168 to plot all</span></span></code></pre></div>
 <p><img src="language-support.Rmd-3-1.png"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">sfaf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="st">"africa"</span>, returnclass <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span></span>
 <span><span class="va">sfafc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html" class="external-link">st_centroid</a></span><span class="op">(</span><span class="va">sfaf</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: st_centroid assumes attributes are constant over</span></span>
-<span><span class="co">#&gt; geometries</span></span>
-<span><span class="co">#&gt; Warning in st_centroid.sfc(st_geometry(x),</span></span>
-<span><span class="co">#&gt; of_largest_polygon = of_largest_polygon): st_centroid does</span></span>
-<span><span class="co">#&gt; not give correct centroids for longitude/latitude data</span></span>
+<span><span class="co">#&gt; Warning: st_centroid assumes attributes are constant over geometries</span></span>
+<span><span class="co">#&gt; Warning in st_centroid.sfc(st_geometry(x), of_largest_polygon = of_largest_polygon):</span></span>
+<span><span class="co">#&gt; st_centroid does not give correct centroids for longitude/latitude data</span></span>
 <span></span>
 <span><span class="va">sfaf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">sfaf</span>, <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_coordinates.html" class="external-link">st_coordinates</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html" class="external-link">st_centroid</a></span><span class="op">(</span><span class="va">sfaf</span><span class="op">$</span><span class="va">geometry</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning in st_centroid.sfc(sfaf$geometry): st_centroid does</span></span>
-<span><span class="co">#&gt; not give correct centroids for longitude/latitude data</span></span>
+<span><span class="co">#&gt; Warning in st_centroid.sfc(sfaf$geometry): st_centroid does not give correct centroids for</span></span>
+<span><span class="co">#&gt; longitude/latitude data</span></span>
 <span></span>
 <span><span class="co"># this adds centroids in the middle of countries</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">sfaf</span><span class="op">)</span> <span class="op">+</span></span>

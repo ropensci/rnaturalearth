@@ -128,26 +128,32 @@ plot Scotland alone, or France without French Guiana.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># sovereignty, Falkland Islands included in UK</span></span>
-<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, type <span class="op">=</span> <span class="st">"sovereignty"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, type <span class="op">=</span> <span class="st">"sovereignty"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>,</span>
+<span>  col <span class="op">=</span> <span class="st">"red"</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_coastline.html">ne_coastline</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">3</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="what-is-a-country.Rmd-3-4.png"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># France, country includes French Guiana</span></span>
-<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># France map_units includes French Guiana too</span></span>
-<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span>, type <span class="op">=</span> <span class="st">"map_units"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p><img src="what-is-a-country.Rmd-3-5.png"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
+<span><span class="co"># France map_units includes French Guiana too</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span>, type <span class="op">=</span> <span class="st">"map_units"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co"># France filter map_units by geounit to exclude French Guiana</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>geounit <span class="op">=</span> <span class="st">"france"</span>, type <span class="op">=</span> <span class="st">"map_units"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p><img src="what-is-a-country.Rmd-3-6.png"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># France sovereignty includes South Pacicic islands</span></span>
-<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span>, type <span class="op">=</span> <span class="st">"sovereignty"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span>, type <span class="op">=</span> <span class="st">"sovereignty"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>,</span>
+<span>  col <span class="op">=</span> <span class="st">"red"</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_coastline.html">ne_coastline</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">3</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="what-is-a-country.Rmd-3-7.png"></p>
 </div>

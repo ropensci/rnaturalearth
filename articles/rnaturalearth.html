@@ -81,7 +81,8 @@ administrative boundaries.</p>
 <p><a href="https://github.com/ropensci/rnaturalearth" class="external-link">rnaturalearth</a>
 does two main things.</p>
 <ol style="list-style-type: decimal">
-<li>Contains pre-downloaded vector maps for :
+<li>
+<p>Contains pre-downloaded vector maps for :</p>
 <ul>
 <li>countries <code><a href="../reference/ne_countries.html">ne_countries()</a></code>
 </li>
@@ -91,8 +92,8 @@ does two main things.</p>
 </li>
 </ul>
 </li>
-<li>Has <code><a href="../reference/ne_download.html">ne_download()</a></code> function to facilitate download of
-other vector and raster maps.</li>
+<li><p>Has <code><a href="../reference/ne_download.html">ne_download()</a></code> function to facilitate download of
+other vector and raster maps.</p></li>
 </ol>
 <p>This vignette uses <code>plot</code> as a simple, quick way to show
 how different data can be accessed.<code>rnaturalearth</code> is
@@ -121,35 +122,30 @@ other visualisation packages (e.g. <code>ggplot2</code>,
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># world at small scale (low resolution)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"countries"</span>, scale <span class="op">=</span> <span class="st">"small"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: plotting the first 10 out of 168 attributes; use</span></span>
-<span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
+<span><span class="co">#&gt; Warning: plotting the first 10 out of 168 attributes; use max.plot = 168 to plot all</span></span></code></pre></div>
 <p><img src="rnaturalearth.Rmd-3-1.png"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># countries, UK undivided</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, type <span class="op">=</span> <span class="st">"countries"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use</span></span>
-<span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
+<span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use max.plot = 168 to plot all</span></span></code></pre></div>
 <p><img src="rnaturalearth.Rmd-3-2.png"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># map_units, UK divided into England, Scotland, Wales and Northern Ireland</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, type <span class="op">=</span> <span class="st">"map_units"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use</span></span>
-<span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
+<span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use max.plot = 168 to plot all</span></span></code></pre></div>
 <p><img src="rnaturalearth.Rmd-3-3.png"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># countries, small scale</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, scale <span class="op">=</span> <span class="st">"small"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use</span></span>
-<span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
+<span><span class="co">#&gt; Warning: plotting the first 9 out of 168 attributes; use max.plot = 168 to plot all</span></span></code></pre></div>
 <p><img src="rnaturalearth.Rmd-3-4.png"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># countries, medium scale</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, scale <span class="op">=</span> <span class="st">"medium"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: plotting the first 10 out of 168 attributes; use</span></span>
-<span><span class="co">#&gt; max.plot = 168 to plot all</span></span></code></pre></div>
+<span><span class="co">#&gt; Warning: plotting the first 10 out of 168 attributes; use max.plot = 168 to plot all</span></span></code></pre></div>
 <p><img src="rnaturalearth.Rmd-3-5.png"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># not evaluated because rely on rnaturalearthhires data which are on rOpenSci so CRAN check likely to fail</span></span>
@@ -185,7 +181,11 @@ corresponding file.</p>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lakes110</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># rivers</span></span>
-<span><span class="va">rivers110</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span>, type <span class="op">=</span> <span class="st">"rivers_lake_centerlines"</span>, category <span class="op">=</span> <span class="st">"physical"</span><span class="op">)</span></span>
+<span><span class="va">rivers110</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
+<span>  scale <span class="op">=</span> <span class="fl">110</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"rivers_lake_centerlines"</span>,</span>
+<span>  category <span class="op">=</span> <span class="st">"physical"</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">rivers110</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
