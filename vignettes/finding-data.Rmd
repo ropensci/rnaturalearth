@@ -159,9 +159,9 @@ plot(
   ne_download(
     type = "airports",
     category = "cultural",
-    scale = 10
+    scale = 10L
   )["geometry"],
-  pch = 21,
+  pch = 21L,
   bg = "grey"
 )
 #> Reading layer `ne_10m_airports' from data source `/tmp/Rtmp1Lj6Y7/ne_10m_airports.shp' using driver `ESRI Shapefile'
@@ -181,18 +181,44 @@ In this article, we explore how we can search for data available to download wit
 
 ``` r
 df <- read_sf(
-  "/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip"
+  "/vsizip/vsicurl/https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_sovereignty.zip"
 )
-#> Error: Cannot open "/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip"; The file doesn't seem to exist.
 
 head(df)
-#>                                               
-#> 1 function (x, df1, df2, ncp, log = FALSE)    
-#> 2 {                                           
-#> 3     if (missing(ncp))                       
-#> 4         .Call(C_df, x, df1, df2, log)       
-#> 5     else .Call(C_dnf, x, df1, df2, ncp, log)
-#> 6 }
+#> Simple feature collection with 6 features and 168 fields
+#> Geometry type: MULTIPOLYGON
+#> Dimension:     XY
+#> Bounding box:  xmin: -109.4537 ymin: -55.9185 xmax: 140.9776 ymax: 7.35578
+#> Geodetic CRS:  WGS 84
+#> # A tibble: 6 × 169
+#>   featurecla     scalerank LABELRANK SOVEREIGNT SOV_A3 ADM0_DIF LEVEL TYPE  TLC   ADMIN ADM0_A3
+#>   <chr>              <int>     <int> <chr>      <chr>     <int> <int> <chr> <chr> <chr> <chr>  
+#> 1 Admin-0 sover…         5         2 Indonesia  IDN           0     2 Sove… 1     Indo… IDN    
+#> 2 Admin-0 sover…         5         3 Malaysia   MYS           0     2 Sove… 1     Mala… MYS    
+#> 3 Admin-0 sover…         0         2 Chile      CHL           0     2 Sove… 1     Chile CHL    
+#> 4 Admin-0 sover…         0         3 Bolivia    BOL           0     2 Sove… 1     Boli… BOL    
+#> 5 Admin-0 sover…         0         2 Peru       PER           0     2 Sove… 1     Peru  PER    
+#> 6 Admin-0 sover…         0         2 Argentina  ARG           0     2 Sove… 1     Arge… ARG    
+#> # ℹ 158 more variables: GEOU_DIF <int>, GEOUNIT <chr>, GU_A3 <chr>, SU_DIF <int>,
+#> #   SUBUNIT <chr>, SU_A3 <chr>, BRK_DIFF <int>, NAME <chr>, NAME_LONG <chr>, BRK_A3 <chr>,
+#> #   BRK_NAME <chr>, BRK_GROUP <chr>, ABBREV <chr>, POSTAL <chr>, FORMAL_EN <chr>,
+#> #   FORMAL_FR <chr>, NAME_CIAWF <chr>, NOTE_ADM0 <chr>, NOTE_BRK <chr>, NAME_SORT <chr>,
+#> #   NAME_ALT <chr>, MAPCOLOR7 <int>, MAPCOLOR8 <int>, MAPCOLOR9 <int>, MAPCOLOR13 <int>,
+#> #   POP_EST <dbl>, POP_RANK <int>, POP_YEAR <int>, GDP_MD <int>, GDP_YEAR <int>,
+#> #   ECONOMY <chr>, INCOME_GRP <chr>, FIPS_10 <chr>, ISO_A2 <chr>, ISO_A2_EH <chr>,
+#> #   ISO_A3 <chr>, ISO_A3_EH <chr>, ISO_N3 <chr>, ISO_N3_EH <chr>, UN_A3 <chr>, WB_A2 <chr>,
+#> #   WB_A3 <chr>, WOE_ID <int>, WOE_ID_EH <int>, WOE_NOTE <chr>, ADM0_ISO <chr>,
+#> #   ADM0_DIFF <chr>, ADM0_TLC <chr>, ADM0_A3_US <chr>, ADM0_A3_FR <chr>, ADM0_A3_RU <chr>,
+#> #   ADM0_A3_ES <chr>, ADM0_A3_CN <chr>, ADM0_A3_TW <chr>, ADM0_A3_IN <chr>, ADM0_A3_NP <chr>,
+#> #   ADM0_A3_PK <chr>, ADM0_A3_DE <chr>, ADM0_A3_GB <chr>, ADM0_A3_BR <chr>, ADM0_A3_IL <chr>,
+#> #   ADM0_A3_PS <chr>, ADM0_A3_SA <chr>, ADM0_A3_EG <chr>, ADM0_A3_MA <chr>, ADM0_A3_PT <chr>,
+#> #   ADM0_A3_AR <chr>, ADM0_A3_JP <chr>, ADM0_A3_KO <chr>, ADM0_A3_VN <chr>, ADM0_A3_TR <chr>,
+#> #   ADM0_A3_ID <chr>, ADM0_A3_PL <chr>, ADM0_A3_GR <chr>, ADM0_A3_IT <chr>, ADM0_A3_NL <chr>,
+#> #   ADM0_A3_SE <chr>, ADM0_A3_BD <chr>, ADM0_A3_UA <chr>, ADM0_A3_UN <int>, ADM0_A3_WB <int>,
+#> #   CONTINENT <chr>, REGION_UN <chr>, SUBREGION <chr>, REGION_WB <chr>, NAME_LEN <int>,
+#> #   LONG_LEN <int>, ABBREV_LEN <int>, TINY <int>, HOMEPART <int>, MIN_ZOOM <dbl>,
+#> #   MIN_LABEL <dbl>, MAX_LABEL <dbl>, LABEL_X <dbl>, LABEL_Y <dbl>, NE_ID <dbl>,
+#> #   WIKIDATAID <chr>, NAME_AR <chr>, NAME_BN <chr>, NAME_DE <chr>, …
 ```
 
 ### Finding countries
@@ -201,11 +227,14 @@ One way to search for countries is to search within the `ADMIN` vector. Let's st
 
 
 ``` r
-lapply(df$ADMIN[1:6], \(x) {
-  plot(ne_countries(country = x)["geometry"], main = x)
-})
-#> Error in df$ADMIN: object of type 'closure' is not subsettable
+
+lapply(
+  df$ADMIN[1L:6L],
+  \(x) plot(ne_countries(country = x)["geometry"], main = x)
+)
 ```
+
+<img src="finding-data.Rmd-7-1.png" width="50%" /><img src="finding-data.Rmd-7-2.png" width="50%" /><img src="finding-data.Rmd-7-3.png" width="50%" /><img src="finding-data.Rmd-7-4.png" width="50%" /><img src="finding-data.Rmd-7-5.png" width="50%" /><img src="finding-data.Rmd-7-6.png" width="50%" />
 
 Suppose that we want to search the polygons for the US, how should we spell it?
 
@@ -221,8 +250,8 @@ One possibility consists to search within the `ADMIN` vector using a regular exp
 
 
 ``` r
-df$ADMIN[grepl("states", df$ADMIN, ignore.case = TRUE)]
-#> Error in df$ADMIN: object of type 'closure' is not subsettable
+grep("states", df$ADMIN, ignore.case = TRUE, value = TRUE)
+#> [1] "United States of America"       "Federated States of Micronesia"
 ```
 
 We can now get the data.
@@ -241,19 +270,25 @@ Finally, let's create plots for each continent using the `ne_countries` function
 
 ``` r
 unique(df$CONTINENT)
-#> Error in df$CONTINENT: object of type 'closure' is not subsettable
+#> [1] "Asia"                    "South America"           "Europe"                 
+#> [4] "Africa"                  "North America"           "Oceania"                
+#> [7] "Antarctica"              "Seven seas (open ocean)"
 ```
 
 
 ``` r
-lapply(unique(df$CONTINENT), \(x) {
-  plot(
-    ne_countries(
-      continent = x,
-      scale = "medium"
-    )["geometry"],
-    main = x
-  )
-})
-#> Error in df$CONTINENT: object of type 'closure' is not subsettable
+
+lapply(
+  unique(df$CONTINENT),
+  \(x)
+    plot(
+      ne_countries(
+        continent = x,
+        scale = "medium"
+      )["geometry"],
+      main = x
+    )
+)
 ```
+
+<img src="finding-data.Rmd-12-1.png" width="50%" /><img src="finding-data.Rmd-12-2.png" width="50%" /><img src="finding-data.Rmd-12-3.png" width="50%" /><img src="finding-data.Rmd-12-4.png" width="50%" /><img src="finding-data.Rmd-12-5.png" width="50%" /><img src="finding-data.Rmd-12-6.png" width="50%" /><img src="finding-data.Rmd-12-7.png" width="50%" /><img src="finding-data.Rmd-12-8.png" width="50%" />

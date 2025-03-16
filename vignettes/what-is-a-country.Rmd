@@ -67,7 +67,8 @@ plot(
   ne_countries(country = "united kingdom", type = "sovereignty")["geometry"],
   col = "red"
 )
-plot(ne_coastline(scale = 110)["geometry"], lty = 3, add = TRUE)
+
+plot(ne_coastline(scale = 110L)["geometry"], lty = 3L, add = TRUE)
 ```
 
 ![](what-is-a-country.Rmd-3-4.png)
@@ -98,7 +99,8 @@ plot(
   ne_countries(country = "france", type = "sovereignty")["geometry"],
   col = "red"
 )
-plot(ne_coastline(scale = 110)["geometry"], lty = 3, add = TRUE)
+
+plot(ne_coastline(scale = 110L)["geometry"], lty = 3L, add = TRUE)
 ```
 
 ![](what-is-a-country.Rmd-3-7.png)
