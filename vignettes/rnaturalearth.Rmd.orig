@@ -4,7 +4,7 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to rnaturalearth.}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}                                              
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r rnaturalearth.Rmd-1, include = FALSE, fig.cap=''}
@@ -22,9 +22,10 @@ This vignette is an introduction to [rnaturalearth](https://github.com/ropensci/
 [rnaturalearth](https://github.com/ropensci/rnaturalearth) does two main things.
 
 1. Contains pre-downloaded vector maps for :
-    + countries `ne_countries()`
-    + states `ne_states()`
-    + coastline `ne_coastline()`
+
+   - countries `ne_countries()`
+   - states `ne_states()`
+   - coastline `ne_coastline()`
 
 1. Has `ne_download()` function to facilitate download of other vector and raster maps.
 
@@ -91,17 +92,28 @@ lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
 plot(lakes110, col = "blue")
 
 # rivers
-rivers110 <- ne_download(scale = 110, type = "rivers_lake_centerlines", category = "physical")
+rivers110 <- ne_download(
+  scale = 110,
+  type = "rivers_lake_centerlines",
+  category = "physical"
+)
 plot(rivers110, col = "blue")
 ```
 
 ## Tables of vector layers available via `ne_download(type=[layer_name], scale=)`
+
 1=available, 0=not
 
 ```{r rnaturalearth.Rmd-7, echo = FALSE, results = 'asis', fig.cap=''}
-knitr::kable(df_layers_physical, caption = "category='physical' vector data available via ne_download()")
+knitr::kable(
+  df_layers_physical,
+  caption = "category='physical' vector data available via ne_download()"
+)
 ```
 
 ```{r rnaturalearth.Rmd-8, echo = FALSE, results = 'asis', fig.cap=''}
-knitr::kable(df_layers_cultural, caption = "category='cultural' vector data available via ne_download()")
+knitr::kable(
+  df_layers_cultural,
+  caption = "category='cultural' vector data available via ne_download()"
+)
 ```

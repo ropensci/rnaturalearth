@@ -4,7 +4,7 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{What is a country ?}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}                                              
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r what-is-a-country.Rmd-1, include = FALSE}
@@ -32,6 +32,7 @@ library(rnaturalearth)
 ```
 
 ## Country types : countries, map_units and sovereignty
+
 Natural Earth data are classified by `countries`, `map_units` and `sovereignty`. Below you will see that specifying `united kingdom` for
 
 - `countries` gives the UK undivided
@@ -51,7 +52,10 @@ plot(ne_countries(country = "united kingdom", type = "map_units")["geometry"])
 plot(ne_countries(geounit = "scotland", type = "map_units")["geometry"])
 
 # sovereignty, Falkland Islands included in UK
-plot(ne_countries(country = "united kingdom", type = "sovereignty")["geometry"], col = "red")
+plot(
+  ne_countries(country = "united kingdom", type = "sovereignty")["geometry"],
+  col = "red"
+)
 plot(ne_coastline(scale = 110)["geometry"], lty = 3, add = TRUE)
 
 # France, country includes French Guiana
@@ -64,7 +68,10 @@ plot(ne_countries(country = "france", type = "map_units")["geometry"])
 plot(ne_countries(geounit = "france", type = "map_units")["geometry"])
 
 # France sovereignty includes South Pacicic islands
-plot(ne_countries(country = "france", type = "sovereignty")["geometry"], col = "red")
+plot(
+  ne_countries(country = "france", type = "sovereignty")["geometry"],
+  col = "red"
+)
 plot(ne_coastline(scale = 110)["geometry"], lty = 3, add = TRUE)
 ```
 
@@ -107,5 +114,3 @@ plot(ne_states(country = "france")["geometry"])
 # states geounit='france'
 plot(ne_states(geounit = "france")["geometry"])
 ```
-
-

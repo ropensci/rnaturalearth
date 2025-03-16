@@ -1,5 +1,5 @@
 # Use this to create the vignette to prevent CRAN checks from failing when
-# gitignore API is not available.
+# internet is not available
 
 # https://ropensci.org/blog/2019/12/08/precompute-vignettes/
 

@@ -22,7 +22,7 @@ library(sf)
 
 ## Available data
 
-There are a lot of data that can be downloaded from [Natural Earth](https://www.naturalearthdata.com/) with `ne_download()`. These data are divided into two main categories: *physical* and *cultural* vector data. The `df_layers_physical` and `df_layers_cultural` data frames included in the `rnaturalearth` packages show what layer of data can be downloaded.
+There are a lot of data that can be downloaded from [Natural Earth](https://www.naturalearthdata.com/) with `ne_download()`. These data are divided into two main categories: _physical_ and _cultural_ vector data. The `df_layers_physical` and `df_layers_cultural` data frames included in the `rnaturalearth` packages show what layer of data can be downloaded.
 
 ### Physical vector data
 
@@ -39,7 +39,9 @@ Based on the previous table, we know that we can download the `ocean` vector at 
 
 ```{r finding-data.Rmd-3, fig.cap=''}
 plot(
-  ne_download(type = "ocean", category = "physical", scale = "small")["geometry"],
+  ne_download(type = "ocean", category = "physical", scale = "small")[
+    "geometry"
+  ],
   col = "lightblue"
 )
 ```
@@ -71,9 +73,10 @@ plot(
 
 In this article, we explore how we can search for data available to download within `rnaturalearth`. Let's begin by loading country data using the `read_sf()` function from the `sf` package. In the following code snippet, we read the Natural Earth dataset, which contains information about the sovereignty of countries.
 
-
 ```{r finding-data.Rmd-6, fig.cap=''}
-df <- read_sf("/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip")
+df <- read_sf(
+  "/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip"
+)
 
 head(df)
 ```
@@ -98,16 +101,18 @@ ne_countries(country = "United States Of America")
 ne_countries(country = "United States of America")
 ```
 
-One possibility consists to search within the `ADMIN` vector using a regular expression to find all occurrences of the word *states*.
+One possibility consists to search within the `ADMIN` vector using a regular expression to find all occurrences of the word _states_.
 
 ```{r finding-data.Rmd-9, fig.cap=''}
 df$ADMIN[grepl("states", df$ADMIN, ignore.case = TRUE)]
 ```
+
 We can now get the data.
 
 ```{r finding-data.Rmd-10, fig.cap=''}
 plot(ne_countries(country = "United States of America")["geometry"])
 ```
+
 ### Continents
 
 Finally, let's create plots for each continent using the `ne_countries` function with the continent parameter.
