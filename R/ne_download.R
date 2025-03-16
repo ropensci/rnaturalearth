@@ -73,13 +73,13 @@
 #'
 #' @export
 ne_download <- function(
-  scale = 110L,
-  type = "countries",
-  category = c("cultural", "physical", "raster"),
-  destdir = tempdir(),
-  load = TRUE,
-  returnclass = c("sf", "sv")
-) {
+    scale = 110L,
+    type = "countries",
+    category = c("cultural", "physical", "raster"),
+    destdir = tempdir(),
+    load = TRUE,
+    returnclass = c("sf", "sv")
+    ) {
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
@@ -99,21 +99,27 @@ ne_download <- function(
   )
 
   if (load) {
+    cli::cli_inform("Reading the requested file ...")
+
     if (category == "raster") {
       rst <- terra::rast(gdal_url)
+
       return(rst)
     } else {
       spatial_object <- read_spatial_vector(gdal_url, returnclass)
+
       return(spatial_object)
     }
   }
 
   # Extract the base url from the /vsizip/vsicurl/ url
-  url <- sanitize_gdal_url(gdal_url)
+  file_url <- sanitize_gdal_url(gdal_url)
 
-  dest_file <- file.path(destdir, basename(url))
+  dest_file <- file.path(destdir, basename(file_url))
 
-  utils::download.file(url, destfile = dest_file)
+  cli::cli_inform("Downloading the requested file ...")
+  utils::download.file(file_url, destfile = dest_file)
+  cli::cli_inform("Download complete!")
 
   utils::unzip(dest_file, exdir = dirname(dest_file))
   base_name <- tools::file_path_sans_ext(dest_file)

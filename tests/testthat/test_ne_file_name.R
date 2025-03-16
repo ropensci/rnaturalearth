@@ -55,6 +55,3 @@ test_that("a bogus url does not exist", {
 
   expect_false(url_exists(url_expect_fail))
 })
-
-# TODO: More test with ne_download() when load = FALSE. Test if the returned
-# filenamne exist with a few usecase
