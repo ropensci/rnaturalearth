@@ -16,12 +16,5 @@ test_that("ne_download returns the correct file name when load = FALSE", {
     ne_download(scale = 50L, type = "MSR_50M", category = "raster", load = FALSE)
   )
 
-  vapply(
-    urls,
-    function(x) {
-      expect_true(file.exists(x))
-      TRUE
-    },
-    logical(1L)
-  )
+  expect_true(all(file.exists(urls)))
 })

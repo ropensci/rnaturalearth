@@ -38,14 +38,7 @@ test_that("urls for downloads created by the package exist", {
   skip_if_not_installed("rnaturalearthdata")
   skip_if_not_installed("rnaturalearthhires")
 
-  vapply(
-    urls,
-    function(x) {
-      expect_true(url_exists(x))
-      TRUE
-    },
-    logical(1L)
-  )
+  expect_true(all(vapply(urls, url_exists, logical(1L))))
 })
 
 test_that("a bogus url does not exist", {
