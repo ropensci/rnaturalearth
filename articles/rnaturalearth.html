@@ -148,7 +148,8 @@ other visualisation packages (e.g. <code>ggplot2</code>,
 <span><span class="co">#&gt; Warning: plotting the first 10 out of 168 attributes; use max.plot = 168 to plot all</span></span></code></pre></div>
 <p><img src="rnaturalearth.Rmd-3-5.png"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># not evaluated because rely on rnaturalearthhires data which are on rOpenSci so CRAN check likely to fail</span></span>
+<code class="sourceCode R"><span><span class="co"># not evaluated because rely on rnaturalearthhires data which are on rOpenSci</span></span>
+<span><span class="co"># so CRAN check likely to fail</span></span>
 <span></span>
 <span><span class="co"># countries, large scale</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"united kingdom"</span>, scale <span class="op">=</span> <span class="st">"large"</span><span class="op">)</span><span class="op">)</span></span>
@@ -162,7 +163,8 @@ other visualisation packages (e.g. <code>ggplot2</code>,
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_states.html">ne_states</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"france"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># coastline of the world</span></span>
-<span><span class="co"># subsetting of coastline is not possible because the Natural Earth data are not attributed in that way</span></span>
+<span><span class="co"># subsetting of coastline is not possible because the Natural Earth data are</span></span>
+<span><span class="co"># not attributed in that way</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_coastline.html">ne_coastline</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="rnaturalearth.Rmd-5-1.png"></p>
 </div>
@@ -177,12 +179,12 @@ allows you to specify <code>scale</code>, <code>type</code> and
 corresponding file.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># lakes</span></span>
-<span><span class="va">lakes110</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span>, type <span class="op">=</span> <span class="st">"lakes"</span>, category <span class="op">=</span> <span class="st">"physical"</span><span class="op">)</span></span>
+<span><span class="va">lakes110</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110L</span>, type <span class="op">=</span> <span class="st">"lakes"</span>, category <span class="op">=</span> <span class="st">"physical"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lakes110</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># rivers</span></span>
 <span><span class="va">rivers110</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
-<span>  scale <span class="op">=</span> <span class="fl">110</span>,</span>
+<span>  scale <span class="op">=</span> <span class="fl">110L</span>,</span>
 <span>  type <span class="op">=</span> <span class="st">"rivers_lake_centerlines"</span>,</span>
 <span>  category <span class="op">=</span> <span class="st">"physical"</span></span>
 <span><span class="op">)</span></span>

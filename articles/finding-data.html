@@ -587,9 +587,9 @@ defined as one of <code>110</code>, <code>50</code>, <code>10</code> or
 <span>  <span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
 <span>    type <span class="op">=</span> <span class="st">"airports"</span>,</span>
 <span>    category <span class="op">=</span> <span class="st">"cultural"</span>,</span>
-<span>    scale <span class="op">=</span> <span class="fl">10</span></span>
+<span>    scale <span class="op">=</span> <span class="fl">10L</span></span>
 <span>  <span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>,</span>
-<span>  pch <span class="op">=</span> <span class="fl">21</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fl">21L</span>,</span>
 <span>  bg <span class="op">=</span> <span class="st">"grey"</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; Reading layer `ne_10m_airports' from data source `/tmp/Rtmp1Lj6Y7/ne_10m_airports.shp' using driver `ESRI Shapefile'</span></span>
@@ -612,18 +612,44 @@ Natural Earth dataset, which contains information about the sovereignty
 of countries.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">read_sf</a></span><span class="op">(</span></span>
-<span>  <span class="st">"/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip"</span></span>
+<span>  <span class="st">"/vsizip/vsicurl/https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_sovereignty.zip"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error: Cannot open "/vsizip/vsicurl/https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_sovereignty.zip"; The file doesn't seem to exist.</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                                               </span></span>
-<span><span class="co">#&gt; 1 function (x, df1, df2, ncp, log = FALSE)    </span></span>
-<span><span class="co">#&gt; 2 {                                           </span></span>
-<span><span class="co">#&gt; 3     if (missing(ncp))                       </span></span>
-<span><span class="co">#&gt; 4         .Call(C_df, x, df1, df2, log)       </span></span>
-<span><span class="co">#&gt; 5     else .Call(C_dnf, x, df1, df2, ncp, log)</span></span>
-<span><span class="co">#&gt; 6 }</span></span></code></pre></div>
+<span><span class="co">#&gt; Simple feature collection with 6 features and 168 fields</span></span>
+<span><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
+<span><span class="co">#&gt; Dimension:     XY</span></span>
+<span><span class="co">#&gt; Bounding box:  xmin: -109.4537 ymin: -55.9185 xmax: 140.9776 ymax: 7.35578</span></span>
+<span><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 169</span></span>
+<span><span class="co">#&gt;   featurecla     scalerank LABELRANK SOVEREIGNT SOV_A3 ADM0_DIF LEVEL TYPE  TLC   ADMIN ADM0_A3</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;              &lt;int&gt;     &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt; 1 Admin-0 sover…         5         2 Indonesia  IDN           0     2 Sove… 1     Indo… IDN    </span></span>
+<span><span class="co">#&gt; 2 Admin-0 sover…         5         3 Malaysia   MYS           0     2 Sove… 1     Mala… MYS    </span></span>
+<span><span class="co">#&gt; 3 Admin-0 sover…         0         2 Chile      CHL           0     2 Sove… 1     Chile CHL    </span></span>
+<span><span class="co">#&gt; 4 Admin-0 sover…         0         3 Bolivia    BOL           0     2 Sove… 1     Boli… BOL    </span></span>
+<span><span class="co">#&gt; 5 Admin-0 sover…         0         2 Peru       PER           0     2 Sove… 1     Peru  PER    </span></span>
+<span><span class="co">#&gt; 6 Admin-0 sover…         0         2 Argentina  ARG           0     2 Sove… 1     Arge… ARG    </span></span>
+<span><span class="co">#&gt; # ℹ 158 more variables: GEOU_DIF &lt;int&gt;, GEOUNIT &lt;chr&gt;, GU_A3 &lt;chr&gt;, SU_DIF &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   SUBUNIT &lt;chr&gt;, SU_A3 &lt;chr&gt;, BRK_DIFF &lt;int&gt;, NAME &lt;chr&gt;, NAME_LONG &lt;chr&gt;, BRK_A3 &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   BRK_NAME &lt;chr&gt;, BRK_GROUP &lt;chr&gt;, ABBREV &lt;chr&gt;, POSTAL &lt;chr&gt;, FORMAL_EN &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   FORMAL_FR &lt;chr&gt;, NAME_CIAWF &lt;chr&gt;, NOTE_ADM0 &lt;chr&gt;, NOTE_BRK &lt;chr&gt;, NAME_SORT &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   NAME_ALT &lt;chr&gt;, MAPCOLOR7 &lt;int&gt;, MAPCOLOR8 &lt;int&gt;, MAPCOLOR9 &lt;int&gt;, MAPCOLOR13 &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   POP_EST &lt;dbl&gt;, POP_RANK &lt;int&gt;, POP_YEAR &lt;int&gt;, GDP_MD &lt;int&gt;, GDP_YEAR &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   ECONOMY &lt;chr&gt;, INCOME_GRP &lt;chr&gt;, FIPS_10 &lt;chr&gt;, ISO_A2 &lt;chr&gt;, ISO_A2_EH &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   ISO_A3 &lt;chr&gt;, ISO_A3_EH &lt;chr&gt;, ISO_N3 &lt;chr&gt;, ISO_N3_EH &lt;chr&gt;, UN_A3 &lt;chr&gt;, WB_A2 &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   WB_A3 &lt;chr&gt;, WOE_ID &lt;int&gt;, WOE_ID_EH &lt;int&gt;, WOE_NOTE &lt;chr&gt;, ADM0_ISO &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   ADM0_DIFF &lt;chr&gt;, ADM0_TLC &lt;chr&gt;, ADM0_A3_US &lt;chr&gt;, ADM0_A3_FR &lt;chr&gt;, ADM0_A3_RU &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   ADM0_A3_ES &lt;chr&gt;, ADM0_A3_CN &lt;chr&gt;, ADM0_A3_TW &lt;chr&gt;, ADM0_A3_IN &lt;chr&gt;, ADM0_A3_NP &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   ADM0_A3_PK &lt;chr&gt;, ADM0_A3_DE &lt;chr&gt;, ADM0_A3_GB &lt;chr&gt;, ADM0_A3_BR &lt;chr&gt;, ADM0_A3_IL &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   ADM0_A3_PS &lt;chr&gt;, ADM0_A3_SA &lt;chr&gt;, ADM0_A3_EG &lt;chr&gt;, ADM0_A3_MA &lt;chr&gt;, ADM0_A3_PT &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   ADM0_A3_AR &lt;chr&gt;, ADM0_A3_JP &lt;chr&gt;, ADM0_A3_KO &lt;chr&gt;, ADM0_A3_VN &lt;chr&gt;, ADM0_A3_TR &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   ADM0_A3_ID &lt;chr&gt;, ADM0_A3_PL &lt;chr&gt;, ADM0_A3_GR &lt;chr&gt;, ADM0_A3_IT &lt;chr&gt;, ADM0_A3_NL &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   ADM0_A3_SE &lt;chr&gt;, ADM0_A3_BD &lt;chr&gt;, ADM0_A3_UA &lt;chr&gt;, ADM0_A3_UN &lt;int&gt;, ADM0_A3_WB &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   CONTINENT &lt;chr&gt;, REGION_UN &lt;chr&gt;, SUBREGION &lt;chr&gt;, REGION_WB &lt;chr&gt;, NAME_LEN &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   LONG_LEN &lt;int&gt;, ABBREV_LEN &lt;int&gt;, TINY &lt;int&gt;, HOMEPART &lt;int&gt;, MIN_ZOOM &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   MIN_LABEL &lt;dbl&gt;, MAX_LABEL &lt;dbl&gt;, LABEL_X &lt;dbl&gt;, LABEL_Y &lt;dbl&gt;, NE_ID &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   WIKIDATAID &lt;chr&gt;, NAME_AR &lt;chr&gt;, NAME_BN &lt;chr&gt;, NAME_DE &lt;chr&gt;, …</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="finding-countries">Finding countries<a class="anchor" aria-label="anchor" href="#finding-countries"></a>
 </h3>
@@ -631,10 +657,12 @@ of countries.</p>
 <code>ADMIN</code> vector. Let’s start by plotting some of the first
 countries.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">ADMIN</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, main <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in df$ADMIN: object of type 'closure' is not subsettable</span></span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span></span>
+<span>  <span class="va">df</span><span class="op">$</span><span class="va">ADMIN</span><span class="op">[</span><span class="fl">1L</span><span class="op">:</span><span class="fl">6L</span><span class="op">]</span>,</span>
+<span>  \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>, main <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p><img src="finding-data.Rmd-7-1.png" width="50%"><img src="finding-data.Rmd-7-2.png" width="50%"><img src="finding-data.Rmd-7-3.png" width="50%"><img src="finding-data.Rmd-7-4.png" width="50%"><img src="finding-data.Rmd-7-5.png" width="50%"><img src="finding-data.Rmd-7-6.png" width="50%"></p>
 <p>Suppose that we want to search the polygons for the US, how should we
 spell it?</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -646,8 +674,8 @@ spell it?</p>
 vector using a regular expression to find all occurrences of the word
 <em>states</em>.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df</span><span class="op">$</span><span class="va">ADMIN</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"states"</span>, <span class="va">df</span><span class="op">$</span><span class="va">ADMIN</span>, ignore.case <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="co">#&gt; Error in df$ADMIN: object of type 'closure' is not subsettable</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"states"</span>, <span class="va">df</span><span class="op">$</span><span class="va">ADMIN</span>, ignore.case <span class="op">=</span> <span class="cn">TRUE</span>, value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "United States of America"       "Federated States of Micronesia"</span></span></code></pre></div>
 <p>We can now get the data.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"United States of America"</span><span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
@@ -660,18 +688,23 @@ vector using a regular expression to find all occurrences of the word
 <code>ne_countries</code> function with the continent parameter.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">CONTINENT</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in df$CONTINENT: object of type 'closure' is not subsettable</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "Asia"                    "South America"           "Europe"                 </span></span>
+<span><span class="co">#&gt; [4] "Africa"                  "North America"           "Oceania"                </span></span>
+<span><span class="co">#&gt; [7] "Antarctica"              "Seven seas (open ocean)"</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">CONTINENT</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span></span>
-<span>      continent <span class="op">=</span> <span class="va">x</span>,</span>
-<span>      scale <span class="op">=</span> <span class="st">"medium"</span></span>
-<span>    <span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>,</span>
-<span>    main <span class="op">=</span> <span class="va">x</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in df$CONTINENT: object of type 'closure' is not subsettable</span></span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">CONTINENT</span><span class="op">)</span>,</span>
+<span>  \<span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="../reference/ne_countries.html">ne_countries</a></span><span class="op">(</span></span>
+<span>        continent <span class="op">=</span> <span class="va">x</span>,</span>
+<span>        scale <span class="op">=</span> <span class="st">"medium"</span></span>
+<span>      <span class="op">)</span><span class="op">[</span><span class="st">"geometry"</span><span class="op">]</span>,</span>
+<span>      main <span class="op">=</span> <span class="va">x</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p><img src="finding-data.Rmd-12-1.png" width="50%"><img src="finding-data.Rmd-12-2.png" width="50%"><img src="finding-data.Rmd-12-3.png" width="50%"><img src="finding-data.Rmd-12-4.png" width="50%"><img src="finding-data.Rmd-12-5.png" width="50%"><img src="finding-data.Rmd-12-6.png" width="50%"><img src="finding-data.Rmd-12-7.png" width="50%"><img src="finding-data.Rmd-12-8.png" width="50%"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
