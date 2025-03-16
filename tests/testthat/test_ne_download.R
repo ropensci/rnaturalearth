@@ -1,4 +1,4 @@
-test_that("ne_download returns the correct file name when load = FALSE", {
+test_that("ne_download() can download data and return the associated file when load = FALSE", {
   skip_on_cran()
   skip_if_not_installed("rnaturalearthdata")
   skip_if_not_installed("rnaturalearthhires")
