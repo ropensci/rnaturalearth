@@ -121,7 +121,19 @@ ne_download <- function(
   cli::cli_inform("Writing {.path {dest_file}} to disk...")
 
   if (category == "raster") {
-    terra::writeRaster(rst, dest_file, overwrite = TRUE)
+    terra::writeRaster(
+      rst,
+      dest_file,
+      overwrite = TRUE,
+      gdal = c(
+        "COMPRESS=ZSTD",
+        "PREDICTOR=2",
+        "TILED=YES",
+        "TFW=NO",
+        "BLOCKXSIZE=256",
+        "BLOCKYSIZE=256"
+      )
+    )
   } else {
     sf::write_sf(spatial_object, dest_file, delete_dsn = TRUE)
   }
