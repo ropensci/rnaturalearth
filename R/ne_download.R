@@ -19,8 +19,10 @@
 #' @param destdir where to save files, defaults to \code{tempdir()},
 #' \code{getwd()} is also possible.
 #'
-#' @param load `TRUE` load the spatial object into R, `FALSE` return the
-#' filename of the downloaded object.
+#' @param load `TRUE` to load the spatial object into R, `FALSE` to return the
+#' filename of the downloaded object. If the requested object is a vector, it
+#' will be saved as a GPKG file. If a raster is requested, it will be saved as
+#' a GeoTIFF file.
 #'
 #' @details Note that the filename of the requested object will be returned if
 #' `load = FALSE`.
@@ -61,8 +63,7 @@
 #'
 #' # load after having downloaded
 #' rst <- ne_load(
-#'   scale = 50, type = "MSR_50M", category = "raster", destdir =
-#'     getwd()
+#'   scale = 50, type = "MSR_50M", category = "raster", destdir = getwd()
 #' )
 #'
 #' # plot
@@ -98,37 +99,32 @@ ne_download <- function(
     category = category
   )
 
-  if (load) {
-    cli::cli_inform("Reading the requested file ...")
+  cli::cli_inform("Reading the requested file ...")
 
-    if (category == "raster") {
-      rst <- terra::rast(gdal_url)
-
-      return(rst)
-    } else {
-      spatial_object <- read_spatial_vector(gdal_url, returnclass)
-
-      return(spatial_object)
-    }
-  }
-
-  # Extract the base url from the /vsizip/vsicurl/ url
-  file_url <- sanitize_gdal_url(gdal_url)
-
-  dest_file <- file.path(destdir, basename(file_url))
-
-  cli::cli_inform("Downloading the requested file ...")
-  utils::download.file(file_url, destfile = dest_file)
-  cli::cli_inform("Download complete!")
-
-  utils::unzip(dest_file, exdir = dirname(dest_file))
-  base_name <- tools::file_path_sans_ext(dest_file)
-
-  unzip_file <- if (category == "raster") {
-    file.path(base_name, sprintf("%s.tif", type))
+  if (category == "raster") {
+    rst <- terra::rast(gdal_url)
+    if (load) return(rst)
   } else {
-    file.path(sprintf("%s.shp", base_name))
+    spatial_object <- read_spatial_vector(gdal_url, returnclass)
+    if (load) return(spatial_object)
   }
 
-  return(unzip_file)
+  dest_file <- file.path(
+    destdir,
+    sprintf(
+      "%s.%s",
+      tools::file_path_sans_ext(basename(gdal_url)),
+      ifelse(category == "raster", "tif", "gpkg")
+    )
+  )
+
+  cli::cli_inform("Writing {.path {dest_file}} to disk...")
+
+  if (category == "raster") {
+    terra::writeRaster(rst, dest_file, overwrite = TRUE)
+  } else {
+    sf::write_sf(spatial_object, dest_file, delete_dsn = TRUE)
+  }
+
+  return(dest_file)
 }

@@ -29,8 +29,10 @@ raster filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
 \item{destdir}{where to save files, defaults to \code{tempdir()},
 \code{getwd()} is also possible.}
 
-\item{load}{`TRUE` load the spatial object into R, `FALSE` return the
-filename of the downloaded object.}
+\item{load}{`TRUE` to load the spatial object into R, `FALSE` to return the
+filename of the downloaded object. If the requested object is a vector, it
+will be saved as a GPKG file. If a raster is requested, it will be saved as
+a GeoTIFF file.}
 
 \item{returnclass}{A string determining the spatial object to return. Either
 "sf" for for simple feature (from `sf`, the default) or "sv" for a
