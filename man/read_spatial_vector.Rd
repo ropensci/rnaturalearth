@@ -4,10 +4,13 @@
 \alias{read_spatial_vector}
 \title{Read Spatial Vector}
 \usage{
-read_spatial_vector(x, returnclass = c("sf", "sv"))
+read_spatial_vector(x, layer, returnclass = c("sf", "sv"))
 }
 \arguments{
 \item{x}{A character string specifying the path to the spatial vector file.}
+
+\item{layer}{A character string specifying the later to read in case there
+are more than one in the zip file.}
 
 \item{returnclass}{A character string specifying the class of object to
 return. Options are "sf" for sf object and "sv" for sv object.}

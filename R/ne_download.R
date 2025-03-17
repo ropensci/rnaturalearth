@@ -99,13 +99,18 @@ ne_download <- function(
     category = category
   )
 
-  cli::cli_inform("Reading the requested file ...")
+  cli::cli_inform("Reading {.file {basename(gdal_url)}} from naturalearth...")
 
   if (category == "raster") {
     rst <- terra::rast(gdal_url)
     if (load) return(rst)
   } else {
-    spatial_object <- read_spatial_vector(gdal_url, returnclass)
+    layer <- layer_name(type, scale)
+    spatial_object <- read_spatial_vector(
+      gdal_url,
+      layer = layer,
+      returnclass = returnclass
+    )
     if (load) return(spatial_object)
   }
 
@@ -118,7 +123,9 @@ ne_download <- function(
     )
   )
 
-  cli::cli_inform("Writing {.path {dest_file}} to disk...")
+  cli::cli_inform(
+    "Writing {.file {basename(dest_file)}} to {.path {destdir}}..."
+  )
 
   if (category == "raster") {
     terra::writeRaster(

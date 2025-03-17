@@ -6,11 +6,17 @@
 #' @param x A character string specifying the path to the spatial vector file.
 #' @param returnclass A character string specifying the class of object to
 #' return. Options are "sf" for sf object and "sv" for sv object.
+#' @param layer A character string specifying the later to read in case there
+#' are more than one in the zip file.
 #'
 #' @return Either an `sf` object or a `sv` object.
-read_spatial_vector <- function(x, returnclass = c("sf", "sv")) {
+read_spatial_vector <- function(x, layer, returnclass = c("sf", "sv")) {
   returnclass <- match.arg(returnclass)
-  switch(returnclass, sf = sf::st_read(x), sv = terra::vect(x))
+  switch(
+    returnclass,
+    sf = sf::read_sf(x, layer = layer),
+    sv = terra::vect(x, layer = layer)
+  )
 }
 
 #' Convert from/to sf/sv objects

@@ -50,8 +50,7 @@ rst <- ne_download(scale = 50, type = "MSR_50M", category = "raster", destdir = 
 
 # load after having downloaded
 rst <- ne_load(
-  scale = 50, type = "MSR_50M", category = "raster", destdir =
-    getwd()
+  scale = 50, type = "MSR_50M", category = "raster", destdir = getwd()
 )
 
 # plot
