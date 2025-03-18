@@ -29,7 +29,7 @@ ne_file_name <- function(
 
   type <- normalize_type(type)
 
-  base_url <- "/vsizip/vsicurl/https://naturalearth.s3.amazonaws.com/"
+  base_url <- "/vsizip//vsicurl/https://naturalearth.s3.amazonaws.com/"
 
   if (category == "raster") {
     file_name <- sprintf(

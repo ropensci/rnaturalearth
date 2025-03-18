@@ -36,6 +36,6 @@ convert_spatial_class <- function(x, returnclass = c("sf", "sv")) {
 #' @return A character string representing the http URL extracted from the
 #' VSIZIP URL
 sanitize_gdal_url <- function(url) {
-  url <- sub("^/vsizip/vsicurl/", "", url)
+  url <- sub("^/vsizip//vsicurl/", "", url)
   sub("(.+\\.zip)/.*", "\\1", url)
 }

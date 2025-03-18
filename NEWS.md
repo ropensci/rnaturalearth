@@ -2,7 +2,7 @@
 
 ## New Features
 
-Data is now downloaded using the GDAL Virtual Format (VRT), allowing `ne_download()` to read data directly from the zip file without requiring extraction.
+Data is now downloaded using the GDAL Virtual File System, allowing `ne_download()` to read data directly from the zip file without requiring extraction.
 
 - We are transitioning to the [GeoPackage](https://www.geopackage.org/) format when `load = FALSE` is used in `ne_download()`. This modern format is more efficient and flexible than the traditional shapefile format.
 
