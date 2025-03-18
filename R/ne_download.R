@@ -141,8 +141,10 @@ ne_download <- function(
         "BLOCKYSIZE=256"
       )
     )
-  } else {
+  } else if (returnclass == "sf") {
     sf::write_sf(spatial_object, dest_file, delete_dsn = TRUE)
+  } else {
+    terra::writeVector(spatial_object, dest_file, overwrite = TRUE)
   }
 
   return(dest_file)
