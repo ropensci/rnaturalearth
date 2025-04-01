@@ -18,7 +18,7 @@ Data is now downloaded using the GDAL Virtual File System, allowing `ne_download
   )
   ```
 
-## Bug fixes and minor improvements
+## Bug fixes and general improvements
 
 - Using the `cli` package for better messages.
 
