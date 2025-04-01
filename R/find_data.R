@@ -71,9 +71,6 @@ ne_find_vector_data <- function(
 #'
 #' @return list. Includes parsed json content, http path, and response
 #'   code.
-#' @import httr
-#'
-#' @importFrom jsonlite fromJSON
 #'
 #' @keywords internal
 ne_git_contents <- function(path) {

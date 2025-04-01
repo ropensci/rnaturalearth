@@ -43,7 +43,7 @@ check_data_exist <- function(
   # check on permitted scales, convert names to numeric
   scale <- check_scale(scale)
 
-  df_data <- read.csv(
+  df_data <- utils::read.csv(
     system.file(
       "extdata",
       paste0("data_list_", category, ".csv"),
