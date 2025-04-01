@@ -7,8 +7,7 @@
 ne_file_name(
   scale = 110L,
   type = "countries",
-  category = c("cultural", "physical", "raster"),
-  full_url = FALSE
+  category = c("cultural", "physical", "raster")
 )
 }
 \arguments{
@@ -23,9 +22,6 @@ filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
 
 \item{category}{one of natural earth categories : 'cultural', 'physical',
 'raster'}
-
-\item{full_url}{whether to return just the filename (default) or the full URL
-needed for download}
 }
 \value{
 string
@@ -36,10 +32,13 @@ returns a string that can then be used to download the file.
 \details{
 Note that the filename of the requested object will be returned if
 `load = FALSE`.
+
+If the data is to be loaded into memory (`load = TRUE`), the download will
+be handled using the GDAL virtual file system, allowing direct access to the
+data without writing it to disk.
 }
 \examples{
-ne_name <- ne_file_name(scale = 110, type = "countries")
-ne_url <- ne_file_name(scale = 110, type = "countries", full_url = TRUE)
+ne_url <- ne_file_name(scale = 110, type = "countries")
 
 }
 \seealso{

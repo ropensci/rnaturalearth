@@ -19,11 +19,18 @@
 #' @param destdir where to save files, defaults to \code{tempdir()},
 #' \code{getwd()} is also possible.
 #'
-#' @param load `TRUE` load the spatial object into R, `FALSE` return the
-#' filename of the downloaded object.
+#' @param load `TRUE` to load the spatial object into R, `FALSE` to return the
+#' filename of the downloaded object. If the requested object is a vector, it
+#' will be saved as a GPKG file. If a raster is requested, it will be saved as
+#' a GeoTIFF file.
 #'
 #' @details Note that the filename of the requested object will be returned if
 #' `load = FALSE`.
+#'
+#' @details
+#' If the data is to be loaded into memory (`load = TRUE`), the download will
+#' be handled using the GDAL virtual file system, allowing direct access to the
+#' data without writing it to disk.
 #'
 #' @seealso \code{\link{ne_load}}, pre-downloaded data are available using
 #'   \code{\link{ne_countries}}, \code{\link{ne_states}}. Other geographic data
@@ -56,8 +63,7 @@
 #'
 #' # load after having downloaded
 #' rst <- ne_load(
-#'   scale = 50, type = "MSR_50M", category = "raster", destdir =
-#'     getwd()
+#'   scale = 50, type = "MSR_50M", category = "raster", destdir = getwd()
 #' )
 #'
 #' # plot
@@ -68,77 +74,78 @@
 #'
 #' @export
 ne_download <- function(
-  scale = 110L,
-  type = "countries",
-  category = c("cultural", "physical", "raster"),
-  destdir = tempdir(),
-  load = TRUE,
-  returnclass = c("sf", "sv")
-) {
+    scale = 110L,
+    type = "countries",
+    category = c("cultural", "physical", "raster"),
+    destdir = tempdir(),
+    load = TRUE,
+    returnclass = c("sf", "sv")
+    ) {
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
+  if (!dir.exists(destdir)) {
+    cli::cli_abort("{.arg destdir} must be an existing directory")
+  }
   warn <- returnclass == "sp" & load & category == "raster"
 
   if (warn) {
     deprecate_sp("ne_download(returnclass = 'sp')")
   }
 
-  # without extension, e.g. .shp
-  file_name <- ne_file_name(
+  gdal_url <- ne_file_name(
     scale = scale,
     type = type,
-    category = category,
-    full_url = FALSE
+    category = category
   )
 
-  # full url including .zip
-  address <- ne_file_name(
-    scale = scale,
-    type = type,
-    category = category,
-    full_url = TRUE
-  )
+  cli::cli_inform("Reading {.file {basename(gdal_url)}} from naturalearth...")
 
-  zip_file <- tempfile()
-
-  download_failed <- tryCatch(
-    utils::download.file(file.path(address), zip_file),
-    error = function(e) {
-      cli::cli_inform("download failed")
-      check_data_exist(type = type, scale = scale, category = category)
-      return(TRUE)
-    }
-  )
-
-  # return from this function if download error was caught by tryCatch
-  if (download_failed) {
-    return()
-  }
-
-  # download.file & curl_download use 'destfile'
-  # but I want to specify just the folder because the file has a set name
-
-  utils::unzip(zip_file, exdir = destdir)
-
-  if (load && category == "raster") {
-    # have to use file_name to set the folder and the tif name
-    filename <- file.path(destdir, file_name, paste0(file_name, ".tif"))
-    rst <- terra::rast(filename)
-    return(rst)
-  } else if (load) {
-    # read in data as either sf of spatvector
-    spatial_object <- read_spatial(
-      paste0(destdir, "/", file_name, ".shp"),
-      returnclass
-    )
-    return(spatial_object)
+  if (category == "raster") {
+    rst <- terra::rast(gdal_url)
+    if (load) return(rst)
   } else {
-    file_name <- switch(
-      category,
-      "raster" = file.path(destdir, file_name, paste0(file_name, ".tif")),
-      file.path(destdir, paste0(file_name, ".shp"))
+    layer <- layer_name(type, scale)
+    spatial_object <- read_spatial_vector(
+      gdal_url,
+      layer = layer,
+      returnclass = returnclass
     )
-    return(file_name)
+    if (load) return(spatial_object)
   }
+
+  dest_file <- file.path(
+    destdir,
+    sprintf(
+      "%s.%s",
+      tools::file_path_sans_ext(basename(gdal_url)),
+      ifelse(category == "raster", "tif", "gpkg")
+    )
+  )
+
+  cli::cli_inform(
+    "Writing {.file {basename(dest_file)}} to {.path {destdir}}..."
+  )
+
+  if (category == "raster") {
+    terra::writeRaster(
+      rst,
+      dest_file,
+      overwrite = TRUE,
+      gdal = c(
+        "COMPRESS=ZSTD",
+        "PREDICTOR=2",
+        "TILED=YES",
+        "TFW=NO",
+        "BLOCKXSIZE=256",
+        "BLOCKYSIZE=256"
+      )
+    )
+  } else if (returnclass == "sf") {
+    sf::write_sf(spatial_object, dest_file, delete_dsn = TRUE)
+  } else {
+    terra::writeVector(spatial_object, dest_file, overwrite = TRUE)
+  }
+
+  return(dest_file)
 }

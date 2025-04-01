@@ -1,16 +1,30 @@
 # rnaturalearth (development version)
 
+## New Features
+
+Data is now downloaded using the GDAL Virtual File System, allowing `ne_download()` to read data directly from the zip file without requiring extraction.
+
+- We are transitioning to the [GeoPackage](https://www.geopackage.org/) format when `load = FALSE` is used in `ne_download()`. This modern format is more efficient and flexible than the traditional shapefile format.
+
+- Similarly, raster data (GeoTIFF) is now read directly from the zip file and written to the specified directory. For example, the following code downloads the 50m raster dataset and saves it to the working directory:
+
+  ```r
+  ne_download(
+    scale = 50,
+    type = "MSR_50M",
+    category = "raster",
+    load = FALSE,
+    destdir = getwd()
+  )
+  ```
+
+## Bug fixes and minor improvements
+
 - Using the `cli` package for better messages.
 
 - Correctly downloading parks and protected areas (#114)
 
 ```r
-ne_download(
-  scale = 10,
-  type = "parks_and_protected_lands_line",
-  category = "cultural"
-)
-
 ne_download(
   scale = 10,
   type = "parks_and_protected_lands_line",

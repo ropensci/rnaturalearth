@@ -24,6 +24,10 @@ a later R session using \code{\link{ne_load}} with the same arguments.
 \details{
 Note that the filename of the requested object will be returned if
 `load = FALSE`.
+
+If the data is to be loaded into memory (`load = TRUE`), the download will
+be handled using the GDAL virtual file system, allowing direct access to the
+data without writing it to disk.
 }
 \examples{
 \dontrun{
@@ -46,8 +50,7 @@ rst <- ne_download(scale = 50, type = "MSR_50M", category = "raster", destdir = 
 
 # load after having downloaded
 rst <- ne_load(
-  scale = 50, type = "MSR_50M", category = "raster", destdir =
-    getwd()
+  scale = 50, type = "MSR_50M", category = "raster", destdir = getwd()
 )
 
 # plot
