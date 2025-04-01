@@ -40,16 +40,28 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="rnaturalearth-development-version">rnaturalearth (development version)<a class="anchor" aria-label="anchor" href="#rnaturalearth-development-version"></a></h2>
+<div class="section level3">
+<h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<p>Data is now downloaded using the GDAL Virtual File System, allowing <code><a href="../reference/ne_download.html">ne_download()</a></code> to read data directly from the zip file without requiring extraction.</p>
+<ul><li><p>We are transitioning to the <a href="https://www.geopackage.org/" class="external-link">GeoPackage</a> format when <code>load = FALSE</code> is used in <code><a href="../reference/ne_download.html">ne_download()</a></code>. This modern format is more efficient and flexible than the traditional shapefile format.</p></li>
+<li>
+<p>Similarly, raster data (GeoTIFF) is now read directly from the zip file and written to the specified directory. For example, the following code downloads the 50m raster dataset and saves it to the working directory:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
+<span>  scale <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"MSR_50M"</span>,</span>
+<span>  category <span class="op">=</span> <span class="st">"raster"</span>,</span>
+<span>  load <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  destdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-and-minor-improvements-development-version">Bug fixes and minor improvements<a class="anchor" aria-label="anchor" href="#bug-fixes-and-minor-improvements-development-version"></a></h3>
 <ul><li><p>Using the <code>cli</code> package for better messages.</p></li>
 <li><p>Correctly downloading parks and protected areas (<a href="https://github.com/ropensci/rnaturalearth/issues/114" class="external-link">#114</a>)</p></li>
-</ul><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+</ul><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
-<span>  scale <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>  type <span class="op">=</span> <span class="st">"parks_and_protected_lands_line"</span>,</span>
-<span>  category <span class="op">=</span> <span class="st">"cultural"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
 <span>  scale <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  type <span class="op">=</span> <span class="st">"parks_and_protected_lands_line"</span>,</span>
 <span>  category <span class="op">=</span> <span class="st">"cultural"</span></span>
@@ -68,13 +80,14 @@
 <span><span class="op">)</span></span></code></pre></div>
 <ul><li><p><code>rnaturalearth</code> now requires rnaturalearthdata (&gt;= 1.0.0) and rnaturalearthhires (&gt;= 1.0.0).</p></li>
 <li><p>correctly returning the file name in <code><a href="../reference/ne_download.html">ne_download()</a></code> when setting <code>load = FALSE</code></p></li>
-</ul><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+</ul><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
 <span>  type <span class="op">=</span> <span class="st">"MSR_50M"</span>,</span>
 <span>  category <span class="op">=</span> <span class="st">"raster"</span>,</span>
 <span>  scale <span class="op">=</span> <span class="fl">50</span>,</span>
 <span>  load <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.1" id="rnaturalearth-101">rnaturalearth 1.0.1<a class="anchor" aria-label="anchor" href="#rnaturalearth-101"></a></h2><p class="text-muted">CRAN release: 2023-12-15</p>

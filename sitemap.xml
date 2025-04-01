@@ -21,6 +21,7 @@
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/index.html</loc></url>
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/install_rnaturalearthdata.html</loc></url>
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/install_rnaturalearthhires.html</loc></url>
+<url><loc>http://ropensci.github.io/rnaturalearth/reference/layer_name.html</loc></url>
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/ne_coastline.html</loc></url>
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/ne_countries.html</loc></url>
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/ne_download.html</loc></url>
@@ -30,6 +31,9 @@
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/ne_git_layer_names.html</loc></url>
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/ne_load.html</loc></url>
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/ne_states.html</loc></url>
+<url><loc>http://ropensci.github.io/rnaturalearth/reference/normalize_type.html</loc></url>
+<url><loc>http://ropensci.github.io/rnaturalearth/reference/read_spatial_vector.html</loc></url>
 <url><loc>http://ropensci.github.io/rnaturalearth/reference/rnaturalearth-package.html</loc></url>
+<url><loc>http://ropensci.github.io/rnaturalearth/reference/sanitize_gdal_url.html</loc></url>
 </urlset>
 
