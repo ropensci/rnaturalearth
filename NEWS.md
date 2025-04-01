@@ -20,6 +20,8 @@ Data is now downloaded using the GDAL Virtual File System, allowing `ne_download
 
 ## Bug fixes and general improvements
 
+- Improved package loading time by removing unnecessary imports and implementing lazy loading of dependencies (#119). Thanks to @heavywatal.
+
 - Using the `cli` package for better messages.
 
 - Correctly downloading parks and protected areas (#114)
