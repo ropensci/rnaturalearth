@@ -11,7 +11,7 @@ A \code{sf} object.
 An object of class \code{sf} (inherits from \code{data.frame}) with 177 rows and 169 columns.
 }
 \source{
-\url{https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip}
+\url{https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip}
 }
 \usage{
 countries110

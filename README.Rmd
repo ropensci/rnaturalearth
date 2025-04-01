@@ -141,7 +141,7 @@ vignette("what-is-a-country", package = "rnaturalearth")
 
 ## Reproducible download of Natural Earth data into the package
 
-[Script](https://github.com/ropensci/rnaturalearthdata/blob/master/data-raw/data_download_script.r) used to get data into the accompanying data packages.
+[Script](https://github.com/ropensci/rnaturalearthdata/blob/master/data-raw/data_download_script.R) used to get data into the accompanying data packages.
 
 ## Errors in the data?
 
