@@ -101,24 +101,21 @@
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co"># world countries</span></span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ne_countries</span>())</span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>Warning<span class="sc">:</span> plotting the first <span class="dv">10</span> out of <span class="dv">168</span> attributes; use max.plot <span class="ot">=</span> <span class="dv">168</span> to plot all</span></code></pre></div>
-<div class="float">
-<img src="reference/figures/README-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"><div class="figcaption">plot of chunk unnamed-chunk-2</div>
-</div>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>Warning<span class="sc">:</span> plotting the first <span class="dv">9</span> out of <span class="dv">168</span> attributes; use max.plot <span class="ot">=</span> <span class="dv">168</span> to plot</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>all</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-2-1.png"><!-- --></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co"># uk</span></span>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ne_countries</span>(<span class="at">country =</span> <span class="st">"united kingdom"</span>))</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>Warning<span class="sc">:</span> plotting the first <span class="dv">9</span> out of <span class="dv">168</span> attributes; use max.plot <span class="ot">=</span> <span class="dv">168</span> to plot all</span></code></pre></div>
-<div class="float">
-<img src="reference/figures/README-unnamed-chunk-2-2.png" alt="plot of chunk unnamed-chunk-2"><div class="figcaption">plot of chunk unnamed-chunk-2</div>
-</div>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>Warning<span class="sc">:</span> plotting the first <span class="dv">10</span> out of <span class="dv">168</span> attributes; use max.plot <span class="ot">=</span> <span class="dv">168</span> to</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>plot all</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-2-2.png"><!-- --></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co"># states, admin level1 boundaries</span></span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ne_states</span>(<span class="at">country =</span> <span class="st">"spain"</span>))</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>Warning<span class="sc">:</span> plotting the first <span class="dv">9</span> out of <span class="dv">121</span> attributes; use max.plot <span class="ot">=</span> <span class="dv">121</span> to plot all</span></code></pre></div>
-<div class="float">
-<img src="reference/figures/README-unnamed-chunk-2-3.png" alt="plot of chunk unnamed-chunk-2"><div class="figcaption">plot of chunk unnamed-chunk-2</div>
-</div>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>Warning<span class="sc">:</span> plotting the first <span class="dv">9</span> out of <span class="dv">121</span> attributes; use max.plot <span class="ot">=</span> <span class="dv">121</span> to plot</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>all</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-2-3.png"><!-- --></p>
 </div>
 <div class="section level2">
 <h2 id="introductory-vignette">Introductory vignette<a class="anchor" aria-label="anchor" href="#introductory-vignette"></a>
@@ -131,10 +128,9 @@
 </h2>
 <p>There are a wealth of other data available at the <a href="https://www.naturalearthdata.com/" class="external-link">Natural Earth</a> website. <code>rnaturalearth</code> has functions to help with download of these data.</p>
 <p>The data available are outlined in the two tables below and online <a href="https://www.naturalearthdata.com/downloads/50m-physical-vectors/" class="external-link">here</a>.</p>
-<pre><code>
-category   cultural
-
-category   physical </code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>category   cultural </span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>category   physical </span></code></pre></div>
 <p>Specify the <code>scale</code>, <code>category</code> and <code>type</code> of the vector you want as in the examples below.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># lakes</span></span>
@@ -165,7 +161,7 @@ category   physical </code></pre>
 <div class="section level2">
 <h2 id="reproducible-download-of-natural-earth-data-into-the-package">Reproducible download of Natural Earth data into the package<a class="anchor" aria-label="anchor" href="#reproducible-download-of-natural-earth-data-into-the-package"></a>
 </h2>
-<p><a href="https://github.com/ropensci/rnaturalearthdata/blob/master/data-raw/data_download_script.r" class="external-link">Script</a> used to get data into the accompanying data packages.</p>
+<p><a href="https://github.com/ropensci/rnaturalearthdata/blob/master/data-raw/data_download_script.R" class="external-link">Script</a> used to get data into the accompanying data packages.</p>
 </div>
 <div class="section level2">
 <h2 id="errors-in-the-data">Errors in the data?<a class="anchor" aria-label="anchor" href="#errors-in-the-data"></a>
