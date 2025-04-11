@@ -93,6 +93,8 @@ ne_download <- function(
     deprecate_sp("ne_download(returnclass = 'sp')")
   }
 
+  scale <- check_scale(scale)
+
   gdal_url <- ne_file_name(
     scale = scale,
     type = type,
