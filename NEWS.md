@@ -20,6 +20,8 @@ Data is now downloaded using the GDAL Virtual File System, allowing `ne_download
 
 ## Bug fixes and general improvements
 
+- Updated the base URL for downloading data to `https://naciscdn.org/naturalearth`, replacing the previous `https://naturalearth.s3.amazonaws.com/`. This change aligns with the [Natural Earth](https://www.naturalearthdata.com/) website's source.
+
 - Improved package loading time by removing unnecessary imports and implementing lazy loading of dependencies (#119). Thanks to @heavywatal.
 
 - Using the `cli` package for better messages.

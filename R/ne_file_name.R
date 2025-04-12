@@ -20,35 +20,33 @@
 #'
 #' @export
 ne_file_name <- function(
-    scale = 110L,
-    type = "countries",
-    category = c("cultural", "physical", "raster")
-    ) {
+  scale = 110L,
+  type = "countries",
+  category = c("cultural", "physical", "raster")
+) {
   scale <- check_scale(scale)
   category <- match.arg(category)
 
   type <- normalize_type(type)
 
-  base_url <- "/vsizip//vsicurl/https://naturalearth.s3.amazonaws.com/"
+  base_url <- "/vsizip//vsicurl/https://naciscdn.org/naturalearth"
 
-  if (category == "raster") {
-    file_name <- sprintf(
-      "%s%sm_%s/%s.zip/%s/%s.tif",
+  # Construct the file path based on the data category
+  file_name <- if (category == "raster") {
+    file.path(
       base_url,
-      scale,
+      sprintf("%sm", scale),
       category,
-      type,
-      type,
-      type
+      sprintf("MSR_%sM.zip", scale),
+      sprintf("MSR_%sM", scale),
+      sprintf("MSR_%sM.tif", scale)
     )
   } else {
-    file_name <- sprintf(
-      "%s%sm_%s/ne_%sm_%s.zip",
+    file.path(
       base_url,
-      scale,
+      sprintf("%sm", scale),
       category,
-      scale,
-      type
+      sprintf("ne_%sm_%s.zip", scale, type)
     )
   }
 
