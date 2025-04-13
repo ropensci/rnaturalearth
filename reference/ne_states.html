@@ -87,11 +87,14 @@ or `SpatVector` (from `terra`).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Note that the filename of the requested object will be returned if
-`load = FALSE`.</p>
-<p>If the data is to be loaded into memory (`load = TRUE`), the download will
-be handled using the GDAL virtual file system, allowing direct access to the
-data without writing it to disk.</p>
+    <p>By default, this function uses the scale = 10 data from the
+rnaturalearthhires package. While data at scales 50 and 110 exist,
+they are not used as defaults because they contain fewer countries
+(e.g. scale 50 only includes Australia, Brazil, Canada and United
+States of America).</p>
+<p>states10 &lt;- ne_download(scale = 10L, type = "states", category = "cultural")
+states50 &lt;- ne_download(scale = 50L, type = "states", category = "cultural")
+states110 &lt;- ne_download(scale = 110L, type = "states", category = "cultural")</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
