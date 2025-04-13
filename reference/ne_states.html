@@ -91,10 +91,10 @@ or `SpatVector` (from `terra`).</p>
 rnaturalearthhires package. While data at scales 50 and 110 exist,
 they are not used as defaults because they contain fewer countries
 (e.g. scale 50 only includes Australia, Brazil, Canada and United
-States of America).</p>
-<p>states10 &lt;- ne_download(scale = 10L, type = "states", category = "cultural")
-states50 &lt;- ne_download(scale = 50L, type = "states", category = "cultural")
-states110 &lt;- ne_download(scale = 110L, type = "states", category = "cultural")</p>
+States of America). For finer control, use <code><a href="ne_download.html">ne_download</a></code>.</p>
+<p><code>ne_download( scale = 10L, type = "states", category = "cultural")</code></p>
+<p><code>ne_download( scale = 50L, type = "states", category = "cultural")</code></p>
+<p><code>ne_download( scale = 110L, type = "states", category = "cultural")</code></p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
