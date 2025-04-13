@@ -34,12 +34,17 @@ or `SpatVector` (from `terra`).
 returns state polygons (administrative level 1) for specified countries
 }
 \details{
-Note that the filename of the requested object will be returned if
-`load = FALSE`.
+By default, this function uses the scale = 10 data from the
+rnaturalearthhires package. While data at scales 50 and 110 exist,
+they are not used as defaults because they contain fewer countries
+(e.g. scale 50 only includes Australia, Brazil, Canada and United
+States of America). For finer control, use \code{\link{ne_download}}.
 
-If the data is to be loaded into memory (`load = TRUE`), the download will
-be handled using the GDAL virtual file system, allowing direct access to the
-data without writing it to disk.
+\code{ne_download( scale = 10L, type = "states", category = "cultural")}
+
+\code{ne_download( scale = 50L, type = "states", category = "cultural")}
+
+\code{ne_download( scale = 110L, type = "states", category = "cultural")}
 }
 \examples{
 

@@ -9,6 +9,19 @@
 #' @param iso_a2 a character vector of iso_a2 country codes
 #' @param spat_object an optional alternative states map
 #'
+#' @details
+#' By default, this function uses the scale = 10 data from the
+#' rnaturalearthhires package. While data at scales 50 and 110 exist,
+#' they are not used as defaults because they contain fewer countries
+#' (e.g. scale 50 only includes Australia, Brazil, Canada and United
+#' States of America). For finer control, use \code{\link{ne_download}}.
+#'
+#' \code{ne_download( scale = 10L, type = "states", category = "cultural")}
+#'
+#' \code{ne_download( scale = 50L, type = "states", category = "cultural")}
+#'
+#' \code{ne_download( scale = 110L, type = "states", category = "cultural")}
+#'
 #' @aliases ne_admin1
 #'
 #' @examples
@@ -27,26 +40,24 @@
 #'
 #' @export
 ne_states <- function(
-  country = NULL,
-  geounit = NULL,
-  iso_a2 = NULL,
-  spat_object = NULL,
-  returnclass = c("sf", "sv")
-) {
+    country = NULL,
+    geounit = NULL,
+    iso_a2 = NULL,
+    spat_object = NULL,
+    returnclass = c("sf", "sv")
+    ) {
   returnclass <- match.arg(returnclass)
 
   if (returnclass == "sp") {
     deprecate_sp("ne_download(returnclass = 'sp')")
   }
+
   # set map from one stored this adds potential to add or pass other potential
   # state maps, e.g. without lakes but no checking is done, may not be needed
   if (is.null(spat_object)) {
     check_rnaturalearthhires()
     spat_object <- rnaturalearthhires::states10
   }
-
-  # states50 only has Australia  Brazil Canada United States of America so not
-  # included
 
   # set default filter
   filter <- TRUE
