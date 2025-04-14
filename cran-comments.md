@@ -1,7 +1,3 @@
-This fix tests that could run using packages not available on CRAN.
-
-- Package suggested but not available for checking: ‘rnaturalearthhires’
-
 ## revdepcheck results
 
 We checked 37 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
@@ -19,9 +15,9 @@ We checked 37 reverse dependencies, comparing R CMD check results across CRAN an
   - os: ubuntu-latest with r: 'release'
   - os: ubuntu-latest with r: 'oldrel-1'
 
-- The package was tested on rhub and on winbuilder.
+## revdepcheck results
 
-- There are two notes:
+We checked 53 reverse dependencies (11 from CRAN + 42 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
 
-  - Package suggested but not available for checking: 'rnaturalearthhires'.
-  - Found 416 marked Latin-1 strings because some files contains counfry names.
+- We saw 0 new problems
+- We failed to check 0 packages
