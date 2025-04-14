@@ -1,8 +1,8 @@
 # rnaturalearth (development version)
 
-## New Features
+## New features
 
-Data is now downloaded using the GDAL Virtual File System, allowing `ne_download()` to read data directly from the zip file without requiring extraction.
+- Data is now downloaded using the GDAL Virtual File System, allowing `ne_download()` to read data directly from the zip file without requiring extraction.
 
 - We are transitioning to the [GeoPackage](https://www.geopackage.org/) format when `load = FALSE` is used in `ne_download()`. This modern format is more efficient and flexible than the traditional shapefile format.
 
@@ -20,7 +20,7 @@ Data is now downloaded using the GDAL Virtual File System, allowing `ne_download
 
 ## Bug fixes and general improvements
 
-- Updated the base URL for downloading data to `https://naciscdn.org/naturalearth`, replacing the previous `https://naturalearth.s3.amazonaws.com/`. This change aligns with the [Natural Earth](https://www.naturalearthdata.com/) website's source.
+- Updated the base URL for downloading data to `https://naciscdn.org/naturalearth`, replacing the previous `https://naturalearth.s3.amazonaws.com/` url. This change aligns with the [Natural Earth](https://www.naturalearthdata.com/) website's source.
 
 - Improved package loading time by removing unnecessary imports and implementing lazy loading of dependencies (#119). Thanks to @heavywatal.
 
@@ -50,7 +50,7 @@ ne_download(
 
 - `rnaturalearth` now requires rnaturalearthdata (>= 1.0.0) and rnaturalearthhires (>= 1.0.0).
 
-- correctly returning the file name in `ne_download()` when setting `load = FALSE`
+- Correctly returning the file name in `ne_download()` when setting `load = FALSE`
 
 ```r
 ne_download(
