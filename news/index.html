@@ -41,9 +41,9 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="rnaturalearth-development-version">rnaturalearth (development version)<a class="anchor" aria-label="anchor" href="#rnaturalearth-development-version"></a></h2>
 <div class="section level3">
-<h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
-<p>Data is now downloaded using the GDAL Virtual File System, allowing <code><a href="../reference/ne_download.html">ne_download()</a></code> to read data directly from the zip file without requiring extraction.</p>
-<ul><li><p>We are transitioning to the <a href="https://www.geopackage.org/" class="external-link">GeoPackage</a> format when <code>load = FALSE</code> is used in <code><a href="../reference/ne_download.html">ne_download()</a></code>. This modern format is more efficient and flexible than the traditional shapefile format.</p></li>
+<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<ul><li><p>Data is now downloaded using the GDAL Virtual File System, allowing <code><a href="../reference/ne_download.html">ne_download()</a></code> to read data directly from the zip file without requiring extraction.</p></li>
+<li><p>We are transitioning to the <a href="https://www.geopackage.org/" class="external-link">GeoPackage</a> format when <code>load = FALSE</code> is used in <code><a href="../reference/ne_download.html">ne_download()</a></code>. This modern format is more efficient and flexible than the traditional shapefile format.</p></li>
 <li>
 <p>Similarly, raster data (GeoTIFF) is now read directly from the zip file and written to the specified directory. For example, the following code downloads the 50m raster dataset and saves it to the working directory:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -58,7 +58,7 @@
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-and-general-improvements-development-version">Bug fixes and general improvements<a class="anchor" aria-label="anchor" href="#bug-fixes-and-general-improvements-development-version"></a></h3>
-<ul><li><p>Updated the base URL for downloading data to <code>https://naciscdn.org/naturalearth</code>, replacing the previous <code>https://naturalearth.s3.amazonaws.com/</code>. This change aligns with the <a href="https://www.naturalearthdata.com/" class="external-link">Natural Earth</a> website’s source.</p></li>
+<ul><li><p>Updated the base URL for downloading data to <code>https://naciscdn.org/naturalearth</code>, replacing the previous <code>https://naturalearth.s3.amazonaws.com/</code> url. This change aligns with the <a href="https://www.naturalearthdata.com/" class="external-link">Natural Earth</a> website’s source.</p></li>
 <li><p>Improved package loading time by removing unnecessary imports and implementing lazy loading of dependencies (<a href="https://github.com/ropensci/rnaturalearth/issues/119" class="external-link">#119</a>). Thanks to <a href="https://github.com/heavywatal" class="external-link">@heavywatal</a>.</p></li>
 <li><p>Using the <code>cli</code> package for better messages.</p></li>
 <li><p>Correctly downloading parks and protected areas (<a href="https://github.com/ropensci/rnaturalearth/issues/114" class="external-link">#114</a>)</p></li>
@@ -81,7 +81,7 @@
 <span>  category <span class="op">=</span> <span class="st">"cultural"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <ul><li><p><code>rnaturalearth</code> now requires rnaturalearthdata (&gt;= 1.0.0) and rnaturalearthhires (&gt;= 1.0.0).</p></li>
-<li><p>correctly returning the file name in <code><a href="../reference/ne_download.html">ne_download()</a></code> when setting <code>load = FALSE</code></p></li>
+<li><p>Correctly returning the file name in <code><a href="../reference/ne_download.html">ne_download()</a></code> when setting <code>load = FALSE</code></p></li>
 </ul><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ne_download.html">ne_download</a></span><span class="op">(</span></span>
 <span>  type <span class="op">=</span> <span class="st">"MSR_50M"</span>,</span>
