@@ -31,7 +31,7 @@
 #' spdf_world2 <- ne_load(scale = 110, type = "countries", destdir = getwd())
 #'
 #' # for raster download & load
-#' rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
+#' rst <- ne_download(scale = 50, type = "OB_50M", category = "raster", destdir = getwd(), load = FALSE)
 #'
 #' # load after having downloaded
 #' rst <- ne_load(scale = 50, type = "OB_50M", category = "raster", destdir = getwd())
@@ -44,13 +44,13 @@
 #'
 #' @export
 ne_load <- function(
-  scale = 110L,
-  type = "countries",
-  category = c("cultural", "physical", "raster"),
-  destdir = tempdir(),
-  file_name = NULL,
-  returnclass = c("sf", "sv")
-) {
+    scale = 110L,
+    type = "countries",
+    category = c("cultural", "physical", "raster"),
+    destdir = tempdir(),
+    file_name = NULL,
+    returnclass = c("sf", "sv")
+    ) {
   category <- match.arg(category)
 
   returnclass <- match.arg(returnclass)
@@ -61,12 +61,14 @@ ne_load <- function(
 
   if (is.null(file_name)) {
     file_name <- ne_file_name(scale = scale, type = type, category = category)
+    file_name <- sanitize_gdal_url(file_name)
+    file_name <- tools::file_path_sans_ext(basename(file_name))
   }
 
   error_msg <- "The file {.path {file_name}} seems not to exist in your local folder {.path {destdir}}. Did you download it using {.fn rnaturalearth::ne_download}?"
 
   if (category == "raster") {
-    file_tif <- file.path(destdir, file_name, paste0(file_name, ".tif"))
+    file_tif <- file.path(destdir, paste0(file_name, ".tif"))
 
     if (!file.exists(file_tif)) {
       cli::cli_abort(error_msg)
@@ -76,16 +78,15 @@ ne_load <- function(
 
     return(rst)
   } else {
-    # for shapefiles
-
-    # add '.shp' for the exists test (it's not needed by readOGR)
-    if (!file.exists(file.path(destdir, paste0(file_name, ".shp")))) {
+    if (!file.exists(file.path(destdir, paste0(file_name, ".gpkg")))) {
       cli::cli_abort(error_msg)
     }
 
+    layer <- layer_name(type, scale)
     # read in data as either sf of spatvector
     spatial_object <- read_spatial_vector(
-      paste0(destdir, "/", file_name, ".shp"),
+      paste0(destdir, "/", file_name, ".gpkg"),
+      layer = layer,
       returnclass
     )
 

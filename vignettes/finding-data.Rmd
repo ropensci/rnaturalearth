@@ -13,6 +13,7 @@ vignette: >
 ``` r
 library(rnaturalearth)
 library(sf)
+#> Linking to GEOS 3.12.1, GDAL 3.8.5, PROJ 9.4.0; sf_use_s2() is TRUE
 ```
 
 ## Available data
@@ -79,12 +80,7 @@ plot(
   ],
   col = "lightblue"
 )
-#> Reading layer `ne_110m_ocean' from data source `/tmp/Rtmp1Lj6Y7/ne_110m_ocean.shp' using driver `ESRI Shapefile'
-#> Simple feature collection with 2 features and 3 fields
-#> Geometry type: POLYGON
-#> Dimension:     XY
-#> Bounding box:  xmin: -180 ymin: -85.60904 xmax: 180 ymax: 90
-#> Geodetic CRS:  WGS 84
+#> Reading 'ne_110m_ocean.zip' from naturalearth...
 ```
 
 ![](finding-data.Rmd-3-1.png)
@@ -164,12 +160,7 @@ plot(
   pch = 21L,
   bg = "grey"
 )
-#> Reading layer `ne_10m_airports' from data source `/tmp/Rtmp1Lj6Y7/ne_10m_airports.shp' using driver `ESRI Shapefile'
-#> Simple feature collection with 893 features and 40 fields
-#> Geometry type: POINT
-#> Dimension:     XY
-#> Bounding box:  xmin: -175.1356 ymin: -53.78147 xmax: 179.1954 ymax: 78.24672
-#> Geodetic CRS:  WGS 84
+#> Reading 'ne_10m_airports.zip' from naturalearth...
 ```
 
 ![](finding-data.Rmd-5-1.png)
