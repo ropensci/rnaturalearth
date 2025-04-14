@@ -25,7 +25,7 @@
     <a href="https://ropensci.org" class="external-link"><img src="https://ropensci.org/img/icon_short_white.svg" id="hexlogo" alt="rOpenSci"></a>
     <a class="navbar-brand me-2" href="../index.html">rnaturalearth</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,7 +73,8 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/rnaturalearth/" class="external-link">rnaturalearth</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Linking to GEOS 3.12.1, GDAL 3.8.5, PROJ 9.4.0; sf_use_s2() is TRUE</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="available-data">Available data<a class="anchor" aria-label="anchor" href="#available-data"></a>
 </h2>
@@ -289,12 +290,7 @@ defined as one of <code>110</code>, <code>50</code>, <code>10</code> or
 <span>  <span class="op">]</span>,</span>
 <span>  col <span class="op">=</span> <span class="st">"lightblue"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; Reading layer `ne_110m_ocean' from data source `/tmp/Rtmp1Lj6Y7/ne_110m_ocean.shp' using driver `ESRI Shapefile'</span></span>
-<span><span class="co">#&gt; Simple feature collection with 2 features and 3 fields</span></span>
-<span><span class="co">#&gt; Geometry type: POLYGON</span></span>
-<span><span class="co">#&gt; Dimension:     XY</span></span>
-<span><span class="co">#&gt; Bounding box:  xmin: -180 ymin: -85.60904 xmax: 180 ymax: 90</span></span>
-<span><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span></code></pre></div>
+<span><span class="co">#&gt; Reading 'ne_110m_ocean.zip' from naturalearth...</span></span></code></pre></div>
 <p><img src="finding-data.Rmd-3-1.png"></p>
 </div>
 <div class="section level3">
@@ -592,12 +588,7 @@ defined as one of <code>110</code>, <code>50</code>, <code>10</code> or
 <span>  pch <span class="op">=</span> <span class="fl">21L</span>,</span>
 <span>  bg <span class="op">=</span> <span class="st">"grey"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; Reading layer `ne_10m_airports' from data source `/tmp/Rtmp1Lj6Y7/ne_10m_airports.shp' using driver `ESRI Shapefile'</span></span>
-<span><span class="co">#&gt; Simple feature collection with 893 features and 40 fields</span></span>
-<span><span class="co">#&gt; Geometry type: POINT</span></span>
-<span><span class="co">#&gt; Dimension:     XY</span></span>
-<span><span class="co">#&gt; Bounding box:  xmin: -175.1356 ymin: -53.78147 xmax: 179.1954 ymax: 78.24672</span></span>
-<span><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span></code></pre></div>
+<span><span class="co">#&gt; Reading 'ne_10m_airports.zip' from naturalearth...</span></span></code></pre></div>
 <p><img src="finding-data.Rmd-5-1.png"></p>
 </div>
 </div>

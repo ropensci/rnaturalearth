@@ -7,7 +7,7 @@
     <a href="https://ropensci.org" class="external-link"><img src="https://ropensci.org/img/icon_short_white.svg" id="hexlogo" alt="rOpenSci"></a>
     <a class="navbar-brand me-2" href="../index.html">rnaturalearth</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,9 +39,9 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="rnaturalearth-development-version">rnaturalearth (development version)<a class="anchor" aria-label="anchor" href="#rnaturalearth-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.1.0" id="rnaturalearth-110">rnaturalearth 1.1.0<a class="anchor" aria-label="anchor" href="#rnaturalearth-110"></a></h2>
 <div class="section level3">
-<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<h3 id="new-features-1-1-0">New features<a class="anchor" aria-label="anchor" href="#new-features-1-1-0"></a></h3>
 <ul><li><p>Data is now downloaded using the GDAL Virtual File System, allowing <code><a href="../reference/ne_download.html">ne_download()</a></code> to read data directly from the zip file without requiring extraction.</p></li>
 <li><p>We are transitioning to the <a href="https://www.geopackage.org/" class="external-link">GeoPackage</a> format when <code>load = FALSE</code> is used in <code><a href="../reference/ne_download.html">ne_download()</a></code>. This modern format is more efficient and flexible than the traditional shapefile format.</p></li>
 <li>
@@ -57,7 +57,7 @@
 </li>
 </ul></div>
 <div class="section level3">
-<h3 id="bug-fixes-and-general-improvements-development-version">Bug fixes and general improvements<a class="anchor" aria-label="anchor" href="#bug-fixes-and-general-improvements-development-version"></a></h3>
+<h3 id="bug-fixes-and-general-improvements-1-1-0">Bug fixes and general improvements<a class="anchor" aria-label="anchor" href="#bug-fixes-and-general-improvements-1-1-0"></a></h3>
 <ul><li><p>Updated the base URL for downloading data to <code>https://naciscdn.org/naturalearth</code>, replacing the previous <code>https://naturalearth.s3.amazonaws.com/</code> url. This change aligns with the <a href="https://www.naturalearthdata.com/" class="external-link">Natural Earth</a> website’s source.</p></li>
 <li><p>Improved package loading time by removing unnecessary imports and implementing lazy loading of dependencies (<a href="https://github.com/ropensci/rnaturalearth/issues/119" class="external-link">#119</a>). Thanks to <a href="https://github.com/heavywatal" class="external-link">@heavywatal</a>.</p></li>
 <li><p>Using the <code>cli</code> package for better messages.</p></li>
