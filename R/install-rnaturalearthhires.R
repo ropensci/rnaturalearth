@@ -6,7 +6,8 @@
 #' @export
 check_rnaturalearthhires <- function() {
   # TODO: This should be done dynamically by checking the version on Github
-  rnaturalearthhires_version <- "0.0.0.9000"
+  rnaturalearthhires_version <- "1.0.0.9000"
+
   if (!requireNamespace("rnaturalearthhires", quietly = TRUE)) {
     cli::cli_inform(
       "The {.pkg rnaturalearthhires} package needs to be installed."
