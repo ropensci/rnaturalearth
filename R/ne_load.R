@@ -14,10 +14,14 @@
 #' @param category one of natural earth categories : 'cultural', 'physical',
 #' 'raster'
 #'
-#' @param destdir folder to load files from, default=tempdir()
+#' @param destdir folder to load files from, default = tempdir()
 #'
 #' @param file_name OPTIONAL name of file (excluding path) instead of natural
 #' earth attributes
+#'
+#' @details This function should be used after first downloading the data with
+#' \code{ne_download(load = FALSE)}. The downloaded file can then be loaded
+#' using this function.
 #'
 #' @seealso \code{\link{ne_download}}
 #'
@@ -79,6 +83,7 @@ ne_load <- function(
   category <- match.arg(category)
 
   returnclass <- match.arg(returnclass)
+  scale <- check_scale(scale)
 
   if (returnclass == "sp") {
     deprecate_sp("ne_download(returnclass = 'sp')")
@@ -86,31 +91,26 @@ ne_load <- function(
 
   if (is.null(file_name)) {
     file_name <- ne_file_name(scale = scale, type = type, category = category)
-    file_name <- sanitize_gdal_url(file_name)
-    file_name <- tools::file_path_sans_ext(basename(file_name))
   }
 
-  error_msg <- "The file {.path {file_name}} seems not to exist in your local folder {.path {destdir}}. Did you download it using {.fn rnaturalearth::ne_download}?"
+  spatial_file_path <- make_dest_path(file_name, category, destdir)
+
+  error_msg <- "The file {.path {spatial_file_path}} seems not to exist in your local folder {.path {destdir}}. Did you download it using {.fn rnaturalearth::ne_download}?"
+
+  if (!file.exists(spatial_file_path)) {
+    cli::cli_abort(error_msg)
+  }
 
   if (category == "raster") {
-    file_tif <- file.path(destdir, paste0(file_name, ".tif"))
-
-    if (!file.exists(file_tif)) {
-      cli::cli_abort(error_msg)
-    }
-
-    rst <- terra::rast(file_tif)
+    rst <- terra::rast(spatial_file_path)
 
     return(rst)
   } else {
-    if (!file.exists(file.path(destdir, paste0(file_name, ".gpkg")))) {
-      cli::cli_abort(error_msg)
-    }
-
     layer <- layer_name(type, scale)
+
     # read in data as either sf of spatvector
     spatial_object <- read_spatial_vector(
-      paste0(destdir, "/", file_name, ".gpkg"),
+      spatial_file_path,
       layer = layer,
       returnclass
     )

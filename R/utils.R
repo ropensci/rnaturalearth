@@ -39,3 +39,24 @@ sanitize_gdal_url <- function(url) {
   url <- sub("^/vsizip//vsicurl/", "", url)
   sub("(.+\\.zip)/.*", "\\1", url)
 }
+
+#' Create Destination File Path
+#'
+#' @description Creates a destination file path by combining the directory path
+#' with a formatted filename based on the GDAL URL and category.
+#'
+#' @param gdal_url A character string representing the GDAL URL
+#' @param category A character string specifying the data category ("raster" or other)
+#' @param destdir A character string specifying the destination directory
+#'
+#' @return A character string representing the complete destination file path
+make_dest_path <- function(gdal_url, category, destdir) {
+  file.path(
+    destdir,
+    sprintf(
+      "%s.%s",
+      tools::file_path_sans_ext(basename(gdal_url)),
+      ifelse(category == "raster", "tif", "gpkg")
+    )
+  )
+}

@@ -27,7 +27,7 @@ filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'}
 \item{category}{one of natural earth categories : 'cultural', 'physical',
 'raster'}
 
-\item{destdir}{folder to load files from, default=tempdir()}
+\item{destdir}{folder to load files from, default = tempdir()}
 
 \item{file_name}{OPTIONAL name of file (excluding path) instead of natural
 earth attributes}
@@ -44,12 +44,9 @@ or `SpatVector` (from `terra`).
 returns loaded data as a spatial object.
 }
 \details{
-Note that the filename of the requested object will be returned if
-`load = FALSE`.
-
-If the data is to be loaded into memory (`load = TRUE`), the download will
-be handled using the GDAL virtual file system, allowing direct access to the
-data without writing it to disk.
+This function should be used after first downloading the data with
+\code{ne_download(load = FALSE)}. The downloaded file can then be loaded
+using this function.
 }
 \examples{
 \dontrun{

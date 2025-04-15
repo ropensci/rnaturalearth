@@ -87,9 +87,8 @@ ne_download <- function(
   if (!dir.exists(destdir)) {
     cli::cli_abort("{.arg destdir} must be an existing directory")
   }
-  warn <- returnclass == "sp" & load & category == "raster"
 
-  if (warn) {
+  if (returnclass == "sp") {
     deprecate_sp("ne_download(returnclass = 'sp')")
   }
 
@@ -104,8 +103,7 @@ ne_download <- function(
   cli::cli_inform("Reading {.file {basename(gdal_url)}} from naturalearth...")
 
   if (category == "raster") {
-    rst <- terra::rast(gdal_url)
-    if (load) return(rst)
+    spatial_object <- terra::rast(gdal_url)
   } else {
     layer <- layer_name(type, scale)
     spatial_object <- read_spatial_vector(
@@ -116,23 +114,16 @@ ne_download <- function(
     if (load) return(spatial_object)
   }
 
-  dest_file <- file.path(
-    destdir,
-    sprintf(
-      "%s.%s",
-      tools::file_path_sans_ext(basename(gdal_url)),
-      ifelse(category == "raster", "tif", "gpkg")
-    )
-  )
+  spatial_file_path <- make_dest_path(gdal_url, category, destdir)
 
   cli::cli_inform(
-    "Writing {.file {basename(dest_file)}} to {.path {destdir}}..."
+    "Writing {.file {basename(spatial_file_path)}} to {.path {destdir}}..."
   )
 
   if (category == "raster") {
     terra::writeRaster(
-      rst,
-      dest_file,
+      spatial_object,
+      spatial_file_path,
       overwrite = TRUE,
       gdal = c(
         "COMPRESS=ZSTD",
@@ -144,10 +135,10 @@ ne_download <- function(
       )
     )
   } else if (returnclass == "sf") {
-    sf::write_sf(spatial_object, dest_file, delete_dsn = TRUE)
+    sf::write_sf(spatial_object, spatial_file_path, delete_dsn = TRUE)
   } else {
-    terra::writeVector(spatial_object, dest_file, overwrite = TRUE)
+    terra::writeVector(spatial_object, spatial_file_path, overwrite = TRUE)
   }
 
-  return(dest_file)
+  return(spatial_file_path)
 }
