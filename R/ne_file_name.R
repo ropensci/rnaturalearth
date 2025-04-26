@@ -20,10 +20,10 @@
 #'
 #' @export
 ne_file_name <- function(
-  scale = 110L,
-  type = "countries",
-  category = c("cultural", "physical", "raster")
-) {
+    scale = 110L,
+    type = "countries",
+    category = c("cultural", "physical", "raster")
+    ) {
   scale <- check_scale(scale)
   category <- match.arg(category)
 
@@ -32,7 +32,7 @@ ne_file_name <- function(
   base_url <- "/vsizip//vsicurl/https://naciscdn.org/naturalearth"
 
   # Construct the file path based on the data category
-  file_name <- if (category == "raster") {
+  gdal_url <- if (category == "raster") {
     file.path(
       base_url,
       sprintf("%sm", scale),
@@ -50,7 +50,7 @@ ne_file_name <- function(
     )
   }
 
-  return(file_name)
+  return(gdal_url)
 }
 
 #' Normalize the type argument for Natural Earth datasets
