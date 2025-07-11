@@ -78,7 +78,7 @@ filename e.g. for 'MSR_50M.zip' this would be 'MSR_50M'</p></dd>
 
 
 <dt id="arg-destdir">destdir<a class="anchor" aria-label="anchor" href="#arg-destdir"></a></dt>
-<dd><p>folder to load files from, default=tempdir()</p></dd>
+<dd><p>folder to load files from, default = tempdir()</p></dd>
 
 
 <dt id="arg-file-name">file_name<a class="anchor" aria-label="anchor" href="#arg-file-name"></a></dt>
@@ -99,11 +99,9 @@ or `SpatVector` (from `terra`).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Note that the filename of the requested object will be returned if
-`load = FALSE`.</p>
-<p>If the data is to be loaded into memory (`load = TRUE`), the download will
-be handled using the GDAL virtual file system, allowing direct access to the
-data without writing it to disk.</p>
+    <p>This function should be used after first downloading the data with
+<code>ne_download(load = FALSE)</code>. The downloaded file can then be loaded
+using this function.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -114,18 +112,43 @@ data without writing it to disk.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># download followed by load from tempdir() works in same R session</span></span></span>
-<span class="r-in"><span><span class="va">spdf_world</span> <span class="op">&lt;-</span> <span class="fu"><a href="ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span>, type <span class="op">=</span> <span class="st">"countries"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">spdf_world2</span> <span class="op">&lt;-</span> <span class="fu">ne_load</span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span>, type <span class="op">=</span> <span class="st">"countries"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">spdf_world</span> <span class="op">&lt;-</span> <span class="fu"><a href="ne_download.html">ne_download</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  scale <span class="op">=</span> <span class="fl">110</span>,</span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"countries"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">spdf_world2</span> <span class="op">&lt;-</span> <span class="fu">ne_load</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  scale <span class="op">=</span> <span class="fl">110</span>,</span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"countries"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># download followed by load from specified directory works between R sessions</span></span></span>
-<span class="r-in"><span><span class="va">spdf_world</span> <span class="op">&lt;-</span> <span class="fu"><a href="ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span>, type <span class="op">=</span> <span class="st">"countries"</span>, destdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">spdf_world2</span> <span class="op">&lt;-</span> <span class="fu">ne_load</span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">110</span>, type <span class="op">=</span> <span class="st">"countries"</span>, destdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">spdf_world</span> <span class="op">&lt;-</span> <span class="fu"><a href="ne_download.html">ne_download</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  scale <span class="op">=</span> <span class="fl">110</span>,</span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"countries"</span>,</span></span>
+<span class="r-in"><span>  destdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">spdf_world2</span> <span class="op">&lt;-</span> <span class="fu">ne_load</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  scale <span class="op">=</span> <span class="fl">110</span>,</span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"countries"</span>,</span></span>
+<span class="r-in"><span>  destdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># for raster download &amp; load</span></span></span>
-<span class="r-in"><span><span class="va">rst</span> <span class="op">&lt;-</span> <span class="fu"><a href="ne_download.html">ne_download</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">50</span>, type <span class="op">=</span> <span class="st">"OB_50M"</span>, category <span class="op">=</span> <span class="st">"raster"</span>, destdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rst</span> <span class="op">&lt;-</span> <span class="fu"><a href="ne_download.html">ne_download</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  scale <span class="op">=</span> <span class="fl">50</span>,</span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"OB_50M"</span>,</span></span>
+<span class="r-in"><span>  category <span class="op">=</span> <span class="st">"raster"</span>,</span></span>
+<span class="r-in"><span>  destdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  load <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># load after having downloaded</span></span></span>
-<span class="r-in"><span><span class="va">rst</span> <span class="op">&lt;-</span> <span class="fu">ne_load</span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">50</span>, type <span class="op">=</span> <span class="st">"OB_50M"</span>, category <span class="op">=</span> <span class="st">"raster"</span>, destdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rst</span> <span class="op">&lt;-</span> <span class="fu">ne_load</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  scale <span class="op">=</span> <span class="fl">50</span>,</span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="st">"OB_50M"</span>,</span></span>
+<span class="r-in"><span>  category <span class="op">=</span> <span class="st">"raster"</span>,</span></span>
+<span class="r-in"><span>  destdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># plot</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
