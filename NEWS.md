@@ -1,10 +1,10 @@
-# rnaturalearth 1.1.0
+# rnaturalearth (development version)
 
 ## New features
 
 - Data is now downloaded using the GDAL Virtual File System, allowing `ne_download()` to read data directly from the zip file without requiring extraction.
 
-- We are transitioning to the [GeoPackage](https://www.geopackage.org/) format when `load = FALSE` is used in `ne_download()`. This modern format is more efficient and flexible than the traditional shapefile format.
+- We are transitioning to the [GeoPackage](https://www.geopackage.org/) format when `load = FALSE` is used in `ne_download()`. This modern format is more efficient and flexible than the previously use shapefile format.
 
 - Similarly, raster data (GeoTIFF) is now read directly from the zip file and written to the specified directory. For example, the following code downloads the 50m raster dataset and saves it to the working directory:
 
@@ -112,8 +112,8 @@ More information about the retirement of `rgdal`, `rgeos` and `maptools`: https:
 # rnaturalearth 0.3.2
 
 - Added new maintainer and contributors ([#62](https://github.com/ropensci/rnaturalearth/issues/62)).
-- Using terra over raster ([#63](https://github.com/ropensci/rnaturalearth/pull/63))
 
+- Using terra over raster ([#63](https://github.com/ropensci/rnaturalearth/pull/63))
   - See <https://r-spatial.org/r/2022/04/12/evolution.html#packages-depending-on-sp-and-raster> and <https://r-spatial.org/r/2022/12/14/evolution2.html#deprecations-in-retiring-packages>
 
 - Fixes broken data download links.
