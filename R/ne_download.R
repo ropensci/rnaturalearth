@@ -74,13 +74,13 @@
 #'
 #' @export
 ne_download <- function(
-    scale = 110L,
-    type = "countries",
-    category = c("cultural", "physical", "raster"),
-    destdir = tempdir(),
-    load = TRUE,
-    returnclass = c("sf", "sv")
-    ) {
+  scale = 110L,
+  type = "countries",
+  category = c("cultural", "physical", "raster"),
+  destdir = tempdir(),
+  load = TRUE,
+  returnclass = c("sf", "sv")
+) {
   category <- match.arg(category)
   returnclass <- match.arg(returnclass)
 
@@ -111,7 +111,10 @@ ne_download <- function(
       layer = layer,
       returnclass = returnclass
     )
-    if (load) return(spatial_object)
+  }
+
+  if (load) {
+    return(spatial_object)
   }
 
   spatial_file_path <- make_dest_path(gdal_url, category, destdir)
@@ -140,5 +143,5 @@ ne_download <- function(
     terra::writeVector(spatial_object, spatial_file_path, overwrite = TRUE)
   }
 
-  return(spatial_file_path)
+  invisible(spatial_file_path)
 }
