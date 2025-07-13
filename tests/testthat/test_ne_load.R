@@ -18,7 +18,7 @@ test_that("ne_load works for raster files", {
     destdir = tempdir()
   )
 
-  expect_true(inherits(rst, "SpatRaster"))
+  expect_s4_class(rst, "SpatRaster")
 })
 
 test_that("ne_load works for vector files", {
@@ -33,8 +33,28 @@ test_that("ne_load works for vector files", {
   )
 
   vect <- ne_load(scale = 50L, destdir = tempdir(), returnclass = "sv")
-  expect_true(inherits(vect, "SpatVector"))
+  expect_s4_class(vect, "SpatVector")
 
   vect <- ne_load(scale = 50L, destdir = tempdir(), returnclass = "sf")
-  expect_true(inherits(vect, "sf"))
+  expect_s3_class(vect, "sf")
+
+  tmpdir <- tempdir()
+  scale <- "medium"
+
+  ne_download(
+    scale = scale,
+    type = "land",
+    category = "physical",
+    destdir = tmpdir,
+    load = FALSE
+  )
+
+  vect <- ne_load(
+    scale = scale,
+    type = "land",
+    category = "physical",
+    destdir = tmpdir
+  )
+
+  expect_s3_class(vect, "sf")
 })
