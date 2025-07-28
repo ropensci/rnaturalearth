@@ -14,4 +14,6 @@ We checked 54 reverse dependencies (22 from CRAN + 32 from Bioconductor), compar
   - os: ubuntu-latest with r: 'release'
   - os: ubuntu-latest with r: 'oldrel-1'
 
-An additional reverse dependency check error was pointed out by the CRAN team about the `slandr`. I have contacted the maintainer of the package and proposed a fix (https://github.com/bodkan/slendr/pull/180).
+## CRAN submission
+
+The package was submitted to CRAN on 2025-07-13. The submission was canceled due to the need to fix a reverse dependency issue with the `slandr` package, which was identified during the CRAN checks. I have contacted the maintainer of the package and proposed a fix (https://github.com/bodkan/slendr/pull/180). The maintainer has merged the fix and will submit a new version to CRAN soon.
