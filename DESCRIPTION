@@ -1,6 +1,6 @@
 Package: rnaturalearth
 Title: World Map Data from Natural Earth
-Version: 1.1.0
+Version: 1.1.0.9000
 Authors@R: c(
   person(
     family = "Massicotte",
