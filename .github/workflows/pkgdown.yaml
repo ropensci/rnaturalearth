@@ -33,12 +33,9 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::pkgdown, local::.
+          pak-version: "devel"
+          extra-packages: any::pkgdown, ropensci-org/rotemplate, local::.
           needs: website
-
-      - name: Install dependencies
-        run: devtools::install_github("https://github.com/ropensci-org/rotemplate")
-        shell: Rscript {0}
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
