@@ -1,7 +1,7 @@
 #' Check whether to install rnaturalearthdata and install if necessary
 #'
 #' If the rnaturalearthdata package is not installed, install it from GitHub
-#' using devtools. If it is not up to date, reinstall it.
+#' using pak. If it is not up to date, reinstall it.
 #'
 #' @export
 check_rnaturalearthdata <- function() {

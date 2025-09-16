@@ -1,7 +1,7 @@
 #' Check whether to install rnaturalearthhires and install if necessary
 #'
 #' If the rnaturalearthhires package is not installed, install it from GitHub
-#' using devtools. If it is not up to date, reinstall it.
+#' using pak. If it is not up to date, reinstall it.
 #'
 #' @export
 check_rnaturalearthhires <- function() {
@@ -37,14 +37,14 @@ install_rnaturalearthhires <- function() {
 
   if (input != 1L) {
     cli::cli_abort(
-      "The {.pkg rnaturalearthhires} package is necessary for that method.\n Please try installing the package yourself with {.code devtools::install_github(\"ropensci/rnaturalearthhires\")}"
+      "The {.pkg rnaturalearthhires} package is necessary for that method.\n Please try installing the package yourself with {.code pak::pkg_install(\"ropensci/rnaturalearthhires\")}"
     )
   }
 
   cli::cli_inform("Installing the {.pkg rnaturalearthhires} package.")
 
   tryCatch(
-    devtools::install_github("ropensci/rnaturalearthhires"),
+    pak::pkg_install("ropensci/rnaturalearthhires"),
     error = function(e) {
       cli::cli_inform(conditionMessage(e))
     }
