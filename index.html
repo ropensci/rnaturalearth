@@ -85,13 +85,13 @@
 <p>Install from CRAN :</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rnaturalearth"</span><span class="op">)</span></span></code></pre></div>
-<p>or install the development version from GitHub using <a href="https://github.com/r-lib/devtools" class="external-link">devtools</a>.</p>
+<p>or install the development version from GitHub using <a href="https://github.com/r-lib/pak/" class="external-link">pak</a>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropensci/rnaturalearth"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"ropensci/rnaturalearth"</span><span class="op">)</span></span></code></pre></div>
 <p>Data to support much of the package functionality are stored in two data packages that you will be prompted to install when required if you do not do so here.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropensci/rnaturalearthdata"</span><span class="op">)</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropensci/rnaturalearthhires"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"ropensci/rnaturalearthdata"</span><span class="op">)</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"ropensci/rnaturalearthhires"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="first-usage">First usage<a class="anchor" aria-label="anchor" href="#first-usage"></a>
@@ -200,8 +200,7 @@
 <h3 id="potential-additional-functions">Potential additional functions<a class="anchor" aria-label="anchor" href="#potential-additional-functions"></a>
 </h3>
 <ul>
-<li>
-<p>facilitate joining of user data to country boundaries</p>
+<li>facilitate joining of user data to country boundaries
 <ul>
 <li>similar to <a href="https://github.com/AndySouth/rworldmap/blob/master/R/joinCountryData2Map.R" class="external-link uri">https://github.com/AndySouth/rworldmap/blob/master/R/joinCountryData2Map.R</a>
 </li>
@@ -210,8 +209,7 @@
 <li>similar reporting of country joining success and failure</li>
 </ul>
 </li>
-<li>
-<p>facilitate subsetting by country groupings</p>
+<li>facilitate subsetting by country groupings
 <ul>
 <li>e.g. least developed countries etc.</li>
 </ul>
