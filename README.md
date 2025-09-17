@@ -53,10 +53,10 @@ install.packages("rnaturalearth")
 ```
 
 or install the development version from GitHub using
-[devtools](https://github.com/r-lib/devtools).
+[pak](https://github.com/r-lib/pak/).
 
 ``` r
-devtools::install_github("ropensci/rnaturalearth")
+pak::pkg_install("ropensci/rnaturalearth")
 ```
 
 Data to support much of the package functionality are stored in two data
@@ -64,8 +64,8 @@ packages that you will be prompted to install when required if you do
 not do so here.
 
 ``` r
-devtools::install_github("ropensci/rnaturalearthdata")
-devtools::install_github("ropensci/rnaturalearthhires")
+pak::pkg_install("ropensci/rnaturalearthdata")
+pak::pkg_install("ropensci/rnaturalearthhires")
 ```
 
 ## First usage
@@ -198,14 +198,11 @@ resource.
 ### Potential additional functions
 
 - facilitate joining of user data to country boundaries
-
   - similar to
     <https://github.com/AndySouth/rworldmap/blob/master/R/joinCountryData2Map.R>
   - … but with a better name
   - similar allowing of join by ISO codes or names, with attempted
     synonym matching
   - similar reporting of country joining success and failure
-
 - facilitate subsetting by country groupings
-
   - e.g. least developed countries etc.

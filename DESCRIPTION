@@ -40,7 +40,7 @@ Imports:
     terra,
     utils (>= 3.2.3)
 Suggests:
-    devtools (>= 1.10.0),
+    pak,
     dplyr,
     ggplot2,
     ggrepel,
@@ -56,4 +56,4 @@ Suggests:
     tmap
 Config/Needs/website: ropensci/rnaturalearthhires
 VignetteBuilder: knitr
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3

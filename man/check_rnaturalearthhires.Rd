@@ -8,5 +8,5 @@ check_rnaturalearthhires()
 }
 \description{
 If the rnaturalearthhires package is not installed, install it from GitHub
-using devtools. If it is not up to date, reinstall it.
+using pak. If it is not up to date, reinstall it.
 }

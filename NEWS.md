@@ -1,5 +1,7 @@
 # rnaturalearth (development version)
 
+- Replaced `devtools` with `pak` for installing companion packages `rnaturalearthdata` and `rnaturalearthhires` from GitHub, reducing dependencies.
+
 # rnaturalearth 1.1.0
 
 ## New features
