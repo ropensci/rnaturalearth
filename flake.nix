@@ -43,7 +43,6 @@
     {
       overlays.default = final: prev: rec {
         # Define your package's runtime dependencies once (from DESCRIPTION Imports:)
-        # Uncomment and add your dependencies here to avoid duplication
         myPackageRuntimeDeps =
           (with final.rPackages; [
             cli
@@ -68,6 +67,7 @@
             R
             gcc
             gnumake
+            qpdf
           ];
 
           meta = {
@@ -123,6 +123,12 @@
             usethis # Workflow automation for package development
             pkgdown # Generate package website
             rcmdcheck # Run R CMD check from R
+            pak
+            dplyr
+            ggplot2
+            ggrepel
+            pbapply
+            tmap
 
             # ============================================================
             # EDITOR/IDE INTEGRATION
@@ -133,50 +139,41 @@
             httpgd # Modern graphics device for web-based plotting
             lintr # Static code analysis and linting
             cyclocomp # Code complexity analysis
-
-            # ============================================================
-            # VIGNETTES AND DOCUMENTATION
-            # Add these if your package has vignettes (from DESCRIPTION Suggests)
-            # ============================================================
-            # knitr
-            # rmarkdown
-            # quarto
-
-            # ============================================================
-            # SUGGESTED PACKAGES (OPTIONAL)
-            # Add packages from your DESCRIPTION file's "Suggests:" section
-            # These are only needed for examples, tests, or vignettes
-            # ============================================================
-            # Example from eemR:
-            # ggplot2
-            # plot3D
-            # testthat
-            # knitr
-            # rmarkdown
-            # tidyr
-            # shiny
-            # DT
-            # MBA
-            # covr
-
-            # ============================================================
-            # ADDITIONAL DEV-ONLY TOOLS
-            # Packages that help with development but aren't in DESCRIPTION
-            # ============================================================
+            tibble
             cli # Modern CLI interfaces
             fs # File system operations
-            # cyclocomp   # Code complexity analysis
-            # covr        # Test coverage
-            # spelling    # Spell checking for documentation
           ])
-          # Uncomment the line below when you've defined myPackageRuntimeDeps above
           ++ myPackageRuntimeDeps;
 
         # Create rWrapper with packages (for LSP and R.nvim)
-        wrappedR = final.rWrapper.override { packages = rPackageList; };
+        baseWrappedR = final.rWrapper.override { packages = rPackageList; };
+
+        # Wrap R with R_QPDF environment variable
+        wrappedR = final.symlinkJoin {
+          name = "wrapped-r-with-qpdf";
+          paths = [ baseWrappedR ];
+          buildInputs = [ final.makeWrapper ];
+          postBuild = ''
+            wrapProgram $out/bin/R \
+              --set R_QPDF "${final.qpdf}/bin/qpdf"
+            wrapProgram $out/bin/Rscript \
+              --set R_QPDF "${final.qpdf}/bin/qpdf"
+          '';
+        };
 
         # Create radianWrapper with same packages (for interactive use)
-        wrappedRadian = final.radianWrapper.override { packages = rPackageList; };
+        baseWrappedRadian = final.radianWrapper.override { packages = rPackageList; };
+
+        # Wrap radian with R_QPDF environment variable
+        wrappedRadian = final.symlinkJoin {
+          name = "wrapped-radian-with-qpdf";
+          paths = [ baseWrappedRadian ];
+          buildInputs = [ final.makeWrapper ];
+          postBuild = ''
+            wrapProgram $out/bin/radian \
+              --set R_QPDF "${final.qpdf}/bin/qpdf"
+          '';
+        };
       };
 
       devShells = forEachSupportedSystem (
@@ -186,6 +183,7 @@
             packages = with pkgs; [
               wrappedR # R with packages for LSP
               wrappedRadian # radian with packages for interactive use
+              qpdf # PDF compression checks
 
               # Additional system tools for package development
               # git           # Version control
@@ -194,6 +192,9 @@
             ];
 
             shellHook = ''
+              # Set R_QPDF environment variable for R CMD check
+              export R_QPDF="${pkgs.qpdf}/bin/qpdf"
+
               echo "🔧 R Package Development Environment"
               echo ""
               echo "Quick commands:"
