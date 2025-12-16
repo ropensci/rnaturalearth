@@ -1,15 +1,35 @@
-^.*\.Rproj$
-^\.Rproj\.user$
-^\.travis\.yml$
-^data-raw$
-^appveyor\.yml$
-^README\.Rmd$
-^README-.*\.png$
-^cran-comments.md$
+# Nix development environment files
+^flake\.nix$
+^flake\.lock$
+^\.envrc$
+^\.direnv$
+
+# Git
+^\.git$
 ^\.github$
-^doc$
-^Meta$
-^CRAN-SUBMISSION$
+^\.gitignore$
+
+# Development files
+^\.Rproj\.user$
+^.*\.Rproj$
+^\.lintr\.R$
+
+# Documentation build artifacts (if using pkgdown)
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+
+# CI/CD
+^\.travis\.yml$
+^appveyor\.yml$
+^\.gitlab-ci\.yml$
+^codecov\.yml$
+
+# Other common files to exclude
+^README\.Rmd$
+^README\.qmd$
+^cran-comments\.md$
+^NEWS\.md$
+^LICENSE\.md$
+^CODE_OF_CONDUCT\.md$
+^CONTRIBUTING\.md$
