@@ -28,7 +28,16 @@
 #' `load = FALSE`.
 #'
 #' @details
-#' If the data is to be loaded into memory (`load = TRUE`), the download will
+#' **Caching behavior:** When `load = TRUE` and `destdir` is set to a persistent
+#' directory (not `tempdir()`), the function will check if the file already
+#' exists locally. If it does, it will load from the cached file instead of
+#' re-downloading. If the file doesn't exist, it will download from Natural Earth,
+#' save a copy to `destdir`, and then load it into R. This allows you to use the
+#' same code whether it's the first download or a subsequent load, avoiding
+#' redundant downloads.
+#'
+#' @details
+#' If `load = TRUE` and `destdir = tempdir()` (the default), the download will
 #' be handled using the GDAL virtual file system, allowing direct access to the
 #' data without writing it to disk.
 #'
@@ -44,29 +53,39 @@
 #' or `SpatVector` (from `terra`).
 #'
 #' @examples \dontrun{
+#' # Download and load into R (default behavior, no local copy saved)
 #' spdf_world <- ne_download(scale = 110, type = "countries")
-#'
 #' plot(spdf_world)
-#' plot(ne_download(type = "populated_places"))
 #'
-#' # reloading from the saved file in the same session with same arguments
+#' # Download with caching: first call downloads and saves, subsequent calls load from cache
+#' # First call: downloads from Natural Earth and saves to "my_maps" directory
+#' spdf_world <- ne_download(scale = 110, type = "countries", destdir = "my_maps")
 #'
-#' spdf_world2 <- ne_load(scale = 110, type = "countries")
+#' # Second call: loads from cached file in "my_maps" (no re-download)
+#' spdf_world2 <- ne_download(scale = 110, type = "countries", destdir = "my_maps")
 #'
-#' # download followed by load from specified directory will work across sessions
-#' spdf_world <- ne_download(scale = 110, type = "countries", destdir = getwd())
-#' spdf_world2 <- ne_load(scale = 110, type = "countries", destdir = getwd())
+#' # This works the same across R sessions - same code, caches automatically
 #'
-#' # for raster, here an example with Manual Shaded Relief (MSR) download & load
+#' # You can also use ne_load() to explicitly load from cache
+#' spdf_world3 <- ne_load(scale = 110, type = "countries", destdir = "my_maps")
 #'
-#' rst <- ne_download(scale = 50, type = "MSR_50M", category = "raster", destdir = getwd())
-#'
-#' # load after having downloaded
-#' rst <- ne_load(
-#'   scale = 50, type = "MSR_50M", category = "raster", destdir = getwd()
+#' # Download and save without loading into R
+#' file_path <- ne_download(
+#'   scale = 110, type = "countries",
+#'   destdir = "my_maps", load = FALSE
 #' )
 #'
-#' # plot
+#' # Raster example with caching
+#' rst <- ne_download(
+#'   scale = 50, type = "MSR_50M",
+#'   category = "raster", destdir = "my_maps"
+#' )
+#' # Subsequent calls will use cached version
+#' rst2 <- ne_download(
+#'   scale = 50, type = "MSR_50M",
+#'   category = "raster", destdir = "my_maps"
+#' )
+#'
 #' library(terra)
 #' terra::plot(rst)
 #' # end dontrun
@@ -100,6 +119,32 @@ ne_download <- function(
     category = category
   )
 
+  # Check if we should use cached file
+  # When load = TRUE and destdir is not tempdir, use caching behavior
+  use_cache <- load && !identical(destdir, tempdir())
+
+  if (use_cache) {
+    spatial_file_path <- make_dest_path(gdal_url, category, destdir)
+
+    # If file exists in cache, load it
+    if (file.exists(spatial_file_path)) {
+      cli::cli_inform(
+        "Loading {.file {basename(spatial_file_path)}} from cache..."
+      )
+
+      if (category == "raster") {
+        return(terra::rast(spatial_file_path))
+      } else {
+        layer <- layer_name(type, scale)
+        return(read_spatial_vector(
+          spatial_file_path,
+          layer = layer,
+          returnclass = returnclass
+        ))
+      }
+    }
+  }
+
   cli::cli_inform("Reading {.file {basename(gdal_url)}} from naturalearth...")
 
   if (category == "raster") {
@@ -114,6 +159,35 @@ ne_download <- function(
   }
 
   if (load) {
+    # If using cache directory, save a copy for future use
+    if (use_cache) {
+      spatial_file_path <- make_dest_path(gdal_url, category, destdir)
+
+      cli::cli_inform(
+        "Writing {.file {basename(spatial_file_path)}} to {.path {destdir}}..."
+      )
+
+      if (category == "raster") {
+        terra::writeRaster(
+          spatial_object,
+          spatial_file_path,
+          overwrite = TRUE,
+          gdal = c(
+            "COMPRESS=ZSTD",
+            "PREDICTOR=2",
+            "TILED=YES",
+            "TFW=NO",
+            "BLOCKXSIZE=256",
+            "BLOCKYSIZE=256"
+          )
+        )
+      } else if (returnclass == "sf") {
+        sf::write_sf(spatial_object, spatial_file_path, delete_dsn = TRUE)
+      } else {
+        terra::writeVector(spatial_object, spatial_file_path, overwrite = TRUE)
+      }
+    }
+
     return(spatial_object)
   }
 

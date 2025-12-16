@@ -2,6 +2,8 @@
 
 - Replaced `devtools` with `pak` for installing companion packages `rnaturalearthdata` and `rnaturalearthhires` from GitHub, reducing dependencies (@121). Thanks to @richardjtelford for the suggestion.
 
+- Added automatic caching to `ne_download()`: when `destdir` is set to a persistent directory, the function now checks for existing files and loads from cache instead of re-downloading. Thank you to @plantarum for the suggestion (#124).
+
 # rnaturalearth 1.1.0
 
 ## New features
