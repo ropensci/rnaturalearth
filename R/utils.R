@@ -14,7 +14,7 @@ read_spatial_vector <- function(x, layer, returnclass = c("sf", "sv")) {
   returnclass <- match.arg(returnclass)
   switch(
     returnclass,
-    sf = sf::read_sf(x, layer = layer),
+    sf = sf::st_read(x, layer = layer, quiet = TRUE, stringsAsFactors = FALSE),
     sv = terra::vect(x, layer = layer)
   )
 }
