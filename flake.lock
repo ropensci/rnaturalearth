@@ -1,0 +1,78 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1765762245,
+        "narHash": "sha256-3iXM/zTqEskWtmZs3gqNiVtRTsEjYAedIaLL0mSBsrk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c8cfcd6ccd422e41cc631a0b73ed4d5a925c393d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-25.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "rNvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765826395,
+        "narHash": "sha256-pfzdJR7RUKPsxU9vlPN6G30mQUtugilNO8ri8EbmSt0=",
+        "owner": "R-nvim",
+        "repo": "R.nvim",
+        "rev": "d8eeaabfe74acb034eacf3793c459609b9fe7ebe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "R-nvim",
+        "repo": "R.nvim",
+        "type": "github"
+      }
+    },
+    "rnaturalearthdata": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740777745,
+        "narHash": "sha256-hoGzV5KAhzc/mHMDqTTBZzKkim6qPOxVf6bZcM+LzfY=",
+        "owner": "ropensci",
+        "repo": "rnaturalearthdata",
+        "rev": "ff4d891f74265473ae2c936dcfeb0c9afeac6631",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ropensci",
+        "repo": "rnaturalearthdata",
+        "type": "github"
+      }
+    },
+    "rnaturalearthhires": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751713976,
+        "narHash": "sha256-h+Y37U2aV/F54X+87iNBeRFcrYpNYPS/zzczVO+xZVs=",
+        "owner": "ropensci",
+        "repo": "rnaturalearthhires",
+        "rev": "e4736f636baa1c013d77d2ba028dd5bc334defee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ropensci",
+        "repo": "rnaturalearthhires",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "rNvim": "rNvim",
+        "rnaturalearthdata": "rnaturalearthdata",
+        "rnaturalearthhires": "rnaturalearthhires"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
