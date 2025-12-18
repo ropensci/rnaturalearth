@@ -187,7 +187,7 @@
 
               # Additional system tools for package development
               # git           # Version control
-              # pandoc        # Document conversion (for vignettes)
+              pandoc        # Document conversion (for vignettes)
               # quarto        # Modern publishing system
             ];
 

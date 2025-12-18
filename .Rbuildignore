@@ -2,7 +2,7 @@
 ^flake\.nix$
 ^flake\.lock$
 ^\.envrc$
-^\.direnv$
+^\.direnv
 
 # Git
 ^\.git$
