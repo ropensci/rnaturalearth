@@ -8,6 +8,14 @@
   [@richardjtelford](https://github.com/richardjtelford) for the
   suggestion.
 
+- Added automatic caching to
+  [`ne_download()`](http://ropensci.github.io/rnaturalearth/reference/ne_download.md):
+  when `destdir` is set to a persistent directory, the function now
+  checks for existing files and loads from cache instead of
+  re-downloading. Thank you to
+  [@plantarum](https://github.com/plantarum) for the suggestion
+  ([\#124](https://github.com/ropensci/rnaturalearth/issues/124)).
+
 ## rnaturalearth 1.1.0
 
 CRAN release: 2025-07-28
