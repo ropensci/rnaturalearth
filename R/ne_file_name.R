@@ -20,10 +20,10 @@
 #'
 #' @export
 ne_file_name <- function(
-    scale = 110L,
-    type = "countries",
-    category = c("cultural", "physical", "raster")
-    ) {
+  scale = 110L,
+  type = "countries",
+  category = c("cultural", "physical", "raster")
+) {
   scale <- check_scale(scale)
   category <- match.arg(category)
 
@@ -37,9 +37,8 @@ ne_file_name <- function(
       base_url,
       sprintf("%sm", scale),
       category,
-      sprintf("MSR_%sM.zip", scale),
-      sprintf("MSR_%sM", scale),
-      sprintf("MSR_%sM.tif", scale)
+      sprintf("%s.zip", type),
+      sprintf("%s.tif", type)
     )
   } else {
     file.path(

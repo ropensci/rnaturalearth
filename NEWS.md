@@ -4,6 +4,8 @@
 
 - Added automatic caching to `ne_download()`: when `destdir` is set to a persistent directory, the function now checks for existing files and loads from cache instead of re-downloading. Thank you to @plantarum for the suggestion (#124).
 
+- Fixed raster downloads in `ne_download()` by handling Natural Earth's inconsistent zip structures, where some rasters have a subfolder inside the archive and others do not (#126).
+
 # rnaturalearth 1.1.0
 
 ## New features

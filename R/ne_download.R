@@ -148,7 +148,21 @@ ne_download <- function(
   cli::cli_inform("Reading {.file {basename(gdal_url)}} from naturalearth...")
 
   if (category == "raster") {
-    spatial_object <- terra::rast(gdal_url)
+    # Try without subfolder first (TYPE.zip/TYPE.tif), then with subfolder
+    # (TYPE.zip/TYPE/TYPE.tif) since Natural Earth zips have inconsistent
+    # structure
+    spatial_object <- tryCatch(
+      suppressWarnings(terra::rast(gdal_url)),
+      error = function(e) {
+        type_name <- tools::file_path_sans_ext(basename(gdal_url))
+        gdal_url_with_folder <- file.path(
+          dirname(gdal_url),
+          type_name,
+          basename(gdal_url)
+        )
+        terra::rast(gdal_url_with_folder)
+      }
+    )
   } else {
     layer <- layer_name(type, scale)
     spatial_object <- read_spatial_vector(
