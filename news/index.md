@@ -16,6 +16,12 @@
   [@plantarum](https://github.com/plantarum) for the suggestion
   ([\#124](https://github.com/ropensci/rnaturalearth/issues/124)).
 
+- Fixed raster downloads in
+  [`ne_download()`](http://ropensci.github.io/rnaturalearth/reference/ne_download.md)
+  by handling Natural Earth’s inconsistent zip structures, where some
+  rasters have a subfolder inside the archive and others do not
+  ([\#126](https://github.com/ropensci/rnaturalearth/issues/126)).
+
 ## rnaturalearth 1.1.0
 
 CRAN release: 2025-07-28
