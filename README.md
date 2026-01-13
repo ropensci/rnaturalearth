@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
 <!-- used devtools::build_readme() to update the md -->
+
 <!-- badges: start -->
 
 [![CRAN
