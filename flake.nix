@@ -18,6 +18,16 @@
     flake = false;
   };
 
+  inputs.crancache = {
+    url = "github:r-lib/crancache";
+    flake = false;
+  };
+
+  inputs.revdepcheck = {
+    url = "github:r-lib/revdepcheck";
+    flake = false;
+  };
+
   outputs =
     { self, ... }@inputs:
     let
@@ -42,20 +52,28 @@
     in
     {
       overlays.default = final: prev: rec {
-        # Define your package's runtime dependencies once (from DESCRIPTION Imports:)
-        myPackageRuntimeDeps =
-          (with final.rPackages; [
-            cli
-            httr
-            jsonlite
-            sf
-            terra
-          ])
-          ++ [
-            # GitHub-sourced packages
-            rnaturalearthdata
-            rnaturalearthhires
-          ];
+        # ==============================================================================
+        # SECTION 1: YOUR PACKAGE'S DEPENDENCIES (from DESCRIPTION file)
+        # ==============================================================================
+        # These are the packages YOUR package needs to run (Imports field)
+        runtimeDeps = with final.rPackages; [
+          cli
+          httr
+          jsonlite
+          sf
+          terra
+        ];
+
+        # These are data packages from GitHub that your package needs
+        githubDataDeps = [
+          rnaturalearthdata
+          rnaturalearthhires
+        ];
+
+        # ==============================================================================
+        # SECTION 2: BUILD SPECIAL PACKAGES (from GitHub, not from CRAN)
+        # ==============================================================================
+        # These packages aren't on CRAN, so we build them from source
 
         # Build nvimcom manually from R.nvim source
         nvimcom = final.rPackages.buildRPackage {
@@ -101,52 +119,117 @@
           };
         };
 
-        # Build your R package
+        # Build crancache from GitHub
+        crancache = final.rPackages.buildRPackage {
+          name = "crancache";
+          src = inputs.crancache;
+          propagatedBuildInputs = with final.rPackages; [
+            callr
+            cranlike
+            curl
+            desc
+            digest
+            parsedate
+            rappdirs
+            rematch2
+            withr
+          ];
+        };
+
+        # Build revdepcheck from GitHub
+        revdepcheck = final.rPackages.buildRPackage {
+          name = "revdepcheck";
+          src = inputs.revdepcheck;
+          propagatedBuildInputs = with final.rPackages; [
+            DBI
+            RSQLite
+            assertthat
+            brio
+            callr
+            cli
+            clisymbols
+            crancache
+            crayon
+            curl
+            desc
+            glue
+            gmailr
+            hms
+            httr
+            jsonlite
+            knitr
+            pkgbuild
+            prettyunits
+            processx
+            progress
+            rcmdcheck
+            rematch2
+            remotes
+            rlang
+            sessioninfo
+            tibble
+            whoami
+            withr
+            yaml
+          ];
+        };
+
+        # ==============================================================================
+        # SECTION 3: BUILD YOUR PACKAGE
+        # ==============================================================================
         rnaturalearth = final.rPackages.buildRPackage {
           name = "rnaturalearth";
           src = ./.;
-
-          # Reuse the runtime dependencies defined above
-          propagatedBuildInputs = myPackageRuntimeDeps;
+          # Give it the runtime dependencies from Section 1
+          propagatedBuildInputs = runtimeDeps ++ githubDataDeps;
         };
 
-        # Define R packages for the development environment
-        rPackageList =
-          (with final.rPackages; [
-            # ============================================================
-            # CORE DEVELOPMENT TOOLS
-            # These are essential for R package development and testing
-            # ============================================================
-            devtools # Package development tools (load_all, document, etc.)
-            roxygen2 # Documentation generation from code comments
-            testthat # Unit testing framework
-            usethis # Workflow automation for package development
-            pkgdown # Generate package website
-            rcmdcheck # Run R CMD check from R
-            pak
-            dplyr
-            ggplot2
-            ggrepel
-            pbapply
-            tmap
+        # ==============================================================================
+        # SECTION 4: DEVELOPMENT ENVIRONMENT PACKAGES
+        # ==============================================================================
+        # All the packages you want available when developing
+        # This is SEPARATE from your package's runtime dependencies!
 
-            # ============================================================
-            # EDITOR/IDE INTEGRATION
-            # Required for R.nvim, LSP, and interactive development
-            # ============================================================
-            languageserver # LSP server for code completion and diagnostics
-            nvimcom # R.nvim communication package
-            httpgd # Modern graphics device for web-based plotting
-            lintr # Static code analysis and linting
-            cyclocomp # Code complexity analysis
-            tibble
-            cli # Modern CLI interfaces
-            fs # File system operations
-          ])
-          ++ myPackageRuntimeDeps;
+        devPackages = with final.rPackages; [
+          # Development tools
+          devtools
+          roxygen2
+          testthat
+          usethis
+          pkgdown
+          rcmdcheck
+          pak
+          urlchecker
+          crancache
+          revdepcheck
 
+          # Editor support (nvim, LSP, etc.)
+          languageserver
+          nvimcom
+          httpgd
+          lintr
+          cyclocomp
+
+          # Useful packages for development/testing
+          dplyr
+          ggplot2
+          ggrepel
+          pbapply
+          tmap
+          tibble
+          cli
+          fs
+        ];
+
+        # Combine: your package's dependencies + development tools
+        # This is what goes into your R environment
+        allPackages = runtimeDeps ++ githubDataDeps ++ devPackages;
+
+        # ==============================================================================
+        # SECTION 5: WRAP R AND RADIAN WITH ALL PACKAGES
+        # ==============================================================================
         # Create rWrapper with packages (for LSP and R.nvim)
-        baseWrappedR = final.rWrapper.override { packages = rPackageList; };
+        baseWrappedR = final.rWrapper.override { packages = allPackages; };
 
         # Wrap R with R_QPDF environment variable
         wrappedR = final.symlinkJoin {
@@ -162,7 +245,7 @@
         };
 
         # Create radianWrapper with same packages (for interactive use)
-        baseWrappedRadian = final.radianWrapper.override { packages = rPackageList; };
+        baseWrappedRadian = final.radianWrapper.override { packages = allPackages; };
 
         # Wrap radian with R_QPDF environment variable
         wrappedRadian = final.symlinkJoin {
