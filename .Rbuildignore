@@ -25,6 +25,9 @@
 ^\.gitlab-ci\.yml$
 ^codecov\.yml$
 
+# Data generation scripts
+^data-raw$
+
 # Other common files to exclude
 ^README\.Rmd$
 ^README\.qmd$
