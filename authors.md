@@ -16,13 +16,13 @@ Source:
 [`DESCRIPTION`](https://github.com/ropensci/rnaturalearth/blob/main/DESCRIPTION)
 
 Massicotte P, South A (2026). *rnaturalearth: World Map Data from
-Natural Earth*. R package version 1.1.0.9000,
+Natural Earth*. R package version 1.2.0,
 <https://docs.ropensci.org/rnaturalearth/>.
 
     @Manual{,
       title = {rnaturalearth: World Map Data from Natural Earth},
       author = {Philippe Massicotte and Andy South},
       year = {2026},
-      note = {R package version 1.1.0.9000},
+      note = {R package version 1.2.0},
       url = {https://docs.ropensci.org/rnaturalearth/},
     }
