@@ -1,5 +1,7 @@
 # Changelog
 
+## rnaturalearth (development version)
+
 ## rnaturalearth 1.2.0
 
 - Replaced `devtools` with `pak` for installing companion packages
