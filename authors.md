@@ -13,7 +13,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/ropensci/rnaturalearth/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/ropensci/rnaturalearth/blob/v1.2.0/DESCRIPTION)
 
 Massicotte P, South A (2026). *rnaturalearth: World Map Data from
 Natural Earth*. R package version 1.2.0,
