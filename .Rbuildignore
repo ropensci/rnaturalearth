@@ -2,7 +2,11 @@
 ^flake\.nix$
 ^flake\.lock$
 ^\.envrc$
-^\.direnv
+^\.direnv$
+^\.direnv/
+^revdep$
+^revdep-check\.sh$
+^revdep-monitor\.sh$
 
 # Git
 ^\.git$

@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "crancache": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1690308244,
-        "narHash": "sha256-bsip4CeEYUNYd/oRN7c3dvdYh7YCP6oGluKVGzgrmOk=",
-        "owner": "r-lib",
-        "repo": "crancache",
-        "rev": "fc51e313db93780b1efd870f1b6bd3b638c909d3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "r-lib",
-        "repo": "crancache",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1768242861,
@@ -45,22 +29,6 @@
       "original": {
         "owner": "R-nvim",
         "repo": "R.nvim",
-        "type": "github"
-      }
-    },
-    "revdepcheck": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1759501121,
-        "narHash": "sha256-W8aWWlG8+++nEBW3euwFvgsgrIaneBEX34E8aX8DJgA=",
-        "owner": "r-lib",
-        "repo": "revdepcheck",
-        "rev": "b6eb2668650581e818681d5e0d98f8fc666a03ae",
-        "type": "github"
-      },
-      "original": {
-        "owner": "r-lib",
-        "repo": "revdepcheck",
         "type": "github"
       }
     },
@@ -98,10 +66,8 @@
     },
     "root": {
       "inputs": {
-        "crancache": "crancache",
         "nixpkgs": "nixpkgs",
         "rNvim": "rNvim",
-        "revdepcheck": "revdepcheck",
         "rnaturalearthdata": "rnaturalearthdata",
         "rnaturalearthhires": "rnaturalearthhires"
       }
