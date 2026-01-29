@@ -4,6 +4,8 @@
 
 ## rnaturalearth 1.2.0
 
+CRAN release: 2026-01-19
+
 - Replaced `devtools` with `pak` for installing companion packages
   `rnaturalearthdata` and `rnaturalearthhires` from GitHub, reducing
   dependencies ([@121](https://github.com/121)). Thanks to
