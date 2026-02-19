@@ -36,6 +36,7 @@ Imports:
     cli,
     httr (>= 1.1.0),
     jsonlite,
+    s2,
     sf (>= 0.3-4),
     terra,
     utils (>= 3.2.3)
