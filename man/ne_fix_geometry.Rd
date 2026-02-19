@@ -2,7 +2,10 @@
 % Please edit documentation in R/ne_fix_geometry.R
 \name{ne_fix_geometry}
 \alias{ne_fix_geometry}
-\title{Fix invalid geometries in Natural Earth data}
+\title{Repairs geometry issues such as self-intersections, incorrect ring
+directions, and geodesic edge crossings that cause problems with spherical
+geometry ([s2][s2::s2-package]). The result is valid under both s2
+(spherical) and GEOS (planar) engines.}
 \usage{
 ne_fix_geometry(x)
 }
@@ -25,19 +28,26 @@ Natural Earth geometries can contain edges that cross when interpreted as
 geodesic arcs on the sphere (e.g., Sudan, Russia at small scale). This
 function applies three targeted fixes:
 
-1. **Ring winding order** -- Writes to a temporary GeoJSON file and re-reads
-   with `check_ring_dir = TRUE` to ensure correct ring orientation
-   (counter-clockwise for exterior rings, clockwise for holes).
+1. **Ring winding order** -- Writes to a temporary GeoPackage file and
+   re-reads with `check_ring_dir = TRUE` to ensure correct ring orientation
+   (counter-clockwise for exterior rings, clockwise for holes). GeoPackage is
+   used instead of GeoJSON to preserve coordinate precision, attribute types,
+   and CRS.
 2. **Planar repair** -- Applies [sf::st_make_valid()] with s2 disabled to
    resolve self-intersections and other topology errors detectable in flat
    coordinates.
 3. **Spherical repair** -- Any geometries that remain s2-invalid are
    converted to s2 geography via [s2::s2_geog_from_wkb()] (bypassing the
    edge-crossing check) and repaired with [s2::s2_buffer_cells()] using a
-   negligible 1-metre buffer. The result is then wrapped at the antimeridian
+   negligible 1-meter buffer. The result is then wrapped at the antimeridian
    ([sf::st_wrap_dateline()]) and re-validated in planar mode to preserve R2
-   compatibility. Only the affected features are modified; valid geometries
+   compatibility. Any `GEOMETRYCOLLECTION` outputs from [sf::st_make_valid()]
+   are reduced to their polygon components before casting to
+   `MULTIPOLYGON`. Only the affected features are modified; valid geometries
    are left untouched.
+
+A warning is issued if the input uses a projected (non-geographic) CRS,
+since the s2-based repair assumes longitude/latitude coordinates.
 
 The user's current `sf_use_s2()` setting is saved and restored on exit.
 

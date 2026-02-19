@@ -48,3 +48,13 @@ test_that("ne_fix_geometry errors on non-sf input", {
   expect_error(ne_fix_geometry("not sf"), "sf")
   expect_error(ne_fix_geometry(42), "sf")
 })
+
+test_that("ne_fix_geometry warns on projected CRS", {
+  skip_on_cran()
+  skip_if_not_installed("rnaturalearthdata")
+
+  world <- ne_countries()
+  projected <- sf::st_transform(world[1:3, ], 3857)
+
+  expect_warning(ne_fix_geometry(projected), "projected CRS")
+})
