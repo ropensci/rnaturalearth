@@ -1,7 +1,13 @@
 {
   description = "A Nix-flake-based R package development environment";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+  # Track arf on main; run `nix flake update arf` (or `nix flake update`) to upgrade
+  inputs.arf = {
+    url = "github:eitsupi/arf";
+    flake = false;
+  };
 
   inputs.rNvim = {
     url = "github:R-nvim/R.nvim";
@@ -21,6 +27,7 @@
   outputs =
     { self, ... }@inputs:
     let
+      lib = inputs.nixpkgs.lib;
       supportedSystems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -42,28 +49,34 @@
     in
     {
       overlays.default = final: prev: rec {
-        # ==============================================================================
-        # SECTION 1: YOUR PACKAGE'S DEPENDENCIES (from DESCRIPTION file)
-        # ==============================================================================
-        # These are the packages YOUR package needs to run (Imports field)
-        runtimeDeps = with final.rPackages; [
-          cli
-          httr
-          jsonlite
-          sf
-          terra
-        ];
+        # Build arf (modern Rust-based R console) from the flake input.
+        # To upgrade: nix flake update arf  (or just: nix flake update)
+        # If cargoHash breaks after upgrade, set it to lib.fakeHash → run `nix develop` → paste the "got: sha256-..." value.
+        arf = final.rustPlatform.buildRustPackage {
+          pname = "arf";
+          version = inputs.arf.shortRev or "unstable";
 
-        # These are data packages from GitHub that your package needs
-        githubDataDeps = [
-          rnaturalearthdata
-          rnaturalearthhires
-        ];
+          src = inputs.arf;
+
+          cargoHash = "sha256-N5BsmDx8mR0PxJFTsr5bqbLJNZlyrJzL4O//vxoiELU=";
+
+          # Two cd/tilde tests fail in the Nix sandbox (no $HOME), skip them
+          doCheck = false;
+
+          buildInputs = with final; lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Security ];
+          nativeBuildInputs = with final; [ pkg-config ];
+
+          meta = {
+            description = "A modern Rust-based R console with fuzzy history, tree-sitter highlighting, and vi/emacs modes";
+            homepage = "https://github.com/eitsupi/arf";
+            license = lib.licenses.mit;
+            mainProgram = "arf";
+          };
+        };
 
         # ==============================================================================
-        # SECTION 2: BUILD SPECIAL PACKAGES (from GitHub, not from CRAN)
+        # SPECIAL PACKAGES (built from GitHub sources)
         # ==============================================================================
-        # These packages aren't on CRAN, so we build them from source
 
         # Build nvimcom manually from R.nvim source
         nvimcom = final.rPackages.buildRPackage {
@@ -110,23 +123,36 @@
         };
 
         # ==============================================================================
-        # SECTION 3: BUILD YOUR PACKAGE
+        # YOUR PACKAGE'S DEPENDENCIES (from DESCRIPTION Imports:)
+        # ==============================================================================
+        runtimeDeps = with final.rPackages; [
+          cli
+          httr
+          jsonlite
+          sf
+          terra
+        ];
+
+        # Data packages from GitHub (not on CRAN)
+        githubDeps = [
+          rnaturalearthdata
+          rnaturalearthhires
+        ];
+
+        # ==============================================================================
+        # BUILD YOUR PACKAGE
         # ==============================================================================
         rnaturalearth = final.rPackages.buildRPackage {
           name = "rnaturalearth";
           src = ./.;
-          # Give it the runtime dependencies from Section 1
-          propagatedBuildInputs = runtimeDeps ++ githubDataDeps;
+          propagatedBuildInputs = runtimeDeps ++ githubDeps;
         };
 
         # ==============================================================================
-        # SECTION 4: DEVELOPMENT ENVIRONMENT PACKAGES
+        # DEVELOPMENT PACKAGES
         # ==============================================================================
-        # All the packages you want available when developing
-        # This is SEPARATE from your package's runtime dependencies!
-
         devPackages = with final.rPackages; [
-          # Development tools
+          # Package development tools
           devtools
           roxygen2
           testthat
@@ -136,7 +162,7 @@
           pak
           urlchecker
 
-          # Editor support (nvim, LSP, etc.)
+          # IDE support (R.nvim / LSP)
           languageserver
           nvimcom
           httpgd
@@ -153,48 +179,23 @@
           fs
         ];
 
-        # Combine: your package's dependencies + development tools
-        # This is what goes into your R environment
-        allPackages = runtimeDeps ++ githubDataDeps ++ devPackages;
+        # Combine: runtime deps + github deps + dev tools
+        rPackageList = runtimeDeps ++ githubDeps ++ devPackages;
 
         # ==============================================================================
-        # SECTION 5: WRAP R AND RADIAN WITH ALL PACKAGES
+        # WRAP R WITH ALL PACKAGES
         # ==============================================================================
-        # Create rWrapper with packages (for LSP and R.nvim)
-        baseWrappedR = final.rWrapper.override { packages = allPackages; };
-
-        # Wrap R with R_QPDF for PDF compression checks
-        wrappedR = final.symlinkJoin {
-          name = "wrapped-r-with-qpdf";
-          paths = [ baseWrappedR ];
-          buildInputs = [ final.makeWrapper ];
-          postBuild = ''
-            wrapProgram $out/bin/R --set R_QPDF "${final.qpdf}/bin/qpdf"
-            wrapProgram $out/bin/Rscript --set R_QPDF "${final.qpdf}/bin/qpdf"
-          '';
-        };
-
-        # Create radianWrapper with same packages (for interactive use)
-        baseWrappedRadian = final.radianWrapper.override { packages = allPackages; };
-
-        # Wrap radian with R_QPDF
-        wrappedRadian = final.symlinkJoin {
-          name = "wrapped-radian-with-qpdf";
-          paths = [ baseWrappedRadian ];
-          buildInputs = [ final.makeWrapper ];
-          postBuild = ''
-            wrapProgram $out/bin/radian --set R_QPDF "${final.qpdf}/bin/qpdf"
-          '';
-        };
+        wrappedR = final.rWrapper.override { packages = rPackageList; };
       };
 
       devShells = forEachSupportedSystem (
         { pkgs }:
         {
-          default = pkgs.mkShellNoCC {
+          default = pkgs.mkShell {
             packages = with pkgs; [
               wrappedR # R with packages for LSP
-              wrappedRadian # radian with packages for interactive use
+              arf # modern Rust-based R console
+              jarl # fast R linter (from nixpkgs)
               qpdf # PDF compression checks
 
               # Additional system tools for package development
@@ -213,19 +214,11 @@
             ];
 
             shellHook = ''
-              # Set R_QPDF environment variable for R CMD check
+              export R_HOME=$(R RHOME)
+              export R_LIBS_SITE=$(strings "$(command -v R)" | grep -oP '/nix/store/[^:]+/library' | sort -u | paste -sd: -)
+              export R_LIBS_USER="$PWD/.r-libs"
+              mkdir -p "$R_LIBS_USER"
               export R_QPDF="${pkgs.qpdf}/bin/qpdf"
-
-              echo "=== R Package Development Environment ==="
-              echo ""
-              echo "Quick commands:"
-              echo "  devtools::load_all()        - Load package for testing"
-              echo "  devtools::test()            - Run tests"
-              echo "  devtools::document()        - Generate documentation"
-              echo "  devtools::check()           - Run R CMD check"
-              echo "  pkgdown::build_site()       - Build package website"
-              echo ""
-              echo "Start R with: radian"
             '';
           };
         }

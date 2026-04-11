@@ -1,17 +1,33 @@
 {
   "nodes": {
+    "arf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775392795,
+        "narHash": "sha256-9EZeaxUHkgbcn6IBUzsCI0uD37nkkB4Ij10jWV07qoE=",
+        "owner": "eitsupi",
+        "repo": "arf",
+        "rev": "2d97d8d8c3d7e3f0dd7c7a3eb219258a939074a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eitsupi",
+        "repo": "arf",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1769598131,
-        "narHash": "sha256-e7VO/kGLgRMbWtpBqdWl0uFg8Y2XWFMdz0uUJvlML8o=",
+        "lastModified": 1775710090,
+        "narHash": "sha256-ar3rofg+awPB8QXDaFJhJ2jJhu+KqN/PRCXeyuXR76E=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fa83fd837f3098e3e678e6cf017b2b36102c7211",
+        "rev": "4c1018dae018162ec878d42fec712642d214fdfa",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-25.11",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -66,6 +82,7 @@
     },
     "root": {
       "inputs": {
+        "arf": "arf",
         "nixpkgs": "nixpkgs",
         "rNvim": "rNvim",
         "rnaturalearthdata": "rnaturalearthdata",
