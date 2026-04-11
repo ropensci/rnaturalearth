@@ -3,11 +3,11 @@
     "arf": {
       "flake": false,
       "locked": {
-        "lastModified": 1775392795,
-        "narHash": "sha256-9EZeaxUHkgbcn6IBUzsCI0uD37nkkB4Ij10jWV07qoE=",
+        "lastModified": 1775911578,
+        "narHash": "sha256-7AcdDqIR8W9T4q7rkUr7WRFuGqCyWsVbv+K2Ng+U8sk=",
         "owner": "eitsupi",
         "repo": "arf",
-        "rev": "2d97d8d8c3d7e3f0dd7c7a3eb219258a939074a4",
+        "rev": "b462958ffbcf31aa1a67d0e4404fe32912a7e577",
         "type": "github"
       },
       "original": {
