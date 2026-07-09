@@ -1,6 +1,7 @@
 # Finding data
 
 ``` r
+
 library(rnaturalearth)
 library(sf)
 #> Linking to GEOS 3.12.1, GDAL 3.8.5, PROJ 9.4.0; sf_use_s2() is TRUE
@@ -19,6 +20,7 @@ packages show what layer of data can be downloaded.
 ### Physical vector data
 
 ``` r
+
 data(df_layers_physical)
 
 knitr::kable(
@@ -59,13 +61,14 @@ knitr::kable(
 | rivers_lake_centerlines_scale_rank |       1 |       1 |        0 |
 | rivers_north_america               |       1 |       0 |        0 |
 
-physical vector data available via ne_download()
+physical vector data available via ne_download() {.table}
 
 Based on the previous table, we know that we can download the `ocean`
 vector at small scale (110). Note that scales are defined as one of
 `110`, `50`, `10` or `small`, `medium`, `large`.
 
 ``` r
+
 plot(
   ne_download(type = "ocean", category = "physical", scale = "small")[
     "geometry"
@@ -80,6 +83,7 @@ plot(
 ### Cultural vector data
 
 ``` r
+
 data(df_layers_cultural)
 
 knitr::kable(
@@ -134,9 +138,10 @@ knitr::kable(
 | urban_areas                                     |       1 |       1 |        0 |
 | urban_areas_landscan                            |       1 |       0 |        0 |
 
-cultural vector data available via ne_download()
+cultural vector data available via ne_download() {.table}
 
 ``` r
+
 plot(
   ne_download(
     type = "airports",
@@ -162,6 +167,7 @@ the Natural Earth dataset, which contains information about the
 sovereignty of countries.
 
 ``` r
+
 df <- read_sf(
   "/vsizip/vsicurl/https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_sovereignty.zip"
 )
@@ -210,6 +216,7 @@ Let’s start by plotting some of the first countries.
 
 ``` r
 
+
 lapply(
   df$ADMIN[1L:6L],
   \(x) plot(ne_countries(country = x)["geometry"], main = x)
@@ -222,6 +229,7 @@ Suppose that we want to search the polygons for the US, how should we
 spell it?
 
 ``` r
+
 ne_countries(country = "USA")
 ne_countries(country = "United States")
 ne_countries(country = "United States Of America")
@@ -232,6 +240,7 @@ One possibility consists to search within the `ADMIN` vector using a
 regular expression to find all occurrences of the word *states*.
 
 ``` r
+
 grep("states", df$ADMIN, ignore.case = TRUE, value = TRUE)
 #> [1] "United States of America"       "Federated States of Micronesia"
 ```
@@ -239,6 +248,7 @@ grep("states", df$ADMIN, ignore.case = TRUE, value = TRUE)
 We can now get the data.
 
 ``` r
+
 plot(ne_countries(country = "United States of America")["geometry"])
 ```
 
@@ -250,6 +260,7 @@ Finally, let’s create plots for each continent using the `ne_countries`
 function with the continent parameter.
 
 ``` r
+
 unique(df$CONTINENT)
 #> [1] "Asia"                    "South America"           "Europe"                 
 #> [4] "Africa"                  "North America"           "Oceania"                
@@ -257,6 +268,7 @@ unique(df$CONTINENT)
 ```
 
 ``` r
+
 
 lapply(
   unique(df$CONTINENT),

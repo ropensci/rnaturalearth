@@ -34,6 +34,7 @@ allowing creation of more elaborate maps in other visualisation packages
 ## load required packages
 
 ``` r
+
 library(rnaturalearth)
 ```
 
@@ -49,6 +50,7 @@ Pre-downloaded maps can be accessed with :
   for world coastline
 
 ``` r
+
 # world at small scale (low resolution)
 plot(ne_countries(type = "countries", scale = "small"))
 #> Warning: plotting the first 10 out of 168 attributes; use max.plot = 168 to plot all
@@ -58,6 +60,7 @@ plot(ne_countries(type = "countries", scale = "small"))
 
 ``` r
 
+
 # countries, UK undivided
 plot(ne_countries(country = "united kingdom", type = "countries"))
 #> Warning: plotting the first 9 out of 168 attributes; use max.plot = 168 to plot all
@@ -66,6 +69,7 @@ plot(ne_countries(country = "united kingdom", type = "countries"))
 ![](rnaturalearth.Rmd-3-2.png)
 
 ``` r
+
 # map_units, UK divided into England, Scotland, Wales and Northern Ireland
 plot(ne_countries(country = "united kingdom", type = "map_units"))
 #> Warning: plotting the first 9 out of 168 attributes; use max.plot = 168 to plot all
@@ -74,6 +78,7 @@ plot(ne_countries(country = "united kingdom", type = "map_units"))
 ![](rnaturalearth.Rmd-3-3.png)
 
 ``` r
+
 
 # countries, small scale
 plot(ne_countries(country = "united kingdom", scale = "small"))
@@ -84,6 +89,7 @@ plot(ne_countries(country = "united kingdom", scale = "small"))
 
 ``` r
 
+
 # countries, medium scale
 plot(ne_countries(country = "united kingdom", scale = "medium"))
 #> Warning: plotting the first 10 out of 168 attributes; use max.plot = 168 to plot all
@@ -92,6 +98,7 @@ plot(ne_countries(country = "united kingdom", scale = "medium"))
 ![](rnaturalearth.Rmd-3-5.png)
 
 ``` r
+
 # not evaluated because rely on rnaturalearthhires data which are on rOpenSci
 # so CRAN check likely to fail
 
@@ -108,6 +115,7 @@ plot(ne_states(country = "france"))
 ```
 
 ``` r
+
 # coastline of the world
 # subsetting of coastline is not possible because the Natural Earth data are
 # not attributed in that way
@@ -125,6 +133,7 @@ allows you to specify `scale`, `type` and `category` and will construct
 the url and download the corresponding file.
 
 ``` r
+
 # lakes
 lakes110 <- ne_download(scale = 110L, type = "lakes", category = "physical")
 plot(lakes110, col = "blue")
@@ -174,7 +183,7 @@ plot(rivers110, col = "blue")
 | rivers_lake_centerlines_scale_rank |       1 |       1 |        0 |
 | rivers_north_america               |       1 |       0 |        0 |
 
-category=‘physical’ vector data available via ne_download()
+category=‘physical’ vector data available via ne_download() {.table}
 
 | layer                                           | scale10 | scale50 | scale110 |
 |:------------------------------------------------|--------:|--------:|---------:|
@@ -222,4 +231,4 @@ category=‘physical’ vector data available via ne_download()
 | urban_areas                                     |       1 |       1 |        0 |
 | urban_areas_landscan                            |       1 |       0 |        0 |
 
-category=‘cultural’ vector data available via ne_download()
+category=‘cultural’ vector data available via ne_download() {.table}

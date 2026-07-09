@@ -48,6 +48,7 @@ CRAN release: 2025-07-28
   working directory:
 
   ``` r
+
   ne_download(
     scale = 50,
     type = "MSR_50M",
@@ -76,6 +77,7 @@ CRAN release: 2025-07-28
   ([\#114](https://github.com/ropensci/rnaturalearth/issues/114))
 
 ``` r
+
 ne_download(
   scale = 10,
   type = "parks_and_protected_lands_line",
@@ -103,6 +105,7 @@ ne_download(
   when setting `load = FALSE`
 
 ``` r
+
 ne_download(
   type = "MSR_50M",
   category = "raster",

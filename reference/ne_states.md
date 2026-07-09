@@ -69,6 +69,7 @@ pre-downloaded data are available using
 ## Examples
 
 ``` r
+
 # comparing using country and geounit to filter
 if (requireNamespace("rnaturalearthhires")) {
   spdf_france_country <- ne_states(country = "france")

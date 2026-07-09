@@ -16,6 +16,7 @@ map dataset including vector country boundaries.
 ## Load required packages
 
 ``` r
+
 library(rnaturalearth)
 library(sf)
 library(ggplot2)
@@ -31,6 +32,7 @@ sf_use_s2(FALSE)
 ## Country maps with labels in other languages
 
 ``` r
+
 # Africa
 terra::plot(ne_countries(continent = "africa"))
 #> Warning: plotting the first 9 out of 168 attributes; use max.plot = 168 to plot all
@@ -39,6 +41,7 @@ terra::plot(ne_countries(continent = "africa"))
 ![](language-support.Rmd-3-1.png)
 
 ``` r
+
 
 sfaf <- ne_countries(continent = "africa", returnclass = "sf")
 sfafc <- st_centroid(sfaf)
@@ -60,6 +63,7 @@ ggplot(sfaf) +
 
 ``` r
 
+
 # trying labels in the middle of countries, doesn't quite work needs x,y,label
 # but once x & y added on with st_coordinates ... seems getting the coords might
 # not be necessary for much longer https://github.com/slowkow/ggrepel/issues/111
@@ -73,6 +77,7 @@ ggplot(sfaf) +
 
 ``` r
 
+
 # getting there, labels still overlap a bit maybe make map bigger to allow space
 # for labels
 ggplot(sfaf) +
@@ -83,6 +88,7 @@ ggplot(sfaf) +
 ![](language-support.Rmd-3-4.png)
 
 ``` r
+
 
 # point.padding=NA allows labels to overlap the centroid
 ggplot(sfaf) +
@@ -97,6 +103,7 @@ ggplot(sfaf) +
 ![](language-support.Rmd-3-5.png)
 
 ``` r
+
 
 # Africa labels just down left & right sides works pretty well I think
 ggplot(sfaf) +
@@ -128,6 +135,7 @@ ggplot(sfaf) +
 
 ``` r
 
+
 # french labels
 ggplot(sfaf) +
   geom_sf() +
@@ -158,6 +166,7 @@ ggplot(sfaf) +
 
 ``` r
 
+
 # tmap good but labels currently overlap
 
 # english labels
@@ -170,6 +179,7 @@ tm_shape(sfaf) +
 
 ``` r
 
+
 # spanish labels
 tm_shape(sfaf) +
   tm_borders() +
@@ -179,6 +189,7 @@ tm_shape(sfaf) +
 ![](language-support.Rmd-3-9.png)
 
 ``` r
+
 
 # other languages de, fr, nl,
 tm_shape(sfaf) +

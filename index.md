@@ -34,6 +34,7 @@ download (like an API).
 Install from CRAN :
 
 ``` r
+
 install.packages("rnaturalearth")
 ```
 
@@ -41,6 +42,7 @@ or install the development version from GitHub using
 [pak](https://github.com/r-lib/pak/).
 
 ``` r
+
 pak::pkg_install("ropensci/rnaturalearth")
 ```
 
@@ -49,6 +51,7 @@ packages that you will be prompted to install when required if you do
 not do so here.
 
 ``` r
+
 pak::pkg_install("ropensci/rnaturalearthdata")
 pak::pkg_install("ropensci/rnaturalearthhires")
 ```
@@ -72,6 +75,7 @@ all
 ![](reference/figures/README-unnamed-chunk-2-1.png)
 
 ``` r
+
 # uk
 plot(ne_countries(country = "united kingdom"))
 Warning: plotting the first 10 out of 168 attributes; use max.plot = 168 to
@@ -81,6 +85,7 @@ plot all
 ![](reference/figures/README-unnamed-chunk-2-2.png)
 
 ``` r
+
 # states, admin level1 boundaries
 plot(ne_states(country = "spain"))
 Warning: plotting the first 9 out of 121 attributes; use max.plot = 121 to plot
@@ -92,6 +97,7 @@ all
 ## Introductory vignette
 
 ``` r
+
 vignette("rnaturalearth", package = "rnaturalearth")
 ```
 
@@ -114,6 +120,7 @@ Specify the `scale`, `category` and `type` of the vector you want as in
 the examples below.
 
 ``` r
+
 # lakes
 lakes110 <- ne_download(scale = 110, type = "lakes", category = "physical")
 plot(lakes110)
@@ -137,6 +144,7 @@ ggplot(rivers50) +
 ## Details of different country definitions and scales
 
 ``` r
+
 vignette("what-is-a-country", package = "rnaturalearth")
 ```
 

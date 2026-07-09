@@ -25,6 +25,7 @@ make more elaborate maps with `ggplot2`, `tmap` and other options.
 ## Load required packages
 
 ``` r
+
 library(rnaturalearth)
 ```
 
@@ -41,6 +42,7 @@ Filtering by `geounit` can give finer control, e.g. to plot Scotland
 alone, or France without French Guiana.
 
 ``` r
+
 # countries, UK undivided
 plot(ne_countries(country = "united kingdom", type = "countries")["geometry"])
 ```
@@ -48,6 +50,7 @@ plot(ne_countries(country = "united kingdom", type = "countries")["geometry"])
 ![](what-is-a-country.Rmd-3-1.png)
 
 ``` r
+
 
 # map_units, UK divided into England, Scotland, Wales and Northern Ireland
 plot(ne_countries(country = "united kingdom", type = "map_units")["geometry"])
@@ -57,6 +60,7 @@ plot(ne_countries(country = "united kingdom", type = "map_units")["geometry"])
 
 ``` r
 
+
 # map_units, select by geounit to plot Scotland alone
 plot(ne_countries(geounit = "scotland", type = "map_units")["geometry"])
 ```
@@ -64,6 +68,7 @@ plot(ne_countries(geounit = "scotland", type = "map_units")["geometry"])
 ![](what-is-a-country.Rmd-3-3.png)
 
 ``` r
+
 
 # sovereignty, Falkland Islands included in UK
 plot(
@@ -78,6 +83,7 @@ plot(ne_coastline(scale = 110L)["geometry"], lty = 3L, add = TRUE)
 
 ``` r
 
+
 # France, country includes French Guiana
 plot(ne_countries(country = "france")["geometry"])
 ```
@@ -85,6 +91,7 @@ plot(ne_countries(country = "france")["geometry"])
 ![](what-is-a-country.Rmd-3-5.png)
 
 ``` r
+
 
 # France map_units includes French Guiana too
 plot(ne_countries(country = "france", type = "map_units")["geometry"])
@@ -96,6 +103,7 @@ plot(ne_countries(geounit = "france", type = "map_units")["geometry"])
 ![](what-is-a-country.Rmd-3-6.png)
 
 ``` r
+
 
 # France sovereignty includes South Pacicic islands
 plot(
@@ -114,6 +122,7 @@ The different definitions of a country outlined above are available at
 different scales.
 
 ``` r
+
 plot(
   ne_countries(country = "united kingdom", scale = "large")["geometry"],
   main = "large scale"
@@ -123,6 +132,7 @@ plot(
 ![](what-is-a-country.Rmd-4-1.png)
 
 ``` r
+
 
 # countries, medium scale
 plot(
@@ -134,6 +144,7 @@ plot(
 ![](what-is-a-country.Rmd-4-2.png)
 
 ``` r
+
 
 # countries, small scale
 plot(
@@ -147,6 +158,7 @@ plot(
 ## States, admin level 1, select by country or geounit
 
 ``` r
+
 # states country='united kingdom'
 plot(ne_states(country = "united kingdom")["geometry"])
 ```
@@ -154,6 +166,7 @@ plot(ne_states(country = "united kingdom")["geometry"])
 ![](what-is-a-country.Rmd-5-1.png)
 
 ``` r
+
 
 # states geounit='england'
 plot(ne_states(geounit = "england")["geometry"])
@@ -163,6 +176,7 @@ plot(ne_states(geounit = "england")["geometry"])
 
 ``` r
 
+
 # states country='france'
 plot(ne_states(country = "france")["geometry"])
 ```
@@ -170,6 +184,7 @@ plot(ne_states(country = "france")["geometry"])
 ![](what-is-a-country.Rmd-5-3.png)
 
 ``` r
+
 
 # states geounit='france'
 plot(ne_states(geounit = "france")["geometry"])
